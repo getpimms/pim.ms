@@ -71,9 +71,9 @@ export default function PlaceholderContent() {
       <div className="mt-20">
         <FeaturesSection domain={domain} utmParams={UTM_PARAMS} />
       </div>
-      <div className="mt-32">
+      {/* <div className="mt-32">
         <CTA domain={domain} utmParams={UTM_PARAMS} />
-      </div>
+      </div> */}
     </div>
   );
 }

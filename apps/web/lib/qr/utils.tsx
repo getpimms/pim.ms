@@ -169,9 +169,9 @@ export function QRCodeSVG(props: QRPropsSVG) {
 
   let image: null | JSX.Element = null;
   if (imageSettings != null && calculatedImageSettings != null) {
-    if (calculatedImageSettings.excavation != null) {
-      cells = excavateModules(cells, calculatedImageSettings.excavation);
-    }
+    // if (calculatedImageSettings.excavation != null) {
+    //   cells = excavateModules(cells, calculatedImageSettings.excavation);
+    // }
 
     if (isOGContext) {
       const { imgWidth, imgHeight, imgLeft, imgTop } =
@@ -230,7 +230,6 @@ export function QRCodeSVG(props: QRPropsSVG) {
         shapeRendering="crispEdges"
       />
       <path fill={fgColor} d={fgPath} shapeRendering="crispEdges" />
-      {image}
     </svg>
   );
 }

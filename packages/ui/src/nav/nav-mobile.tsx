@@ -54,7 +54,7 @@ export function NavMobile({
           <Menu className="h-5 w-5 text-neutral-600 dark:text-white/70" />
         )}
       </button>
-      <nav
+      {/* <nav
         className={cn(
           "fixed inset-0 z-20 hidden w-full bg-white px-5 py-16 lg:hidden dark:bg-black dark:text-white/70",
           open && "block",
@@ -102,7 +102,7 @@ export function NavMobile({
             </>
           )}
         </ul>
-      </nav>
+      </nav> */}
     </div>
   );
 }

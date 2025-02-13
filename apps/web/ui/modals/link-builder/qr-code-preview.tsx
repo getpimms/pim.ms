@@ -78,7 +78,7 @@ export function QRCodePreview() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h2 className="text-sm font-medium text-neutral-700">QR Code</h2>
-          <InfoTooltip
+          {/* <InfoTooltip
             content={
               <SimpleTooltipContent
                 title="Set a custom QR code design to improve click-through rates."
@@ -86,7 +86,7 @@ export function QRCodePreview() {
                 href="https://dub.co/help/article/custom-qr-codes"
               />
             }
-          />
+          /> */}
         </div>
       </div>
       <div className="relative mt-2 h-24 overflow-hidden rounded-md border border-neutral-300">

@@ -236,7 +236,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
                   <Random className="h-3 w-3" />
                 )}
               </ButtonTooltip>
-              <ButtonTooltip
+              {/* <ButtonTooltip
                 tabIndex={-1}
                 tooltipProps={{
                   content: exceededAI
@@ -258,7 +258,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
                 ) : (
                   <Magic className="h-4 w-4" />
                 )}
-              </ButtonTooltip>
+              </ButtonTooltip> */}
             </div>
           )}
         </div>

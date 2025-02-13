@@ -128,7 +128,7 @@ export function Nav({
                   <NavWordmark />
                 </Link>
               </div>
-              <NavigationMenuPrimitive.Root
+              {/* <NavigationMenuPrimitive.Root
                 delayDuration={0}
                 className="relative hidden lg:block"
               >
@@ -186,10 +186,10 @@ export function Nav({
                     )}
                   />
                 </div>
-              </NavigationMenuPrimitive.Root>
+              </NavigationMenuPrimitive.Root> */}
 
               <div className="hidden grow basis-0 justify-end gap-2 lg:flex">
-                {session && Object.keys(session).length > 0 ? (
+                {/* {session && Object.keys(session).length > 0 ? (
                   <Link
                     href={APP_DOMAIN}
                     className={cn(
@@ -231,7 +231,7 @@ export function Nav({
                       Sign up
                     </Link>
                   </>
-                ) : null}
+                ) : null} */}
               </div>
             </div>
           </MaxWidthWrapper>

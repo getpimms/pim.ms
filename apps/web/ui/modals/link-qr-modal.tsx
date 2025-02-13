@@ -153,7 +153,7 @@ function LinkQRModalInner({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h3 className="text-lg font-medium">QR Code</h3>
-          <ProBadgeTooltip
+          {/* <ProBadgeTooltip
             content={
               <SimpleTooltipContent
                 title="Set a custom QR code design to improve click-through rates."
@@ -161,7 +161,7 @@ function LinkQRModalInner({
                 href="https://dub.co/help/article/custom-qr-codes"
               />
             }
-          />
+          /> */}
         </div>
         <div className="max-md:hidden">
           <Tooltip

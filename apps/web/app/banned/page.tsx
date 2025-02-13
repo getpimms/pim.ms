@@ -76,9 +76,9 @@ export default async function BannedPage({
         <div className="mt-20">
           <FeaturesSection domain={params.domain} utmParams={UTM_PARAMS} />
         </div>
-        <div className="mt-32">
+        {/* <div className="mt-32">
           <CTA domain={params.domain} utmParams={UTM_PARAMS} />
-        </div>
+        </div> */}
       </div>
       <Footer className="max-w-screen-lg border-0 bg-transparent lg:px-4 xl:px-0" />
     </main>

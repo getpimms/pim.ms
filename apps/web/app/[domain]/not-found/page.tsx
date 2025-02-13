@@ -27,7 +27,7 @@ export default function NotFoundLinkPage({
   params: { domain: string };
 }) {
   return (
-    <main className="flex min-h-screen flex-col justify-between">
+    <main className="flex flex-col justify-between">
       <Hero>
         <div className="relative mx-auto flex w-full max-w-md flex-col items-center">
           <BubbleIcon>
@@ -52,7 +52,7 @@ export default function NotFoundLinkPage({
           </p>
         </div>
 
-        <div
+        {/* <div
           className={cn(
             "xs:flex-row relative mx-auto mt-8 flex max-w-fit flex-col items-center gap-4",
             "animate-slide-up-fade motion-reduce:animate-fade-in [--offset:5px] [animation-delay:300ms] [animation-duration:1s] [animation-fill-mode:both]",
@@ -71,14 +71,14 @@ export default function NotFoundLinkPage({
           >
             Learn more
           </ButtonLink>
-        </div>
+        </div> */}
       </Hero>
       <div className="mt-20">
         <FeaturesSection domain={params.domain} utmParams={UTM_PARAMS} />
       </div>
-      <div className="mt-32">
+      {/* <div className="mt-32">
         <CTA domain={params.domain} utmParams={UTM_PARAMS} />
-      </div>
+      </div> */}
     </main>
   );
 }

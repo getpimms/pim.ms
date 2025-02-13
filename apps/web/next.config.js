@@ -37,7 +37,10 @@ module.exports = withAxiom({
   images: {
     remotePatterns: [
       {
-        hostname: "assets.pimms.io", // for Dub's static assets
+        hostname: "assets.dub.co", // for Dub's static assets
+      },
+      {
+        hostname: "assets.pimms.io", // for Pimms's static assets
       },
       {
         hostname: "www.google.com",
@@ -221,11 +224,11 @@ module.exports = withAxiom({
       // for posthog proxy
       {
         source: "/_proxy/posthog/ingest/static/:path*",
-        destination: "https://us-assets.i.posthog.com/static/:path*",
+        destination: "https://eu-assets.i.posthog.com/static/:path*",
       },
       {
         source: "/_proxy/posthog/ingest/:path*",
-        destination: "https://us.i.posthog.com/:path*",
+        destination: "https://eu.i.posthog.com/:path*",
       },
       // for plausible proxy
       {

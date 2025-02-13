@@ -3,6 +3,7 @@ import {
   detectBot,
   getFinalUrl,
   isSupportedDeeplinkProtocol,
+  isSupportedDirectLink,
   parse,
 } from "@/lib/middleware/utils";
 import { recordClick } from "@/lib/tinybird";
@@ -235,7 +236,39 @@ export default async function LinkMiddleware(
       ),
       { clickId, path: `/${originalKey}` },
     );
+    // rewrite to directlink page if url matches a direct links
+  } else if (isSupportedDirectLink(url)) {
+    ev.waitUntil(
+      recordClick({
+        req,
+        linkId,
+        clickId,
+        url,
+        webhookIds,
+        workspaceId,
+      }),
+    );
 
+    return createResponseWithCookie(
+      NextResponse.rewrite(
+        new URL(
+          `/directlink/${encodeURIComponent(
+            getFinalUrl(url, {
+              req,
+              clickId: trackConversion ? clickId : undefined,
+            }),
+          )}`,
+          req.url,
+        ),
+        {
+          headers: {
+            ...DUB_HEADERS,
+            ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
+          },
+        },
+      ),
+      { clickId, path: `/${originalKey}` },
+    );
     // rewrite to deeplink page if the link is a mailto: or tel:
   } else if (isSupportedDeeplinkProtocol(url)) {
     ev.waitUntil(

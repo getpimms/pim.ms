@@ -78,11 +78,11 @@ export function QRCodeCanvas(props: QRPropsCanvas) {
         image.naturalHeight !== 0 &&
         image.naturalWidth !== 0;
 
-      if (haveImageToRender) {
-        if (calculatedImageSettings.excavation != null) {
-          cells = excavateModules(cells, calculatedImageSettings.excavation);
-        }
-      }
+      // if (haveImageToRender) {
+      //   if (calculatedImageSettings.excavation != null) {
+      //     cells = excavateModules(cells, calculatedImageSettings.excavation);
+      //   }
+      // }
 
       // We're going to scale this so that the number of drawable units
       // matches the number of cells. This avoids rounding issues, but does
@@ -185,8 +185,8 @@ export async function getQRAsSVGDataUri(props: QRProps) {
 
   let image = "";
   if (imageSettings != null && calculatedImageSettings != null) {
-    if (calculatedImageSettings.excavation != null)
-      cells = excavateModules(cells, calculatedImageSettings.excavation);
+    // if (calculatedImageSettings.excavation != null)
+    //   cells = excavateModules(cells, calculatedImageSettings.excavation);
 
     const base64Image = await getBase64Image(imageSettings.src);
 
@@ -287,9 +287,9 @@ export async function getQRAsCanvas(
   if (calculatedImageSettings) {
     // @ts-expect-error: imageSettings is not null
     await waitUntilImageLoaded(image, imageSettings.src);
-    if (calculatedImageSettings.excavation != null) {
-      cells = excavateModules(cells, calculatedImageSettings.excavation);
-    }
+    // if (calculatedImageSettings.excavation != null) {
+    //   cells = excavateModules(cells, calculatedImageSettings.excavation);
+    // }
   }
 
   const pixelRatio = window.devicePixelRatio || 1;

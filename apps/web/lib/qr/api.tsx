@@ -37,9 +37,9 @@ export async function getQRAsSVG(props: QRPropsSVG) {
 
   let image = <></>;
   if (imageSettings != null && calculatedImageSettings != null) {
-    if (calculatedImageSettings.excavation != null) {
-      cells = excavateModules(cells, calculatedImageSettings.excavation);
-    }
+    // if (calculatedImageSettings.excavation != null) {
+    //   cells = excavateModules(cells, calculatedImageSettings.excavation);
+    // }
 
     const base64Image = await fetch(
       `https://wsrv.nl/?url=${imageSettings.src}&w=100&h=100&encoding=base64`,
@@ -79,7 +79,6 @@ export async function getQRAsSVG(props: QRPropsSVG) {
         shapeRendering="crispEdges"
       />
       <path fill={fgColor} d={fgPath} shapeRendering="crispEdges" />
-      {image}
     </svg>
   );
 }

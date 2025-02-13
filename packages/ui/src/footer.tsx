@@ -106,7 +106,7 @@ export function Footer({
                 <NavWordmark className="h-8 text-neutral-800" />
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               {socials.map(({ name, icon: Icon, href }) => (
                 <a
                   key={name}
@@ -119,9 +119,9 @@ export function Footer({
                   <Icon className="size-4 text-neutral-900 transition-colors duration-75 group-hover:text-neutral-600" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
+          {/* <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2">
               <div>
                 <h3 className={linkListHeaderClassName}>Product</h3>
@@ -242,7 +242,7 @@ export function Footer({
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom row (status, SOC2, copyright) */}
