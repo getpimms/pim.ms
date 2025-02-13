@@ -26,7 +26,7 @@ export function usePayoutFilters(extraSearchParams: Record<string, string>) {
 
   const { partners, partnersAsync } = usePartnerFilterOptions(
     selectedFilter === "partnerId" ? debouncedSearch : "",
-  );
+  ) as any;
 
   const filters = useMemo(
     () => [
@@ -156,19 +156,17 @@ function usePartnerFilterOptions(search: string) {
 
   const result = useMemo(() => {
     return partnersLoading ||
-      // Consider partners loading if we can't find the currently filtered partner
       (searchParamsObj.partnerId &&
         ![...(selectedPartners ?? []), ...(partners ?? [])].some(
           (p) => p.id === searchParamsObj.partnerId,
         ))
       ? null
-      : ([
+      : [
           ...(partners ?? []),
-          // Add selected partner to list if not already in partners
           ...(selectedPartners
             ?.filter((st) => !partners?.some((t) => t.id === st.id))
             ?.map((st) => ({ ...st, hideDuringSearch: true })) ?? []),
-        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[]) ?? null;
+        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[];
   }, [partnersLoading, partners, selectedPartners, searchParamsObj.partnerId]);
 
   return { partners: result, partnersAsync };

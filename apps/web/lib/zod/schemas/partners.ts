@@ -231,7 +231,7 @@ export const createPartnerSchema = z.object({
       publicStats: true,
       tagId: true,
       geo: true,
-      projectId: true,
+      // projectId: true,
       programId: true,
       webhookIds: true,
       trackConversion: true,

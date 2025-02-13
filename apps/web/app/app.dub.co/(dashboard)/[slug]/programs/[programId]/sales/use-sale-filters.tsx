@@ -23,7 +23,7 @@ export function useSaleFilters() {
 
   const { partners, partnersAsync } = usePartnerFilterOptions(
     selectedFilter === "partnerId" ? debouncedSearch : "",
-  );
+  ) as any;
 
   const { customers, customersAsync } = useCustomerFilterOptions(
     selectedFilter === "customerId" ? debouncedSearch : "",
@@ -169,13 +169,12 @@ function usePartnerFilterOptions(search: string) {
           (p) => p.id === searchParamsObj.partnerId,
         ))
       ? null
-      : ([
+      : [
           ...(partners ?? []),
-          // Add selected partner to list if not already in partners
           ...(selectedPartners
             ?.filter((st) => !partners?.some((t) => t.id === st.id))
             ?.map((st) => ({ ...st, hideDuringSearch: true })) ?? []),
-        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[]) ?? null;
+        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[];
   }, [partnersLoading, partners, selectedPartners, searchParamsObj.partnerId]);
 
   return { partners: result, partnersAsync };
@@ -204,19 +203,17 @@ function useCustomerFilterOptions(search: string) {
 
   const result = useMemo(() => {
     return customersLoading ||
-      // Consider partners loading if we can't find the currently filtered partner
       (searchParamsObj.customerId &&
         ![...(selectedCustomers ?? []), ...(customers ?? [])].some(
           (p) => p.id === searchParamsObj.customerId,
         ))
       ? null
-      : ([
+      : [
           ...(customers ?? []),
-          // Add selected partner to list if not already in partners
           ...(selectedCustomers
             ?.filter((st) => !customers?.some((t) => t.id === st.id))
             ?.map((st) => ({ ...st, hideDuringSearch: true })) ?? []),
-        ] as (CustomerProps & { hideDuringSearch?: boolean })[]) ?? null;
+        ] as (CustomerProps & { hideDuringSearch?: boolean })[];
   }, [
     customersLoading,
     customers,

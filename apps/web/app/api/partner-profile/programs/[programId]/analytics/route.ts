@@ -15,7 +15,7 @@ export const GET = withPartnerProfile(
 
     const parsedParams = analyticsQuerySchema
       .omit({
-        workspaceId: true,
+        // workspaceId: true,
         domain: true,
         key: true,
         linkId: true,
@@ -28,7 +28,7 @@ export const GET = withPartnerProfile(
       ...parsedParams,
       programId: program.id,
       partnerId: partner.id,
-    });
+    } as any);
 
     let data;
 

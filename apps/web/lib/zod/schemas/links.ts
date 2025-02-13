@@ -393,7 +393,7 @@ export const bulkUpdateLinksBodySchema = z.object({
     .default([]),
   data: createLinkBodySchema
     .omit({
-      id: true,
+      // id: true,
       domain: true,
       key: true,
       externalId: true,

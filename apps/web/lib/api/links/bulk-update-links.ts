@@ -30,7 +30,7 @@ export async function bulkUpdateLinks(
     tagNames,
     webhookIds,
     ...rest
-  } = data;
+  } = data as any;
 
   const combinedTagIds = combineTagIds({ tagId, tagIds });
 

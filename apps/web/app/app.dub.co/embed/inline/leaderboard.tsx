@@ -53,7 +53,7 @@ export function EmbedLeaderboard() {
         id: "sales",
         header: "Sales",
         cell: ({ row }) => {
-          return currencyFormatter(row.original.saleAmount / 100 ?? 0, {
+          return currencyFormatter(row.original.saleAmount / 100 || 0, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           });
