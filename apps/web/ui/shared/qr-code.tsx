@@ -18,7 +18,7 @@ export function QRCode({
   margin?: number;
 }) {
   const qrData = useMemo(
-    () => getQRData({ url, fgColor, hideLogo, logo, margin }),
+    () => getQRData({ url, fgColor, hideLogo, margin }),
     [url, fgColor, hideLogo, logo, margin],
   );
 

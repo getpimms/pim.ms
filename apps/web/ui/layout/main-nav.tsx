@@ -76,19 +76,19 @@ export function MainNav({
             !isOpen && "-translate-x-full",
           )}
         >
-          <div className="absolute inset-0 overflow-hidden">
+          {/* <div className="absolute inset-0 overflow-hidden">
             <div
               className={cn(
                 "pointer-events-none absolute -left-2/3 bottom-0 aspect-square w-[140%] translate-y-1/4 rounded-full opacity-15 blur-[75px]",
                 "bg-[conic-gradient(from_32deg_at_center,#855AFC_0deg,#3A8BFD_72deg,#00FFF9_144deg,#5CFF80_198deg,#EAB308_261deg,#f00_360deg)]",
               )}
             />
-          </div>
+          </div> */}
           <Sidebar toolContent={toolContent} newsContent={newsContent} />
         </div>
       </div>
       <div className="bg-neutral-100 md:pt-1.5">
-        <div className="relative min-h-full bg-neutral-100 pt-px md:rounded-tl-2xl md:border md:border-b-0 md:border-r-0 md:border-neutral-200/80 md:bg-white">
+        <div className="relative min-h-full bg-neutral-100 pt-px md:rounded-tl-2xl md:border-4 md:border-b-0 md:border-r-0 md:border-[#D4F0FE] md:bg-white">
           <SideNavContext.Provider value={{ isOpen, setIsOpen }}>
             {children}
           </SideNavContext.Provider>

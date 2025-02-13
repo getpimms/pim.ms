@@ -40,7 +40,7 @@ export const ForgotPasswordForm = () => {
               type="email"
               autoFocus={!isMobile}
               value={email}
-              placeholder="panic@thedis.co"
+              placeholder="hello@pimms.io"
               onChange={(e) => setEmail(e.target.value)}
               className="mt-1"
             />

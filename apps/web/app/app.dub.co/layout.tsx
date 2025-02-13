@@ -8,8 +8,8 @@ import { ReactNode } from "react";
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <SessionProvider>
-      <GoogleAnalytics gaId="G-QTBMHSTT3W" />
-      <GoogleTagManager gtmId="GTM-N47BG36P" />
+      {/* <GoogleAnalytics gaId="G-QTBMHSTT3W" />
+      <GoogleTagManager gtmId="GTM-N47BG36P" /> */}
       <ModalProvider>{children}</ModalProvider>
     </SessionProvider>
   );

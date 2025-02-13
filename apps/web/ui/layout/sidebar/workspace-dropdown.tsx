@@ -76,7 +76,7 @@ export function WorkspaceDropdown() {
 
   return (
     <div>
-      <Popover
+      {/* <Popover
         content={
           <WorkspaceList
             selected={selected}
@@ -87,7 +87,7 @@ export function WorkspaceDropdown() {
         align="start"
         openPopover={openPopover}
         setOpenPopover={setOpenPopover}
-      >
+      > */}
         <button
           onClick={() => setOpenPopover(!openPopover)}
           className={cn(
@@ -120,12 +120,12 @@ export function WorkspaceDropdown() {
               )}
             </div>
           </div>
-          <ChevronsUpDown
+          {/* <ChevronsUpDown
             className="size-4 shrink-0 text-neutral-400"
             aria-hidden="true"
-          />
+          /> */}
         </button>
-      </Popover>
+      {/* </Popover> */}
     </div>
   );
 }

@@ -47,7 +47,7 @@ const NAV_AREAS: SidebarNavAreas<{
       {
         items: [
           {
-            name: "Links",
+            name: "Direct links",
             icon: Hyperlink,
             href: `/${slug}${pathname === `/${slug}` ? "" : queryString}`,
             exact: true,
@@ -57,11 +57,11 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: LinesY,
             href: `/${slug}/analytics${pathname === `/${slug}/analytics` ? "" : queryString}`,
           },
-          {
-            name: "Events",
-            icon: CursorRays,
-            href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
-          },
+          // {
+          //   name: "Events",
+          //   icon: CursorRays,
+          //   href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
+          // },
           {
             name: "Settings",
             icon: Gear,
@@ -132,68 +132,68 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: Receipt2,
             href: `/${slug}/settings/billing`,
           },
-          {
-            name: "Domains",
-            icon: Globe,
-            href: `/${slug}/settings/domains`,
-          },
-          {
-            name: "Library",
-            icon: Books2,
-            href: `/${slug}/settings/library`,
-          },
-          {
-            name: "People",
-            icon: Users6,
-            href: `/${slug}/settings/people`,
-          },
-          {
-            name: "Integrations",
-            icon: ConnectedDots,
-            href: `/${slug}/settings/integrations`,
-          },
-          {
-            name: "Analytics",
-            icon: LinesY,
-            href: `/${slug}/settings/analytics`,
-          },
-          {
-            name: "Security",
-            icon: ShieldCheck,
-            href: `/${slug}/settings/security`,
-          },
+          // {
+          //   name: "Domains",
+          //   icon: Globe,
+          //   href: `/${slug}/settings/domains`,
+          // },
+          // {
+          //   name: "Library",
+          //   icon: Books2,
+          //   href: `/${slug}/settings/library`,
+          // },
+          // {
+          //   name: "People",
+          //   icon: Users6,
+          //   href: `/${slug}/settings/people`,
+          // },
+          // {
+          //   name: "Integrations",
+          //   icon: ConnectedDots,
+          //   href: `/${slug}/settings/integrations`,
+          // },
+          // {
+          //   name: "Analytics",
+          //   icon: LinesY,
+          //   href: `/${slug}/settings/analytics`,
+          // },
+          // {
+          //   name: "Security",
+          //   icon: ShieldCheck,
+          //   href: `/${slug}/settings/security`,
+          // },
         ],
       },
-      {
-        name: "Developer",
-        items: [
-          {
-            name: "API Keys",
-            icon: Key,
-            href: `/${slug}/settings/tokens`,
-          },
-          {
-            name: "OAuth Apps",
-            icon: CubeSettings,
-            href: `/${slug}/settings/oauth-apps`,
-          },
-          {
-            name: "Webhooks",
-            icon: Webhook,
-            href: `/${slug}/settings/webhooks`,
-          },
-        ],
-      },
-      {
-        name: "Account",
-        items: [
-          {
-            name: "Notifications",
-            icon: CircleInfo,
-            href: `/${slug}/settings/notifications`,
-          },
-        ],
-      },
+      // {
+      //   name: "Developer",
+      //   items: [
+      //     {
+      //       name: "API Keys",
+      //       icon: Key,
+      //       href: `/${slug}/settings/tokens`,
+      //     },
+      //     {
+      //       name: "OAuth Apps",
+      //       icon: CubeSettings,
+      //       href: `/${slug}/settings/oauth-apps`,
+      //     },
+      //     {
+      //       name: "Webhooks",
+      //       icon: Webhook,
+      //       href: `/${slug}/settings/webhooks`,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "Account",
+      //   items: [
+      //     {
+      //       name: "Notifications",
+      //       icon: CircleInfo,
+      //       href: `/${slug}/settings/notifications`,
+      //     },
+      //   ],
+      // },
     ],
   }),
 
@@ -271,7 +271,7 @@ export function AppSidebarNav({
       switcher={<WorkspaceDropdown />}
       bottom={
         <>
-          <UserSurveyButton />
+          {/* <UserSurveyButton /> */}
           <Usage />
         </>
       }

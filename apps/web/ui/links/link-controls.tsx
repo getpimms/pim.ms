@@ -205,7 +205,7 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                 shortcut="Q"
                 className="h-9 px-2 font-medium"
               />
-              <Button
+              {/* <Button
                 text="Duplicate"
                 variant="outline"
                 onClick={() => {
@@ -234,11 +234,11 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                 }
                 shortcut="I"
                 className="h-9 px-2 font-medium"
-              />
+              /> */}
             </div>
             <div className="border-t border-neutral-200" />
             <div className="grid gap-px p-2">
-              {flags?.linkFolders && folders && folders.length > 0 && (
+              {/* {flags?.linkFolders && folders && folders.length > 0 && (
                 <Button
                   text="Move"
                   variant="outline"
@@ -295,7 +295,7 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                     "You don't have permission to transfer this link."
                   ) : undefined
                 }
-              />
+              /> */}
 
               <Button
                 text="Delete"

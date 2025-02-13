@@ -191,6 +191,18 @@ const config: Config = {
         },
       },
       colors: {
+        blue: {
+          50: "#EBF8FE",
+          100: "#D4F0FE",
+          200: "#B3E6FE",
+          300: "#8FE0FE",
+          400: "#6FD9FE",
+          500: "#4FD3FE",
+          600: "#007BFF",
+          700: "#0062CC",
+          800: "#004E99",
+          900: "#003D73",
+        },
         brown: {
           50: "#fdf8f6",
           100: "#f2e8e5",
@@ -210,6 +222,9 @@ const config: Config = {
     },
   },
   plugins: [forms, typography, scrollbarHide, radix],
+  corePlugins: {
+    borderRadius: false, // Disables ALL `rounded-*` utilities
+  },
 };
 
 export default config;

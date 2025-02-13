@@ -52,7 +52,7 @@ export const DestinationUrlInput = forwardRef<
             >
               Destination URL
             </label>
-            {key === "_root" ? (
+            {/* {key === "_root" ? (
               <ProBadgeTooltip
                 content={
                   <SimpleTooltipContent
@@ -72,7 +72,7 @@ export const DestinationUrlInput = forwardRef<
                   />
                 }
               />
-            )}
+            )} */}
           </div>
           {right}
         </div>
@@ -83,7 +83,7 @@ export const DestinationUrlInput = forwardRef<
             id={inputId}
             placeholder={
               domains?.find(({ slug }) => slug === domain)?.placeholder ||
-              "https://dub.co/help/article/what-is-dub"
+              "https://youtu.be/BY_XwvKogC8"
             }
             autoFocus={!key && !isMobile}
             autoComplete="off"

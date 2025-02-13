@@ -187,7 +187,7 @@ function LinkQRModalInner({
             <span className="text-sm font-medium text-neutral-700">
               QR Code Preview
             </span>
-            <InfoTooltip
+            {/* <InfoTooltip
               content={
                 <SimpleTooltipContent
                   title="Customize your QR code to fit your brand."
@@ -195,7 +195,7 @@ function LinkQRModalInner({
                   href="https://dub.co/help/article/custom-qr-codes"
                 />
               }
-            />
+            /> */}
           </div>
           {url && qrData && (
             <div className="flex items-center gap-2">
@@ -252,7 +252,7 @@ function LinkQRModalInner({
       </div>
 
       {/* Logo toggle */}
-      <div className="flex items-center justify-between">
+      {/* <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <label
             className="text-sm font-medium text-neutral-700"
@@ -296,7 +296,7 @@ function LinkQRModalInner({
             ) : undefined
           }
         />
-      </div>
+      </div> */}
 
       {/* Color selector */}
       <div>

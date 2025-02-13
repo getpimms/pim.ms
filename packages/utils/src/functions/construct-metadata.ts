@@ -4,27 +4,27 @@ import { HOME_DOMAIN } from "../constants";
 export function constructMetadata({
   title,
   fullTitle,
-  description = "Dub.co is the open-source link management platform for modern marketing teams to create marketing campaigns, link sharing features, and referral programs.",
-  image = "https://assets.dub.co/thumbnail.jpg",
+  description = "Pimms",
+  image = "https://assets.pimms.io/thumbnail.jpg",
   video,
   icons = [
     {
       rel: "apple-touch-icon",
       sizes: "32x32",
-      url: "https://assets.dub.co/favicons/apple-touch-icon.png",
+      url: "https://assets.pimms.io/apple-icon.png",
     },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      url: "https://assets.dub.co/favicons/favicon-32x32.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "16x16",
-      url: "https://assets.dub.co/favicons/favicon-16x16.png",
-    },
+    // {
+    //   rel: "icon",
+    //   type: "image/png",
+    //   sizes: "32x32",
+    //   url: "https://assets.pimms.io/favicons/favicon-32x32.png",
+    // },
+    // {
+    //   rel: "icon",
+    //   type: "image/png",
+    //   sizes: "16x16",
+    //   url: "https://assets.pimms.io/favicons/favicon-16x16.png",
+    // },
   ],
   url,
   canonicalUrl,

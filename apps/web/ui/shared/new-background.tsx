@@ -14,15 +14,15 @@ export function NewBackground(props: { showAnimation?: boolean }) {
   const showAnimation =
     props.showAnimation || pathname === "/onboarding/welcome";
 
-  return (
+  return ( 
     <div
       className={cn(
-        "pointer-events-none fixed inset-0 overflow-hidden bg-white transition-opacity duration-300",
+        "pointer-events-none fixed inset-0 overflow-hidden bg-[#EBF8FE] transition-opacity duration-300",
         showAnimation ? (isLoaded ? "opacity-100" : "opacity-0") : "opacity-60",
       )}
     >
-      <BackgroundGradient className="opacity-15" />
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 opacity-50 transition-all sm:opacity-100">
+      {/* <BackgroundGradient className="opacity-15" /> */}
+      {/* <div className="absolute left-1/2 top-0 -translate-x-1/2 opacity-50 transition-all sm:opacity-100">
         <Image
           src="https://assets.dub.co/misc/welcome-background-grid.svg"
           onLoad={() => setIsGridLoaded(true)}
@@ -42,8 +42,8 @@ export function NewBackground(props: { showAnimation?: boolean }) {
             showAnimation ? "opacity-100" : "opacity-0",
           )}
         />
-      </div>
-      <BackgroundGradient className="opacity-100 mix-blend-soft-light" />
+      </div> */}
+      {/* <BackgroundGradient className="opacity-100 mix-blend-soft-light" /> */}
     </div>
   );
 }

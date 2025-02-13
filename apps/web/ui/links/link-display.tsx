@@ -83,7 +83,7 @@ export default function LinkDisplay() {
               <LinkSort />
             </div>
           </div>
-          <div className="group flex h-16 items-center justify-between gap-2 px-4">
+          {/* <div className="group flex h-16 items-center justify-between gap-2 px-4">
             <div className="flex items-center gap-2">
               <div className="flex w-6 items-center justify-center">
                 <BoxArchive className="size-4 text-neutral-800 group-hover:hidden" />
@@ -107,8 +107,8 @@ export default function LinkDisplay() {
                 }}
               />
             </div>
-          </div>
-          <div className="p-4">
+          </div> */}
+          {/* <div className="p-4">
             <span className="text-xs uppercase text-neutral-500">
               Display Properties
             </span>
@@ -149,7 +149,7 @@ export default function LinkDisplay() {
                 );
               })}
             </div>
-          </div>
+          </div> */}
           <AnimatePresence initial={false}>
             {isDirty && (
               <motion.div

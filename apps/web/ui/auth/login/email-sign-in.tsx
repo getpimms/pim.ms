@@ -125,7 +125,7 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
             name="email"
             autoFocus={!isMobile && !showPasswordField}
             type="email"
-            placeholder="panic@thedis.co"
+            placeholder="hello@pimms.io"
             autoComplete="email"
             required
             value={email}
@@ -154,14 +154,14 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
 
         <Button
           text={`Continue with ${password ? "Password" : "Email"}`}
-          variant="secondary"
-          icon={
-            password ? (
-              <InputPassword className="size-4 text-neutral-600" />
-            ) : (
-              <Mail className="size-4 text-neutral-600" />
-            )
-          }
+          variant="primary"
+          // icon={
+          //   password ? (
+          //     <InputPassword className="size-4 text-neutral-600" />
+          //   ) : (
+          //     <Mail className="size-4 text-neutral-600" />
+          //   )
+          // }
           {...(authMethod !== "email" && {
             type: "button",
             onClick: (e) => {

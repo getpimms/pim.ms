@@ -170,17 +170,17 @@ export default function LoginForm({
                       </span>
                     </div>
                   )}
-                <div className="my-2 flex flex-shrink items-center justify-center gap-2">
+                {/* <div className="my-2 flex flex-shrink items-center justify-center gap-2">
                   <div className="grow basis-0 border-b border-neutral-300" />
                   <span className="text-xs font-normal uppercase leading-none text-neutral-500">
                     or
                   </span>
                   <div className="grow basis-0 border-b border-neutral-300" />
-                </div>
+                </div> */}
               </div>
             )}
 
-            {showEmailPasswordOnly ? (
+            {/* {showEmailPasswordOnly ? (
               <div className="mt-2 text-center text-sm text-neutral-500">
                 <button
                   type="button"
@@ -202,7 +202,7 @@ export default function LoginForm({
                     <provider.component />
                   </div>
                 ))
-            )}
+            )} */}
           </div>
         </AnimatedSizeContainer>
       </div>

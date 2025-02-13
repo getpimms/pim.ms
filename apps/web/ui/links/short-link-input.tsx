@@ -385,7 +385,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
             onChange={(domain) => onChange({ domain })}
           />
         )}
-        {!onboarding && !dotLinkClaimed && (
+        {/* {!onboarding && !dotLinkClaimed && (
           <AnimatedSizeContainer
             height
             transition={{ ease: "linear", duration: 0.1 }}
@@ -393,7 +393,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
           >
             <FreeDotLinkBanner />
           </AnimatedSizeContainer>
-        )}
+        )} */}
       </div>
     );
   },

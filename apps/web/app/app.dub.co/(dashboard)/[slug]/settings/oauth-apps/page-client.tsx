@@ -35,7 +35,7 @@ export default function OAuthAppsPageClient() {
           <InfoTooltip
             content={
               <TooltipContent
-                title="Learn how to use OAuth applications to build integrations with Dub."
+                title="Learn how to use OAuth applications to build integrations with Pimms."
                 href="https://dub.co/docs/integrations/quickstart"
                 target="_blank"
                 cta="Learn more"

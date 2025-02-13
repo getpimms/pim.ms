@@ -22,12 +22,12 @@ export default async function Layout({ children }: { children: ReactNode }) {
               <HelpButtonRSC />
             </>
           }
-          newsContent={<NewsRSC />}
+          // newsContent={<NewsRSC />}
         >
           {children}
         </MainNav>
       </div>
-      <Toolbar show={["onboarding"]} />
+      {/* <Toolbar show={["onboarding"]} /> */}
     </>
   );
 }

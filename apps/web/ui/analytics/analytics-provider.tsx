@@ -113,8 +113,7 @@ export default function AnalyticsProvider({
   const key = searchParams?.get("key") || dashboardProps?.key;
 
   // Show conversion tabs/data for all dashboards except shared (unless explicitly set)
-  const showConversions =
-    !dashboardProps || dashboardProps?.showConversions ? true : false;
+  const showConversions = false;
 
   const tagIds = combineTagIds({
     tagId: searchParams?.get("tagId"),

@@ -90,7 +90,7 @@ function UsageInner() {
           </Link>
 
           <div className="mt-4 flex flex-col gap-4">
-            <UsageRow
+            {/* <UsageRow
               icon={CursorRays}
               label="Events"
               usage={usage}
@@ -98,10 +98,10 @@ function UsageInner() {
               showNextPlan={hovered}
               nextPlanLimit={nextPlan?.limits.clicks}
               warning={warnings[0]}
-            />
+            /> */}
             <UsageRow
               icon={Hyperlink}
-              label="Links"
+              label="Direct links"
               usage={linksUsage}
               limit={linksLimit}
               showNextPlan={hovered}
@@ -169,7 +169,7 @@ function UsageInner() {
                 setHovered(false);
               }}
             >
-              {plan === "free" ? "Get Dub Pro" : "Upgrade plan"}
+              {plan === "free" ? "Get Pimms Pro" : "Upgrade plan"}
             </Link>
           ) : null}
         </div>

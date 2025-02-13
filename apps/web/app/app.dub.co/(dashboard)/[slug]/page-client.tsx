@@ -89,7 +89,7 @@ function WorkspaceLinks() {
       <div className="flex w-full items-center pt-2">
         <MaxWidthWrapper className="flex flex-col gap-y-3">
           <div className="flex flex-wrap items-center justify-between gap-2 lg:flex-nowrap">
-            <div className="flex w-full grow gap-2 md:w-auto">
+            {/* <div className="flex w-full grow gap-2 md:w-auto">
               <div className="grow basis-0 md:grow-0">
                 <Filter.Select
                   filters={filters}
@@ -148,7 +148,7 @@ function WorkspaceLinks() {
               <div className="grow basis-0 md:grow-0">
                 <LinkDisplay />
               </div>
-            </div>
+            </div> */}
             <div className="flex gap-x-2 max-md:w-full">
               <div className="w-full md:w-56 lg:w-64">
                 <SearchBoxPersisted
@@ -167,7 +167,7 @@ function WorkspaceLinks() {
                   <div className="grow-0">
                     <CreateLinkButton />
                   </div>
-                  <MoreLinkOptions />
+                  {/* <MoreLinkOptions /> */}
                 </>
               ) : (
                 <div className="w-fit">

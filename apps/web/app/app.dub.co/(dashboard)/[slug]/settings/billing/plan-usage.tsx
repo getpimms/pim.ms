@@ -123,14 +123,14 @@ export default function PlanUsage() {
       </div>
       <div className="grid grid-cols-[minmax(0,1fr)] divide-y divide-neutral-200 border-t border-neutral-200">
         <div>
-          <div className="grid gap-4 p-6 sm:grid-cols-3 md:p-8 lg:gap-6">
-            <UsageTabCard
+          <div className="grid gap-4 p-6 md:p-8 lg:gap-6">
+            {/* <UsageTabCard
               id="events"
               icon={CursorRays}
               title="Events tracked"
               usage={usage}
               limit={usageLimit}
-            />
+            /> */}
             <UsageTabCard
               id="links"
               icon={Hyperlink}
@@ -138,7 +138,7 @@ export default function PlanUsage() {
               usage={linksUsage}
               limit={linksLimit}
             />
-            <UsageTabCard
+            {/* <UsageTabCard
               id="revenue"
               icon={CircleDollar}
               title="Revenue tracked"
@@ -146,13 +146,13 @@ export default function PlanUsage() {
               limit={salesLimit}
               unit="$"
               requiresUpgrade={plan === "free" || plan === "pro"}
-            />
+            /> */}
           </div>
-          <div className="w-full px-2 pb-8 md:px-8">
+          {/* <div className="w-full px-2 pb-8 md:px-8">
             <UsageChart />
-          </div>
+          </div> */}
         </div>
-        <div
+        {/* <div
           className={cn(
             "grid grid-cols-1 gap-[1px] overflow-hidden rounded-b-lg bg-neutral-200 md:grid-cols-3",
             flags?.linkFolders &&
@@ -185,7 +185,7 @@ export default function PlanUsage() {
             usage={users?.filter((user) => !user.isMachine).length}
             usageLimit={usersLimit}
           />
-        </div>
+        </div> */}
       </div>
       {plan !== "enterprise" && plan !== "free" && (
         <div className="flex flex-col items-center justify-between space-y-3 border-t border-neutral-200 px-6 py-4 text-center md:flex-row md:space-y-0 md:px-8 md:text-left">
@@ -257,7 +257,7 @@ function UsageTabCard({
       )}
       aria-selected={isActive}
       onClick={() => !requiresUpgrade && queryParams({ set: { tab: id } })}
-      disabled={requiresUpgrade}
+      disabled={true}
     >
       <Icon className="size-4 text-neutral-600" />
       <div className="mt-1.5 flex items-center gap-2 text-sm text-neutral-600">

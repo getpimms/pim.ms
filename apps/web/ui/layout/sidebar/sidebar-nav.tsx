@@ -91,7 +91,7 @@ export function SidebarNav<T extends Record<any, any>>({
             );
           })}
           <div className="hidden items-center gap-3 md:flex">
-            <Suspense fallback={null}>{toolContent}</Suspense>
+            {/* <Suspense fallback={null}>{toolContent}</Suspense> */}
             <UserDropdown />
           </div>
         </div>

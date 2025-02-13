@@ -46,7 +46,7 @@ export const RequestSetPassword = () => {
               <span className="uppercase">{user?.provider}</span>.{" "}
             </>
           )}
-          You can set a password to use with your Dub account.
+          You can set a password to use with your Pimms account.
         </p>
       </div>
       <div className="p-5 sm:p-10">

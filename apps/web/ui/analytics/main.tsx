@@ -73,7 +73,7 @@ export default function Main() {
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      <div className="scrollbar-hide grid w-full grid-cols-3 divide-x overflow-y-hidden border border-neutral-200 sm:rounded-t-xl">
+      <div className="scrollbar-hide w-full divide-x overflow-y-hidden border border-neutral-200 sm:rounded-t-xl">
         <NumberFlowGroup>
           {tabs.map(({ id, label, colorClassName, conversions }, idx) => {
             return (
@@ -199,7 +199,7 @@ export default function Main() {
           )}
           {view === "funnel" && <AnalyticsFunnelChart demo={showPaywall} />}
         </div>
-        <ToggleGroup
+        {/* <ToggleGroup
           className="absolute right-3 top-3 flex w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100"
           optionClassName="size-8 p-0 flex items-center justify-center"
           indicatorClassName="border border-neutral-200 bg-white"
@@ -219,7 +219,7 @@ export default function Main() {
               set: { view: option },
             });
           }}
-        />
+        /> */}
         {showPaywall && <ConversionTrackingPaywall />}
       </div>
     </div>

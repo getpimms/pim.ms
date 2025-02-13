@@ -107,7 +107,7 @@ export default function WorkspaceDomainsClient() {
             <h1 className="text-2xl font-semibold tracking-tight text-black">
               Domains
             </h1>
-            <InfoTooltip
+            {/* <InfoTooltip
               content={
                 <TooltipContent
                   title="Learn more about how to add, configure, and verify custom domains on Dub."
@@ -116,9 +116,9 @@ export default function WorkspaceDomainsClient() {
                   cta="Learn more"
                 />
               }
-            />
+            /> */}
           </div>
-          <div className="flex w-full flex-wrap items-center gap-3 sm:w-auto">
+          {/* <div className="flex w-full flex-wrap items-center gap-3 sm:w-auto">
             <div className="w-full sm:w-auto">
               <SearchBoxPersisted
                 loading={loading}
@@ -198,7 +198,7 @@ export default function WorkspaceDomainsClient() {
                 disabledTooltip={disabledTooltip}
               />
             </Popover>
-          </div>
+          </div> */}
         </div>
 
         {workspaceId && (
@@ -208,7 +208,7 @@ export default function WorkspaceDomainsClient() {
           </>
         )}
 
-        {!dotLinkClaimed && <FreeDotLinkBanner />}
+        {/* {!dotLinkClaimed && <FreeDotLinkBanner />} */}
 
         <div key={archived} className="animate-fade-in">
           {!loading ? (
@@ -246,7 +246,7 @@ export default function WorkspaceDomainsClient() {
                   </>
                 }
                 addButton={<AddDomainButton />}
-                learnMoreHref="https://dub.co/help/article/how-to-add-custom-domain"
+                // learnMoreHref="https://dub.co/help/article/how-to-add-custom-domain"
               />
             )
           ) : (

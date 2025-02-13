@@ -197,8 +197,8 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
     </Link>
   ) : (
     <>
-      <ShareDashboardModal />
-      <Tooltip
+      {/* <ShareDashboardModal /> */}
+      {/* <Tooltip
         key={modalShowCount}
         side="top"
         content={
@@ -243,7 +243,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
             </div>
           </div>
         }
-      >
+      > */}
         <Link
           href={`/${slug}/analytics?domain=${domain}&key=${key}&interval=${plan === "free" ? "30d" : plan === "pro" ? "1y" : "all"}`}
           className={cn(
@@ -281,7 +281,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
             )}
           </div>
         </Link>
-      </Tooltip>
+      {/* </Tooltip> */}
     </>
   );
 }

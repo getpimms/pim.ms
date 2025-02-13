@@ -32,9 +32,9 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
 
         <div className="grid gap-2 pb-8 pt-4">
           <p className="text-xs text-neutral-600">
-            © {new Date().getFullYear()} Dub Technologies, Inc.
+            © {new Date().getFullYear()} Pimms.
           </p>
-          <div className="flex gap-3 text-center text-xs text-neutral-500 underline underline-offset-2">
+          {/* <div className="flex gap-3 text-center text-xs text-neutral-500 underline underline-offset-2">
             <a
               href="https://dub.co/legal/privacy"
               target="_blank"
@@ -49,7 +49,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
             >
               Terms of Service
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
             className="aspect-[2400/1260] h-full rounded-lg border border-neutral-200 object-cover object-left-top"
           />
         </div>
-        <a
+        {/* <a
           href="https://dub.co/customers"
           target="_blank"
           className="animate-infinite-scroll flex items-center space-x-4"
@@ -78,7 +78,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
               className="h-12 grayscale transition-all hover:grayscale-0"
             />
           ))}
-        </a>
+        </a> */}
       </div>
     </div>
   );

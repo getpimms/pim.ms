@@ -10,5 +10,6 @@ import { FolderSwitcher } from "@/ui/folders/folder-switcher";
 export function LinksTitle() {
   const { flags } = useWorkspace();
 
-  return flags?.linkFolders ? <FolderSwitcher /> : <h1>Links</h1>;
+  // return flags?.linkFolders ? <FolderSwitcher /> : <h1>Links</h1>;
+  return <h1>Links</h1>;
 }
