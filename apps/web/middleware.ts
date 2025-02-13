@@ -51,8 +51,8 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
     return NextResponse.rewrite(new URL(`/${domain}${path}`, req.url));
   }
 
-  // default redirects for dub.sh
-  if (domain === "dub.sh" && DEFAULT_REDIRECTS[key]) {
+  // default redirects for pim.ms
+  if (domain === "pim.ms" && DEFAULT_REDIRECTS[key]) {
     return NextResponse.redirect(DEFAULT_REDIRECTS[key]);
   }
 

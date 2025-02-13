@@ -31,23 +31,23 @@ export function DubWrapped({
   },
   topLinks = [
     {
-      item: "dub.sh/link",
+      item: "pim.ms/link",
       count: 13923,
     },
     {
-      item: "dub.sh/link",
+      item: "pim.ms/link",
       count: 2225,
     },
     {
-      item: "dub.sh/link",
+      item: "pim.ms/link",
       count: 423,
     },
     {
-      item: "dub.sh/link",
+      item: "pim.ms/link",
       count: 325,
     },
     {
-      item: "dub.sh/link",
+      item: "pim.ms/link",
       count: 233,
     },
   ],

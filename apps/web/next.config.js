@@ -37,13 +37,7 @@ module.exports = withAxiom({
   images: {
     remotePatterns: [
       {
-        hostname: "assets.dub.co", // for Dub's static assets
-      },
-      {
-        hostname: "dubassets.com", // for Dub's user generated images
-      },
-      {
-        hostname: "dev.dubassets.com", // dev bucket
+        hostname: "assets.pimms.io", // for Dub's static assets
       },
       {
         hostname: "www.google.com",
@@ -108,10 +102,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "app.dub.sh",
+            value: "app.pim.ms",
           },
         ],
-        destination: "https://app.dub.co",
+        destination: "https://app.pimms.io",
         permanent: true,
         statusCode: 301,
       },
@@ -120,10 +114,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "app.dub.sh",
+            value: "app.pim.ms",
           },
         ],
-        destination: "https://app.dub.co/:path*",
+        destination: "https://app.pimms.io/:path*",
         permanent: true,
         statusCode: 301,
       },
@@ -134,10 +128,10 @@ module.exports = withAxiom({
             has: [
               {
                 type: "host",
-                value: "dub.sh",
+                value: "pim.ms",
               },
             ],
-            destination: `https://dub.co/${segment}`,
+            destination: `https://pimms.io/${segment}`,
             permanent: true,
             statusCode: 301,
           },
@@ -146,10 +140,10 @@ module.exports = withAxiom({
             has: [
               {
                 type: "host",
-                value: "dub.sh",
+                value: "pim.ms",
               },
             ],
-            destination: `https://dub.co/${segment}/:path*`,
+            destination: `https://pimms.io/${segment}/:path*`,
             permanent: true,
             statusCode: 301,
           }
@@ -160,10 +154,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "dub.sh",
+            value: "pim.ms",
           },
         ],
-        destination: "https://dub.co/tools/metatags",
+        destination: "https://pimms.io/tools/metatags",
         permanent: true,
         statusCode: 301,
       },
@@ -172,7 +166,7 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "dub.co",
+            value: "pimms.io",
           },
         ],
         destination: "/tools/metatags",
@@ -184,10 +178,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "staging.dub.sh",
+            value: "staging.pim.ms",
           },
         ],
-        destination: "https://dub.co",
+        destination: "https://pimms.io",
         permanent: true,
         statusCode: 301,
       },
@@ -196,10 +190,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "preview.dub.sh",
+            value: "preview.pim.ms",
           },
         ],
-        destination: "https://preview.dub.co",
+        destination: "https://preview.pimms.io",
         permanent: true,
         statusCode: 301,
       },
@@ -208,10 +202,10 @@ module.exports = withAxiom({
         has: [
           {
             type: "host",
-            value: "admin.dub.sh",
+            value: "admin.pim.ms",
           },
         ],
-        destination: "https://admin.dub.co",
+        destination: "https://admin.pimms.io",
         permanent: true,
         statusCode: 301,
       },
@@ -221,8 +215,8 @@ module.exports = withAxiom({
     return [
       // for dub proxy
       {
-        source: "/_proxy/dub/track/click",
-        destination: "https://api.dub.co/track/click",
+        source: "/_proxy/pimms/track/click",
+        destination: "https://api.pimms.io/track/click",
       },
       // for posthog proxy
       {

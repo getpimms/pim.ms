@@ -242,15 +242,6 @@ export const PLANS = [
       },
       { id: "priority-support", text: "Priority support" },
       {
-        id: "dublink",
-        text: "Premium dub.link domain",
-        footnote: {
-          title: "Stand out from the crowd with a premium dub.link domain.",
-          cta: "Learn more.",
-          href: "https://dub.co/help/article/default-dub-domains#premium-dublink-domain",
-        },
-      },
-      {
         id: "dotlink",
         text: "Free custom domain",
         footnote: {

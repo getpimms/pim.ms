@@ -1,6 +1,6 @@
 export const E2E_LINK = {
-  domain: "dub.sh",
-  url: "https://github.com/dubinc",
+  domain: "pim.ms",
+  url: "https://github.com/getpimms",
 };
 
 export const E2E_CLICK_ID = "GWGrkftJdYlZD2mq";

@@ -32,7 +32,7 @@ export default function AdminPage() {
       </div>
       <div className="flex flex-col space-y-4 px-5 py-10">
         <h2 className="text-xl font-semibold">Ban Link</h2>
-        <p className="text-sm text-neutral-500">Ban a dub.sh link</p>
+        <p className="text-sm text-neutral-500">Ban a pim.ms link</p>
         <BanLink />
       </div>
     </div>

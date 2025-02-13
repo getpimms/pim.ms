@@ -45,7 +45,7 @@ export async function keyChecks({
   }
 
   if (isDubDomain(domain) && process.env.NEXT_PUBLIC_IS_DUB) {
-    if (domain === "dub.sh" || domain === "dub.link") {
+    if (domain === "pim.ms") {
       if (DEFAULT_REDIRECTS[key] || (await isReservedKey(key))) {
         return {
           error: "Duplicate key: This short link already exists.",
@@ -62,16 +62,6 @@ export async function keyChecks({
     if (key.length <= 3 && (!workspace || workspace.plan === "free")) {
       return {
         error: `You can only use keys that are 3 characters or less on a Pro plan and above. Upgrade to Pro to register a ${key.length}-character key.`,
-        code: "forbidden",
-      };
-    }
-    if (
-      domain === "dub.link" &&
-      key.length <= 5 &&
-      (!workspace || workspace.plan === "free" || workspace.plan === "pro")
-    ) {
-      return {
-        error: `You can only use dub.link with keys that are 5 characters or less on a Business plan and above. Upgrade to Business to register a ${key.length}-character dub.link key.`,
         code: "forbidden",
       };
     }

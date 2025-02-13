@@ -19,7 +19,7 @@ async function main() {
       },
       links: {
         some: {
-          domain: "dub.sh",
+          domain: "pim.ms",
           createdAt: {
             gt: new Date("2024-02-01"),
           },

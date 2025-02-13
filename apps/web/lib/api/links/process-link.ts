@@ -159,23 +159,13 @@ export async function processLink<T extends Record<string, any>>({
 
   // if domain is not defined, set it to the workspace's primary domain
   if (!domain) {
-    domain = domains?.find((d) => d.primary)?.slug || "dub.sh";
+    domain = domains?.find((d) => d.primary)?.slug || "pim.ms";
   }
 
-  // checks for dub.sh and dub.link links
-  if (domain === "dub.sh" || domain === "dub.link") {
-    // for dub.link: check if workspace plan is pro+
-    if (domain === "dub.link" && (!workspace || workspace.plan === "free")) {
-      return {
-        link: payload,
-        error:
-          "You can only use dub.link on a Pro plan and above. Upgrade to Pro to use this domain.",
-        code: "forbidden",
-      };
-    }
-
-    // for dub.sh: check if user exists (if userId is passed)
-    if (domain === "dub.sh" && userId) {
+  // checks for pim.ms links
+  if (domain === "pim.ms") {
+    // for pim.ms: check if user exists (if userId is passed)
+    if (domain === "pim.ms" && userId) {
       const userExists = await checkIfUserExists(userId);
       if (!userExists) {
         return {

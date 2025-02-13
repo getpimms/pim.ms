@@ -76,14 +76,7 @@ export function DefaultDomains() {
         </p>
       </div>
       <div className="mt-2 grid grid-cols-1 gap-3">
-        {DUB_DOMAINS.filter((domain) => {
-          if (domain.slug === "dub.link") {
-            return flags?.noDubLink ? false : true;
-          } else if (domain.slug === "loooooooo.ng") {
-            return false;
-          }
-          return true;
-        }).map(({ slug, description }) => {
+        {DUB_DOMAINS.map(({ slug, description }) => {
           return (
             <div
               key={slug}
@@ -98,14 +91,7 @@ export function DefaultDomains() {
               <Switch
                 disabled={submitting}
                 disabledTooltip={
-                  permissionsError ||
-                  (slug === "dub.link" && plan === "free" ? (
-                    <TooltipContent
-                      title="You can only use dub.link on a Pro plan and above. Upgrade to Pro to use this domain."
-                      cta="Upgrade to Pro"
-                      href={`/${slug}/upgrade`}
-                    />
-                  ) : undefined)
+                  permissionsError || undefined
                 }
                 checked={defaultDomains?.includes(slug)}
                 fn={() => {
