@@ -127,7 +127,7 @@ export function DubWrapped({
       title: "New link builder + dashboard",
       description:
         "We launched a new link builder, rebuilt from the ground up, to help you manage your links better. We also gave our dashboard a makeover as well.",
-      image: "https://assets.dub.co/changelog/new-dashboard.jpg",
+      image: "https://assets.pimms.io/dashboard.jpg",
       cta: {
         text: "Read the announcement",
         href: "https://ship.dub.co/builder",

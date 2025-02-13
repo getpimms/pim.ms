@@ -11,13 +11,13 @@ export default function Plan() {
     >
       <PlanSelector />
       <div className="mt-8 flex flex-col gap-3">
-        <a
+        {/* <a
           href="https://dub.co/enterprise"
           target="_blank"
           className="w-full text-center text-sm text-neutral-500 transition-colors hover:text-neutral-700"
         >
           Looking for enterprise?
-        </a>
+        </a> */}
         <LaterButton next="finish">I'll pick a plan later</LaterButton>
       </div>
     </StepPage>

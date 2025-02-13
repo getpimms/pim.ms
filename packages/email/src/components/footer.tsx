@@ -26,9 +26,9 @@ export function Footer({
         <Text className="text-[12px] text-neutral-500">
           Pimms.
           <br />
-          2261 Market Street STE 5906
+          Chemin de Louis-Hubert 2
           <br />
-          San Francisco, CA 941114
+          Petit-Lancy, 1213
         </Text>
       </Tailwind>
     );
@@ -58,9 +58,9 @@ export function Footer({
       <Text className="text-[12px] text-neutral-500">
         Pimms.
         <br />
-        2261 Market Street STE 5906
+        Chemin de Louis-Hubert 2
         <br />
-        San Francisco, CA 941114
+        Petit Lancy, 1213
       </Text>
     </Tailwind>
   );

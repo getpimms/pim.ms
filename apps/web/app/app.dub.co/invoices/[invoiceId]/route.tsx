@@ -156,11 +156,11 @@ export const GET = withSession(async ({ session, params }) => {
       title: "From",
       address: {
         name: "Pimms.",
-        line1: "2261 Market Street STE 5906",
-        city: "San Francisco",
-        state: "CA",
-        postalCode: "94114",
-        email: "support@dub.co",
+        line1: "Chemin de Louis-Hubert 2",
+        city: "Petit Lancy",
+        state: "CH",
+        postalCode: "1213",
+        email: "support@pimms.io",
       },
     },
     {

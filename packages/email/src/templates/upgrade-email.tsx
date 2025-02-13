@@ -37,13 +37,13 @@ export function UpgradeEmail({
             <Heading className="mx-0 p-0 text-lg font-medium text-black">
               Thank you for upgrading to Dub.co {plan}!
             </Heading>
-            <Section className="my-8">
+            {/* <Section className="my-8">
               <Img
                 src="https://assets.dub.co/misc/thank-you-thumbnail.jpg"
                 alt="Thank you"
                 className="max-w-[500px]"
               />
-            </Section>
+            </Section> */}
             <Text className="text-sm leading-6 text-black">
               Hey{name && ` ${name}`}!
             </Text>

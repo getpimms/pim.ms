@@ -87,34 +87,34 @@ const BUSINESS_PLAN_MODIFIER = ({
       id: "retention",
       text: "3-year analytics retention",
     },
-    {
-      id: "domains",
-      text: `${domains} domains`,
-    },
-    {
-      id: "users",
-      text: `${users} users`,
-    },
-    {
-      id: "events",
-      text: "Real-time events stream",
-      footnote: {
-        title:
-          "Get more data on your link clicks and QR code scans with a detailed, real-time stream of events in your workspace",
-        cta: "Learn more.",
-        href: "https://d.to/events",
-      },
-    },
-    {
-      id: "webhooks",
-      text: "Real-time webhooks",
-      footnote: {
-        title:
-          "Use webhooks to connect Dub with your data stack and workflows – with native integrations for Segment, Zapier, Slack, and more.",
-        cta: "Learn more.",
-        href: "https://d.to/webhooks",
-      },
-    },
+    // {
+    //   id: "domains",
+    //   text: `${domains} domains`,
+    // },
+    // {
+    //   id: "users",
+    //   text: `${users} users`,
+    // },
+    // {
+    //   id: "events",
+    //   text: "Real-time events stream",
+    //   footnote: {
+    //     title:
+    //       "Get more data on your link clicks and QR code scans with a detailed, real-time stream of events in your workspace",
+    //     cta: "Learn more.",
+    //     href: "https://d.to/events",
+    //   },
+    // },
+    // {
+    //   id: "webhooks",
+    //   text: "Real-time webhooks",
+    //   footnote: {
+    //     title:
+    //       "Use webhooks to connect Dub with your data stack and workflows – with native integrations for Segment, Zapier, Slack, and more.",
+    //     cta: "Learn more.",
+    //     href: "https://d.to/webhooks",
+    //   },
+    // },
   ] as PlanFeature[],
 });
 
@@ -127,7 +127,7 @@ export const PLANS = [
       yearly: 0,
     },
     limits: {
-      links: 25,
+      links: 3,
       clicks: 1000,
       sales: 0,
       domains: 3,
@@ -153,21 +153,21 @@ export const PLANS = [
         id: "clicks",
         text: "1K tracked clicks/mo",
       },
-      { id: "links", text: "25 new links/mo" },
+      { id: "links", text: "3 new links/mo" },
       { id: "retention", text: "30-day analytics retention" },
-      { id: "domains", text: "3 domains" },
-      { id: "user", text: "1 user" },
+      // { id: "domains", text: "3 domains" },
+      // { id: "user", text: "1 user" },
       {
         id: "analytics",
         text: "Advanced analytics",
         footnote: {
           title:
             "Get location (country, city, continent), device (type, browser, OS), and referer data on your clicks.",
-          cta: "Learn more.",
-          href: "https://dub.co/analytics",
+          // cta: "Learn more.",
+          // href: "https://dub.co/analytics",
         },
       },
-      { id: "ai", text: "10 AI credits/mo" },
+      // { id: "ai", text: "10 AI credits/mo" },
       { id: "basic-support", text: "Basic support" },
       {
         id: "api",
@@ -222,35 +222,35 @@ export const PLANS = [
       { id: "clicks", text: "50K tracked clicks/mo" },
       { id: "links", text: "1,000 new links/mo" },
       { id: "retention", text: "1-year analytics retention" },
-      { id: "domains", text: "10 domains" },
-      { id: "users", text: "5 users" },
-      {
-        id: "link-features",
-        text: "Advanced link features",
-        footnote:
-          "Custom social media cards, password-protected links, link expiration, link cloaking, device targeting, geo targeting etc.",
-      },
-      {
-        id: "ai",
-        text: "Unlimited AI credits",
-        footnote: {
-          title:
-            "Subject to fair use policy – you will be notified if you exceed the limit, which are high enough for frequent usage.",
-          cta: "Learn more.",
-          href: "https://dub.co/blog/introducing-dub-ai",
-        },
-      },
+      // { id: "domains", text: "10 domains" },
+      // { id: "users", text: "5 users" },
+      // {
+      //   id: "link-features",
+      //   text: "Advanced link features",
+      //   footnote:
+      //     "Custom social media cards, password-protected links, link expiration, link cloaking, device targeting, geo targeting etc.",
+      // },
+      // {
+      //   id: "ai",
+      //   text: "Unlimited AI credits",
+      //   footnote: {
+      //     title:
+      //       "Subject to fair use policy – you will be notified if you exceed the limit, which are high enough for frequent usage.",
+      //     cta: "Learn more.",
+      //     href: "https://dub.co/blog/introducing-dub-ai",
+      //   },
+      // },
       { id: "priority-support", text: "Priority support" },
-      {
-        id: "dotlink",
-        text: "Free custom domain",
-        footnote: {
-          title:
-            "All our paid plans come with a free .link custom domain, which helps improve click-through rates.",
-          cta: "Learn more.",
-          href: "https://dub.co/help/article/free-dot-link-domain",
-        },
-      },
+      // {
+      //   id: "dotlink",
+      //   text: "Free custom domain",
+      //   footnote: {
+      //     title:
+      //       "All our paid plans come with a free .link custom domain, which helps improve click-through rates.",
+      //     cta: "Learn more.",
+      //     href: "https://dub.co/help/article/free-dot-link-domain",
+      //   },
+      // },
     ] as PlanFeature[],
   },
   BUSINESS_PLAN_MODIFIER({
@@ -273,96 +273,96 @@ export const PLANS = [
       "price_1OzOXMAlJJEpqkPV9ERrjjbw", // new yearly (prod)
     ],
   }),
-  BUSINESS_PLAN_MODIFIER({
-    name: "Business Plus",
-    monthly: 119,
-    yearly: 99,
-    links: 15000,
-    clicks: 400000,
-    sales: 15000_00,
-    domains: 100,
-    folders: 25,
-    users: 30,
-    ids: [
-      "price_1OnWu0AlJJEpqkPVWk4144ZG", // monthly (test)
-      "price_1OnWu0AlJJEpqkPVkDWVriAB", // yearly (test)
-      "price_1OnaK3AlJJEpqkPVaCfCPdHi", // monthly (prod)
-      "price_1OzObrAlJJEpqkPVh6D9HWGO", // yearly (prod)
-    ],
-  }),
-  BUSINESS_PLAN_MODIFIER({
-    name: "Business Extra",
-    monthly: 249,
-    yearly: 199,
-    links: 40000,
-    clicks: 1000000,
-    sales: 40000_00,
-    domains: 250,
-    folders: 50,
-    users: 50,
-    ids: [
-      "price_1OnWvCAlJJEpqkPVLzLHx5QD", // monthly (test)
-      "price_1OnWvCAlJJEpqkPVHhCCvIOq", // yearly (test)
-      "price_1OnaKJAlJJEpqkPVeJSvPfJb", // monthly (prod)
-      "price_1OzOg1AlJJEpqkPVPlsrxoWm", // yearly (prod)
-    ],
-  }),
-  BUSINESS_PLAN_MODIFIER({
-    name: "Business Max",
-    monthly: 499,
-    yearly: 399,
-    links: 100000,
-    clicks: 2500000,
-    sales: 100000_00,
-    domains: 500,
-    folders: 100,
-    users: 100,
-    ids: [
-      "price_1OnWwLAlJJEpqkPVXtJyPqLk", // monthly (test)
-      "price_1OnWwLAlJJEpqkPV4eMbOkNh", // yearly (test)
-      "price_1OnaKOAlJJEpqkPVV6gkZPgt", // monthly (prod)
-      "price_1OzOh5AlJJEpqkPVtCSX7dlE", // yearly (prod)
-    ],
-  }),
-  {
-    name: "Enterprise",
-    tagline: "For large organizations and governments with custom needs",
-    link: "https://dub.co/enterprise",
-    price: {
-      monthly: null,
-      yearly: null,
-    },
-    limits: {
-      links: 250000,
-      clicks: 5000000,
-      sales: 1000000_00,
-      domains: 1000,
-      tags: INFINITY_NUMBER,
-      folders: INFINITY_NUMBER,
-      users: 500,
-      ai: 10000,
-      api: 10000,
-    },
-    colors: {
-      bg: "bg-violet-600",
-      text: "text-violet-600",
-    },
-    cta: {
-      text: "Contact us",
-      href: "/enterprise",
-      color:
-        "bg-white hover:bg-neutral-50 border border-neutral-200 hover:ring-neutral-100 text-neutral-800",
-    },
-    featureTitle: "Everything in Business, plus:",
-    features: [
-      { id: "sso", text: "SSO/SAML" },
-      { id: "roles", text: "Role-based controls" },
-      { id: "volume", text: "Volume discounts" },
-      { id: "sla", text: "Custom SLA" },
-      { id: "logs", text: "Audit logs" },
-      { id: "success", text: "Dedicated success manager" },
-    ] as PlanFeature[],
-  },
+  // BUSINESS_PLAN_MODIFIER({
+  //   name: "Business Plus",
+  //   monthly: 119,
+  //   yearly: 99,
+  //   links: 15000,
+  //   clicks: 400000,
+  //   sales: 15000_00,
+  //   domains: 100,
+  //   folders: 25,
+  //   users: 30,
+  //   ids: [
+  //     "price_1OnWu0AlJJEpqkPVWk4144ZG", // monthly (test)
+  //     "price_1OnWu0AlJJEpqkPVkDWVriAB", // yearly (test)
+  //     "price_1OnaK3AlJJEpqkPVaCfCPdHi", // monthly (prod)
+  //     "price_1OzObrAlJJEpqkPVh6D9HWGO", // yearly (prod)
+  //   ],
+  // }),
+  // BUSINESS_PLAN_MODIFIER({
+  //   name: "Business Extra",
+  //   monthly: 249,
+  //   yearly: 199,
+  //   links: 40000,
+  //   clicks: 1000000,
+  //   sales: 40000_00,
+  //   domains: 250,
+  //   folders: 50,
+  //   users: 50,
+  //   ids: [
+  //     "price_1OnWvCAlJJEpqkPVLzLHx5QD", // monthly (test)
+  //     "price_1OnWvCAlJJEpqkPVHhCCvIOq", // yearly (test)
+  //     "price_1OnaKJAlJJEpqkPVeJSvPfJb", // monthly (prod)
+  //     "price_1OzOg1AlJJEpqkPVPlsrxoWm", // yearly (prod)
+  //   ],
+  // }),
+  // BUSINESS_PLAN_MODIFIER({
+  //   name: "Business Max",
+  //   monthly: 499,
+  //   yearly: 399,
+  //   links: 100000,
+  //   clicks: 2500000,
+  //   sales: 100000_00,
+  //   domains: 500,
+  //   folders: 100,
+  //   users: 100,
+  //   ids: [
+  //     "price_1OnWwLAlJJEpqkPVXtJyPqLk", // monthly (test)
+  //     "price_1OnWwLAlJJEpqkPV4eMbOkNh", // yearly (test)
+  //     "price_1OnaKOAlJJEpqkPVV6gkZPgt", // monthly (prod)
+  //     "price_1OzOh5AlJJEpqkPVtCSX7dlE", // yearly (prod)
+  //   ],
+  // }),
+  // {
+  //   name: "Enterprise",
+  //   tagline: "For large organizations and governments with custom needs",
+  //   link: "https://dub.co/enterprise",
+  //   price: {
+  //     monthly: null,
+  //     yearly: null,
+  //   },
+  //   limits: {
+  //     links: 250000,
+  //     clicks: 5000000,
+  //     sales: 1000000_00,
+  //     domains: 1000,
+  //     tags: INFINITY_NUMBER,
+  //     folders: INFINITY_NUMBER,
+  //     users: 500,
+  //     ai: 10000,
+  //     api: 10000,
+  //   },
+  //   colors: {
+  //     bg: "bg-violet-600",
+  //     text: "text-violet-600",
+  //   },
+  //   cta: {
+  //     text: "Contact us",
+  //     href: "/enterprise",
+  //     color:
+  //       "bg-white hover:bg-neutral-50 border border-neutral-200 hover:ring-neutral-100 text-neutral-800",
+  //   },
+  //   featureTitle: "Everything in Business, plus:",
+  //   features: [
+  //     { id: "sso", text: "SSO/SAML" },
+  //     { id: "roles", text: "Role-based controls" },
+  //     { id: "volume", text: "Volume discounts" },
+  //     { id: "sla", text: "Custom SLA" },
+  //     { id: "logs", text: "Audit logs" },
+  //     { id: "success", text: "Dedicated success manager" },
+  //   ] as PlanFeature[],
+  // },
 ];
 
 export const FREE_PLAN = PLANS.find((plan) => plan.name === "Free")!;

@@ -18,7 +18,7 @@ export default function UpgradePage({ params }: { params: { slug: string } }) {
           className="max-w-2xl"
         >
           <PlanSelector />
-          <div className="mt-8 flex flex-col gap-3">
+          {/* <div className="mt-8 flex flex-col gap-3">
             <a
               href="https://dub.co/enterprise"
               target="_blank"
@@ -26,7 +26,7 @@ export default function UpgradePage({ params }: { params: { slug: string } }) {
             >
               Looking for enterprise?
             </a>
-          </div>
+          </div> */}
         </StepPage>
       </div>
     </div>

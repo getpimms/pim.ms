@@ -108,7 +108,7 @@ function UsageInner() {
               nextPlanLimit={nextPlan?.limits.links}
               warning={warnings[1]}
             />
-            {salesLimit && salesLimit > 0 ? (
+            {/* {salesLimit && salesLimit > 0 ? (
               <UsageRow
                 ref={setSalesRef}
                 icon={CircleDollar}
@@ -121,7 +121,7 @@ function UsageInner() {
                 nextPlanLimit={50000}
                 warning={warnings[2]}
               />
-            ) : null}
+            ) : null} */}
           </div>
 
           <ConversionsOnboarding referenceElement={salesRef} />

@@ -195,7 +195,7 @@ export const authOptions: NextAuthOptions = {
     // Sign in with email and password
     CredentialsProvider({
       id: "credentials",
-      name: "Dub.co",
+      name: "Pimms",
       type: "credentials",
       credentials: {
         email: { type: "email" },
@@ -520,7 +520,7 @@ export const authOptions: NextAuthOptions = {
               sendEmail({
                 email,
                 replyTo: "steven.tey@dub.co",
-                subject: "Welcome to Dub.co!",
+                subject: "Welcome to Pimms!",
                 react: WelcomeEmail({
                   email,
                   name: user.name || null,

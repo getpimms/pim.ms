@@ -33,8 +33,8 @@ export const sendEmailViaResend = async ({
     from:
       from ||
       (marketing
-        ? "Steven from Dub.co <steven@ship.dub.co>"
-        : "Dub.co <system@dub.co>"),
+        ? "Alexandre from Pimms <alexandre@pimms.io>"
+        : "Pimms <system@pimms.io>"),
     bcc: bcc,
     replyTo,
     subject,
@@ -43,7 +43,7 @@ export const sendEmailViaResend = async ({
     scheduledAt,
     ...(marketing && {
       headers: {
-        "List-Unsubscribe": "https://app.dub.co/account/settings",
+        "List-Unsubscribe": "https://app.pimms.io/account/settings",
       },
     }),
   });
