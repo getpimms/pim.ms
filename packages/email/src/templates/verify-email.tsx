@@ -23,7 +23,7 @@ export function VerifyEmail({
   return (
     <Html>
       <Head />
-      <Preview>Your Dub.co Verification Code</Preview>
+      <Preview>Your Pimms Verification Code</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
@@ -31,7 +31,7 @@ export function VerifyEmail({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -39,7 +39,7 @@ export function VerifyEmail({
               Please confirm your email address
             </Heading>
             <Text className="mx-auto text-sm leading-6">
-              Enter this code on the Dub verify page to complete your sign up:
+              Enter this code on the Pimms verify page to complete your sign up:
             </Text>
             <Section className="my-8">
               <div className="mx-auto w-fit rounded-xl px-6 py-3 text-center font-mono text-2xl font-semibold tracking-[0.25em]">

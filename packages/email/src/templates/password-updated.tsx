@@ -31,7 +31,7 @@ export function PasswordUpdated({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -39,7 +39,7 @@ export function PasswordUpdated({
               Password has been {verb}
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              The password for your Dub account has been successfully {verb}.
+              The password for your Pimms account has been successfully {verb}.
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you did not make this change or you believe an unauthorised

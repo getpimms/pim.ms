@@ -53,17 +53,17 @@ export function LinksLimitAlert({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
             <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
-              Dub.co Links Limit Alert
+              Pimms Links Limit Alert
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              Your Dub.co workspace,{" "}
+              Your Pimms workspace,{" "}
               <Link
-                href={`https://app.dub.co/${slug}`}
+                href={`https://app.pimms.io/${slug}`}
                 className="text-black underline"
               >
                 <strong>{name}</strong>
@@ -111,7 +111,7 @@ export function LinksLimitAlert({
             <Section className="mb-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${slug}/upgrade`}
+                href={`https://app.pimms.io/${slug}/upgrade`}
               >
                 Upgrade my plan
               </Link>

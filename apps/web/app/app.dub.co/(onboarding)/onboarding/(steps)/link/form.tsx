@@ -134,7 +134,7 @@ export function Form() {
           const result = await res.json();
           posthog.capture("link_created", result);
 
-          await continueTo("domain");
+          await continueTo("plan");
         })}
       >
         <DestinationUrlInput

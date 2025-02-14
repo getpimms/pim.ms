@@ -34,7 +34,7 @@ export function DomainClaimed({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -56,7 +56,7 @@ export function DomainClaimed({
             <Section className="my-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${workspaceSlug}/settings/domains`}
+                href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
               >
                 Manage your domain
               </Link>

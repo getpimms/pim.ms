@@ -40,7 +40,7 @@ export function InvalidDomain({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -49,9 +49,9 @@ export function InvalidDomain({
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Your domain <code className="text-purple-600">{domain}</code> for
-              your Dub.co workspace{" "}
+              your Pimms workspace{" "}
               <Link
-                href={`https://app.dub.co/${workspaceSlug}`}
+                href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
               >
                 {workspaceSlug}↗
@@ -66,15 +66,15 @@ export function InvalidDomain({
             <Section className="my-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${workspaceSlug}/settings/domains`}
+                href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
               >
                 Configure domain
               </Link>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you do not want to keep this domain on Dub.co, you can{" "}
+              If you do not want to keep this domain on Pimms, you can{" "}
               <Link
-                href={`https://app.dub.co/${workspaceSlug}/settings/domains`}
+                href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
                 className="font-medium text-blue-600 no-underline"
               >
                 delete it

@@ -13,7 +13,7 @@ export default function Workspace() {
           target="_blank"
           className="underline transition-colors hover:text-neutral-700"
         >
-          What is a workspace?
+          
         </a>
       }
     >

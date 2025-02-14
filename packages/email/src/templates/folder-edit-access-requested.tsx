@@ -38,7 +38,7 @@ export function FolderEditAccessRequested({
   return (
     <Html>
       <Head />
-      <Preview>Request to edit folder {folder.name} on Dub</Preview>
+      <Preview>Request to edit folder {folder.name} on Pimms</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
@@ -46,7 +46,7 @@ export function FolderEditAccessRequested({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>

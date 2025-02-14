@@ -49,7 +49,7 @@ export function NewReferralSignup({
               New referral signup
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              Congratulations – someone just signed up for Dub using your
+              Congratulations – someone just signed up for Pimms using your
               referral link:{" "}
               <a
                 href={referralLink}
@@ -63,17 +63,17 @@ export function NewReferralSignup({
               earned an additional {REFERRAL_CLICKS_QUOTA_BONUS} clicks quota
               for your{" "}
               <a
-                href={`https://app.dub.co/${workspace.slug}`}
+                href={`https://app.pimms.io/${workspace.slug}`}
                 className="text-semibold font-medium text-black underline"
               >
                 {workspace.name}
               </a>{" "}
-              workspace on Dub.
+              workspace on Pimms.
             </Text>
             <Section className="my-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${workspace.slug}`}
+                href={`https://app.pimms.io/${workspace.slug}`}
               >
                 View your referral stats
               </Link>

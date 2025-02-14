@@ -38,7 +38,7 @@ export function ClicksExceeded({
     <Html>
       <Head />
       <Preview>
-        Your Dub.co workspace, {name || ""} has exceeded the{" "}
+        Your Pimms workspace, {name || ""} has exceeded the{" "}
         {capitalize(plan) || ""} Plan limit of {nFormatter(usageLimit)} link
         clicks/month.
       </Preview>
@@ -49,7 +49,7 @@ export function ClicksExceeded({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -57,9 +57,9 @@ export function ClicksExceeded({
               Clicks Limit Exceeded
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              Your Dub.co workspace,{" "}
+              Your Pimms workspace,{" "}
               <Link
-                href={`https://app.dub.co/${slug}`}
+                href={`https://app.pimms.io/${slug}`}
                 className="text-black underline"
               >
                 <strong>{name}</strong>
@@ -86,7 +86,7 @@ export function ClicksExceeded({
             <Section className="my-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${slug}/upgrade`}
+                href={`https://app.pimms.io/${slug}/upgrade`}
               >
                 Upgrade my plan
               </Link>

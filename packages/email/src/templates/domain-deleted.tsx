@@ -34,7 +34,7 @@ export function DomainDeleted({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -45,29 +45,29 @@ export function DomainDeleted({
               Your domain <code className="text-purple-600">{domain}</code> for
               your Dub.co workspace{" "}
               <Link
-                href={`https://app.dub.co/${workspaceSlug}`}
+                href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
               >
                 {workspaceSlug}↗
               </Link>{" "}
               has been invalid for 30 days. As a result, it has been deleted
-              from Dub.
+              from Pimms.
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you would like to restore the domain, you can easily create it
-              again on Dub.co with the link below.
+              again on Pimms with the link below.
             </Text>
             <Section className="my-8 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${workspaceSlug}/settings/domains`}
+                href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
               >
                 Add a domain
               </Link>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you did not want to keep using this domain on Dub.co anyway,
-              you can simply ignore this email.
+              If you did not want to keep using this domain on Pimms anyway, you
+              can simply ignore this email.
             </Text>
             <Footer email={email} />
           </Container>

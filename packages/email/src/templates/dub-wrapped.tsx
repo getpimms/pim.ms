@@ -114,33 +114,13 @@ export function DubWrapped({
 
   const shippedItems = [
     {
-      title: "Free .LINK domains on all paid plans",
-      description:
-        "We partnered with Nova Registry to offer a <b>1-year free .link custom domain</b> to all paying Dub customers. By using a custom domain, you get <b>30% higher click-through rates</b> and better brand recognition.",
-      image: "https://assets.dub.co/blog/free-dot-link.jpg",
-      cta: {
-        text: "Read the announcement",
-        href: "https://ship.dub.co/free-domains",
-      },
-    },
-    {
       title: "New link builder + dashboard",
       description:
         "We launched a new link builder, rebuilt from the ground up, to help you manage your links better. We also gave our dashboard a makeover as well.",
       image: "https://assets.pimms.io/dashboard.jpg",
       cta: {
         text: "Read the announcement",
-        href: "https://ship.dub.co/builder",
-      },
-    },
-    {
-      title: "Dub API General Availability",
-      description:
-        "Our Dub API went GA, allowing you to build your powerful integrations with Dub. We also launched <b>native SDKs in 5 different languages</b>: TypeScript, Python, Ruby, PHP, and Go.",
-      image: "https://assets.dub.co/blog/dub-api.jpg",
-      cta: {
-        text: "Read the announcement",
-        href: "https://dub.co/blog/announcing-dub-api",
+        href: "https://ship.pimms.io/builder",
       },
     },
   ];
@@ -291,7 +271,7 @@ export function DubWrapped({
               className="max-w-[200px]"
             />
             <Text className="text-sm leading-6 text-black">
-              and the Dub team 🎄
+              and the Pimms team 🎄
             </Text>
 
             <Footer email={email} marketing />

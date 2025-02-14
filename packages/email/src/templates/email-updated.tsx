@@ -32,7 +32,7 @@ export function EmailUpdated({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -40,13 +40,13 @@ export function EmailUpdated({
               Your email address has been changed
             </Heading>
             <Text className="mx-auto text-sm leading-6">
-              The e-mail address for your Dub account has been changed from{" "}
+              The e-mail address for your Pimms account has been changed from{" "}
               <strong>{oldEmail}</strong> to <strong>{newEmail}</strong>.
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you did not make this change, please contact our support team
               or{" "}
-              <Link href="https://app.dub.co/account/settings">
+              <Link href="https://app.pimms.io/account/settings">
                 update your email address
               </Link>
               .
