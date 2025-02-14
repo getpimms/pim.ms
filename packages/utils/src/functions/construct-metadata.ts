@@ -46,8 +46,8 @@ export function constructMetadata({
     title:
       fullTitle ||
       (title
-        ? `${title} | Dub.co`
-        : "Dub.co - Link Management for Modern Marketing Teams"),
+        ? `${title} | Pimms`
+        : "Pimms - Direct links that generate 5x more subscribers on your social media"),
     description,
     openGraph: {
       title,
@@ -70,7 +70,7 @@ export function constructMetadata({
       ...(video && {
         player: video,
       }),
-      creator: "@dubdotco",
+      // creator: "@pimmsio",
     },
     icons,
     metadataBase: new URL(HOME_DOMAIN),

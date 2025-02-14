@@ -34,7 +34,7 @@ export function ProductContent({ domain }: { domain: string }) {
         <NavigationMenuLink asChild>
           <Link
             href={createHref(
-              "/home",
+              "/",
               domain,
               getUtmParams({ domain, utm_content: "Dub Links" }),
             )}

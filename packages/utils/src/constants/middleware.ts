@@ -1,4 +1,5 @@
 export const DEFAULT_REDIRECTS = {
+  "": "https://pimms.io",
   home: "https://pimms.io",
   pimms: "https://pimms.io",
   signin: "https://app.pimms.io/login",

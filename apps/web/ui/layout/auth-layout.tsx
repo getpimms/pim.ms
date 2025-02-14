@@ -56,7 +56,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
       <div className="hidden h-full flex-col justify-center space-y-12 overflow-hidden md:col-span-2 md:flex shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur s">
         <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-xl">
           <BlurImage
-            alt="Dub.co Analytics"
+            alt="Pimms Analytics"
             src="https://assets.pimms.io/dashboard.jpg"
             width={2400}
             height={1260}

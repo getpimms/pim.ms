@@ -88,8 +88,8 @@ export function Footer({
       )}
     >
       <footer>
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="flex flex-col gap-6">
+        {/* <div className="xl:grid xl:grid-cols-3 xl:gap-8"> */}
+          {/* <div className="flex flex-col gap-6">
             <div className="grow">
               <Link
                 href={createHref("/", domain, {
@@ -106,7 +106,7 @@ export function Footer({
                 <NavWordmark className="h-8 text-neutral-800" />
               </Link>
             </div>
-            {/* <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
               {socials.map(({ name, icon: Icon, href }) => (
                 <a
                   key={name}
@@ -119,8 +119,8 @@ export function Footer({
                   <Icon className="size-4 text-neutral-900 transition-colors duration-75 group-hover:text-neutral-600" />
                 </a>
               ))}
-            </div> */}
-          </div>
+            </div>
+          </div> */}
           {/* <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2">
               <div>
@@ -243,12 +243,12 @@ export function Footer({
               </div>
             </div>
           </div> */}
-        </div>
+        {/* </div> */}
 
         {/* Bottom row (status, SOC2, copyright) */}
-        <div className="mt-12 grid grid-cols-1 items-center gap-8 sm:grid-cols-3">
+        {/* <div className="mt-12 grid grid-cols-1 items-center gap-8 sm:grid-cols-3"> */}
           {/* <StatusBadge /> */}
-          <Link
+          {/* <Link
             href={createHref("/blog/soc2", domain, {
               utm_source: "Custom Domain",
               utm_medium: "Footer",
@@ -264,11 +264,11 @@ export function Footer({
               height={32}
               className="h-8 transition-[filter] duration-75 hover:brightness-90"
             />
-          </Link>
-          <p className="text-xs text-neutral-500 sm:text-right">
+          </Link> */}
+          <p className="text-xs text-neutral-500 sm:text-center">
             © {new Date().getFullYear()} Pimms.
           </p>
-        </div>
+        {/* </div> */}
       </footer>
     </MaxWidthWrapper>
   );

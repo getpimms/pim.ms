@@ -107,7 +107,7 @@ export function NavWordmark({
     //             variant="outline"
     //             onClick={() =>
     //               window.open(
-    //                 `https://dub.co${isInApp ? "/home" : ""}`,
+    //                 `https://dub.co${isInApp ? "/" : ""}`,
     //                 "_blank",
     //               )
     //             }

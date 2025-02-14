@@ -40,16 +40,15 @@ export function WelcomeEmail({
               Welcome to Pimms
             </Heading>
             <Section className="my-8">
-              <Img src={DUB_THUMBNAIL} alt="Dub" className="max-w-[500px]" />
+              <Img src={DUB_THUMBNAIL} alt="Pimms" className="max-w-[500px]" />
             </Section>
             <Text className="text-sm leading-6 text-black">
               Thanks for signing up{name && `, ${name}`}!
             </Text>
             <Text className="text-sm leading-6 text-black">
-              My name is Steven, and I'm the founder of Dub.co - the modern link
-              management platform for you to create marketing campaigns, link
-              sharing features, and referral programs. We're excited to have you
-              on board!
+              My name is Alexandre, and I'm the founder of Pimms - Direct links
+              that generate 5x more subscribers on your social media. We're
+              excited to have you on board!
             </Text>
             <Text className="text-sm leading-6 text-black">
               Here are a few things you can do:
@@ -65,7 +64,7 @@ export function WelcomeEmail({
               and add your custom domain
             </Text>
             <Text className="ml-1 text-sm leading-4 text-black">
-              ◆ Create your first short link 
+              ◆ Create your first short link
             </Text>
             <Text className="text-sm leading-6 text-black">
               Let me know if you have any questions or feedback. I'm always

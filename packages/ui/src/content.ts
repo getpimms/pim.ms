@@ -29,7 +29,7 @@ export const FEATURES_LIST = [
     title: "Dub Links",
     description: "Short links with superpowers",
     icon: Hyperlink,
-    href: "/home",
+    href: "/",
   },
   {
     title: "Dub Analytics",

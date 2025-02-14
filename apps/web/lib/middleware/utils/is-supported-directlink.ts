@@ -84,44 +84,6 @@ const spotifyPatterns = [
 ];
 
 /* ========================
-   Facebook-Specific Helper
-======================== */
-
-// This helper attempts to detect several Facebook URL types.
-// If the pathname starts with "groups", "events", "videos", or "posts", we generate a deep link accordingly.
-// Otherwise, we fallback to treating it as a profile.
-const constructFacebookDeepLink = (originalUrl: string): string | null => {
-  try {
-    const parsedUrl = new URL(originalUrl);
-    const segments = parsedUrl.pathname.split("/").filter(Boolean);
-    if (segments.length === 0) return null;
-
-    // Case: Facebook Group – URL: /groups/{groupId}/...
-    if (segments[0].toLowerCase() === "groups" && segments[1]) {
-      return `fb://group?id=${segments[1]}`;
-    }
-    // Case: Facebook Event – URL: /events/{eventId}/...
-    if (segments[0].toLowerCase() === "events" && segments[1]) {
-      return `fb://event?id=${segments[1]}`;
-    }
-    // Case: Facebook Video – URL might be /{username}/videos/{videoId}/...
-    const videoIndex = segments.findIndex((s) => s.toLowerCase() === "videos");
-    if (videoIndex !== -1 && segments[videoIndex + 1]) {
-      return `fb://video?id=${segments[videoIndex + 1]}`;
-    }
-    // Case: Facebook Post – URL: /{username}/posts/{postId}/...
-    const postIndex = segments.findIndex((s) => s.toLowerCase() === "posts");
-    if (postIndex !== -1 && segments[postIndex + 1]) {
-      return `fb://story/?id=${segments[postIndex + 1]}`;
-    }
-    // Fallback: Treat as a profile/page.
-    return `fb://profile?username=${segments[0]}`;
-  } catch {
-    return null;
-  }
-};
-
-/* ========================
    Spotify-Specific Helper
 ======================== */
 
@@ -133,7 +95,7 @@ const constructSpotifyDeepLink = (originalUrl: string): string | null => {
     if (segments.length >= 2) {
       const [resourceType, resourceId] = segments;
       if (["track", "album", "artist", "playlist"].includes(resourceType.toLowerCase())) {
-        return `spotify:${resourceType}:${resourceId}`;
+        return `spotify://${resourceType}/${resourceId}`;
       }
     }
     return null;
@@ -176,15 +138,6 @@ const appLinks: AppLink[] = [
     uriScheme: "amazon://",
     extractId: extractPathname,
     constructUri: (path: string) => `amazon://${path}`,
-  },
-  {
-    appName: "Facebook",
-    urlPatterns: facebookPatterns,
-    uriScheme: "fb://",
-    extractId: extractPathname,
-    // Use the updated Facebook-specific helper
-    constructUri: (_: string, originalUrl?: string) =>
-      originalUrl ? (constructFacebookDeepLink(originalUrl) || "fb://") : "fb://",
   },
   {
     appName: "Twitter",

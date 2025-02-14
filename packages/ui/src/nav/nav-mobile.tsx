@@ -41,7 +41,7 @@ export function NavMobile({
 
   return (
     <div className={cn(theme === "dark" && "dark")}>
-      <button
+      {/* <button
         onClick={() => setOpen(!open)}
         className={cn(
           "fixed right-3 top-3 z-40 rounded-full p-2 transition-colors duration-200 hover:bg-neutral-200 focus:outline-none active:bg-neutral-300 lg:hidden dark:hover:bg-white/20 dark:active:bg-white/30",
@@ -53,7 +53,7 @@ export function NavMobile({
         ) : (
           <Menu className="h-5 w-5 text-neutral-600 dark:text-white/70" />
         )}
-      </button>
+      </button> */}
       {/* <nav
         className={cn(
           "fixed inset-0 z-20 hidden w-full bg-white px-5 py-16 lg:hidden dark:bg-black dark:text-white/70",
@@ -127,74 +127,74 @@ const MobileNavItem = ({
   const { domain = "pimms.io" } = useParams() as { domain: string };
   const [expanded, setExpanded] = useState(false);
 
-  if (childItems) {
-    return (
-      <li className="py-3">
-        <AnimatedSizeContainer height>
-          <button
-            className="flex w-full justify-between"
-            onClick={() => setExpanded(!expanded)}
-          >
-            <p className="font-semibold">{name}</p>
-            <ChevronDown
-              className={cn(
-                "h-5 w-5 text-neutral-500 transition-all dark:text-white/50",
-                expanded && "rotate-180",
-              )}
-            />
-          </button>
-          {expanded && (
-            <div className="grid gap-4 overflow-hidden py-4">
-              {childItems.map(({ title, href, icon: Icon, description }) => (
-                <Link
-                  key={href}
-                  href={createHref(href, domain, {
-                    utm_source: "Custom Domain",
-                    utm_medium: "Navbar",
-                    utm_campaign: domain,
-                    utm_content: title,
-                  })}
-                  onClick={() => setOpen(false)}
-                  className="flex w-full gap-3"
-                >
-                  <div className="flex size-10 items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-t from-neutral-100">
-                    <Icon className="size-5 text-neutral-700" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h2 className="text-sm font-medium text-neutral-900">
-                        {title}
-                      </h2>
-                    </div>
-                    <p className="text-sm text-neutral-500">{description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </AnimatedSizeContainer>
-      </li>
-    );
-  }
+  // if (childItems) {
+  //   return (
+  //     <li className="py-3">
+  //       <AnimatedSizeContainer height>
+  //         <button
+  //           className="flex w-full justify-between"
+  //           onClick={() => setExpanded(!expanded)}
+  //         >
+  //           <p className="font-semibold">{name}</p>
+  //           <ChevronDown
+  //             className={cn(
+  //               "h-5 w-5 text-neutral-500 transition-all dark:text-white/50",
+  //               expanded && "rotate-180",
+  //             )}
+  //           />
+  //         </button>
+  //         {expanded && (
+  //           <div className="grid gap-4 overflow-hidden py-4">
+  //             {childItems.map(({ title, href, icon: Icon, description }) => (
+  //               <Link
+  //                 key={href}
+  //                 href={createHref(href, domain, {
+  //                   utm_source: "Custom Domain",
+  //                   utm_medium: "Navbar",
+  //                   utm_campaign: domain,
+  //                   utm_content: title,
+  //                 })}
+  //                 onClick={() => setOpen(false)}
+  //                 className="flex w-full gap-3"
+  //               >
+  //                 <div className="flex size-10 items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-t from-neutral-100">
+  //                   <Icon className="size-5 text-neutral-700" />
+  //                 </div>
+  //                 <div>
+  //                   <div className="flex items-center gap-2">
+  //                     <h2 className="text-sm font-medium text-neutral-900">
+  //                       {title}
+  //                     </h2>
+  //                   </div>
+  //                   <p className="text-sm text-neutral-500">{description}</p>
+  //                 </div>
+  //               </Link>
+  //             ))}
+  //           </div>
+  //         )}
+  //       </AnimatedSizeContainer>
+  //     </li>
+  //   );
+  // }
 
-  if (!href) {
+  // if (!href) {
     return null;
-  }
+  // }
 
-  return (
-    <li className="py-3">
-      <Link
-        href={createHref(href, domain, {
-          utm_source: "Custom Domain",
-          utm_medium: "Navbar",
-          utm_campaign: domain,
-          utm_content: name,
-        })}
-        onClick={() => setOpen(false)}
-        className="flex w-full font-semibold capitalize"
-      >
-        {name}
-      </Link>
-    </li>
-  );
+  // return (
+  //   <li className="py-3">
+  //     <Link
+  //       href={createHref(href, domain, {
+  //         utm_source: "Custom Domain",
+  //         utm_medium: "Navbar",
+  //         utm_campaign: domain,
+  //         utm_content: name,
+  //       })}
+  //       onClick={() => setOpen(false)}
+  //       className="flex w-full font-semibold capitalize"
+  //     >
+  //       {name}
+  //     </Link>
+  //   </li>
+  // );
 };

@@ -27,7 +27,7 @@ export function UpgradeEmail({
   return (
     <Html>
       <Head />
-      <Preview>Thank you for upgrading to Dub.co {plan}!</Preview>
+      <Preview>Thank you for upgrading to Pimms {plan}!</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
@@ -35,7 +35,7 @@ export function UpgradeEmail({
               <Img src={DUB_WORDMARK} height="32" alt="Dub" />
             </Section>
             <Heading className="mx-0 p-0 text-lg font-medium text-black">
-              Thank you for upgrading to Dub.co {plan}!
+              Thank you for upgrading to Pimms {plan}!
             </Heading>
             {/* <Section className="my-8">
               <Img
@@ -54,7 +54,7 @@ export function UpgradeEmail({
                 href={planDetails.link}
                 className="font-medium text-blue-600 no-underline"
               >
-                Dub.co {plan}
+                Pimms {plan}
               </Link>
               !
             </Text>
@@ -67,7 +67,7 @@ export function UpgradeEmail({
                 open-source
               </Link>{" "}
               business. Your support means the world to us and helps us continue
-              to build and improve Dub.co.
+              to build and improve Pimms.
             </Text>
             <Text className="text-sm leading-6 text-black">
               On the {plan} plan, you now have access to:
@@ -83,11 +83,11 @@ export function UpgradeEmail({
               </Text>
             ))}
             <Text className="text-sm leading-6 text-black">
-              If you have any questions or feedback about Dub, please don't
+              If you have any questions or feedback about Pimms, please don't
               hesitate to reach out – I'm always happy to help!
             </Text>
             <Text className="text-sm font-light leading-6 text-neutral-400">
-              Steven from Dub
+              Alexandre from Pimms
             </Text>
             <Footer email={email} marketing />
           </Container>

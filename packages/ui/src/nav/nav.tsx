@@ -28,7 +28,7 @@ export const navItems = [
     name: "Product",
     content: ProductContent,
     childItems: FEATURES_LIST,
-    segments: ["/home", "/analytics", "/features", "/compare"],
+    segments: ["/", "/analytics", "/features", "/compare"],
   },
   {
     name: "Resources",
@@ -118,7 +118,7 @@ export function Nav({
               <div className="grow basis-0">
                 <Link
                   className="block w-fit py-2 pr-2"
-                  href={createHref("/home", domain, {
+                  href={createHref("/", domain, {
                     utm_source: "Custom Domain",
                     utm_medium: "Navbar",
                     utm_campaign: domain,
@@ -188,7 +188,7 @@ export function Nav({
                 </div>
               </NavigationMenuPrimitive.Root> */}
 
-              <div className="hidden grow basis-0 justify-end gap-2 lg:flex">
+              {/* <div className="hidden grow basis-0 justify-end gap-2 lg:flex"> */}
                 {/* {session && Object.keys(session).length > 0 ? (
                   <Link
                     href={APP_DOMAIN}
@@ -232,7 +232,7 @@ export function Nav({
                     </Link>
                   </>
                 ) : null} */}
-              </div>
+              {/* </div> */}
             </div>
           </MaxWidthWrapper>
         </div>
