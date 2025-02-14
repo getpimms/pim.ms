@@ -156,7 +156,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
         />
       ) : (
         <SignInView
-          description="Connect your Dub workspace with Stripe to start tracking the conversions."
+          description="Connect your Pimms workspace with Stripe to start tracking the conversions."
           primaryAction={{
             label: connecting
               ? "Connecting please wait..."
@@ -167,8 +167,12 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
           }}
           footerContent={
             <>
-              Don&apos;t have an Dub account?{" "}
-              <Link href="https://app.dub.co/register" target="_blank" external>
+              Don&apos;t have an Pimms account?{" "}
+              <Link
+                href="https://app.pimms.io/register"
+                target="_blank"
+                external
+              >
                 Sign up
               </Link>
             </>

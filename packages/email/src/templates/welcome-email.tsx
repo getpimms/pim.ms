@@ -57,44 +57,22 @@ export function WelcomeEmail({
             <Text className="ml-1 text-sm leading-4 text-black">
               ◆ Create a{" "}
               <Link
-                href="https://app.dub.co?newWorkspace=true"
+                href="https://app.pimms.io?newWorkspace=true"
                 className="font-medium text-blue-600 no-underline"
               >
                 new workspace
               </Link>{" "}
-              and{" "}
-              <Link
-                href="https://dub.co/help/article/how-to-add-custom-domain"
-                className="font-medium text-blue-600 no-underline"
-              >
-                add your custom domain
-              </Link>
+              and add your custom domain
             </Text>
             <Text className="ml-1 text-sm leading-4 text-black">
-              ◆ Create your first{" "}
-              <Link
-                href="https://dub.co/help/article/how-to-create-link"
-                className="font-medium text-blue-600 no-underline"
-              >
-                short link
-              </Link>
-            </Text>
-            <Text className="ml-1 text-sm leading-4 text-black">
-              ◆ Check out our{" "}
-              <Link
-                href="https://dub.co/api"
-                className="font-medium text-blue-600 no-underline"
-              >
-                API documentation
-              </Link>{" "}
-              for programmatic link generation
+              ◆ Create your first short link 
             </Text>
             <Text className="text-sm leading-6 text-black">
               Let me know if you have any questions or feedback. I'm always
               happy to help!
             </Text>
             <Text className="text-sm font-light leading-6 text-neutral-400">
-              Steven from Dub
+              Alexandre from Pimms
             </Text>
 
             <Footer email={email} marketing />

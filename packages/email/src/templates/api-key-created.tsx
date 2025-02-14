@@ -48,7 +48,7 @@ export function APIKeyCreated({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Dub.co"
+                alt="Pimms"
                 className="mx-auto my-0"
               />
             </Section>
@@ -56,7 +56,7 @@ export function APIKeyCreated({
               New Workspace API Key Created
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              You've created a new API key for your Dub.co workspace{" "}
+              You've created a new API key for your Pimms workspace{" "}
               <strong>{workspace.name}</strong> with the name{" "}
               <strong>"{token.name}"</strong> on{" "}
               {formatDate(new Date().toString())}.
@@ -68,7 +68,7 @@ export function APIKeyCreated({
             <Section className="mb-8 mt-4 text-center">
               <Link
                 className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
-                href={`https://app.dub.co/${workspace.slug}/settings/tokens`}
+                href={`https://app.pimms.io/${workspace.slug}/settings/tokens`}
               >
                 View API Keys
               </Link>
@@ -76,7 +76,7 @@ export function APIKeyCreated({
             <Text className="text-sm leading-6 text-black">
               If you did not create this API key, you can{" "}
               <Link
-                href={`https://app.dub.co/${workspace.slug}/settings/tokens`}
+                href={`https://app.pimms.io/${workspace.slug}/settings/tokens`}
                 className="text-black underline"
               >
                 <strong>delete this key</strong>

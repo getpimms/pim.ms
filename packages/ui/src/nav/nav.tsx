@@ -73,7 +73,7 @@ export function Nav({
   staticDomain?: string;
   maxWidthWrapperClassName?: string;
 }) {
-  let { domain = "dub.co" } = useParams() as { domain: string };
+  let { domain = "pimms.io" } = useParams() as { domain: string };
   if (staticDomain) {
     domain = staticDomain;
   }
@@ -83,7 +83,7 @@ export function Nav({
   const scrolled = useScroll(40);
   const pathname = usePathname();
   const { data: session, isLoading } = useSWR(
-    domain.endsWith("dub.co") && "/api/auth/session",
+    domain.endsWith("pimms.io") && "/api/auth/session",
     fetcher,
     {
       dedupingInterval: 60000,
@@ -91,10 +91,10 @@ export function Nav({
   );
 
   // here we need to check if the user has a dub_id cookie
-  // if they do, we should just use app.dub.co links
+  // if they do, we should just use app.pimms.io links
   // if not, we can use conversion-enabled d.to links
   const hasDubCookie =
-    domain === "dub.co" && Cookies.get("dub_id") ? true : false;
+    domain === "pimms.io" && Cookies.get("dub_id") ? true : false;
 
   return (
     <NavContext.Provider value={{ theme }}>
@@ -205,7 +205,7 @@ export function Nav({
                     <Link
                       href={
                         hasDubCookie
-                          ? "https://app.dub.co/login"
+                          ? "https://app.pimms.io/login"
                           : "https://d.to/login"
                       }
                       className={cn(
@@ -219,7 +219,7 @@ export function Nav({
                     <Link
                       href={
                         hasDubCookie
-                          ? "https://app.dub.co/register"
+                          ? "https://app.pimms.io/register"
                           : "https://d.to/register"
                       }
                       className={cn(

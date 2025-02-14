@@ -26,7 +26,7 @@ export default function Welcome() {
           Welcome to Pimms
         </h1>
         <p className="animate-slide-up-fade mt-2 text-neutral-500 [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
-          Direct links that generate 5× more subscribers on your social media.
+          Direct links that generate 5x more subscribers on your social media.
         </p>
         <div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-delay:750ms] [animation-duration:1s] [animation-fill-mode:both]">
           <NextButton text="Get started" step="workspace" />

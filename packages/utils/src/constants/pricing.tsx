@@ -60,7 +60,7 @@ const BUSINESS_PLAN_MODIFIER = ({
   cta: {
     text: `Get started with ${name}`,
     shortText: `Get ${name}`,
-    href: "https://app.dub.co/register",
+    href: "https://app.pimms.io/register",
     color: "bg-sky-900 hover:bg-sky-800 hover:ring-sky-100",
   },
   featureTitle: "Everything in Pro, plus:",
@@ -73,16 +73,16 @@ const BUSINESS_PLAN_MODIFIER = ({
       id: "links",
       text: `${Intl.NumberFormat("en-US").format(links)} new links/mo`,
     },
-    {
-      id: "sales",
-      text: `${currencyFormatter(sales / 100)} tracked sales/mo`,
-      footnote: {
-        title:
-          "Use Dub Conversions to track how your link clicks are converting to signups and sales. Limits are based on the total sale amount tracked within a given month.",
-        cta: "Learn more.",
-        href: "https://d.to/conversions",
-      },
-    },
+    // {
+    //   id: "sales",
+    //   text: `${currencyFormatter(sales / 100)} tracked sales/mo`,
+    //   footnote: {
+    //     title:
+    //       "Use Dub Conversions to track how your link clicks are converting to signups and sales. Limits are based on the total sale amount tracked within a given month.",
+    //     cta: "Learn more.",
+    //     href: "https://d.to/conversions",
+    //   },
+    // },
     {
       id: "retention",
       text: "3-year analytics retention",
@@ -118,7 +118,7 @@ const BUSINESS_PLAN_MODIFIER = ({
   ] as PlanFeature[],
 });
 
-export const PLANS = [
+export const PLANS: any[] = [
   {
     name: "Free",
     tagline: "For hobbyists and individuals looking to manage their links",
@@ -143,7 +143,7 @@ export const PLANS = [
     },
     cta: {
       text: "Start for free",
-      href: "https://app.dub.co/register",
+      href: "https://app.pimms.io/register",
       color:
         "bg-white hover:bg-neutral-50 border border-neutral-200 hover:ring-neutral-100 text-neutral-800",
     },
@@ -169,21 +169,21 @@ export const PLANS = [
       },
       // { id: "ai", text: "10 AI credits/mo" },
       { id: "basic-support", text: "Basic support" },
-      {
-        id: "api",
-        text: "API Access",
-        footnote: {
-          title: "Programatically manage your links using our REST API.",
-          cta: "Learn more.",
-          href: "https://dub.co/docs/api-reference/introduction",
-        },
-      },
+      // {
+      //   id: "api",
+      //   text: "API Access",
+      //   footnote: {
+      //     title: "Programatically manage your links using our REST API.",
+      //     cta: "Learn more.",
+      //     href: "https://dub.co/docs/api-reference/introduction",
+      //   },
+      // },
     ] as PlanFeature[],
   },
   {
     name: "Pro",
     tagline: "For content creators or small teams needing advanced features",
-    link: "https://dub.co/help/article/pro-plan",
+    // link: "https://dub.co/help/article/pro-plan",
     price: {
       monthly: 24,
       yearly: 19,
@@ -214,7 +214,7 @@ export const PLANS = [
     cta: {
       text: "Get started with Pro",
       shortText: "Get Pro",
-      href: "https://app.dub.co/register",
+      href: "https://app.pimms.io/register",
       color: "bg-black hover:bg-neutral-800 hover:ring-neutral-200",
     },
     featureTitle: "Everything in Free, plus:",

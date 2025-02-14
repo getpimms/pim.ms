@@ -44,9 +44,9 @@ export function DomainClaimed({
             <Text className="text-sm leading-6 text-black">
               Congratulations! You have successfully claimed your free{" "}
               <code className="text-purple-600">{domain}</code> domain for your
-              Dub workspace{" "}
+              Pimms workspace{" "}
               <Link
-                href={`https://app.dub.co/${workspaceSlug}`}
+                href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
               >
                 {workspaceSlug}↗

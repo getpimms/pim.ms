@@ -30,7 +30,7 @@ export function NavWordmark({
   isInApp?: boolean;
   className?: string;
 }) {
-  const { domain = "dub.co" } = useParams() as { domain: string };
+  const { domain = "pimms.io" } = useParams() as { domain: string };
 
   const { theme } = useContext(NavContext);
 
