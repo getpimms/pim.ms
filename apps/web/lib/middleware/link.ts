@@ -5,6 +5,7 @@ import {
   isSupportedDeeplinkProtocol,
   isSupportedDirectLink,
   parse,
+  shallShowDirectPreview,
 } from "@/lib/middleware/utils";
 import { recordClick } from "@/lib/tinybird";
 import { formatRedisLink } from "@/lib/upstash";
@@ -237,7 +238,7 @@ export default async function LinkMiddleware(
       { clickId, path: `/${originalKey}` },
     );
     // rewrite to directlink page if url matches a direct links
-  } else if (isSupportedDirectLink(url)) {
+  } else if (isSupportedDirectLink(url) && !shallShowDirectPreview(req)) {
     ev.waitUntil(
       recordClick({
         req,

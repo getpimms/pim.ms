@@ -1,5 +1,7 @@
 "use client";
 
+import { NextRequest } from "next/server";
+
 interface AppLink {
   appName: string;
   urlPatterns: RegExp[];
@@ -11,7 +13,7 @@ interface AppLink {
 // Helper: Extract the full pathname from the URL.
 const extractPathname = (url: string): string | null => {
   try {
-    return new URL(url).pathname;
+    return new URL(url).pathname.slice(1);
   } catch {
     return null;
   }
@@ -28,7 +30,7 @@ const buildFlexibleDomainPattern = (keyword: string): RegExp =>
 const buildExactDomainPattern = (domain: string): RegExp =>
   new RegExp(
     `^https?:\\/\\/(?:www\\.)?${domain.replace(".", "\\.")}(?:\\/.*)?$`,
-    "i"
+    "i",
   );
 
 /* ========================
@@ -94,7 +96,11 @@ const constructSpotifyDeepLink = (originalUrl: string): string | null => {
     // Expected URL format: /{type}/{id}
     if (segments.length >= 2) {
       const [resourceType, resourceId] = segments;
-      if (["track", "album", "artist", "playlist"].includes(resourceType.toLowerCase())) {
+      if (
+        ["track", "album", "artist", "playlist"].includes(
+          resourceType.toLowerCase(),
+        )
+      ) {
         return `spotify://${resourceType}/${resourceId}`;
       }
     }
@@ -130,7 +136,9 @@ const appLinks: AppLink[] = [
     // Use custom Instagram deep linking logic
     extractId: extractPathname,
     constructUri: (_: string, originalUrl?: string) =>
-      originalUrl ? (constructInstagramDeepLink(originalUrl) || "instagram://") : "instagram://",
+      originalUrl
+        ? constructInstagramDeepLink(originalUrl) || "instagram://"
+        : "instagram://",
   },
   {
     appName: "Amazon",
@@ -167,7 +175,9 @@ const appLinks: AppLink[] = [
     extractId: extractPathname,
     // Use the Spotify-specific helper
     constructUri: (_: string, originalUrl?: string) =>
-      originalUrl ? (constructSpotifyDeepLink(originalUrl) || "spotify://") : "spotify://",
+      originalUrl
+        ? constructSpotifyDeepLink(originalUrl) || "spotify://"
+        : "spotify://",
   },
 ];
 
@@ -179,10 +189,28 @@ export const getUriScheme = (url: string): string | null => {
   for (const app of appLinks) {
     if (app.urlPatterns.some((pattern) => pattern.test(url))) {
       const path = app.extractId ? app.extractId(url) : null;
-      return path && app.constructUri ? app.constructUri(path, url) : app.uriScheme;
+      return path && app.constructUri
+        ? app.constructUri(path, url)
+        : app.uriScheme;
     }
   }
   return null;
+};
+
+export const shallShowDirectPreview = (req: NextRequest): boolean => {
+  const listOfBrowsers = [
+    "linkedinbot",
+    "facebookexternalhit",
+    "twitterbot",
+    "iframely",
+  ];
+
+  const userAgent = req.headers.get("user-agent") || "";
+
+  // If the user agent includes any of the browsers in the list, return true.
+  return listOfBrowsers.some((browser) =>
+    userAgent.toLowerCase().includes(browser),
+  );
 };
 
 export const isSupportedDirectLink = (url: string): boolean =>
@@ -192,7 +220,6 @@ export const getDirectLink = (url: string): string | null => {
   for (const app of appLinks) {
     if (app.urlPatterns.some((pattern) => pattern.test(url))) {
       const path = app.extractId ? app.extractId(url) : null;
-      console.log("direct link", { path, app, url });
       return path && app.constructUri ? app.constructUri(path, url) : null;
     }
   }
@@ -227,7 +254,8 @@ const constructInstagramDeepLink = (originalUrl: string): string | null => {
 };
 
 // Instagram shortcode conversion helper.
-const instagramAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+const instagramAlphabet =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 const shortcodeToId = (shortcode: string): number | null => {
   let id = 0;
   for (let i = 0; i < shortcode.length; i++) {

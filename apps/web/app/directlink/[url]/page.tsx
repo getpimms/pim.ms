@@ -5,7 +5,11 @@ import { useEffect } from "react";
 
 export const runtime = "edge";
 
-export default function DirectLinkPage({ params }: { params: { url: string } }) {
+export default function DirectLinkPage({
+  params,
+}: {
+  params: { url: string };
+}) {
   // First decode the full URL parameter from the route
   const url = decodeURIComponent(params.url);
 
@@ -19,7 +23,7 @@ export default function DirectLinkPage({ params }: { params: { url: string } }) 
 
     // Attempt to open the YouTube app via the deep link.
     // If this fails (i.e. if the app is not installed), fallback to the web URL.
-    // window.location.href = directLink;
+    window.location.href = directLink;
 
     // After a short delay, force navigation to the YouTube web URL.
     const timer = setTimeout(() => {
@@ -31,10 +35,11 @@ export default function DirectLinkPage({ params }: { params: { url: string } }) 
 
   // Redirect to the redirect URL (which may be the same as the original URL,
   // or a cleaned-up version with properly encoded parameters)
-  if (directLink) { 
+  if (directLink) {
+    console.log("direct link", directLink);
     return <meta httpEquiv="refresh" content={`0;url=${directLink}`} />;
-  }
-  else {
+  } else {
+    console.log("fail to get direct link", url);
     return <meta httpEquiv="refresh" content={`0;url=${url}`} />;
   }
 }
