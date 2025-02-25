@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function DirectLinkRedirect({ directLink, url, os }: { directLink: string | null; url: string; os: "ios" | "android" | undefined }) {
+export default function DirectLinkRedirect({ directLink, url, os }: { directLink: string | undefined; url: string; os: "ios" | "android" | undefined }) {
   useEffect(() => {
     if (!directLink) {
       return;

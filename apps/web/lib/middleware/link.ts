@@ -2,6 +2,7 @@ import {
   createResponseWithCookie,
   detectBot,
   getFinalUrl,
+  isNativeBrowser,
   isSupportedDeeplinkProtocol,
   isSupportedDirectAppLink,
   parse,
@@ -114,6 +115,8 @@ export default async function LinkMiddleware(
     webhookIds,
     projectId: workspaceId,
   } = link;
+
+  const ua = userAgent(req);
 
   // by default, we only index default dub domain links (e.g. dub.sh)
   // everything else is not indexed by default, unless the user has explicitly set it to be indexed
@@ -250,7 +253,6 @@ export default async function LinkMiddleware(
       }),
     );
 
-    const ua = userAgent(req);
     console.log("ua.os.name", ua?.os?.name);
     console.log("ua.browser.name", ua?.browser?.name);
 
@@ -440,7 +442,7 @@ export default async function LinkMiddleware(
       { clickId, path: `/${originalKey}` },
     );
     // regular redirect
-  } else if (shallShowDirectPreview(req)) {
+  } else if ((ua?.device?.type != "mobile" && ua?.device?.type != "tablet") || shallShowDirectPreview(req) || isNativeBrowser(req)) {
     ev.waitUntil(
       recordClick({
         req,
@@ -494,7 +496,6 @@ export default async function LinkMiddleware(
       }),
     );
 
-    const ua = userAgent(req);
     console.log("ua.os.name", ua?.os?.name);
     console.log("ua.browser.name", ua?.browser?.name);
 

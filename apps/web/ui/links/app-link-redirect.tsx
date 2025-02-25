@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function AppLinkRedirect({ appLink, url }: { appLink: string | null; url: string }) {
+export default function AppLinkRedirect({ appLink, url }: { appLink: string | undefined; url: string }) {
   useEffect(() => {
     if (!appLink) {
       return;
