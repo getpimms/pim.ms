@@ -3,7 +3,7 @@ import {
   detectBot,
   getFinalUrl,
   isSupportedDeeplinkProtocol,
-  isSupportedDirectLink,
+  isSupportedDirectAppLink,
   parse,
   shallShowDirectPreview,
 } from "@/lib/middleware/utils";
@@ -237,8 +237,8 @@ export default async function LinkMiddleware(
       ),
       { clickId, path: `/${originalKey}` },
     );
-    // rewrite to directlink page if url matches a direct links
-  } else if (isSupportedDirectLink(url) && !shallShowDirectPreview(req)) {
+    // rewrite to applink page if url matches a direct links
+  } else if (isSupportedDirectAppLink(url) && !shallShowDirectPreview(req)) {
     ev.waitUntil(
       recordClick({
         req,
@@ -249,6 +249,30 @@ export default async function LinkMiddleware(
         workspaceId,
       }),
     );
+
+    return createResponseWithCookie(
+      NextResponse.rewrite(
+        new URL(
+          `/applink/${encodeURIComponent(
+            getFinalUrl(url, {
+              req,
+              clickId: trackConversion ? clickId : undefined,
+            }),
+          )}`,
+          req.url,
+        ),
+        {
+          headers: {
+            ...DUB_HEADERS,
+            ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
+          },
+        },
+      ),
+      { clickId, path: `/${originalKey}` },
+    );
+  }
+  else if (url.includes("resend.com")) {
+    console.log("resend.com", url);
 
     return createResponseWithCookie(
       NextResponse.rewrite(

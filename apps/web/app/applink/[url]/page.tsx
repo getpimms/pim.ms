@@ -1,10 +1,11 @@
 "use client";
 
+import { getDirectAppLink } from "@/lib/middleware/utils";
 import { useEffect } from "react";
 
 export const runtime = "edge";
 
-export default function DirectLinkPage({
+export default function ApplinkPage({
   params,
 }: {
   params: { url: string; platform: "ios" | "android" };
@@ -12,14 +13,24 @@ export default function DirectLinkPage({
   // First decode the full URL parameter from the route
   const url = decodeURIComponent(params.url);
 
-  console.log("direct link", {
+  // get direct link uri scheme
+  const appLink = getDirectAppLink(url, params.platform);
+
+  console.log("direct app link", {
+    appLink,
     url,
     platform: params.platform,
   });
   
   useEffect(() => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-    
+    if (!appLink) {
+      return;
+    }
+
+    // Attempt to open the YouTube app via the deep link.
+    // If this fails (i.e. if the app is not installed), fallback to the web URL.
+    // window.location.href = appLink;
+
     // After a short delay, force navigation to the YouTube web URL.
     const timer = setTimeout(() => {
       window.location.href = url;
@@ -30,5 +41,9 @@ export default function DirectLinkPage({
 
   // Redirect to the redirect URL (which may be the same as the original URL,
   // or a cleaned-up version with properly encoded parameters)
-  return <meta httpEquiv="refresh" content={`0;url=${url}`} />;
+  if (appLink) {
+    return <meta httpEquiv="refresh" content={`0;url=${appLink}`} />;
+  } else {
+    return <meta httpEquiv="refresh" content={`0;url=${url}`} />;
+  }
 }

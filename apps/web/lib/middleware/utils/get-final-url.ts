@@ -1,6 +1,6 @@
 import { REDIRECTION_QUERY_PARAM } from "@dub/utils/src/constants";
 import { getUrlFromStringIfValid } from "@dub/utils/src/functions";
-import { NextRequest } from "next/server";
+import { NextRequest, userAgent } from "next/server";
 
 export const getFinalUrl = (
   url: string,
@@ -39,6 +39,9 @@ export const getFinalUrl = (
   if (urlObj.searchParams.get("qr") === "1") {
     urlObj.searchParams.delete("qr");
   }
+
+  const userAgentString = userAgent(req);
+  console.log("userAgent", userAgentString);
 
   return urlObj.toString();
 };
