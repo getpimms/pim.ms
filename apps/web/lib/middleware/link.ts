@@ -250,48 +250,34 @@ export default async function LinkMiddleware(
       }),
     );
 
-    return createResponseWithCookie(
-      NextResponse.rewrite(
-        new URL(
-          `/applink/${encodeURIComponent(
-            getFinalUrl(url, {
-              req,
-              clickId: trackConversion ? clickId : undefined,
-              showUA: true,
-            }),
-          )}`,
-          req.url,
-        ),
-        {
-          headers: {
-            ...DUB_HEADERS,
-            ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
-          },
-        },
-      ),
-      { clickId, path: `/${originalKey}` },
+    const ua = userAgent(req);
+    console.log("ua.os.name", ua?.os?.name);
+    console.log("ua.browser.name", ua?.browser?.name);
+
+    const rewriteUrl = new URL(
+      `/applink/${encodeURIComponent(
+        getFinalUrl(url, {
+          req,
+          clickId: trackConversion ? clickId : undefined,
+        }),
+      )}`,
+      req.url,
     );
-  }
-  else if (url.includes("pimms.io")) {
+
+    if (ua?.os?.name) {
+      rewriteUrl.searchParams.set("os", ua?.os?.name?.toLowerCase());
+    }
+    if (ua?.browser?.name) {
+      rewriteUrl.searchParams.set("browser", ua?.browser?.name?.toLowerCase());
+    }
+
     return createResponseWithCookie(
-      NextResponse.rewrite(
-        new URL(
-          `/directlink/${encodeURIComponent(
-            getFinalUrl(url, {
-              req,
-              clickId: trackConversion ? clickId : undefined,
-              showUA: true,
-            }),
-          )}`,
-          req.url,
-        ),
-        {
-          headers: {
-            ...DUB_HEADERS,
-            ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
-          },
+      NextResponse.rewrite(rewriteUrl, {
+        headers: {
+          ...DUB_HEADERS,
+          ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
         },
-      ),
+      }),
       { clickId, path: `/${originalKey}` },
     );
     // rewrite to deeplink page if the link is a mailto: or tel:
@@ -453,9 +439,8 @@ export default async function LinkMiddleware(
       ),
       { clickId, path: `/${originalKey}` },
     );
-
     // regular redirect
-  } else {
+  } else if (shallShowDirectPreview(req)) {
     ev.waitUntil(
       recordClick({
         req,
@@ -494,6 +479,48 @@ export default async function LinkMiddleware(
           status: key === "_root" ? 301 : 302,
         },
       ),
+      { clickId, path: `/${originalKey}` },
+    );
+    // direct link redirect
+  } else {
+    ev.waitUntil(
+      recordClick({
+        req,
+        linkId,
+        clickId,
+        url,
+        webhookIds,
+        workspaceId,
+      }),
+    );
+
+    const ua = userAgent(req);
+    console.log("ua.os.name", ua?.os?.name);
+    console.log("ua.browser.name", ua?.browser?.name);
+
+    const rewriteUrl = new URL(
+      `/directlink/${encodeURIComponent(
+        getFinalUrl(url, {
+          req,
+          clickId: trackConversion ? clickId : undefined,
+        }),
+      )}`,
+      req.url,
+    );
+
+    if (ua?.os?.name) {
+      rewriteUrl.searchParams.set("os", ua?.os?.name?.toLowerCase());
+    }
+    if (ua?.browser?.name) {
+      rewriteUrl.searchParams.set("browser", ua?.browser?.name?.toLowerCase());
+    }
+    return createResponseWithCookie(
+      NextResponse.rewrite(rewriteUrl, {
+        headers: {
+          ...DUB_HEADERS,
+          ...(!shouldIndex && { "X-Robots-Tag": "googlebot: noindex" }),
+        },
+      }),
       { clickId, path: `/${originalKey}` },
     );
   }

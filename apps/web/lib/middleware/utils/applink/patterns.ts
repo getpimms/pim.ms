@@ -12,47 +12,72 @@ const buildExactDomainPattern = (domain: string): RegExp =>
     "i",
   );
 
-// YouTube: Allow any URL from a domain containing "youtube" and exactly "youtu.be".
+// YouTube
 export const youtubePatterns = [
   buildFlexibleDomainPattern("youtube"),
   buildExactDomainPattern("youtu.be"),
 ];
 
-// TikTok: Allow flexible matching for "tiktok".
+// TikTok
 export const tiktokPatterns = [buildFlexibleDomainPattern("tiktok")];
 
-// Instagram: Flexible for "instagram" plus strict match for "instagr.am".
+// Instagram
 export const instagramPatterns = [
   buildFlexibleDomainPattern("instagram"),
   buildExactDomainPattern("instagr.am"),
 ];
 
-// Amazon: Flexible for "amazon" and strict match for "amzn.to".
+// Amazon
 export const amazonPatterns = [
   buildFlexibleDomainPattern("amazon"),
   buildExactDomainPattern("amzn.to"),
+  // TODO: amaz.?
 ];
 
-// Facebook: Flexible for "facebook" and strict match for "fb.me".
+// Facebook
 export const facebookPatterns = [
   buildFlexibleDomainPattern("facebook"),
   buildExactDomainPattern("fb.me"),
 ];
 
-// X: Flexible for "x.com"
+// X
 export const xPatterns = [buildFlexibleDomainPattern("x.com")];
 
-// LinkedIn: Flexible for "linkedin" and strict match for "lnkd.in".
+// LinkedIn
 export const linkedinPatterns = [
   buildFlexibleDomainPattern("linkedin"),
   buildExactDomainPattern("lnkd.in"),
 ];
 
-// Medium: Use a flexible pattern only.
+// Medium
 export const mediumPatterns = [buildFlexibleDomainPattern("medium")];
 
-// Spotify: Flexible for "spotify" and strict match for "spoti.fi".
+// Spotify
 export const spotifyPatterns = [
   buildFlexibleDomainPattern("spotify"),
   buildExactDomainPattern("spoti.fi"),
 ];
+
+// Whatsapp
+export const whatsappPatterns = [
+  buildExactDomainPattern("wa.me"),
+  buildFlexibleDomainPattern("whatsapp"),
+];
+
+// Snapchat
+export const snapchatPatterns = [
+  buildFlexibleDomainPattern("snapchat")
+];
+
+// Telegram
+export const telegramPatterns = [
+  buildExactDomainPattern("t.me"),
+];
+
+
+// Messenger
+export const messengerPatterns = [
+  buildFlexibleDomainPattern("messenger"),
+  buildExactDomainPattern("m.me"),
+];
+

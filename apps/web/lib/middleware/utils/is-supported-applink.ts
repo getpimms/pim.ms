@@ -1,5 +1,3 @@
-"use client";
-
 import { NextRequest } from "next/server";
 import {
   extractDomainAndPath,
@@ -20,7 +18,7 @@ import {
 interface AppLink {
   appName: string;
   urlPatterns: RegExp[];
-  constructUri: (originalUrl?: string, os?: "ios" | "android") => string;
+  constructUri: (originalUrl?: string, os?: "ios" | "android" | undefined) => string;
 }
 
 /* ========================
@@ -76,7 +74,7 @@ const appLinks: AppLink[] = [
   {
     appName: "Instagram",
     urlPatterns: instagramPatterns,
-    constructUri: (url: string, os?: "ios" | "android") => {
+    constructUri: (url: string, os?: "ios" | "android" | undefined) => {
       if (!!os && ["ios", "android"].includes(os)) {
         return `instagram://${buildInstagramAppLink(url, os)}`;
       } else {
@@ -156,7 +154,7 @@ export const isSupportedDirectAppLink = (url: string): boolean =>
 
 export const getDirectAppLink = (
   url: string,
-  os: "ios" | "android",
+  os: "ios" | "android" | undefined,
 ): string | null => {
   for (const app of appLinks) {
     if (app.urlPatterns.some((pattern) => pattern.test(url))) {
@@ -164,4 +162,16 @@ export const getDirectAppLink = (
     }
   }
   return null;
+};
+
+export const getDirectLink = (url: string, os: "ios" | "android" | undefined): string | null => {
+  if (os === "ios") {
+    return `x-safari-${url}`;
+  }
+  else if (os === "android") {
+    return `intent://${extractDomainAndPath(url)}#Intent;scheme=https;package=com.android.chrome;end`;
+  }
+  else {
+    return `googlechrome://${extractDomainAndPath(url)}`;
+  }
 };

@@ -4,7 +4,10 @@ import { NextRequest, userAgent } from "next/server";
 
 export const getFinalUrl = (
   url: string,
-  { req, clickId, showUA }: { req: NextRequest; clickId?: string; showUA?: boolean },
+  {
+    req,
+    clickId,
+  }: { req: NextRequest; clickId?: string },
 ) => {
   // query is the query string (e.g. d.to/github?utm_source=twitter -> ?utm_source=twitter)
   const searchParams = req.nextUrl.searchParams;
@@ -22,17 +25,6 @@ export const getFinalUrl = (
   if (clickId && !searchParams.has("dub-no-track")) {
     // add clickId to the final url if it exists
     urlObj.searchParams.set("dub_id", clickId);
-  }
-
-  if (showUA) {
-    const ua = userAgent(req);
-    console.log("userAgent", ua);
-    if (ua?.os?.name) { 
-      urlObj.searchParams.set("os", ua?.os?.name);
-    }
-    if (ua?.browser?.name) {
-      urlObj.searchParams.set("browser", ua?.browser?.name);
-    }
   }
 
   // if there are no query params, then return the target url as is (no need to parse it)
