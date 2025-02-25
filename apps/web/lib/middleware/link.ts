@@ -257,6 +257,7 @@ export default async function LinkMiddleware(
             getFinalUrl(url, {
               req,
               clickId: trackConversion ? clickId : undefined,
+              showUA: true,
             }),
           )}`,
           req.url,
@@ -271,9 +272,7 @@ export default async function LinkMiddleware(
       { clickId, path: `/${originalKey}` },
     );
   }
-  else if (url.includes("resend.com")) {
-    console.log("resend.com", url);
-
+  else if (url.includes("pimms.io")) {
     return createResponseWithCookie(
       NextResponse.rewrite(
         new URL(
@@ -281,6 +280,7 @@ export default async function LinkMiddleware(
             getFinalUrl(url, {
               req,
               clickId: trackConversion ? clickId : undefined,
+              showUA: true,
             }),
           )}`,
           req.url,

@@ -8,18 +8,18 @@ export const runtime = "edge";
 export default function ApplinkPage({
   params,
 }: {
-  params: { url: string; platform: "ios" | "android" };
+  params: { url: string; os: "ios" | "android" };
 }) {
   // First decode the full URL parameter from the route
   const url = decodeURIComponent(params.url);
 
   // get direct link uri scheme
-  const appLink = getDirectAppLink(url, params.platform);
+  const appLink = getDirectAppLink(url, params.os);
 
   console.log("direct app link", {
     appLink,
     url,
-    platform: params.platform,
+    os: params.os,
   });
   
   useEffect(() => {

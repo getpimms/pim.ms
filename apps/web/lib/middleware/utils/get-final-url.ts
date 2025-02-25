@@ -4,7 +4,7 @@ import { NextRequest, userAgent } from "next/server";
 
 export const getFinalUrl = (
   url: string,
-  { req, clickId }: { req: NextRequest; clickId?: string },
+  { req, clickId, showUA }: { req: NextRequest; clickId?: string; showUA?: boolean },
 ) => {
   // query is the query string (e.g. d.to/github?utm_source=twitter -> ?utm_source=twitter)
   const searchParams = req.nextUrl.searchParams;
@@ -24,6 +24,17 @@ export const getFinalUrl = (
     urlObj.searchParams.set("dub_id", clickId);
   }
 
+  if (showUA) {
+    const ua = userAgent(req);
+    console.log("userAgent", ua);
+    if (ua?.os?.name) { 
+      urlObj.searchParams.set("os", ua?.os?.name);
+    }
+    if (ua?.browser?.name) {
+      urlObj.searchParams.set("browser", ua?.browser?.name);
+    }
+  }
+
   // if there are no query params, then return the target url as is (no need to parse it)
   // @ts-ignore – until https://github.com/microsoft/TypeScript/issues/54466 is fixed
   if (searchParams.size === 0) return urlObj.toString();
@@ -39,9 +50,6 @@ export const getFinalUrl = (
   if (urlObj.searchParams.get("qr") === "1") {
     urlObj.searchParams.delete("qr");
   }
-
-  const userAgentString = userAgent(req);
-  console.log("userAgent", userAgentString);
 
   return urlObj.toString();
 };

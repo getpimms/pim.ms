@@ -7,14 +7,14 @@ export const runtime = "edge";
 export default function DirectLinkPage({
   params,
 }: {
-  params: { url: string; platform: "ios" | "android" };
+  params: { url: string; os: "ios" | "android" };
 }) {
   // First decode the full URL parameter from the route
   const url = decodeURIComponent(params.url);
 
   console.log("direct link", {
     url,
-    platform: params.platform,
+    os: params.os,
   });
   
   useEffect(() => {
@@ -30,5 +30,5 @@ export default function DirectLinkPage({
 
   // Redirect to the redirect URL (which may be the same as the original URL,
   // or a cleaned-up version with properly encoded parameters)
-  return <meta httpEquiv="refresh" content={`0;url=${url}`} />;
+  return null; //<meta httpEquiv="refresh" content={`0;url=${url}`} />;
 }

@@ -1,23 +1,26 @@
 "use client";
 
 import { NextRequest } from "next/server";
+import {
+  extractDomainAndPath,
+  extractPathname,
+} from "./applink/extract-generic";
 import { buildInstagramAppLink } from "./applink/extract-instagram";
 import {
   amazonPatterns,
   instagramPatterns,
-  mediumPatterns,
-  tiktokPatterns,
-  youtubePatterns,
-  xPatterns,
   linkedinPatterns,
+  mediumPatterns,
   spotifyPatterns,
+  tiktokPatterns,
+  xPatterns,
+  youtubePatterns,
 } from "./applink/patterns";
-import { extractDomainAndPath, extractPathname } from "./applink/extract-generic";
 
 interface AppLink {
   appName: string;
   urlPatterns: RegExp[];
-  constructUri: (originalUrl?: string, platform?: "ios" | "android") => string;
+  constructUri: (originalUrl?: string, os?: "ios" | "android") => string;
 }
 
 /* ========================
@@ -60,7 +63,8 @@ const appLinks: AppLink[] = [
   {
     appName: "Amazon",
     urlPatterns: amazonPatterns,
-    constructUri: (url: string) => `com.amazon.mobile.shopping.web://${extractDomainAndPath(url)}`,
+    constructUri: (url: string) =>
+      `com.amazon.mobile.shopping.web://${extractDomainAndPath(url)}`,
   },
   // work on android / iphone
   {
@@ -72,7 +76,14 @@ const appLinks: AppLink[] = [
   {
     appName: "Instagram",
     urlPatterns: instagramPatterns,
-    constructUri: (url: string, platform: "ios" | "android") => `instagram://${buildInstagramAppLink(url, platform)}`,
+    constructUri: (url: string, os?: "ios" | "android") => {
+      if (!!os && ["ios", "android"].includes(os)) {
+        return `instagram://${buildInstagramAppLink(url, os)}`;
+      } else {
+        console.log("Platform header is missing for instagram link", url);
+        return url;
+      }
+    },
   },
   // Fail on android
   {
@@ -124,7 +135,7 @@ export const shallShowDirectPreview = (req: NextRequest): boolean => {
     "mediumbot",
     "embedly",
     "google-safety",
-    "fedicabot"
+    "fedicabot",
   ];
 
   const userAgent = req.headers.get("user-agent") || "";
@@ -143,10 +154,13 @@ export const isLinkedinBot = (req: NextRequest): boolean => {
 export const isSupportedDirectAppLink = (url: string): boolean =>
   appLinks.some((app) => app.urlPatterns.some((pattern) => pattern.test(url)));
 
-export const getDirectAppLink = (url: string, platform: "ios" | "android"): string | null => {
+export const getDirectAppLink = (
+  url: string,
+  os: "ios" | "android",
+): string | null => {
   for (const app of appLinks) {
     if (app.urlPatterns.some((pattern) => pattern.test(url))) {
-      return app.constructUri(url, platform);
+      return app.constructUri(url, os);
     }
   }
   return null;

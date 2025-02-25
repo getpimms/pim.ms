@@ -250,15 +250,15 @@ function matchRoute(
 }
 
 /**
- * Constructs an Instagram deeplink from an Instagram URL for a given platform.
+ * Constructs an Instagram deeplink from an Instagram URL for a given os.
  *
  * @param instagramUrl - An Instagram URL (e.g. "https://www.instagram.com/bryanjohnson_/p/DDcHbWZOlmb/")
- * @param platform - "ios" or "android"
+ * @param os - "ios" or "android"
  * @returns The constructed deeplink or null if no route matches.
  */
 export function buildInstagramAppLink(
   instagramUrl: string,
-  platform: "ios" | "android",
+  os: "ios" | "android",
 ): string | null {
   try {
     const urlObj = new URL(instagramUrl);
@@ -281,7 +281,7 @@ export function buildInstagramAppLink(
         if (!params.postId && params.shortcode) {
           params.postId = shortcodeToMediaId(params.shortcode);
         }
-        const deeplinkForPlatform = route.deeplinks[platform];
+        const deeplinkForPlatform = route.deeplinks[os];
         if (typeof deeplinkForPlatform === "function") {
           return deeplinkForPlatform(params);
         } else {
