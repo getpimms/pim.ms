@@ -1,11 +1,9 @@
 import useWorkspace from "@/lib/swr/use-workspace";
 import {
-  Button,
   FileUpload,
   Icon,
   InfoTooltip,
   ShimmerDots,
-  SimpleTooltipContent,
   Switch,
   TooltipContent,
   useKeyboardShortcut,
@@ -13,15 +11,11 @@ import {
 } from "@dub/ui";
 import {
   CrownSmall,
-  Facebook,
-  GlobePointer,
   LinkedIn,
   LoadingCircle,
   NucleoPhoto,
-  Pen2,
-  Twitter,
 } from "@dub/ui/icons";
-import { cn, getDomainWithoutWWW, resizeImage } from "@dub/utils";
+import { getDomainWithoutWWW, resizeImage } from "@dub/utils";
 import {
   ChangeEvent,
   ComponentType,
@@ -39,21 +33,22 @@ import { useDebounce } from "use-debounce";
 import { LinkFormData, LinkModalContext } from ".";
 import { useOGModal } from "./og-modal";
 
-const tabs = ["default", "x", "linkedin", "facebook"] as const;
+// const tabs = ["default", "x", "linkedin", "facebook"] as const;
+const tabs = ["linkedin"] as const;
 type Tab = (typeof tabs)[number];
 
 const tabTitles: Record<Tab, string> = {
-  default: "Default",
-  facebook: "Facebook",
+  // default: "Default",
+  // facebook: "Facebook",
   linkedin: "LinkedIn",
-  x: "X/Twitter",
+  // x: "X/Twitter",
 };
 
 const tabIcons: Record<Tab, Icon> = {
-  default: GlobePointer,
-  x: Twitter,
+  // default: GlobePointer,
+  // x: Twitter,
   linkedin: LinkedIn,
-  facebook: Facebook,
+  // facebook: Facebook,
 };
 
 type OGPreviewProps = PropsWithChildren<{
@@ -64,10 +59,10 @@ type OGPreviewProps = PropsWithChildren<{
 }>;
 
 const tabComponents: Record<Tab, ComponentType<OGPreviewProps>> = {
-  default: DefaultOGPreview,
-  x: XOGPreview,
+  // default: DefaultOGPreview,
+  // x: XOGPreview,
   linkedin: LinkedInOGPreview,
-  facebook: FacebookOGPreview,
+  // facebook: FacebookOGPreview,
 };
 
 export function LinkPreview() {
@@ -86,7 +81,8 @@ export function LinkPreview() {
     modal: true,
   });
 
-  const [selectedTab, setSelectedTab] = useState<Tab>("default");
+  // const [selectedTab, setSelectedTab] = useState<Tab>("default");
+  const [selectedTab, setSelectedTab] = useState<Tab>("linkedin");
 
   const onImageChange = (image: string) => {
     setValue("image", image, { shouldDirty: true });
@@ -101,46 +97,38 @@ export function LinkPreview() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h2 className="text-sm font-medium text-neutral-700">
-            Custom Link Preview
+            Force direct link on previews
           </h2>
-          <InfoTooltip
-            content={
-              <SimpleTooltipContent
-                title="Customize how your links look when shared on social media to improve click-through rates. When enabled, the preview settings below will be shown publicly (instead of the URL's original metatags)."
-                cta="Learn more."
-                href="https://dub.co/help/article/custom-link-previews"
-              />
-            }
-          />
+          <InfoTooltip content="Enable this option to force social media previews to link directly to your pim.ms URL." />
         </div>
 
         <Switch
           checked={proxy}
           fn={(checked) => setValue("proxy", checked, { shouldDirty: true })}
-          disabledTooltip={
-            !url ? (
-              "Enter a URL to enable custom link previews."
-            ) : !plan || plan === "free" ? (
-              <TooltipContent
-                title="Custom Link Previews are only available on the Pro plan and above."
-                cta="Upgrade to Pro"
-                href={
-                  slug
-                    ? `/${slug}/upgrade?exit=close`
-                    : "https://dub.co/pricing"
-                }
-                target="_blank"
-              />
-            ) : undefined
-          }
-          thumbIcon={
-            !plan || plan === "free" ? (
-              <CrownSmall className="size-full text-neutral-500" />
-            ) : undefined
-          }
+          // disabledTooltip={
+          //   !url ? (
+          //     "Enter a URL to enable custom link previews."
+          //   ) : !plan || plan === "free" ? (
+          //     <TooltipContent
+          //       title="Custom Link Previews are only available on the Pro plan and above."
+          //       cta="Upgrade to Pro"
+          //       href={
+          //         slug
+          //           ? `/${slug}/upgrade?exit=close`
+          //           : "https://dub.co/pricing"
+          //       }
+          //       target="_blank"
+          //     />
+          //   ) : undefined
+          // }
+          // thumbIcon={
+          //   !plan || plan === "free" ? (
+          //     <CrownSmall className="size-full text-neutral-500" />
+          //   ) : undefined
+          // }
         />
       </div>
-      <div className="mt-2.5 grid grid-cols-4 gap-2">
+      {/* <div className="mt-2.5 grid grid-cols-4 gap-2">
         {tabs.map((tab) => {
           const Icon = tabIcons[tab];
           return (
@@ -161,15 +149,15 @@ export function LinkPreview() {
             />
           );
         })}
-      </div>
+      </div> */}
       <div className="relative mt-2">
-        <Button
+        {/* <Button
           type="button"
           variant="secondary"
           icon={<Pen2 className="mx-px size-4" />}
           className="absolute right-2 top-2 z-10 h-8 w-fit px-1.5"
           onClick={() => setShowOGModal(true)}
-        />
+        /> */}
         <OGPreview
           title={title}
           description={description}
@@ -411,7 +399,8 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
             }
           }}
         />
-        <p className="text-xs text-[#00000099]">{hostname || "domain.com"}</p>
+        {/* <p className="text-xs text-[#00000099]">{hostname || "domain.com"}</p> */}
+        <p className="text-xs text-[#00000099]">pim.ms</p>
       </div>
     </div>
   );

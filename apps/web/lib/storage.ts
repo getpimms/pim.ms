@@ -136,6 +136,7 @@ class StorageClient {
       response = await fetch(url);
     }
     if (!response.ok) {
+      console.error("Failed to fetch URL", response.statusText);
       throw new Error(`Failed to fetch URL: ${response.statusText}`);
     }
     const blob = await response.blob();
