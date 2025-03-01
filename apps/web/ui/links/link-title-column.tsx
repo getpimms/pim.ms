@@ -44,7 +44,7 @@ import { LinksDisplayContext } from "./links-display-provider";
 
 const quickViewSettings = [
   { label: "Conversion Tracking", icon: SquareChart, key: "trackConversion" },
-  { label: "Custom Link Preview", icon: Cards, key: "proxy" },
+  { label: "Force direct link on previews", icon: Cards, key: "proxy" },
   { label: "Link Cloaking", icon: Incognito, key: "rewrite" },
   { label: "Password Protection", icon: InputPassword, key: "password" },
   { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },

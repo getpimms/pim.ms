@@ -391,6 +391,16 @@ export const shallShowDirectPreview = (req: NextRequest): boolean => {
 };
 
 export const isNativeBrowser = (req: NextRequest): boolean => {
+  const userAgent = req.headers.get("user-agent") || "";
+
+  // First, check if the browser is an in-app browser.
+  const inAppRules = ["WebView", "Android.*(wv)"];
+  const inAppRegex = new RegExp(`(${inAppRules.join("|")})`, "ig");
+  if (Boolean(userAgent.match(inAppRegex))) {
+    return false;
+  }
+
+  // If not in-app, check if it is one of the native browsers.
   const listOfNativeBrowsers = [
     "chrome",
     "safari",
@@ -403,8 +413,6 @@ export const isNativeBrowser = (req: NextRequest): boolean => {
     "ucbrowser",
     "duckduckgo",
   ];
-
-  const userAgent = req.headers.get("user-agent") || "";
   return listOfNativeBrowsers.some((browser) =>
     userAgent.toLowerCase().includes(browser),
   );

@@ -188,12 +188,10 @@ export const PLANS: any[] = [
       monthly: 24,
       yearly: 19,
       ids: [
-        "price_1LodNLAlJJEpqkPVQSrt33Lc", // old monthly
-        "price_1LodNLAlJJEpqkPVRxUyCQgZ", // old yearly
-        "price_1OTcQBAlJJEpqkPViGtGEsbb", // new monthly (test)
-        "price_1OYJeBAlJJEpqkPVLjTsjX0E", // new monthly (prod)
-        "price_1OTcQBAlJJEpqkPVYlCMqdLL", // new yearly (test)
-        "price_1OYJeBAlJJEpqkPVnPGEZeb0", // new yearly (prod)
+        "price_1QxoOlBN5sOoOmBUWpZhqLua", // new monthly (test)
+        "price_1QxoMQBN5sOoOmBU7JByAg4s", // new monthly (prod)
+        "price_1QxoOyBN5sOoOmBUKEy5qXku", // new yearly (test)
+        "price_1QxoNcBN5sOoOmBUxsG7P0ZZ", // new yearly (prod)
       ],
     },
     limits: {
@@ -264,13 +262,10 @@ export const PLANS: any[] = [
     folders: 10,
     users: 15,
     ids: [
-      "price_1LodLoAlJJEpqkPV9rD0rlNL", // old monthly
-      "price_1LodLoAlJJEpqkPVJdwv5zrG", // oldest yearly
-      "price_1OZgmnAlJJEpqkPVOj4kV64R", // old yearly
-      "price_1OzNlmAlJJEpqkPV7s9HXNAC", // new monthly (test)
-      "price_1OzNmXAlJJEpqkPVYO89lTdx", // new yearly (test)
-      "price_1OzOFIAlJJEpqkPVJxzc9irl", // new monthly (prod)
-      "price_1OzOXMAlJJEpqkPV9ERrjjbw", // new yearly (prod)
+      "price_1QxoPiBN5sOoOmBUwajH8iug", // new monthly (test)
+      "price_1QxoQ7BN5sOoOmBUgyTo0MHA", // new yearly (test)
+      "price_1QxoQiBN5sOoOmBUBKeD5OCA", // new monthly (prod)
+      "price_1QxoQwBN5sOoOmBUjUL0V39C", // new yearly (prod)
     ],
   }),
   // BUSINESS_PLAN_MODIFIER({
