@@ -26,5 +26,5 @@ export default function DirectlinkPage({
     browser,
   });
   
-  return <DirectLinkRedirect directLink={directLink} url={url} os={os} />;
+  return <DirectLinkRedirect directLink={directLink} url={url} os={os} browser={browser} />;
 }

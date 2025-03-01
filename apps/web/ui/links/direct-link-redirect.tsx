@@ -2,15 +2,11 @@
 
 import { useEffect } from "react";
 
-export default function DirectLinkRedirect({ directLink, url, os }: { directLink: string | undefined; url: string; os: "ios" | "android" | undefined }) {
+export default function DirectLinkRedirect({ directLink, url, os, browser }: { directLink: string | undefined; url: string; os: "ios" | "android" | undefined; browser: string | undefined }) {
   useEffect(() => {
     if (!directLink) {
       return;
     }
-
-    // Attempt to open the YouTube app via the deep link.
-    // If this fails (i.e. if the app is not installed), fallback to the web URL.
-    // window.location.href = directLink;
 
     // After a short delay, force navigation to the YouTube web URL.
     const timer = setTimeout(() => {
