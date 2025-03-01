@@ -170,7 +170,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h3 className="text-lg font-medium">UTM Builder</h3>
-          <InfoTooltip
+          {/* <InfoTooltip
             content={
               <SimpleTooltipContent
                 title="Add UTM parameters to your short links for conversion tracking."
@@ -178,7 +178,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
                 href="https://dub.co/help/article/utm-builder"
               />
             }
-          />
+          /> */}
         </div>
         <div className="max-md:hidden">
           <Tooltip
@@ -234,7 +234,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
       )}
 
       <div className="mt-6 flex items-center justify-between gap-2">
-        <div>
+        {/* <div>
           <FormProvider {...form}>
             <UTMTemplatesCombo
               onLoad={(params) => {
@@ -249,7 +249,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
               }
             />
           </FormProvider>
-        </div>
+        </div> */}
         <div className="flex items-center gap-2">
           <Button
             type="button"
@@ -296,7 +296,7 @@ function UTMButton({
   return (
     <Button
       variant="secondary"
-      text="UTM"
+      text="UTM Builder"
       icon={
         <DiamondTurnRight
           className={cn("size-4", enabled && "text-blue-500")}

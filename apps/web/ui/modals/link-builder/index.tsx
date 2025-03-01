@@ -3,7 +3,6 @@
 import { mutatePrefix } from "@/lib/swr/mutate";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { ExpandedLinkProps } from "@/lib/types";
-import { FolderDropdown } from "@/ui/folders/folder-dropdown";
 import { DestinationUrlInput } from "@/ui/links/destination-url-input";
 import { ShortLinkInput } from "@/ui/links/short-link-input";
 import { useAvailableDomains } from "@/ui/links/use-available-domains";
@@ -12,10 +11,7 @@ import { UpgradeRequiredToast } from "@/ui/shared/upgrade-required-toast";
 import {
   ArrowTurnLeft,
   Button,
-  InfoTooltip,
-  LinkLogo,
   Modal,
-  SimpleTooltipContent,
   TooltipContent,
   useCopyToClipboard,
   useEnterSubmit,
@@ -23,15 +19,12 @@ import {
   useRouterStuff,
 } from "@dub/ui";
 import {
-  cn,
   constructURLFromUTMParams,
   DEFAULT_LINK_PROPS,
-  getApexDomain,
   getUrlWithoutUTMParams,
   isValidUrl,
   linkConstructor,
 } from "@dub/utils";
-import { ChevronRight } from "lucide-react";
 import { useParams, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 import {
@@ -54,20 +47,13 @@ import TextareaAutosize from "react-textarea-autosize";
 import { toast } from "sonner";
 import { mutate } from "swr";
 import { useDebounce } from "use-debounce";
-import { ConversionTrackingToggle } from "./conversion-tracking-toggle";
-import { DraftControls, DraftControlsHandle } from "./draft-controls";
+import { DraftControlsHandle } from "./draft-controls";
 import { useExpirationModal } from "./expiration-modal";
-import { LinkPreview } from "./link-preview";
-import { MoreDropdown } from "./more-dropdown";
-import { OptionsList } from "./options-list";
 import { usePasswordModal } from "./password-modal";
-import { QRCodePreview } from "./qr-code-preview";
-import { TagSelect } from "./tag-select";
 import { useTargetingModal } from "./targeting-modal";
 import { useMetatags } from "./use-metatags";
 import { useUTMModal } from "./utm-modal";
 import { UTMTemplatesButton } from "./utm-templates-button";
-import { WebhookSelect } from "./webhook-select";
 
 export const LinkModalContext = createContext<{
   workspaceId?: string;
@@ -225,10 +211,10 @@ function LinkBuilderInner({
 
   return (
     <>
-      <PasswordModal />
+      {/* <PasswordModal /> */}
       <UTMModal />
-      <TargetingModal />
-      <ExpirationModal />
+      {/* <TargetingModal />
+      <ExpirationModal /> */}
       <Modal
         showModal={showLinkBuilder}
         setShowModal={setShowLinkBuilder}
@@ -396,11 +382,11 @@ function LinkBuilderInner({
             </div>
 
             <div
-              // className={cn(
-              //   "grid w-full gap-y-6 max-md:overflow-auto md:grid-cols-[2fr_1fr]",
-              //   "max-md:max-h-[calc(100dvh-200px)] max-md:min-h-[min(510px,_calc(100dvh-200px))]",
-              //   "md:[&>div]:max-h-[calc(100dvh-200px)] md:[&>div]:min-h-[min(510px,_calc(100dvh-200px))]",
-              // )}
+            // className={cn(
+            //   "grid w-full gap-y-6 max-md:overflow-auto md:grid-cols-[2fr_1fr]",
+            //   "max-md:max-h-[calc(100dvh-200px)] max-md:min-h-[min(510px,_calc(100dvh-200px))]",
+            //   "md:[&>div]:max-h-[calc(100dvh-200px)] md:[&>div]:min-h-[min(510px,_calc(100dvh-200px))]",
+            // )}
             >
               <div className="scrollbar-hide px-6 md:overflow-auto">
                 <div className="flex min-h-full flex-col gap-6 py-4">
@@ -500,9 +486,11 @@ function LinkBuilderInner({
 
                   {/* <ConversionTrackingToggle /> */}
 
-                  <div className="flex grow flex-col justify-end">
+                  {/* <div className="flex grow flex-col justify-end">
                     <OptionsList />
-                  </div>
+                  </div> */}
+
+                  <UTMButton />
                 </div>
               </div>
               {/* <div className="scrollbar-hide px-6 md:overflow-auto md:pl-0 md:pr-4">
@@ -516,16 +504,15 @@ function LinkBuilderInner({
               </div> */}
             </div>
             <div className="flex items-center justify-between gap-2 border-t border-neutral-100 bg-neutral-50 p-4">
-              {/* <div className="flex min-w-0 items-center gap-2">
-                <UTMButton />
-                <div className="flex items-center gap-2 max-sm:hidden">
+              <div className="flex min-w-0 items-center gap-2">
+                {/* <div className="flex items-center gap-2 max-sm:hidden">
                   <ExpirationButton />
                   <TargetingButton />
                   <PasswordButton />
                 </div>
                 <WebhookSelect />
-                <MoreDropdown />
-              </div> */}
+                <MoreDropdown /> */}
+              </div>
               {homepageDemo ? (
                 <Button
                   disabledTooltip="This is a demo link. You can't edit it."

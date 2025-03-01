@@ -206,7 +206,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
             htmlFor={inputId}
             className="block text-sm font-medium text-neutral-700"
           >
-            Short Link
+            Direct link
           </label>
           {lockKey ? (
             <button
