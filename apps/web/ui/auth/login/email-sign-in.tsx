@@ -117,7 +117,7 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
             router.push(response?.url || redirectTo || "/workspaces");
           }
         }}
-        className="flex flex-col gap-y-3"
+        className="flex flex-col gap-y-6"
       >
         {authMethod === "email" && (
           <input
@@ -132,13 +132,14 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
             onChange={(e) => setEmail(e.target.value)}
             size={1}
             className={cn(
-              "block w-full min-w-0 appearance-none rounded-md border border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm",
+              "block w-full min-w-0 appearance-none rounded-xl border-2 border-neutral-200 text-black outline-none placeholder:text-neutral-400 sm:text-sm transition-all focus:border-neutral-500 focus:ring-0 h-10",
               {
                 "pr-10": isPending,
               },
             )}
           />
         )}
+
 
         {showPasswordField && (
           <div>

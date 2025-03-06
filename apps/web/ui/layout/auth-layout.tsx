@@ -23,7 +23,7 @@ interface AuthLayoutProps {
 export const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-5">
-      <div className="col-span-1 flex min-h-screen flex-col items-center justify-between border-r-4 border-[#E5E7EB] bg-white/10 sm:col-span-3 p-3">
+      <div className="col-span-1 flex min-h-screen flex-col items-center justify-between sm:col-span-3 p-3">
         <div className="flex h-full w-full flex-col items-center justify-center">
           <ClientOnly className="relative flex w-full flex-col items-center justify-center">
             <Suspense>{children}</Suspense>
@@ -53,8 +53,8 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
         </div>
       </div>
 
-      <div className="hidden h-full flex-col justify-center space-y-12 overflow-hidden md:col-span-2 md:flex shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur s">
-        <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-xl">
+      <div className="hidden h-full flex-col justify-center space-y-12 md:col-span-2 md:flex bg-white shadow-[inset_0_0_10px_0_rgba(0,0,0,0.1)]">
+        <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-md">
           <BlurImage
             alt="PIMMS Analytics"
             src="https://assets.pimms.io/dashboard.jpg"
