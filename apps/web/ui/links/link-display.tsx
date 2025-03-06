@@ -190,7 +190,7 @@ export default function LinkDisplay() {
             <div className="relative shrink-0">
               <Sliders className="h-4 w-4" />
               {isDirty && (
-                <div className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-blue-500">
+                <div className="absolute -right-0.5 -top-0.5 size-2 rounded-full bg-[#B3E4FF]">
                   <div className="h-full w-full animate-pulse rounded-full ring-2 ring-blue-500/40" />
                 </div>
               )}

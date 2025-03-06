@@ -44,7 +44,7 @@ import { LinksDisplayContext } from "./links-display-provider";
 
 const quickViewSettings = [
   { label: "Conversion Tracking", icon: SquareChart, key: "trackConversion" },
-  { label: "Custom Link Preview", icon: Cards, key: "proxy" },
+  { label: "Deep previews", icon: Cards, key: "proxy" },
   { label: "Link Cloaking", icon: Incognito, key: "rewrite" },
   { label: "Password Protection", icon: InputPassword, key: "password" },
   { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },
@@ -74,8 +74,8 @@ export function LinkTitleColumn({ link }: { link: ResponseLink }) {
         )}
       >
         {/* Link logo background circle */}
-        <div className="absolute inset-0 shrink-0 rounded-full border border-neutral-200 opacity-0 transition-opacity group-data-[variant=loose]/card-list:sm:opacity-100">
-          <div className="h-full w-full rounded-full border border-white bg-gradient-to-t from-neutral-100" />
+        <div className="absolute inset-0 shrink-0 rounded-md border border-neutral-200 opacity-0 transition-opacity group-data-[variant=loose]/card-list:sm:opacity-100">
+          <div className="h-full w-full rounded-md border border-white bg-gradient-to-t from-neutral-100" />
         </div>
         <div className="relative pr-0.5 transition-[padding] group-data-[variant=loose]/card-list:sm:p-2">
           {link.archived ? (

@@ -3,7 +3,6 @@
 import { mutatePrefix } from "@/lib/swr/mutate";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { ExpandedLinkProps } from "@/lib/types";
-import { FolderDropdown } from "@/ui/folders/folder-dropdown";
 import { DestinationUrlInput } from "@/ui/links/destination-url-input";
 import { ShortLinkInput } from "@/ui/links/short-link-input";
 import { useAvailableDomains } from "@/ui/links/use-available-domains";
@@ -12,10 +11,7 @@ import { UpgradeRequiredToast } from "@/ui/shared/upgrade-required-toast";
 import {
   ArrowTurnLeft,
   Button,
-  InfoTooltip,
-  LinkLogo,
   Modal,
-  SimpleTooltipContent,
   TooltipContent,
   useCopyToClipboard,
   useEnterSubmit,
@@ -23,15 +19,12 @@ import {
   useRouterStuff,
 } from "@dub/ui";
 import {
-  cn,
   constructURLFromUTMParams,
   DEFAULT_LINK_PROPS,
-  getApexDomain,
   getUrlWithoutUTMParams,
   isValidUrl,
   linkConstructor,
 } from "@dub/utils";
-import { ChevronRight } from "lucide-react";
 import { useParams, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 import {
@@ -54,20 +47,14 @@ import TextareaAutosize from "react-textarea-autosize";
 import { toast } from "sonner";
 import { mutate } from "swr";
 import { useDebounce } from "use-debounce";
-import { ConversionTrackingToggle } from "./conversion-tracking-toggle";
-import { DraftControls, DraftControlsHandle } from "./draft-controls";
+import { DraftControlsHandle } from "./draft-controls";
 import { useExpirationModal } from "./expiration-modal";
-import { LinkPreview } from "./link-preview";
-import { MoreDropdown } from "./more-dropdown";
-import { OptionsList } from "./options-list";
 import { usePasswordModal } from "./password-modal";
-import { QRCodePreview } from "./qr-code-preview";
-import { TagSelect } from "./tag-select";
 import { useTargetingModal } from "./targeting-modal";
 import { useMetatags } from "./use-metatags";
 import { useUTMModal } from "./utm-modal";
 import { UTMTemplatesButton } from "./utm-templates-button";
-import { WebhookSelect } from "./webhook-select";
+import { LinkPreview } from "./link-preview";
 
 export const LinkModalContext = createContext<{
   workspaceId?: string;
@@ -225,10 +212,10 @@ function LinkBuilderInner({
 
   return (
     <>
-      <PasswordModal />
+      {/* <PasswordModal /> */}
       <UTMModal />
-      <TargetingModal />
-      <ExpirationModal />
+      {/* <TargetingModal />
+      <ExpirationModal /> */}
       <Modal
         showModal={showLinkBuilder}
         setShowModal={setShowLinkBuilder}
@@ -343,7 +330,7 @@ function LinkBuilderInner({
               }
             })}
           >
-            <div className="flex items-center justify-between px-6 py-4">
+            <div className="flex items-center justify-between px-6 py-1 sm:py-4">
               <div className="flex items-center gap-2">
                 {/* {flags?.linkFolders && (
                   <>
@@ -396,11 +383,11 @@ function LinkBuilderInner({
             </div>
 
             <div
-              // className={cn(
-              //   "grid w-full gap-y-6 max-md:overflow-auto md:grid-cols-[2fr_1fr]",
-              //   "max-md:max-h-[calc(100dvh-200px)] max-md:min-h-[min(510px,_calc(100dvh-200px))]",
-              //   "md:[&>div]:max-h-[calc(100dvh-200px)] md:[&>div]:min-h-[min(510px,_calc(100dvh-200px))]",
-              // )}
+            // className={cn(
+            //   "grid w-full gap-y-6 max-md:overflow-auto md:grid-cols-[2fr_1fr]",
+            //   "max-md:max-h-[calc(100dvh-200px)] max-md:min-h-[min(510px,_calc(100dvh-200px))]",
+            //   "md:[&>div]:max-h-[calc(100dvh-200px)] md:[&>div]:min-h-[min(510px,_calc(100dvh-200px))]",
+            // )}
             >
               <div className="scrollbar-hide px-6 md:overflow-auto">
                 <div className="flex min-h-full flex-col gap-6 py-4">
@@ -487,8 +474,8 @@ function LinkBuilderInner({
                         <TextareaAutosize
                           id="comments"
                           name="comments"
-                          minRows={3}
-                          className="mt-2 block w-full border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 sm:text-sm"
+                          minRows={1}
+                          className="mt-2 block w-full border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 sm:text-sm rounded-xl"
                           placeholder="Add comments"
                           value={field.value ?? ""}
                           onChange={(e) => field.onChange(e.target.value)}
@@ -500,24 +487,25 @@ function LinkBuilderInner({
 
                   {/* <ConversionTrackingToggle /> */}
 
-                  <div className="flex grow flex-col justify-end">
+                  {/* <div className="flex grow flex-col justify-end">
                     <OptionsList />
-                  </div>
+                  </div> */}
+
+                  <UTMButton />
                 </div>
               </div>
-              {/* <div className="scrollbar-hide px-6 md:overflow-auto md:pl-0 md:pr-4">
+              <div className="scrollbar-hide px-6 md:overflow-auto">
                 <div className="relative">
-                  <div className="absolute inset-0 border border-neutral-200 bg-neutral-50 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
-                  <div className="relative flex flex-col gap-6 p-4">
-                    <QRCodePreview />
+                  {/* <div className="absolute inset-0 border border-neutral-200 bg-neutral-50 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div> */}
+                  <div className="relative flex flex-col gap-6">
+                    {/* <QRCodePreview /> */}
                     <LinkPreview />
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
-            <div className="flex items-center justify-between gap-2 border-t border-neutral-100 bg-neutral-50 p-4">
+            <div className="flex items-center justify-between gap-2 border-t border-neutral-100 bg-neutral-50 px-6 py-4">
               {/* <div className="flex min-w-0 items-center gap-2">
-                <UTMButton />
                 <div className="flex items-center gap-2 max-sm:hidden">
                   <ExpirationButton />
                   <TargetingButton />
@@ -535,7 +523,7 @@ function LinkBuilderInner({
               ) : (
                 <Button
                   type="submit"
-                  disabled={saveDisabled}
+                  disabled={saveDisabled || generatingMetatags}
                   loading={isSubmitting || isSubmitSuccessful}
                   text={
                     <span className="flex items-center gap-2">
@@ -545,7 +533,7 @@ function LinkBuilderInner({
                       </div>
                     </span>
                   }
-                  className="h-8 w-full pl-2.5 pr-1.5"
+                  className="h-8 w-full"
                 />
               )}
             </div>

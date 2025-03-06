@@ -11,7 +11,7 @@ export const metadata = constructMetadata({
 export default function LoginPage() {
   return (
     <AuthLayout>
-      <div className="w-full max-w-md overflow-hidden border-4 border-[#D4F0FE] sm:rounded-2xl">
+      <div className="w-full max-w-md overflow-hidden border-[8px] sm:rounded-2xl">
         <div className="bg-white pb-6 pt-8 text-center">
           <h3 className="text-lg font-semibold">Sign in to your Pimms account</h3>
         </div>

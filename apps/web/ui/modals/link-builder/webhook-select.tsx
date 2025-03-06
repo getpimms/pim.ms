@@ -48,7 +48,7 @@ export function WebhookSelect() {
         <Webhook
           className={cn(
             "size-3.5 flex-none",
-            hasSelectedWebhooks && "text-blue-500",
+            hasSelectedWebhooks && "text-[#08272E]",
           )}
         />
       }

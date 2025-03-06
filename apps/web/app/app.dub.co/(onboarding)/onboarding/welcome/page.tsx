@@ -23,10 +23,10 @@ export default function Welcome() {
           <Wordmark className="relative h-16" />
         </div>
         <h1 className="animate-slide-up-fade mt-10 text-2xl font-medium [--offset:10px] [animation-delay:250ms] [animation-duration:1s] [animation-fill-mode:both]">
-          Welcome to Pimms
+          Welcome to PIMMS
         </h1>
         <p className="animate-slide-up-fade mt-2 text-neutral-500 [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
-          Direct links that generate 5x more subscribers on your social media.
+          Supercharge your marketing with pim.ms deep links
         </p>
         <div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-delay:750ms] [animation-duration:1s] [animation-fill-mode:both]">
           <NextButton text="Get started" step="workspace" />

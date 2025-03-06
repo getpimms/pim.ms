@@ -222,9 +222,6 @@ const config: Config = {
     },
   },
   plugins: [forms, typography, scrollbarHide, radix],
-  corePlugins: {
-    borderRadius: false, // Disables ALL `rounded-*` utilities
-  },
 };
 
 export default config;

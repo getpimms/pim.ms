@@ -8,6 +8,8 @@ import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRegisterContext } from "./context";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 type SignUpProps = z.infer<typeof signUpSchema>;
 
@@ -18,6 +20,7 @@ export const SignUpEmail = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     getValues,
   } = useForm<SignUpProps>();
 
@@ -35,6 +38,15 @@ export const SignUpEmail = () => {
       );
     },
   });
+
+  // get email from url
+  const email = useSearchParams().get("email");
+  useEffect(() => {
+    if (email) {
+      // set email in form
+      setValue("email", email);
+    }
+  }, [email, setValue]);
 
   return (
     <form onSubmit={handleSubmit(async (data) => await executeAsync(data))}>

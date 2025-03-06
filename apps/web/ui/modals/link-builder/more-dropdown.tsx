@@ -129,7 +129,7 @@ export function MoreDropdown() {
                     <Settings
                       className={cn(
                         "mr-1 size-4 text-neutral-950",
-                        data.externalId && "text-blue-500",
+                        data.externalId && "text-[#08272E]",
                       )}
                     />
                     Advanced Settings

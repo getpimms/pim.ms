@@ -72,7 +72,7 @@ export function MainNav({
         {/* Side nav */}
         <div
           className={cn(
-            "relative h-full w-[240px] max-w-full bg-neutral-100 transition-transform md:translate-x-0",
+            "relative h-full w-[240px] max-w-full bg-[#ecf8fe] transition-transform md:translate-x-0",
             !isOpen && "-translate-x-full",
           )}
         >
@@ -87,8 +87,8 @@ export function MainNav({
           <Sidebar toolContent={toolContent} newsContent={newsContent} />
         </div>
       </div>
-      <div className="bg-neutral-100 md:pt-1.5">
-        <div className="relative min-h-full bg-neutral-100 pt-px md:rounded-tl-2xl md:border-4 md:border-b-0 md:border-r-0 md:border-[#D4F0FE] md:bg-white">
+      <div className="bg-[#ecf8fe] md:pt-1.5">
+        <div className="relative min-h-full bg-[#ecf8fe] pt-px md:rounded-tl-3xl md:border-[8px] md:border-b-0 md:border-r-0 md:border-[#D4F0FE] md:bg-white">
           <SideNavContext.Provider value={{ isOpen, setIsOpen }}>
             {children}
           </SideNavContext.Provider>

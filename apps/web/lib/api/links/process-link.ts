@@ -121,7 +121,7 @@ export async function processLink<T extends Record<string, any>>({
     }
 
     if (
-      proxy ||
+      // proxy ||
       password ||
       rewrite ||
       expiresAt ||
@@ -132,7 +132,7 @@ export async function processLink<T extends Record<string, any>>({
     ) {
       const proFeaturesString = combineWords(
         [
-          proxy && "custom social media cards",
+          // proxy && "custom social media cards",
           password && "password protection",
           rewrite && "link cloaking",
           expiresAt && "link expiration",

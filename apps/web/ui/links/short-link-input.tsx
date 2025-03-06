@@ -206,7 +206,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
             htmlFor={inputId}
             className="block text-sm font-medium text-neutral-700"
           >
-            Short Link
+            Deep link
           </label>
           {lockKey ? (
             <button
@@ -262,7 +262,7 @@ export const ShortLinkInput = forwardRef<HTMLInputElement, ShortLinkInputProps>(
             </div>
           )}
         </div>
-        <div className="relative mt-1 flex rounded-md shadow-sm">
+        <div className="relative mt-1 flex rounded-xl shadow-sm">
           <div className="z-[1]">
             <DomainCombobox
               domain={domain}
@@ -510,7 +510,7 @@ function DomainCombobox({
       shortcutHint="D"
       buttonProps={{
         className: cn(
-          "w-32 sm:w-40 h-full rounded-r-none border-r-transparent justify-start px-2.5",
+          "w-32 sm:w-40 h-full rounded-l-xl rounded-r-none border-r-transparent justify-start px-2.5",
           "data-[state=open]:ring-1 data-[state=open]:ring-neutral-500 data-[state=open]:border-neutral-500",
           "focus:ring-1 focus:ring-neutral-500 focus:border-neutral-500 transition-none",
         ),

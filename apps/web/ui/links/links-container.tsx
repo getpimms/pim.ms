@@ -40,7 +40,7 @@ export default function LinksContainer({
   const { data: count } = useLinksCount<number>({ showArchived });
 
   return (
-    <MaxWidthWrapper className="grid gap-y-2">
+    <MaxWidthWrapper className="max-w-full grid gap-y-2 px-0 lg:px-0">
       <LinksList
         CreateLinkButton={CreateLinkButton}
         links={links}
@@ -151,7 +151,7 @@ function LinksList({
                 "max-[1330px]:left-0 max-[1330px]:translate-x-0",
               )}
             >
-              <div className="rounded-xl border border-neutral-200 bg-white px-4 py-3.5 [filter:drop-shadow(0_5px_8px_#222A351d)]">
+              <div className="rounded-xl border-2 border-neutral-200 ring-[6px] ring-neutral-100 bg-white px-4 py-3.5">
                 <PaginationControls
                   pagination={pagination}
                   setPagination={setPagination}

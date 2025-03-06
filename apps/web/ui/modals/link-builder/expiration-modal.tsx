@@ -293,7 +293,7 @@ function ExpirationButton({
       text={getExpirationLabel({ expiresAt })}
       icon={
         <CircleHalfDottedClock
-          className={cn("size-4", expiresAt && "text-blue-500")}
+          className={cn("size-4", expiresAt && "text-[#08272E]")}
         />
       }
       className="h-9 w-fit px-2.5 font-medium text-neutral-700"

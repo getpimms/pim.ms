@@ -18,7 +18,7 @@ const cardListCardVariants = cva(
         compact:
           "first-of-type:rounded-t-xl last-of-type:rounded-b-xl first-of-type:border-t border-b border-x data-[hover-state-enabled=true]:hover:bg-neutral-50 transition-colors",
         loose:
-          "border rounded-xl transition-[filter] data-[hover-state-enabled=true]:hover:drop-shadow-card-hover",
+          "border-[6px] border-x-0 border-b-0 border-neutral-100 transition-[filter] data-[hover-state-enabled=true]:hover:drop-shadow-card-hover",
       },
     },
   },

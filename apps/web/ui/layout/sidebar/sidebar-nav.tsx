@@ -85,7 +85,7 @@ export function SidebarNav<T extends Record<any, any>>({
                     {title}
                   </div>
                 ) : (
-                  <NavWordmark className="h-6" isInApp />
+                  <NavWordmark className="h-3.5" isInApp />
                 )}
               </Link>
             );
@@ -180,14 +180,14 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
           "outline-none focus-visible:ring-2 focus-visible:ring-black/50",
           isActive &&
             !items &&
-            "bg-blue-100/50 font-medium text-blue-600 hover:bg-blue-100/80 active:bg-blue-100",
+            "bg-[#B3E4FF] font-medium text-[#08272E] hover:bg-[#B3E4FF]/50 active:bg-[#B3E4FF]/80",
         )}
       >
         {Icon && (
           <Icon
             className={cn(
               "size-4 text-neutral-500 transition-colors duration-75",
-              !items && "group-data-[active=true]:text-blue-600",
+              !items && "group-data-[active=true]:text-[#08272E]",
             )}
             data-hovered={hovered}
           />

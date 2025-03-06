@@ -452,7 +452,7 @@ function TargetingButton({
       variant="secondary"
       text={label}
       icon={
-        <Crosshairs3 className={cn("size-4", enabled && "text-blue-500")} />
+        <Crosshairs3 className={cn("size-4", enabled && "text-[#08272E]")} />
       }
       className="h-9 w-fit px-2.5 font-medium text-neutral-700"
       onClick={() => setShowTargetingModal(true)}

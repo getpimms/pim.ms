@@ -52,7 +52,7 @@ export function OptionsList() {
                   "enabled" in item &&
                   typeof item.enabled === "function" &&
                   item.enabled(data) && {
-                    icon: <item.icon className="size-3.5 text-blue-500" />,
+                    icon: <item.icon className="size-3.5 text-[#08272E]" />,
                   })}
                 onRemove={() =>
                   "remove" in item && typeof item.remove === "function"

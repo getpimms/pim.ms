@@ -1,6 +1,6 @@
 import { cn } from "@dub/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, forwardRef, useState } from "react";
 import { LoadingSpinner } from "./icons";
 import { Tooltip } from "./tooltip";
 
@@ -8,14 +8,14 @@ export const buttonVariants = cva("transition-all", {
   variants: {
     variant: {
       primary:
-        "bg-[#DC2E65] border-none text-white font-semibold hover:ring-4 hover:ring-[#F0A8BF]",
+        "bg-[#DC2E65] border-none text-white font-semibold ring-[6px] ring-[#FFEAF1] text-lg transition duration-500 rounded-xl",
       secondary: cn(
         "border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:border-neutral-500 outline-none",
         "data-[state=open]:border-neutral-500 data-[state=open]:ring-4 data-[state=open]:ring-neutral-200",
       ),
       outline: "border-transparent text-neutral-600 hover:bg-neutral-100",
       success:
-        "border-blue-500 bg-blue-500 text-white hover:bg-blue-600 hover:ring-4 hover:ring-blue-100",
+        "border-blue-500 bg-[#B3E4FF] text-white hover:bg-blue-600 hover:ring-4 hover:ring-blue-100",
       danger:
         "border-red-500 bg-red-500 text-white hover:bg-red-600 hover:ring-4 hover:ring-red-100",
       "danger-outline":
@@ -113,20 +113,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading ? <LoadingSpinner /> : icon ? icon : null}
         {text && (
-          <div
-            className={cn(
-              "min-w-0 truncate",
-              shortcut && "flex-1 text-left",
-              textWrapperClassName,
-            )}
-          >
-            {text}
-          </div>
+              <div
+                className={cn(
+                  "min-w-0 truncate",
+                  shortcut && "flex-1 text-left",
+                  textWrapperClassName,
+                )}
+              >
+                {text}
+              </div>
         )}
         {shortcut && (
           <kbd
             className={cn(
-              "hidden px-2 py-0.5 text-xs font-light transition-all duration-75 md:inline-block",
+              "rounded-md hidden px-2 py-0.5 text-xs font-light transition-all duration-75 md:inline-block",
               {
                 "bg-[#F0A8BF] text-black":
                   variant === "primary",

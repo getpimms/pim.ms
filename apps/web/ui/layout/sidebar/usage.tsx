@@ -80,7 +80,7 @@ function UsageInner() {
   return loading || usage !== undefined ? (
     <>
       <AnimatedSizeContainer height>
-        <div className="border-t border-neutral-300/80 p-3">
+        <div className="p-3">
           <Link
             className="group flex items-center gap-0.5 text-sm font-normal text-neutral-500 transition-colors hover:text-neutral-700"
             href={`/${slug}/settings/billing`}
@@ -279,7 +279,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
           <div className="mt-1.5">
             <div
               className={cn(
-                "h-0.5 w-full overflow-hidden rounded-full bg-neutral-900/10 transition-colors",
+                "h-[6px] w-full overflow-hidden rounded-full bg-neutral-900/10 transition-colors",
                 loading && "bg-neutral-900/5",
               )}
             >
@@ -290,7 +290,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
                 >
                   <div
                     className={cn(
-                      "size-full rounded-full bg-gradient-to-r from-transparent to-blue-600",
+                      "size-full rounded-full bg-gradient-to-r from-transparent to-[#08272E]",
                       warning && "to-rose-500",
                     )}
                     style={{

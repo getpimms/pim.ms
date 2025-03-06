@@ -149,7 +149,7 @@ function WorkspaceLinks() {
                 <LinkDisplay />
               </div>
             </div> */}
-            <div className="flex gap-x-2 max-md:w-full">
+            <div className="flex gap-x-6 max-md:w-full">
               <div className="w-full md:w-56 lg:w-64">
                 <SearchBoxPersisted
                   loading={isValidating}

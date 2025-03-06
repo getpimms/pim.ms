@@ -362,7 +362,7 @@ function OGModalInner({
                   </ButtonTooltip>
                 </div>
               </div>
-              <div className="relative mt-1 flex rounded-md shadow-sm">
+              <div className="relative mt-1 flex rounded-xl shadow-sm">
                 {generatingMetatags && (
                   <div className="absolute flex h-full w-full items-center justify-center rounded-md border border-neutral-300 bg-white">
                     <LoadingCircle />
@@ -418,7 +418,7 @@ function OGModalInner({
                   </ButtonTooltip>
                 </div>
               </div>
-              <div className="relative mt-1 flex rounded-md shadow-sm">
+              <div className="relative mt-1 flex rounded-xl shadow-sm">
                 {generatingMetatags && (
                   <div className="absolute flex h-full w-full items-center justify-center rounded-md border border-neutral-300 bg-white">
                     <LoadingCircle />

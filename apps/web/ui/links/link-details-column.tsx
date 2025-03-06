@@ -149,7 +149,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
         id: "clicks",
         icon: CursorRays,
         value: clicks,
-        iconClassName: "data-[active=true]:text-blue-500",
+        iconClassName: "data-[active=true]:text-[#08272E]",
       },
       // show leads and sales if:
       // 1. link has trackConversion enabled

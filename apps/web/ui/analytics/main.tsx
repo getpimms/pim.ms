@@ -42,7 +42,7 @@ export default function Main() {
         {
           id: "clicks",
           label: "Clicks",
-          colorClassName: "text-blue-500/50",
+          colorClassName: "text-[#08272E]/50",
           conversions: false,
         },
         ...(showConversions

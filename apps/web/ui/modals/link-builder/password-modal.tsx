@@ -236,7 +236,7 @@ function PasswordButton({
       variant="secondary"
       text={getPasswordLabel({ password })}
       icon={
-        <InputPassword className={cn("size-4", password && "text-blue-500")} />
+        <InputPassword className={cn("size-4", password && "text-[#08272E]")} />
       }
       className="h-9 w-fit px-2.5 font-medium text-neutral-700"
       onClick={() => setShowPasswordModal(true)}
