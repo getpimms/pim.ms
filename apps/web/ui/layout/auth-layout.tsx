@@ -32,7 +32,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
 
         <div className="grid gap-2 pb-8 pt-4">
           <p className="text-xs text-neutral-600">
-            © {new Date().getFullYear()} Pimms.
+            © {new Date().getFullYear()} PIMMS.
           </p>
           {/* <div className="flex gap-3 text-center text-xs text-neutral-500 underline underline-offset-2">
             <a
@@ -56,7 +56,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
       <div className="hidden h-full flex-col justify-center space-y-12 overflow-hidden md:col-span-2 md:flex shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur s">
         <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-xl">
           <BlurImage
-            alt="Pimms Analytics"
+            alt="PIMMS Analytics"
             src="https://assets.pimms.io/dashboard.jpg"
             width={2400}
             height={1260}

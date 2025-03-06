@@ -22,7 +22,7 @@ function SignUp() {
     <>
       <div className="w-full max-w-md overflow-hidden border-[8px] sm:rounded-2xl sm:shadow-sm">
         <div className="bg-white pb-6 pt-8 text-center">
-          <h3 className="text-lg font-semibold">Get started with Pimms</h3>
+          <h3 className="text-lg font-semibold">Get started with PIMMS</h3>
         </div>
         <div className="bg-neutral-50 px-4 py-8 sm:px-16">
           <SignUpForm />

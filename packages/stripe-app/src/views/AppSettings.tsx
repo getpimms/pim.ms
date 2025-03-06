@@ -156,7 +156,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
         />
       ) : (
         <SignInView
-          description="Connect your Pimms workspace with Stripe to start tracking the conversions."
+          description="Connect your PIMMS workspace with Stripe to start tracking the conversions."
           primaryAction={{
             label: connecting
               ? "Connecting please wait..."
@@ -167,7 +167,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
           }}
           footerContent={
             <>
-              Don&apos;t have an Pimms account?{" "}
+              Don&apos;t have an PIMMS account?{" "}
               <Link
                 href="https://app.pimms.io/register"
                 target="_blank"

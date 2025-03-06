@@ -38,26 +38,26 @@ export function ClicksExceeded({
     <Html>
       <Head />
       <Preview>
-        Your Pimms workspace, {name || ""} has exceeded the{" "}
+        Your PIMMS workspace, {name || ""} has exceeded the{" "}
         {capitalize(plan) || ""} Plan limit of {nFormatter(usageLimit)} link
         clicks/month.
       </Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
+          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border border-solid border-neutral-200 px-10 py-5">
             <Section className="mt-8">
               <Img
                 src={DUB_WORDMARK}
-                height="40"
-                alt="Pimms"
-                className="mx-auto my-0"
+                height="20"
+                alt="PIMMS"
+                className="my-0"
               />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
               Clicks Limit Exceeded
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              Your Pimms workspace,{" "}
+              Your PIMMS workspace,{" "}
               <Link
                 href={`https://app.pimms.io/${slug}`}
                 className="text-black underline"
@@ -74,18 +74,11 @@ export function ClicksExceeded({
             </Text>
             <Text className="text-sm leading-6 text-black">
               All your existing links will continue to work, and we are still
-              collecting data on them, but you'll need to upgrade to the{" "}
-              <Link
-                href={nextPlan.link}
-                className="font-medium text-blue-600 no-underline"
-              >
-                {nextPlan.name} plan
-              </Link>{" "}
-              to view their stats.
+              collecting data on them.
             </Text>
             <Section className="my-8 text-center">
               <Link
-                className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${slug}/upgrade`}
               >
                 Upgrade my plan

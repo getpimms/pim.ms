@@ -16,12 +16,12 @@ const notifications: {
   title: string;
   description: string;
 }[] = [
-  {
-    type: "domainConfigurationUpdates",
-    icon: Globe,
-    title: "Domain configuration updates",
-    description: "Updates to your custom domain configuration.",
-  },
+  // {
+  //   type: "domainConfigurationUpdates",
+  //   icon: Globe,
+  //   title: "Domain configuration updates",
+  //   description: "Updates to your custom domain configuration.",
+  // },
   {
     type: "linkUsageSummary",
     icon: Hyperlink,

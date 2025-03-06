@@ -142,11 +142,11 @@ const NAV_AREAS: SidebarNavAreas<{
           //   icon: Books2,
           //   href: `/${slug}/settings/library`,
           // },
-          // {
-          //   name: "People",
-          //   icon: Users6,
-          //   href: `/${slug}/settings/people`,
-          // },
+          {
+            name: "People",
+            icon: Users6,
+            href: `/${slug}/settings/people`,
+          },
           // {
           //   name: "Integrations",
           //   icon: ConnectedDots,
@@ -184,16 +184,16 @@ const NAV_AREAS: SidebarNavAreas<{
       //     },
       //   ],
       // },
-      // {
-      //   name: "Account",
-      //   items: [
-      //     {
-      //       name: "Notifications",
-      //       icon: CircleInfo,
-      //       href: `/${slug}/settings/notifications`,
-      //     },
-      //   ],
-      // },
+      {
+        name: "Account",
+        items: [
+          {
+            name: "Notifications",
+            icon: CircleInfo,
+            href: `/${slug}/settings/notifications`,
+          },
+        ],
+      },
     ],
   }),
 

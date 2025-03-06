@@ -79,7 +79,7 @@ function OnboardingButtonInner({
               <div>
                 <span className="text-base font-medium">Getting Started</span>
                 <p className="mt-1 text-sm text-neutral-300">
-                  Get familiar with Pimms by completing the{" "}
+                  Get familiar with PIMMS by completing the{" "}
                   <br className="hidden sm:block" />
                   following tasks
                 </p>

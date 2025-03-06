@@ -29,21 +29,21 @@ export function DomainDeleted({
       <Preview>Domain Deleted</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
+          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border border-solid border-neutral-200 px-10 py-5">
             <Section className="mt-8">
               <Img
                 src={DUB_WORDMARK}
-                height="40"
-                alt="Pimms"
-                className="mx-auto my-0"
+                height="20"
+                alt="PIMMS"
+                className="my-0"
               />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
               Domain Deleted
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Your domain <code className="text-purple-600">{domain}</code> for
-              your Dub.co workspace{" "}
+              your PIMMS workspace{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
@@ -51,22 +51,22 @@ export function DomainDeleted({
                 {workspaceSlug}↗
               </Link>{" "}
               has been invalid for 30 days. As a result, it has been deleted
-              from Pimms.
+              from PIMMS.
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you would like to restore the domain, you can easily create it
-              again on Pimms with the link below.
+              again on PIMMS with the link below.
             </Text>
             <Section className="my-8 text-center">
               <Link
-                className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
               >
                 Add a domain
               </Link>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you did not want to keep using this domain on Pimms anyway, you
+              If you did not want to keep using this domain on PIMMS anyway, you
               can simply ignore this email.
             </Text>
             <Footer email={email} />

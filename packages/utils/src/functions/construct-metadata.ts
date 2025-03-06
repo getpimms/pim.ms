@@ -4,7 +4,7 @@ import { HOME_DOMAIN } from "../constants";
 export function constructMetadata({
   title,
   fullTitle,
-  description = "Pimms",
+  description = "PIMMS",
   image = "https://assets.pimms.io/thumbnail.jpg",
   video,
   icons = [
@@ -69,7 +69,7 @@ export function constructMetadata({
     title:
       fullTitle ||
       (title
-        ? `${title} | Pimms`
+        ? `${title} | PIMMS`
         : "PIMMS | Deep links that boost your conversions on social media"),
     description,
     openGraph: {

@@ -103,7 +103,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
         sendEmail({
           email: user.email as string,
           replyTo: "alexandre@pimms.io",
-          subject: `Thank you for upgrading to Pimms ${plan.name}!`,
+          subject: `Thank you for upgrading to PIMMS ${plan.name}!`,
           react: UpgradeEmail({
             name: user.name,
             email: user.email as string,

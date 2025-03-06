@@ -169,7 +169,7 @@ function UsageInner() {
                 setHovered(false);
               }}
             >
-              {plan === "free" ? "Get Pimms Pro" : "Upgrade plan"}
+              {plan === "free" ? "Get PIMMS Pro" : "Upgrade plan"}
             </Link>
           ) : null}
         </div>

@@ -24,7 +24,7 @@ export function Footer({
           </Link>
         </Text>
         <Text className="text-[12px] text-neutral-500">
-          Pimms.
+          PIMMS.
           <br />
           Chemin de Louis-Hubert 2
           <br />
@@ -56,7 +56,7 @@ export function Footer({
         </Text>
       )}
       <Text className="text-[12px] text-neutral-500">
-        Pimms.
+        PIMMS.
         <br />
         Chemin de Louis-Hubert 2
         <br />

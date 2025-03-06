@@ -40,7 +40,7 @@ module.exports = withAxiom({
         hostname: "assets.dub.co", // for Dub's static assets
       },
       {
-        hostname: "assets.pimms.io", // for Pimms's static assets
+        hostname: "assets.pimms.io", // for PIMMS's static assets
       },
       {
         hostname: "www.google.com",

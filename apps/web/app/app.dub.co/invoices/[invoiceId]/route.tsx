@@ -155,7 +155,7 @@ export const GET = withSession(async ({ session, params }) => {
     {
       title: "From",
       address: {
-        name: "Pimms.",
+        name: "PIMMS.",
         line1: "Chemin de Louis-Hubert 2",
         city: "Petit Lancy",
         state: "CH",

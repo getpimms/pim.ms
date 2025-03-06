@@ -71,7 +71,7 @@ export async function invoicePaymentFailed(event: Stripe.Event) {
             : attemptCount == 3
               ? "3rd notice: "
               : ""
-        }Your payment for Pimms failed`,
+        }Your payment for PIMMS failed`,
         react: (
           <FailedPayment
             attemptCount={attemptCount}

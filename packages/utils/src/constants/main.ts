@@ -1,4 +1,4 @@
-export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Pimms";
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "PIMMS";
 
 export const SHORT_DOMAIN =
   process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN || "pim.ms";
@@ -60,7 +60,7 @@ export const PARTNERS_HOSTNAMES = new Set([
 
 export const DUB_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_QR_LOGO = "https://assets.pimms.io/logo.png";
-export const DUB_WORDMARK = "https://assets.pimms.io/wordmark.png";
+export const DUB_WORDMARK = "https://assets.pimms.io/wordmark-black.png";
 export const DUB_THUMBNAIL = "https://assets.pimms.io/thumbnail.jpg";
 
 export const DUB_WORKSPACE_ID = "cl7pj5kq4006835rbjlt2ofka";

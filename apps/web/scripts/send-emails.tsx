@@ -9,7 +9,7 @@ const user = {
   email: "alexandre.sarfati@gmail.com",
 };
 const workspace = {
-  name: "Pimms",
+  name: "PIMMS",
   slug: "pimms",
 };
 
@@ -23,7 +23,7 @@ async function main() {
         : attemptCount == 3
           ? "3rd notice: "
           : ""
-    }Your payment for Pimms failed`,
+    }Your payment for PIMMS failed`,
     react: (
       <FailedPayment
         attemptCount={attemptCount}

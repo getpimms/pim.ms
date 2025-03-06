@@ -13,7 +13,7 @@ export default function LoginPage() {
     <AuthLayout>
       <div className="w-full max-w-md overflow-hidden border-[8px] sm:rounded-2xl">
         <div className="bg-white pb-6 pt-8 text-center">
-          <h3 className="text-lg font-semibold">Sign in to your Pimms account</h3>
+          <h3 className="text-lg font-semibold">Sign in to your PIMMS account</h3>
         </div>
         <div className="bg-neutral-50 px-4 py-8 sm:px-16">
           <LoginForm />

@@ -28,7 +28,7 @@ export function FailedPayment({
 }) {
   const title = `${
     attemptCount == 2 ? "2nd notice: " : attemptCount == 3 ? "3rd notice: " : ""
-  }Your payment for Pimms failed`;
+  }Your payment for PIMMS failed`;
 
   return (
     <Html>
@@ -36,18 +36,18 @@ export function FailedPayment({
       <Preview>{title}</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
+          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border border-solid border-neutral-200 px-10 py-5">
             <Section className="mt-8">
               <Img
                 src={DUB_WORDMARK}
-                height="40"
-                alt="Pimms"
-                className="mx-auto my-0"
+                height="20"
+                alt="PIMMS"
+                className="my-0"
               />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
               {attemptCount == 2 ? "2nd " : attemptCount == 3 ? "3rd  " : ""}
-              Failed Payment for Pimms
+              Failed Payment for PIMMS
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Hey{user.name ? `, ${user.name}` : ""}!
@@ -55,13 +55,13 @@ export function FailedPayment({
             <Text className="text-sm leading-6 text-black">
               Your payment of{" "}
               <code className="text-purple-600">${amountDue / 100}</code> for
-              your Pimms workspace{" "}
+              your PIMMS workspace{" "}
               <code className="text-purple-600">{workspace.name}</code> has
               failed. Please update your payment information using the link below:
             </Text>
             <Section className="my-8 text-center">
               <Link
-                className="rounded-full bg-black px-6 py-3 text-center text-[12px] font-semibold text-white no-underline"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${workspace.slug}/settings/billing`}
               >
                 Update payment information

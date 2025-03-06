@@ -33,8 +33,8 @@ export const sendEmailViaResend = async ({
     from:
       from ||
       (marketing
-        ? "Alexandre from Pimms <alexandre@pimms.io>"
-        : "Pimms <system@pimms.io>"),
+        ? "Alexandre from PIMMS <alexandre@pimms.io>"
+        : "PIMMS <system@pimms.io>"),
     bcc: bcc,
     replyTo,
     subject,

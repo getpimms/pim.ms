@@ -24,19 +24,19 @@ export function WelcomeEmail({
   return (
     <Html>
       <Head />
-      <Preview>Welcome to Pimms</Preview>
+      <Preview>Welcome to PIMMS</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-neutral-200 px-10 py-5">
+          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border border-solid border-neutral-200 px-10 py-5">
             <Section className="mt-8">
               <Img
                 src={DUB_WORDMARK}
-                height="40"
+                height="20"
                 alt="PIMMS"
-                className="mx-auto my-0"
+                className="my-0"
               />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
               Welcome to PIMMS
             </Heading>
             <Section className="my-8">
@@ -70,7 +70,7 @@ export function WelcomeEmail({
               happy to help!
             </Text>
             <Text className="text-sm font-light leading-6 text-neutral-400">
-              Alexandre from Pimms
+              Alexandre from PIMMS
             </Text>
 
             <Footer email={email} marketing />

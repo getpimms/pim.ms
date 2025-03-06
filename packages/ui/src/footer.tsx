@@ -266,7 +266,7 @@ export function Footer({
             />
           </Link> */}
           <p className="text-xs text-neutral-500 sm:text-center">
-            © {new Date().getFullYear()} Pimms.
+            © {new Date().getFullYear()} PIMMS.
           </p>
         {/* </div> */}
       </footer>
