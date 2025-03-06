@@ -87,14 +87,14 @@ const appLinks: AppLink[] = [
   {
     appName: "amazon",
     domains: [flex("amazon"), flex("amzn")],
-    protocol: "com.amazon.mobile.shopping",
+    protocol: "com.amazon.mobile.shopping.web",
     android: "com.amazon.mobile.shopping.web",
   },
   {
     appName: "medium",
     domains: [flex("medium")],
     protocol: "medium",
-    // android: "com.medium.reader",
+    android: "com.medium.reader",
   },
   {
     appName: "instagram",
@@ -138,7 +138,7 @@ const appLinks: AppLink[] = [
   {
     appName: "telegram",
     domains: [flex("telegram"), exact("t.me")],
-    protocol: "telegram",
+    protocol: "tg",
     android: "org.telegram.messenger",
   },
   {
@@ -259,13 +259,13 @@ const appLinks: AppLink[] = [
     appName: "googlesheets",
     domains: [flex("docs.google.com/spreadsheets/")],
     protocol: "googlesheets",
-    android: "com.google.android.apps.docs.editors.sheets",
+    android: "com.google.android.apps.docs",
   },
   {
     appName: "googledocs",
     domains: [flex("docs.google.com/document/")],
     protocol: "googledocs",
-    android: "com.google.android.apps.docs.editors.docs",
+    android: "com.google.android.apps.docs",
   },
   {
     appName: "walmart",
@@ -273,27 +273,27 @@ const appLinks: AppLink[] = [
     protocol: "walmart",
     // android: "com.walmart.android",
   },
+  {
+    appName: "github",
+    domains: [flex("github")],
+    protocol: "github",
+    android: "com.github.android",
+  },
 ];
 
 const appLinkParsers: AppLinkParser[] = appLinks.map((app) => {
   switch (app.appName) {
-    case "facebook":
-    // work on android / iphone
+    // work
     case "youtube":
     case "tiktok":
     case "x":
+    // fail
     case "linkedin":
-    // work on android / iphone but safari error
     case "vinted":
-    // safari error / fail on android (app not found)
     case "kick":
-    // safari error
-    case "eventbrite":
-    // fail on android
-    case "amazon":
-    case "medium":
-    // deep on ios / not opening linkedin app on android for extractPathname
-    case "googlemap":
+    case "facebook":
+      // to test
+      // case "eventbrite":
       return {
         ...app,
         parse: (url: string, os?: "ios" | "android" | undefined) => {
@@ -305,25 +305,52 @@ const appLinkParsers: AppLinkParser[] = appLinks.map((app) => {
           }
         },
       };
-    // work on android / iphone
-    case "airbnb":
-    case "twitch":
-    // work on android / not on iphone
-    case "skool":
+    // work
+    case "googlemap":
+      return {
+        ...app,
+        parse: (url: string, os?: "ios" | "android" | undefined) => {
+          if (!!app.android && os === "android") {
+            const path = extractDomainWwwAndPath(url);
+            return parsePath(app, path, os);
+          } else {
+            return parsePath(app, extractDomainWwwAndPath(url), os);
+          }
+        },
+      };
+    // work
+    case "amazon":
+    case "medium":
+    case "github":
     case "whatsapp":
-    case "snapchat":
-    // to test
     case "googlesheets":
     case "googledocs":
-    // case "walmart":
-    case "shotgun":
-    case "ubereats":
-    case "grubhub":
-    case "deliveroo":
-    case "yelp":
-    case "etsy":
     case "discord":
-    case "telegram":
+      return {
+        ...app,
+        parse: (url: string, os?: "ios" | "android" | undefined) => {
+          if (!!app.android && os === "android") {
+            const path = extractDomainAndPath(url);
+            return parsePath(app, path, os);
+          } else {
+            return parsePath(app, extractDomainAndPath(url), os);
+          }
+        },
+      };
+    // work
+    case "airbnb":
+    case "twitch":
+    case "snapchat":
+      // fail
+      // case "skool":
+      // to test
+      // case "walmart":
+      // case "shotgun":
+      // case "ubereats":
+      // case "grubhub":
+      // case "deliveroo":
+      // case "yelp":
+      // case "etsy":
       return {
         ...app,
         parse: (url: string, os?: "ios" | "android" | undefined) => {
@@ -335,12 +362,36 @@ const appLinkParsers: AppLinkParser[] = appLinks.map((app) => {
           }
         },
       };
+    // work
     case "spotify":
       return {
         ...app,
         parse: (url: string, os?: "ios" | "android" | undefined) =>
           parsePath(app, constructSpotifyDeepLink(url), os),
       };
+    // fail
+    case "telegram":
+      return {
+        ...app,
+        parse: (url: string, os?: "ios" | "android" | undefined) => {
+          if (!!app.android && os === "android") {
+            const path = extractDomainAndPath(url);
+            return parsePath(app, path, os);
+          } else {
+            parsePath(
+              app,
+              (() => {
+                // from https://t.me/+PHKxXN-JSyE5Nzk0
+                // to tg://join?invite=PHKxXN-JSyE5Nzk0
+                // you see the + in the url, so we need to remove it
+                return url.replace("https://t.me/+", "tg://join?invite=");
+              })(),
+              os,
+            );
+          }
+        },
+      };
+    // fail (on android)
     case "instagram":
       return {
         ...app,

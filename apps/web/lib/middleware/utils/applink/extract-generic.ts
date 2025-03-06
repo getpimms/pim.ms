@@ -31,7 +31,7 @@ export const extractDomainAndPath = (url: string): string | null => {
 
 // Helper: Extract domain, pathname, and search params from the URL.
 // example: https://vercel.com/pimms/pim-ms/logs?abc
-// returns: https://vercel.com/pimms/pim-ms/logs?abc
+// returns: www.vercel.com/pimms/pim-ms/logs?abc
 export const extractDomainWwwAndPath = (url: string): string | null => {
   try {
     const parsedUrl = new URL(url);
