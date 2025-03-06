@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function DomainDeleted({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   domain = "pim.ms",
   workspaceSlug = "pimms",
 }: {

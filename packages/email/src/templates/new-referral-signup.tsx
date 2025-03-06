@@ -17,7 +17,7 @@ import { Footer } from "../components/footer";
 export const REFERRAL_CLICKS_QUOTA_BONUS = 500;
 
 export function NewReferralSignup({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   workspace = {
     name: "Acme, Inc",
     slug: "acme",

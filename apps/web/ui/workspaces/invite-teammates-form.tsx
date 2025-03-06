@@ -114,7 +114,7 @@ export function InviteTeammatesForm({
               <div className="relative flex rounded-md shadow-sm">
                 <input
                   type="email"
-                  placeholder="panic@thedis.co"
+                  placeholder="cheers@pimms.io"
                   autoFocus={index === 0 && !isMobile}
                   autoComplete="off"
                   className="z-10 block w-full rounded-l-md border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 sm:text-sm"

@@ -19,7 +19,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function DubWrapped({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   workspace = {
     name: "Dub",
     slug: "dub",

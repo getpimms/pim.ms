@@ -18,7 +18,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function LinksImported({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   provider = "Bitly",
   count = 1020,
   links = [

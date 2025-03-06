@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function PartnerInvite({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   appName = "PIMMS",
   program = {
     name: "Acme",

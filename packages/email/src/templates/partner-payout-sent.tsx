@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function PartnerPayoutSent({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   program = {
     id: "prog_CYCu7IMAapjkRpTnr8F1azjN",
     name: "Acme",

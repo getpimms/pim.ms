@@ -17,7 +17,7 @@ import { Footer } from "../components/footer";
 
 export function RebrandEmail({
   name = "Brendon Urie",
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
 }: {
   name: string | null;
   email: string;

@@ -13,7 +13,7 @@ import {
 } from "@react-email/components";
 
 export function FeedbackEmail({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   feedback = "I love Dub!",
 }: {
   email: string;

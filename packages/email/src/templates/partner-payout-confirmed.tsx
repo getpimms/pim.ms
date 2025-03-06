@@ -16,7 +16,7 @@ import { Footer } from "../components/footer";
 
 // Send this email when the payout is confirmed when payment is send using ACH
 export function PartnerPayoutConfirmed({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   program = {
     id: "prog_CYCu7IMAapjkRpTnr8F1azjN",
     name: "Acme",

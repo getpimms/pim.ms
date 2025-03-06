@@ -62,7 +62,7 @@ function InviteReferralModal({
               type="email"
               name="email"
               id="email"
-              placeholder="panic@thedis.co"
+              placeholder="cheers@pimms.io"
               autoFocus={!isMobile}
               autoComplete="off"
               required

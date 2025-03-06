@@ -16,7 +16,7 @@ import { Footer } from "../components/footer";
 import { WorkspaceProps } from "../types";
 
 export function DomainTransferred({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   domain = "pim.ms",
   newWorkspace = { name: "PIMMS", slug: "pimms" },
   linksCount = 50,

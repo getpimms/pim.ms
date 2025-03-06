@@ -14,7 +14,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function PasswordUpdated({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   verb = "updated",
 }: {
   email: string;

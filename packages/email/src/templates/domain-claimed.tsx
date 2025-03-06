@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function DomainClaimed({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   domain = "dub.link",
   workspaceSlug = "dub",
 }: {

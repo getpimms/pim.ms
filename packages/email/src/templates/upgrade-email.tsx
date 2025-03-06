@@ -16,7 +16,7 @@ import { Footer } from "../components/footer";
 
 export function UpgradeEmail({
   name = "Brendon Urie",
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   plan = "Business",
 }: {
   name: string | null;

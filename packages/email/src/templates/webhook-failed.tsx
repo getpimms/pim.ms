@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export default function WebhookFailed({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   workspace = {
     name: "Acme, Inc",
     slug: "acme",

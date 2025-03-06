@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function NewSaleCreated({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   partner = {
     id: "pn_OfewI1Faaf5pV8QH3mha8L7S",
     referralLink: "https://refer.dub.co/steven",

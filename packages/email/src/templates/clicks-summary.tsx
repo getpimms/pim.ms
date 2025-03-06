@@ -19,7 +19,7 @@ import { Link2, MousePointerClick } from "lucide-react";
 import { Footer } from "../components/footer";
 
 export function ClicksSummary({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   workspaceName = "Acme",
   workspaceSlug = "acme",
   totalClicks = 63689,

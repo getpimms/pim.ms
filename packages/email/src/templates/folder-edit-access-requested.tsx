@@ -15,14 +15,14 @@ import {
 import { Footer } from "../components/footer";
 
 export function FolderEditAccessRequested({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   folderUrl = "http://localhost:8888/acme/settings/library/folders/cm1elre430005nf59czif340u/members",
   folder = {
     name: "Social Media",
   },
   requestor = {
     name: "Brendon Urie",
-    email: "panic@thedis.co",
+    email: "cheers@pimms.io",
   },
 }: {
   email: string;

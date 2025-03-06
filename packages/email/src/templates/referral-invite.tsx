@@ -15,11 +15,11 @@ import {
 import { Footer } from "../components/footer";
 
 export function ReferralInvite({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   appName = "PIMMS",
   url = "https://pimms.io",
   workspaceUser = "Brendon Urie",
-  workspaceUserEmail = "panic@thedis.co",
+  workspaceUserEmail = "cheers@pimms.io",
 }: {
   email: string;
   appName: string;

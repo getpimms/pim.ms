@@ -15,7 +15,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function InvalidDomain({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   domain = "pim.ms",
   workspaceSlug = "pimms",
   invalidDays = 14,

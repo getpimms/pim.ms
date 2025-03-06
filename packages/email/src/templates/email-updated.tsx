@@ -15,8 +15,8 @@ import {
 import { Footer } from "../components/footer";
 
 export function EmailUpdated({
-  oldEmail = "panic@thedis.co",
-  newEmail = "panic@thedis.co",
+  oldEmail = "cheers@pimms.io",
+  newEmail = "cheers@pimms.io",
 }: {
   oldEmail: string;
   newEmail: string;

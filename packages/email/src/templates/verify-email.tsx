@@ -14,7 +14,7 @@ import {
 import { Footer } from "../components/footer";
 
 export function VerifyEmail({
-  email = "panic@thedis.co",
+  email = "cheers@pimms.io",
   code = "123456",
 }: {
   email: string;
