@@ -296,13 +296,13 @@ function UTMButton({
   return (
     <Button
       variant="secondary"
-      text="UTM"
+      text="Custom UTM"
       icon={
         <DiamondTurnRight
           className={cn("size-4", enabled && "text-[#08272E]")}
         />
       }
-      className="h-9 w-fit px-2.5 font-medium text-neutral-700 rounded-xl"
+      className="border-0 flex w-full items-center gap-2 rounded-md p-2 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-neutral-500 active:bg-neutral-200 group-hover:bg-neutral-100"
       onClick={() => setShowUTMModal(true)}
     />
   );

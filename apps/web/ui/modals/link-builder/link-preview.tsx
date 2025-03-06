@@ -379,7 +379,7 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
   const { proxy } = watch();
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-[#8c8c8c33] p-2 mb-2">
+    <div className="flex items-center gap-3 rounded-lg border-2 p-2 mb-2">
       <div
         className="relative w-32 shrink-0 overflow-hidden rounded-lg"
         style={{ "--aspect": "128/72" } as any}

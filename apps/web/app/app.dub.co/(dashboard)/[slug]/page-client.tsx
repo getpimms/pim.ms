@@ -7,7 +7,6 @@ import {
 import useLinks from "@/lib/swr/use-links";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { RequestFolderEditAccessButton } from "@/ui/folders/request-edit-button";
-import LinkDisplay from "@/ui/links/link-display";
 import LinksContainer from "@/ui/links/links-container";
 import { LinksDisplayProvider } from "@/ui/links/links-display-provider";
 import { useLinkFilters } from "@/ui/links/use-link-filters";
@@ -88,8 +87,38 @@ function WorkspaceLinks() {
       <AddEditTagModal />
       <div className="flex w-full items-center pt-2">
         <MaxWidthWrapper className="flex flex-col gap-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2 lg:flex-nowrap">
-            {/* <div className="flex w-full grow gap-2 md:w-auto">
+          <div className="flex flex-wrap items-center justify-between gap-4 lg:flex-nowrap">
+            <div className="flex w-full grow gap-6 md:w-auto">
+              <div className="w-full md:w-56 lg:w-64">
+                <SearchBoxPersisted
+                  loading={isValidating}
+                  inputClassName="h-10"
+                />
+              </div>
+
+              {isLoading ? (
+                <div className="flex grow-0 animate-pulse items-center space-x-2">
+                  <div className="h-10 w-24 rounded-md bg-neutral-200" />
+                  <div className="h-10 w-10 rounded-md bg-neutral-200" />
+                </div>
+              ) : canCreateLinks ? (
+                <>
+                  <div className="grow-0">
+                    <CreateLinkButton />
+                  </div>
+                  {/* <MoreLinkOptions /> */}
+                </>
+              ) : (
+                <div className="w-fit">
+                  <RequestFolderEditAccessButton
+                    folderId={folderId!}
+                    workspaceId={workspaceId!}
+                    variant="primary"
+                  />
+                </div>
+              )}
+            </div>
+            <div className="flex w-full gap-2 md:w-fit">
               <div className="grow basis-0 md:grow-0">
                 <Filter.Select
                   filters={filters}
@@ -98,7 +127,7 @@ function WorkspaceLinks() {
                   onRemove={onRemove}
                   onSearchChange={setSearch}
                   onSelectedFilterChange={setSelectedFilter}
-                  className="w-full"
+                  className="w-full border-2 rounded-xl"
                   emptyState={{
                     tagIds: (
                       <div className="flex flex-col items-center gap-2 p-2 text-center text-sm">
@@ -145,39 +174,9 @@ function WorkspaceLinks() {
                   }}
                 />
               </div>
-              <div className="grow basis-0 md:grow-0">
+              {/* <div className="grow basis-0 md:grow-0">
                 <LinkDisplay />
-              </div>
-            </div> */}
-            <div className="flex gap-x-6 max-md:w-full">
-              <div className="w-full md:w-56 lg:w-64">
-                <SearchBoxPersisted
-                  loading={isValidating}
-                  inputClassName="h-10"
-                />
-              </div>
-
-              {isLoading ? (
-                <div className="flex grow-0 animate-pulse items-center space-x-2">
-                  <div className="h-10 w-24 rounded-md bg-neutral-200" />
-                  <div className="h-10 w-10 rounded-md bg-neutral-200" />
-                </div>
-              ) : canCreateLinks ? (
-                <>
-                  <div className="grow-0">
-                    <CreateLinkButton />
-                  </div>
-                  {/* <MoreLinkOptions /> */}
-                </>
-              ) : (
-                <div className="w-fit">
-                  <RequestFolderEditAccessButton
-                    folderId={folderId!}
-                    workspaceId={workspaceId!}
-                    variant="primary"
-                  />
-                </div>
-              )}
+              </div> */}
             </div>
           </div>
           <Filter.List

@@ -49,12 +49,12 @@ import { mutate } from "swr";
 import { useDebounce } from "use-debounce";
 import { DraftControlsHandle } from "./draft-controls";
 import { useExpirationModal } from "./expiration-modal";
+import { LinkPreview } from "./link-preview";
 import { usePasswordModal } from "./password-modal";
+import { TagSelect } from "./tag-select";
 import { useTargetingModal } from "./targeting-modal";
 import { useMetatags } from "./use-metatags";
-import { useUTMModal } from "./utm-modal";
 import { UTMTemplatesButton } from "./utm-templates-button";
-import { LinkPreview } from "./link-preview";
 
 export const LinkModalContext = createContext<{
   workspaceId?: string;
@@ -203,7 +203,6 @@ function LinkBuilderInner({
 
   const draftControlsRef = useRef<DraftControlsHandle>(null);
 
-  const { UTMModal, UTMButton } = useUTMModal();
   const { ExpirationModal, ExpirationButton } = useExpirationModal();
   const { TargetingModal, TargetingButton } = useTargetingModal();
   const { PasswordModal, PasswordButton } = usePasswordModal();
@@ -213,7 +212,6 @@ function LinkBuilderInner({
   return (
     <>
       {/* <PasswordModal /> */}
-      <UTMModal />
       {/* <TargetingModal />
       <ExpirationModal /> */}
       <Modal
@@ -390,7 +388,7 @@ function LinkBuilderInner({
             // )}
             >
               <div className="scrollbar-hide px-6 md:overflow-auto">
-                <div className="flex min-h-full flex-col gap-6 py-4">
+                <div className="flex min-h-full flex-col gap-4 pb-4">
                   <Controller
                     name="url"
                     control={control}
@@ -407,20 +405,18 @@ function LinkBuilderInner({
                         required={key !== "_root"}
                         error={errors.url?.message || undefined}
                         right={
-                          <div className="-mb-1 h-6">
-                            {isValidUrl(url) && (
-                              <UTMTemplatesButton
-                                onLoad={(params) => {
-                                  setValue(
-                                    "url",
-                                    constructURLFromUTMParams(url, params),
-                                    {
-                                      shouldDirty: true,
-                                    },
-                                  );
-                                }}
-                              />
-                            )}
+                          <div className="h-6">
+                            <UTMTemplatesButton
+                              onLoad={(params) => {
+                                setValue(
+                                  "url",
+                                  constructURLFromUTMParams(url, params),
+                                  {
+                                    shouldDirty: true,
+                                  },
+                                );
+                              }}
+                            />
                           </div>
                         }
                       />
@@ -447,16 +443,16 @@ function LinkBuilderInner({
                     />
                   )}
 
-                  {/* <TagSelect /> */}
+                  <TagSelect />
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <label
+                      {/* <label
                         htmlFor="comments"
                         className="block text-sm font-medium text-neutral-700"
                       >
                         Comments
-                      </label>
+                      </label> */}
                       {/* <InfoTooltip
                         content={
                           <SimpleTooltipContent
@@ -475,7 +471,7 @@ function LinkBuilderInner({
                           id="comments"
                           name="comments"
                           minRows={1}
-                          className="mt-2 block w-full border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 sm:text-sm rounded-xl"
+                          className="block w-full rounded-xl border-2 border-neutral-200 text-neutral-900 placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-0 sm:text-sm"
                           placeholder="Add comments"
                           value={field.value ?? ""}
                           onChange={(e) => field.onChange(e.target.value)}
@@ -490,8 +486,6 @@ function LinkBuilderInner({
                   {/* <div className="flex grow flex-col justify-end">
                     <OptionsList />
                   </div> */}
-
-                  <UTMButton />
                 </div>
               </div>
               <div className="scrollbar-hide px-6 md:overflow-auto">

@@ -12,9 +12,11 @@ export default function LibraryHeader() {
   const page = selectedLayoutSegment === null ? "" : selectedLayoutSegment;
 
   if (selectedLayoutSegment === null) {
-    redirect(
-      `/${slug}/settings/library/${flags?.linkFolders ? "folders" : "tags"}`,
-    );
+    // redirect(
+    //   `/${slug}/settings/library/${flags?.linkFolders ? "folders" : "tags"}`,
+    // );
+
+    redirect(`/${slug}/settings/library/tags`);
   }
 
   return (
@@ -23,20 +25,20 @@ export default function LibraryHeader() {
         Library
       </h1>
       <p className="mb-2 mt-2 text-base text-neutral-600">
-        Manage and organize your links with customizable folders, tags, and UTM
+        Manage and organize your links with customizable tags, and UTM
         templates.
       </p>
       <TabSelect
         variant="accent"
         options={[
-          ...(flags?.linkFolders
-            ? [
-                {
-                  id: "folders",
-                  label: "Folders",
-                },
-              ]
-            : []),
+          // ...(flags?.linkFolders
+          //   ? [
+          //       {
+          //         id: "folders",
+          //         label: "Folders",
+          //       },
+          //     ]
+          //   : []),
           { id: "tags", label: "Tags" },
           { id: "utm", label: "UTM Templates" },
         ]}

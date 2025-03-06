@@ -23,7 +23,7 @@ model Project {
   domainsLimit Int @default(3)
   tagsLimit    Int @default(5)
   foldersLimit Int @default(0)
-  usersLimit   Int @default(1)
+  usersLimit   Int @default(3)
   aiUsage      Int @default(0)
   aiLimit      Int @default(10)
 

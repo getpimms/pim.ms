@@ -152,8 +152,8 @@ export function TagSelect() {
     <div>
       <div className="mb-1 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-medium text-neutral-700">Tags</p>
-          <InfoTooltip
+          <p className="text-sm font-medium text-neutral-700">More</p>
+          {/* <InfoTooltip
             content={
               <SimpleTooltipContent
                 title={`Tags are used to organize your links in your ${process.env.NEXT_PUBLIC_APP_NAME} dashboard.`}
@@ -161,7 +161,7 @@ export function TagSelect() {
                 href="https://dub.co/help/article/how-to-use-tags"
               />
             }
-          />
+          /> */}
         </div>
         <a
           href={`/${slug}/settings/library/tags`}
@@ -192,7 +192,7 @@ export function TagSelect() {
         shortcutHint="T"
         buttonProps={{
           className: cn(
-            "h-auto py-1.5 px-2.5 w-full text-neutral-700 border-neutral-300 items-start",
+            "h-auto py-1.5 px-2.5 w-full text-neutral-700 border-neutral-200 items-start",
             selectedTags.length === 0 && "text-neutral-400",
           ),
         }}

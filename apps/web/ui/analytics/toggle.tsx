@@ -346,28 +346,28 @@ export default function Toggle({
             //       },
             //     ]
             //   : []),
-            // {
-            //   key: "tagIds",
-            //   icon: Tag,
-            //   label: "Tag",
-            //   multiple: true,
-            //   shouldFilter: !tagsAsync,
-            //   getOptionIcon: (value, props) => {
-            //     const tagColor =
-            //       props.option?.data?.color ??
-            //       tags?.find(({ id }) => id === value)?.color;
-            //     return tagColor ? (
-            //       <TagBadge color={tagColor} withIcon className="sm:p-1" />
-            //     ) : null;
-            //   },
-            //   options:
-            //     tags?.map(({ id, name, color }) => ({
-            //       value: id,
-            //       icon: <TagBadge color={color} withIcon className="sm:p-1" />,
-            //       label: name,
-            //       data: { color },
-            //     })) ?? null,
-            // },
+            {
+              key: "tagIds",
+              icon: Tag,
+              label: "Tag",
+              multiple: true,
+              shouldFilter: !tagsAsync,
+              getOptionIcon: (value, props) => {
+                const tagColor =
+                  props.option?.data?.color ??
+                  tags?.find(({ id }) => id === value)?.color;
+                return tagColor ? (
+                  <TagBadge color={tagColor} withIcon className="sm:p-1" />
+                ) : null;
+              },
+              options:
+                tags?.map(({ id, name, color }) => ({
+                  value: id,
+                  icon: <TagBadge color={color} withIcon className="sm:p-1" />,
+                  label: name,
+                  data: { color },
+                })) ?? null,
+            },
             // {
             //   key: "domain",
             //   icon: Globe2,

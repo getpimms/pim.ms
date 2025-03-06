@@ -13,6 +13,7 @@ import { fetcher } from "@dub/utils";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import useSWR from "swr";
+import { useUTMModal } from "./utm-modal";
 
 export function UTMTemplatesButton({
   onLoad,
@@ -32,55 +33,62 @@ export function UTMTemplatesButton({
 
   const [openPopover, setOpenPopover] = useState(false);
 
-  return data && data.length > 0 ? (
-    <Popover
-      openPopover={openPopover}
-      setOpenPopover={setOpenPopover}
-      side="bottom"
-      align="start"
-      onWheel={(e) => {
-        // Allows scrolling to work when the popover's in a modal
-        e.stopPropagation();
-      }}
-      content={
-        <AnimatedSizeContainer width={!isMobile} height>
-          {data ? (
-            <div className="text-sm">
-              <div className="max-w-64">
-                <UTMTemplateList
-                  data={data}
-                  onLoad={(params) => {
-                    setOpenPopover(false);
-                    onLoad(params);
-                  }}
-                />
+  const { UTMModal, UTMButton } = useUTMModal();
+
+  return (
+    <>
+      <UTMModal />
+      <Popover
+        openPopover={openPopover}
+        setOpenPopover={setOpenPopover}
+        side="bottom"
+        align="start"
+        onWheel={(e) => {
+          // Allows scrolling to work when the popover's in a modal
+          e.stopPropagation();
+        }}
+        content={
+          <AnimatedSizeContainer width={!isMobile} height>
+            <UTMButton />
+            {data ? (
+              <div className="text-sm">
+                <div className="max-w-64">
+                  <UTMTemplateList
+                    data={data}
+                    onLoad={(params) => {
+                      setOpenPopover(false);
+                      onLoad(params);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          ) : isLoading ? (
-            <div className="flex w-full items-center justify-center py-4 md:w-32">
-              <LoadingSpinner className="size-4" />
-            </div>
-          ) : (
-            <div className="flex w-full items-center justify-center p-2 text-center text-xs text-neutral-500 md:w-32">
-              Failed to load templates
-            </div>
-          )}
-        </AnimatedSizeContainer>
-      }
-    >
-      <div>
-        <ButtonTooltip
-          tabIndex={-1}
-          tooltipProps={{
-            content: "Load a UTM template",
-          }}
-          className="animate-fade-in size-6"
-        >
-          <DiamondTurnRight className="size-4" />
-        </ButtonTooltip>
-      </div>
-    </Popover>
-  ) : null;
+            ) : isLoading ? (
+              <div className="flex w-full items-center justify-center py-4 md:w-32">
+                <LoadingSpinner className="size-4" />
+              </div>
+            ) : (
+              <div className="flex w-full items-center justify-center p-2 text-center text-xs text-neutral-500 md:w-32">
+                Failed to load templates
+              </div>
+            )}
+          </AnimatedSizeContainer>
+        }
+      >
+        <div>
+          <ButtonTooltip
+            tabIndex={-1}
+            tooltipProps={{
+              content: "Load a UTM",
+            }}
+            className="animate-fade-in flex w-full flex-row items-center gap-1"
+          >
+            <DiamondTurnRight className="size-4" />
+            <span className="text-xs font-medium">UTM</span>
+          </ButtonTooltip>
+        </div>
+      </Popover>
+    </>
+  );
 }
 
 function UTMTemplateList({

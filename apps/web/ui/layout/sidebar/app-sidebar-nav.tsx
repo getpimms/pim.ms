@@ -137,11 +137,11 @@ const NAV_AREAS: SidebarNavAreas<{
           //   icon: Globe,
           //   href: `/${slug}/settings/domains`,
           // },
-          // {
-          //   name: "Library",
-          //   icon: Books2,
-          //   href: `/${slug}/settings/library`,
-          // },
+          {
+            name: "Library",
+            icon: Books2,
+            href: `/${slug}/settings/library`,
+          },
           {
             name: "People",
             icon: Users6,
