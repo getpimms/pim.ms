@@ -108,6 +108,11 @@ export const paramsMetadata = [
 ];
 
 export const getUrlWithoutUTMParams = (url: string) => {
+  // add https:// if it's missing
+  if (!url.startsWith("http")) {
+    url = `https://${url}`;
+  }
+  
   try {
     const newURL = new URL(url);
     paramsMetadata.forEach((param) => newURL.searchParams.delete(param.key));

@@ -32,22 +32,21 @@ export function WelcomeEmail({
               <Img
                 src={DUB_WORDMARK}
                 height="40"
-                alt="Pimms"
+                alt="PIMMS"
                 className="mx-auto my-0"
               />
             </Section>
             <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
-              Welcome to Pimms
+              Welcome to PIMMS
             </Heading>
             <Section className="my-8">
-              <Img src={DUB_THUMBNAIL} alt="Pimms" className="max-w-[500px]" />
+              <Img src={DUB_THUMBNAIL} alt="PIMMS" className="max-w-[500px]" />
             </Section>
             <Text className="text-sm leading-6 text-black">
               Thanks for signing up{name && `, ${name}`}!
             </Text>
             <Text className="text-sm leading-6 text-black">
-              My name is Alexandre, and I'm the founder of Pimms - Direct links
-              that generate 5x more subscribers on your social media. We're
+              My name is Alexandre, and I'm the founder of PIMMS - Deep links that boost your conversions on social media. We're
               excited to have you on board!
             </Text>
             <Text className="text-sm leading-6 text-black">

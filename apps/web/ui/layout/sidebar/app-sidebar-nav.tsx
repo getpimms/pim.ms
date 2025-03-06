@@ -47,7 +47,7 @@ const NAV_AREAS: SidebarNavAreas<{
       {
         items: [
           {
-            name: "Direct links",
+            name: "Deep links",
             icon: Hyperlink,
             href: `/${slug}${pathname === `/${slug}` ? "" : queryString}`,
             exact: true,

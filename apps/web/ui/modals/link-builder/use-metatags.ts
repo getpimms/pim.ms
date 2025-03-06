@@ -25,11 +25,12 @@ export function useMetatags({
   const [generatingMetatags, setGeneratingMetatags] = useState(initial);
 
   useEffect(() => {
+    console.log("proxy", proxy);
     // no need to generate metatags if proxy is enabled, or if any of the metatags are set
-    if (proxy) {
-      setGeneratingMetatags(false);
-      return;
-    }
+    // if (proxy) {
+    //   setGeneratingMetatags(false);
+    //   return;
+    // }
 
     // if there's a password, no need to generate metatags
     if (password) {
@@ -62,7 +63,10 @@ export function useMetatags({
             if (image !== results.image) setValue("image", results.image);
           }
           // set timeout to prevent flickering
-          setTimeout(() => setGeneratingMetatags(false), 200);
+          setTimeout(() => {
+            setGeneratingMetatags(false);
+            setValue("proxy", true, { shouldDirty: true });
+          }, 200);
         });
       } catch (_) {}
     } else {

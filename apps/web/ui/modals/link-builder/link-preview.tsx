@@ -1,11 +1,9 @@
 import useWorkspace from "@/lib/swr/use-workspace";
 import {
-  Button,
   FileUpload,
   Icon,
   InfoTooltip,
   ShimmerDots,
-  SimpleTooltipContent,
   Switch,
   TooltipContent,
   useKeyboardShortcut,
@@ -13,21 +11,18 @@ import {
 } from "@dub/ui";
 import {
   CrownSmall,
-  Facebook,
-  GlobePointer,
   LinkedIn,
   LoadingCircle,
   NucleoPhoto,
-  Pen2,
-  Twitter,
 } from "@dub/ui/icons";
-import { cn, getDomainWithoutWWW, resizeImage } from "@dub/utils";
+import { getDomainWithoutWWW, resizeImage } from "@dub/utils";
 import {
   ChangeEvent,
   ComponentType,
   PropsWithChildren,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -39,21 +34,22 @@ import { useDebounce } from "use-debounce";
 import { LinkFormData, LinkModalContext } from ".";
 import { useOGModal } from "./og-modal";
 
-const tabs = ["default", "x", "linkedin", "facebook"] as const;
+// const tabs = ["default", "x", "linkedin", "facebook"] as const;
+const tabs = ["linkedin"] as const;
 type Tab = (typeof tabs)[number];
 
 const tabTitles: Record<Tab, string> = {
-  default: "Default",
-  facebook: "Facebook",
+  // default: "Default",
+  // facebook: "Facebook",
   linkedin: "LinkedIn",
-  x: "X/Twitter",
+  // x: "X/Twitter",
 };
 
 const tabIcons: Record<Tab, Icon> = {
-  default: GlobePointer,
-  x: Twitter,
+  // default: GlobePointer,
+  // x: Twitter,
   linkedin: LinkedIn,
-  facebook: Facebook,
+  // facebook: Facebook,
 };
 
 type OGPreviewProps = PropsWithChildren<{
@@ -64,10 +60,10 @@ type OGPreviewProps = PropsWithChildren<{
 }>;
 
 const tabComponents: Record<Tab, ComponentType<OGPreviewProps>> = {
-  default: DefaultOGPreview,
-  x: XOGPreview,
+  // default: DefaultOGPreview,
+  // x: XOGPreview,
   linkedin: LinkedInOGPreview,
-  facebook: FacebookOGPreview,
+  // facebook: FacebookOGPreview,
 };
 
 export function LinkPreview() {
@@ -77,7 +73,7 @@ export function LinkPreview() {
 
   const [debouncedUrl] = useDebounce(url, 500);
   const hostname = useMemo(() => {
-    if (password) return "dub.co";
+    if (password) return "pim.ms";
     return getDomainWithoutWWW(debouncedUrl) ?? null;
   }, [password, debouncedUrl]);
 
@@ -86,7 +82,8 @@ export function LinkPreview() {
     modal: true,
   });
 
-  const [selectedTab, setSelectedTab] = useState<Tab>("default");
+  // const [selectedTab, setSelectedTab] = useState<Tab>("default");
+  const [selectedTab, setSelectedTab] = useState<Tab>("linkedin");
 
   const onImageChange = (image: string) => {
     setValue("image", image, { shouldDirty: true });
@@ -101,46 +98,37 @@ export function LinkPreview() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h2 className="text-sm font-medium text-neutral-700">
-            Custom Link Preview
+            Preview
           </h2>
-          <InfoTooltip
-            content={
-              <SimpleTooltipContent
-                title="Customize how your links look when shared on social media to improve click-through rates. When enabled, the preview settings below will be shown publicly (instead of the URL's original metatags)."
-                cta="Learn more."
-                href="https://dub.co/help/article/custom-link-previews"
-              />
-            }
-          />
         </div>
 
         <Switch
           checked={proxy}
           fn={(checked) => setValue("proxy", checked, { shouldDirty: true })}
-          disabledTooltip={
-            !url ? (
-              "Enter a URL to enable custom link previews."
-            ) : !plan || plan === "free" ? (
-              <TooltipContent
-                title="Custom Link Previews are only available on the Pro plan and above."
-                cta="Upgrade to Pro"
-                href={
-                  slug
-                    ? `/${slug}/upgrade?exit=close`
-                    : "https://dub.co/pricing"
-                }
-                target="_blank"
-              />
-            ) : undefined
-          }
-          thumbIcon={
-            !plan || plan === "free" ? (
-              <CrownSmall className="size-full text-neutral-500" />
-            ) : undefined
-          }
+          // disabledTooltip={
+          //   !url ? (
+          //     "Enter a URL to enable custom link previews."
+          //   ) : !plan || plan === "free" ? (
+          //     <TooltipContent
+          //       title="Custom Link Previews are only available on the Pro plan and above."
+          //       cta="Upgrade to Pro"
+          //       href={
+          //         slug
+          //           ? `/${slug}/upgrade?exit=close`
+          //           : "https://dub.co/pricing"
+          //       }
+          //       target="_blank"
+          //     />
+          //   ) : undefined
+          // }
+          // thumbIcon={
+          //   !plan || plan === "free" ? (
+          //     <CrownSmall className="size-full text-neutral-500" />
+          //   ) : undefined
+          // }
         />
       </div>
-      <div className="mt-2.5 grid grid-cols-4 gap-2">
+      {/* <div className="mt-2.5 grid grid-cols-4 gap-2">
         {tabs.map((tab) => {
           const Icon = tabIcons[tab];
           return (
@@ -161,15 +149,15 @@ export function LinkPreview() {
             />
           );
         })}
-      </div>
+      </div> */}
       <div className="relative mt-2">
-        <Button
+        {/* <Button
           type="button"
           variant="secondary"
           icon={<Pen2 className="mx-px size-4" />}
           className="absolute right-2 top-2 z-10 h-8 w-fit px-1.5"
           onClick={() => setShowOGModal(true)}
-        />
+        /> */}
         <OGPreview
           title={title}
           description={description}
@@ -387,10 +375,11 @@ function FacebookOGPreview({
 
 function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
   const { plan } = useWorkspace();
-  const { setValue } = useFormContext<LinkFormData>();
+  const { watch, setValue } = useFormContext<LinkFormData>();
+  const { proxy } = watch();
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-[#8c8c8c33] px-4 py-3">
+    <div className="flex items-center gap-3 rounded-lg border border-[#8c8c8c33] p-2 mb-2">
       <div
         className="relative w-32 shrink-0 overflow-hidden rounded-lg"
         style={{ "--aspect": "128/72" } as any}
@@ -399,19 +388,19 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
       </div>
       <div className="grid gap-2">
         <ReactTextareaAutosize
-          className="line-clamp-2 w-full resize-none border-none p-0 text-sm font-semibold text-[#000000E6] outline-none focus:ring-0"
+          className="line-clamp-2 w-full resize-none border-none p-0 text-xs font-semibold text-[#000000E6] outline-none focus:ring-0"
           value={title || "Add a title..."}
           maxRows={2}
           onChange={(e) => {
             setValue("title", e.currentTarget.value, {
               shouldDirty: true,
             });
-            if (plan && plan !== "free") {
+            // if (plan && plan !== "free") {
               setValue("proxy", true, { shouldDirty: true });
-            }
+            // }
           }}
         />
-        <p className="text-xs text-[#00000099]">{hostname || "domain.com"}</p>
+        <p className="text-xs text-[#00000099]">{proxy ? "pim.ms" : hostname || "domain.com"}</p>
       </div>
     </div>
   );
