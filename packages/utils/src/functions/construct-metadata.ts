@@ -5,7 +5,7 @@ export function constructMetadata({
   title,
   fullTitle,
   description = "PIMMS",
-  image = "https://assets.pimms.io/thumbnail.jpg",
+  image = "https://assets.pimms.io/thumbnail.jpg?v=3",
   video,
   icons = [
     {

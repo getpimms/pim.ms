@@ -19,5 +19,5 @@ export const metaTagsSchema = z.object({
     .string()
     .nullable()
     .describe("The OpenGraph image for the URL.")
-    .openapi({ example: "https://assets.pimms.io/thumbnail.jpg" }),
+    .openapi({ example: "https://assets.pimms.io/thumbnail.jpg?v=3" }),
 });

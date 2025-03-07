@@ -18,7 +18,7 @@ test("GET /metatags", async (ctx) => {
     title: "Dub.co - Link Management for Modern Marketing Teams",
     description:
       "Dub.co is the open-source link management platform for modern marketing teams to create marketing campaigns, link sharing features, and referral programs.",
-    image: "https://assets.dub.co/thumbnail.jpg",
+    image: "https://assets.dub.co/thumbnail.jpg?v=3",
     poweredBy: "Dub.co - Link management for modern marketing teams",
   });
 });

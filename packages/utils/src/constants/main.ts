@@ -61,7 +61,7 @@ export const PARTNERS_HOSTNAMES = new Set([
 export const DUB_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_QR_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_WORDMARK = "https://assets.pimms.io/wordmark-black.png";
-export const DUB_THUMBNAIL = "https://assets.pimms.io/thumbnail.jpg";
+export const DUB_THUMBNAIL = "https://assets.pimms.io/thumbnail.jpg?v=3";
 
 export const DUB_WORKSPACE_ID = "cl7pj5kq4006835rbjlt2ofka";
 export const ACME_WORKSPACE_ID = "clrei1gld0002vs9mzn93p8ik";

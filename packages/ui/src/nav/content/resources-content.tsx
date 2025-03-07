@@ -14,13 +14,13 @@ const mainLinks = [
   {
     title: "Docs",
     description: "Platform documentation",
-    thumbnail: "https://assets.dub.co/misc/docs-thumbnail.jpg",
+    thumbnail: "https://assets.dub.co/misc/docs-thumbnail.jpg?v=3",
     href: "/docs/introduction",
   },
   {
     title: "Help Center",
     description: "Answers to your questions",
-    thumbnail: "https://assets.dub.co/misc/help-thumbnail.jpg", // TODO: Update
+    thumbnail: "https://assets.dub.co/misc/help-thumbnail.jpg?v=3", // TODO: Update
     href: "/help",
   },
 ];
