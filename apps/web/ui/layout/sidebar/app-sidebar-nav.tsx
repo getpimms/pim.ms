@@ -132,11 +132,11 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: Receipt2,
             href: `/${slug}/settings/billing`,
           },
-          // {
-          //   name: "Domains",
-          //   icon: Globe,
-          //   href: `/${slug}/settings/domains`,
-          // },
+          {
+            name: "Domains",
+            icon: Globe,
+            href: `/${slug}/settings/domains`,
+          },
           {
             name: "Library",
             icon: Books2,

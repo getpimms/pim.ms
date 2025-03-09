@@ -206,7 +206,7 @@ export function AddEditDomainForm({
             <h2 className="text-sm font-medium text-neutral-700">
               Your domain
             </h2>
-            <InfoTooltip
+            {/* <InfoTooltip
               content={
                 <SimpleTooltipContent
                   title="Not sure which domain to use?"
@@ -214,7 +214,7 @@ export function AddEditDomainForm({
                   href="https://dub.co/help/article/choosing-a-custom-domain"
                 />
               }
-            />
+            /> */}
           </label>
           {props && lockDomain && !isDubProvisioned && (
             <button

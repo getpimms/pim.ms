@@ -65,14 +65,14 @@ export function DefaultDomains() {
           Default Domains
         </h2>
         <p className="mt-3 text-sm text-neutral-500">
-          Leverage default branded domains from Dub for specific links.{" "}
-          <Link
+          Leverage default branded domains from PIMMS for specific links.{" "}
+          {/* <Link
             href="https://dub.co/help/article/default-dub-domains"
             target="_blank"
             className="underline transition-colors hover:text-neutral-800"
           >
             Learn more.
-          </Link>
+          </Link> */}
         </p>
       </div>
       <div className="mt-2 grid grid-cols-1 gap-3">

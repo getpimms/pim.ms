@@ -233,13 +233,13 @@ export default function DomainCard({ props }: { props: DomainProps }) {
                   <div>
                     Good news! Your DNS records are set up correctly, but it can
                     take some time for them to propagate globally.{" "}
-                    <Link
+                    {/* <Link
                       href="https://dub.co/help/article/how-to-add-custom-domain#how-long-do-i-have-to-wait-for-my-domain-to-work"
                       target="_blank"
                       className="underline transition-colors hover:text-green-800"
                     >
                       Learn more.
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               ) : (
@@ -332,13 +332,13 @@ function Menu({
 
   return (
     <>
-      <LinkBuilder />
-      <LinkQRModal />
+      {/* <LinkBuilder />
+      <LinkQRModal /> */}
       <AddEditDomainModal />
       <PrimaryDomainModal />
       <ArchiveDomainModal />
       <DeleteDomainModal />
-      <TransferDomainModal />
+      {/* <TransferDomainModal /> */}
 
       <motion.div
         animate={{
@@ -371,7 +371,7 @@ function Menu({
         <Popover
           content={
             <div className="w-full sm:w-48">
-              <div className="grid gap-px p-2">
+              {/* <div className="grid gap-px p-2">
                 <p className="mb-1.5 mt-1 flex items-center gap-2 px-1 text-xs font-medium text-neutral-500">
                   Link Settings
                 </p>
@@ -418,7 +418,7 @@ function Menu({
                   className="h-9 justify-start px-2 font-medium"
                 />
               </div>
-              <div className="border-t border-neutral-200" />
+              <div className="border-t border-neutral-200" /> */}
               <div className="grid gap-px p-2">
                 <p className="mb-1.5 mt-1 flex items-center gap-2 px-1 text-xs font-medium text-neutral-500">
                   Domain Settings
@@ -445,7 +445,7 @@ function Menu({
                     className="h-9 justify-start px-2 font-medium"
                   />
                 )}
-                {!isDubProvisioned && (
+                {/* {!isDubProvisioned && (
                   <Button
                     text="Transfer"
                     variant="outline"
@@ -461,7 +461,7 @@ function Menu({
                         : undefined
                     }
                   />
-                )}
+                )} */}
                 <Button
                   text={archived ? "Unarchive" : "Archive"}
                   variant="outline"

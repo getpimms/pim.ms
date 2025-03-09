@@ -126,6 +126,8 @@ export const POST = withWorkspace(
 
     const vercelResponse = await addDomainToVercel(slug);
 
+    console.log("vercelResponse", vercelResponse);
+
     if (
       vercelResponse.error &&
       vercelResponse.error.code !== "domain_already_in_use" // ignore this error

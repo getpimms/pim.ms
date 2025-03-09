@@ -38,6 +38,7 @@ function AddEditDomainModal({
             setShowAddEditDomainModal(false);
           }}
           className="p-8"
+          showAdvancedOptions={false}
         />
       </div>
     </Modal>

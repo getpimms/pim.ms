@@ -1,7 +1,6 @@
 "use client";
 
 import { ButtonLink } from "@/ui/placeholders/button-link";
-import { CTA } from "@/ui/placeholders/cta";
 import { FeaturesSection } from "@/ui/placeholders/features-section";
 import { Hero } from "@/ui/placeholders/hero";
 import { Logo } from "@dub/ui";
@@ -42,8 +41,9 @@ export default function PlaceholderContent() {
               "animate-slide-up-fade motion-reduce:animate-fade-in [--offset:10px] [animation-delay:200ms] [animation-duration:1s] [animation-fill-mode:both]",
             )}
           >
-            This custom domain is powered by Dub &ndash; the link management
-            platform designed for modern marketing teams.
+            This custom domain is powered by PIMMS &ndash; the deep link
+            platform designed to open your prospecting content in the right
+            mobile apps, driving more conversion and growth.
           </p>
         </div>
 
@@ -53,8 +53,8 @@ export default function PlaceholderContent() {
             "animate-slide-up-fade motion-reduce:animate-fade-in [--offset:5px] [animation-delay:300ms] [animation-duration:1s] [animation-fill-mode:both]",
           )}
         >
-          <ButtonLink variant="primary" href="https://d.to/register">
-            Try Dub today
+          <ButtonLink variant="primary" href="https://app.pimms.io/register">
+            Try PIMMS today
           </ButtonLink>
           <ButtonLink
             variant="secondary"
