@@ -500,14 +500,14 @@ export const getDirectLink = (
   if (os === "ios") {
     return `x-safari-${url}`;
   } else if (os === "android") {
-    return getIntentUrl("com.android.chrome", path);
+    return getIntentUrl("com.android.chrome", path, url);
   } else {
     return `googlechrome://${path}`;
   }
 };
 
-const getIntentUrl = (packageName: string, value: string) => {
-  return `intent://${value}#Intent;scheme=https;package=${packageName};end`;
+const getIntentUrl = (packageName: string, value: string, fallbackUrl?: string) => {
+  return `intent://${value}#Intent;scheme=https;package=${packageName}${fallbackUrl ? `;S.browser_fallback_url=${encodeURIComponent(fallbackUrl)}` : ""};end`;
 };
 
 const parsePath = (
