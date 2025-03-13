@@ -106,17 +106,17 @@ export function IntegrationsCards({
                   </div>
                 </div>
               )}
-              addButton={
-                <a
-                  href="mailto:support@dub.co?subject=Integration%20Request"
-                  className={cn(
-                    buttonVariants({ variant: "primary" }),
-                    "flex h-8 items-center rounded-md border px-2.5 text-sm",
-                  )}
-                >
-                  Request integration
-                </a>
-              }
+              // addButton={
+              //   <a
+              //     href="mailto:support@dub.co?subject=Integration%20Request"
+              //     className={cn(
+              //       buttonVariants({ variant: "primary" }),
+              //       "flex h-8 items-center rounded-md border px-2.5 text-sm",
+              //     )}
+              //   >
+              //     Request integration
+              //   </a>
+              // }
             />
           </motion.div>
         )}

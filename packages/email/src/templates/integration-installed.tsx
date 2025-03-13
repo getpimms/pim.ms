@@ -55,7 +55,7 @@ export function IntegrationInstalled({
             </Heading>
             <Text className="text-sm leading-6 text-black">
               The <strong>{integration.name}</strong> integration has been added
-              to your workspace {workspace.name} on Dub.
+              to your workspace {workspace.name} on PIMMS.
             </Text>
             <Section className="mb-8 mt-4 text-center">
               <Link

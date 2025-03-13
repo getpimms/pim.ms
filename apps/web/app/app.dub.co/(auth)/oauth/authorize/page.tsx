@@ -15,7 +15,7 @@ import { ScopesRequested } from "./scopes-requested";
 export const runtime = "nodejs";
 
 export const metadata = constructMetadata({
-  title: "Authorize API access | Dub",
+  title: "Authorize API access | PIMMS",
   noIndex: true,
 });
 
@@ -69,7 +69,7 @@ export default async function Authorize({
 
         <p className="text-md">
           <span className="font-bold">{integration.name}</span> is requesting
-          API access to a workspace on Dub.
+          API access to a workspace on PIMMS.
         </p>
         <span className="text-xs text-neutral-500">
           Built by{" "}
@@ -86,7 +86,7 @@ export default async function Authorize({
         {!integration.verified && (
           <div className="flex items-center gap-2 rounded-md bg-yellow-50 p-2 text-sm text-yellow-700">
             <CircleWarning className="size-4" />
-            <span>Dub hasn't verified this app</span>
+            <span>PIMMS hasn't verified this app</span>
           </div>
         )}
       </div>
