@@ -12,7 +12,7 @@ export const AllowedHostnames = () => {
   const { allowedHostnames, loading } = useWorkspace();
 
   return (
-    <div className="grid gap-5 rounded-lg border border-neutral-200 p-5">
+    <div className="grid gap-5 rounded-lg border-[6px] border-neutral-100 p-5">
       <div className="flex flex-col gap-1">
         <h2 className="text-xl font-semibold tracking-tight text-black">
           Allowed Hostnames

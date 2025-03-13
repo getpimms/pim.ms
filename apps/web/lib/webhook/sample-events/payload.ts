@@ -12,7 +12,7 @@ export const samplePayload: Record<WebhookTrigger, any> = {
   "link.updated": linkUpdated,
   "link.deleted": linkDeleted,
   "link.clicked": linkClicked,
-  "lead.created": leadCreated,
-  "sale.created": saleCreated,
-  "partner.created": partnerCreated,
+  // "lead.created": leadCreated,
+  // "sale.created": saleCreated,
+  // "partner.created": partnerCreated,
 };

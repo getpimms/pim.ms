@@ -68,7 +68,7 @@ export function LinkPreview({ defaultUrl }: { defaultUrl?: string }) {
         </div>
       )}
 
-      <div className="relative overflow-hidden rounded-md border border-neutral-300 bg-neutral-50">
+      <div className="relative overflow-hidden rounded-xl border-[2px] border-neutral-300 bg-neutral-50">
         {isValidating && (
           <div className="absolute flex h-[250px] w-full flex-col items-center justify-center space-y-4 border-b border-neutral-300 bg-neutral-50">
             <LoadingCircle />
@@ -134,7 +134,7 @@ export function LinkPreviewPlaceholder({
           defaultValue={defaultUrl || "https://github.com/getpimms/pim.ms"}
         />
       </div>
-      <div className="relative overflow-hidden rounded-md border border-neutral-300 bg-neutral-50">
+      <div className="relative overflow-hidden rounded-xl border-[2px] border-neutral-300 bg-neutral-50">
         <div className="absolute flex h-[250px] w-full flex-col items-center justify-center space-y-4 border-b border-neutral-300 bg-neutral-50">
           <LoadingCircle />
         </div>

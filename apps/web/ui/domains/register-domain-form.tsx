@@ -170,7 +170,7 @@ export function RegisterDomainForm({
                   : "bg-neutral-100",
               )}
             >
-              <div className="flex rounded-md border border-neutral-300 bg-white">
+              <div className="flex rounded-xl border-[2px] border-neutral-300 bg-white">
                 <input
                   name="domain"
                   id="domain"
@@ -259,7 +259,7 @@ export function RegisterDomainForm({
               <h2 className="text-sm font-medium text-neutral-800">
                 Available alternatives
               </h2>
-              <div className="mt-2 overflow-hidden rounded-lg border border-neutral-200">
+              <div className="mt-2 overflow-hidden rounded-lg border-[6px] border-neutral-100">
                 <div className="flex flex-col divide-y divide-neutral-200">
                   {availableDomains.map((alternative) => (
                     <div
@@ -311,7 +311,7 @@ export function RegisterDomainForm({
         className={cn(
           "mt-8 flex justify-end gap-2",
           variant === "modal" &&
-            "border-t border-neutral-200 px-4 py-4 sm:px-6",
+            "border-t-[6px] border-neutral-100 px-4 py-4 sm:px-6",
         )}
       >
         {onCancel && variant === "modal" && (

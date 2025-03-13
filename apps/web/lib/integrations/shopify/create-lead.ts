@@ -101,18 +101,18 @@ export async function createShopifyLead({
     // });
   }
 
-  waitUntil(
-    sendWorkspaceWebhook({
-      trigger: "lead.created",
-      workspace,
-      data: transformLeadEventData({
-        ...clickData,
-        eventName,
-        link,
-        customer,
-      }),
-    }),
-  );
+  // waitUntil(
+  //   sendWorkspaceWebhook({
+  //     trigger: "lead.created",
+  //     workspace,
+  //     data: transformLeadEventData({
+  //       ...clickData,
+  //       eventName,
+  //       link,
+  //       customer,
+  //     }),
+  //   }),
+  // );
 
   return leadData;
 }

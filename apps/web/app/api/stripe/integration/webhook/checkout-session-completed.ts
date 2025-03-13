@@ -321,36 +321,36 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
     );
   }
 
-  waitUntil(
-    (async () => {
-      // if the clickEvent variable exists and there was no existing customer before,
-      // we send a lead.created webhook
-      if (clickEvent && !existingCustomer) {
-        await sendWorkspaceWebhook({
-          trigger: "lead.created",
-          workspace,
-          data: transformLeadEventData({
-            ...clickEvent,
-            eventName: "Checkout session completed",
-            link: linkUpdated,
-            customer,
-          }),
-        });
-      }
+  // waitUntil(
+  //   (async () => {
+  //     // if the clickEvent variable exists and there was no existing customer before,
+  //     // we send a lead.created webhook
+  //     if (clickEvent && !existingCustomer) {
+  //       await sendWorkspaceWebhook({
+  //         trigger: "lead.created",
+  //         workspace,
+  //         data: transformLeadEventData({
+  //           ...clickEvent,
+  //           eventName: "Checkout session completed",
+  //           link: linkUpdated,
+  //           customer,
+  //         }),
+  //       });
+  //     }
 
-      // send workspace webhook
-      await sendWorkspaceWebhook({
-        trigger: "sale.created",
-        workspace,
-        data: transformSaleEventData({
-          ...saleData,
-          clickedAt: customer.clickedAt || customer.createdAt,
-          link: linkUpdated,
-          customer,
-        }),
-      });
-    })(),
-  );
+  //     // send workspace webhook
+  //     await sendWorkspaceWebhook({
+  //       trigger: "sale.created",
+  //       workspace,
+  //       data: transformSaleEventData({
+  //         ...saleData,
+  //         clickedAt: customer.clickedAt || customer.createdAt,
+  //         link: linkUpdated,
+  //         customer,
+  //       }),
+  //     });
+  //   })(),
+  // );
 
   return `Checkout session completed for customer with external ID ${dubCustomerId} and invoice ID ${invoiceId}`;
 }

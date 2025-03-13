@@ -67,7 +67,7 @@ function PlanCard({
   }, [plan]);
 
   return (
-    <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-6">
+    <div className="flex flex-col rounded-xl border-[6px] border-neutral-100 bg-white p-6">
       <div className="flex items-center gap-2">
         <h2 className="text-lg font-medium text-neutral-900">{name}</h2>
         {name === "Pro" && <Badge variant="blue">Most popular</Badge>}

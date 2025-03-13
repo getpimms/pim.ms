@@ -83,7 +83,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                 <Link
                   href={`/${slug}/events?domain=${link.domain}&key=${link.key}&interval=all`}
                   target="_blank"
-                  className="flex min-w-0 items-center gap-1 overflow-hidden rounded-full border border-neutral-200 bg-white px-1.5 py-0.5 text-xs text-neutral-700 group-hover:translate-x-0 group-hover:opacity-100"
+                  className="flex min-w-0 items-center gap-1 overflow-hidden rounded-full border-[6px] border-neutral-100 bg-white px-1.5 py-0.5 text-xs text-neutral-700 group-hover:translate-x-0 group-hover:opacity-100"
                 >
                   <Link4 className="size-3.5" />
                   <span className="truncate">
@@ -98,7 +98,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                 <Link
                   href={`/${slug}/events?country=${country}`}
                   target="_blank"
-                  className="flex min-w-20 items-center gap-2 rounded-full border border-neutral-200 bg-white px-1.5 py-0.5 text-xs text-neutral-700 group-hover:translate-x-0 group-hover:opacity-100"
+                  className="flex min-w-20 items-center gap-2 rounded-full border-[6px] border-neutral-100 bg-white px-1.5 py-0.5 text-xs text-neutral-700 group-hover:translate-x-0 group-hover:opacity-100"
                 >
                   <img
                     alt=""
@@ -116,7 +116,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
               <span className="text-lg font-semibold leading-tight text-neutral-900">
                 {customer.name}
               </span>
-              <span className="rounded-full border border-neutral-200 bg-neutral-200 px-1.5 py-0.5 text-xs text-neutral-900">
+              <span className="rounded-full border-[6px] border-neutral-100 bg-neutral-200 px-1.5 py-0.5 text-xs text-neutral-900">
                 {new Date(customer.createdAt).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
@@ -141,7 +141,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-neutral-200 bg-neutral-200">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
                   label: "Lead",
@@ -175,7 +175,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                   </Tooltip>
                   <span className="text-base text-neutral-900">{value}</span>
                   {index === 0 && (
-                    <div className="absolute inset-0 right-0 z-10 m-auto -mr-2.5 flex size-5 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-900">
+                    <div className="absolute inset-0 right-0 z-10 m-auto -mr-2.5 flex size-5 items-center justify-center rounded-full border-[6px] border-neutral-100 bg-neutral-50 text-neutral-900">
                       <ArrowRight className="size-3" />
                     </div>
                   )}
@@ -183,7 +183,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-neutral-200 bg-neutral-200">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
                   label: "Lifetime value",

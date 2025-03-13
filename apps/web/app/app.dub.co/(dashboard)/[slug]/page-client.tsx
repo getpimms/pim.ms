@@ -131,7 +131,7 @@ function WorkspaceLinks() {
                   emptyState={{
                     tagIds: (
                       <div className="flex flex-col items-center gap-2 p-2 text-center text-sm">
-                        <div className="flex items-center justify-center rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
+                        <div className="flex items-center justify-center rounded-2xl border-[6px] border-neutral-100 bg-neutral-50 p-3">
                           <Tag className="size-6 text-neutral-700" />
                         </div>
                         <p className="mt-2 font-medium text-neutral-950">
@@ -151,7 +151,7 @@ function WorkspaceLinks() {
                     ),
                     domain: (
                       <div className="flex flex-col items-center gap-2 p-2 text-center text-sm">
-                        <div className="flex items-center justify-center rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
+                        <div className="flex items-center justify-center rounded-2xl border-[6px] border-neutral-100 bg-neutral-50 p-3">
                           <Globe className="size-6 text-neutral-700" />
                         </div>
                         <p className="mt-2 font-medium text-neutral-950">
@@ -285,7 +285,7 @@ const MoreLinkOptions = () => {
                 />
               </ImportOption>
             </div>
-            <div className="border-t border-neutral-200" />
+            <div className="border-t-[6px] border-neutral-100" />
             <div className="grid gap-px p-2">
               <p className="mb-1.5 mt-1 flex items-center gap-2 px-1 text-xs font-medium text-neutral-500">
                 Export Links

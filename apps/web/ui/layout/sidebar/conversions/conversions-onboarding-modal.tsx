@@ -199,7 +199,7 @@ function PaymentProcessorSelection() {
 
   return (
     <div>
-      <div className="flex size-12 items-center justify-center rounded-full border border-neutral-200 text-neutral-900">
+      <div className="flex size-12 items-center justify-center rounded-full border-[6px] border-neutral-100 text-neutral-900">
         <CircleDollar className="size-8 [&_*]:stroke-1 [&_circle]:hidden" />
       </div>
       <h3 className="mt-6 text-lg font-semibold text-neutral-800">
@@ -254,7 +254,7 @@ function AuthProviderSelection() {
 
   return (
     <div>
-      <div className="flex size-12 items-center justify-center rounded-lg border border-neutral-200 text-neutral-900">
+      <div className="flex size-12 items-center justify-center rounded-lg border-[6px] border-neutral-100 text-neutral-900">
         <paymentProcessor.icon className="size-8" />
       </div>
       <h3 className="mt-6 text-lg font-semibold text-neutral-800">
@@ -318,7 +318,7 @@ function Docs() {
     <div>
       <div className="flex grid-cols-2 gap-12 sm:grid sm:gap-4">
         <div>
-          <div className="flex size-12 items-center justify-center rounded-lg border border-neutral-200 text-neutral-900">
+          <div className="flex size-12 items-center justify-center rounded-lg border-[6px] border-neutral-100 text-neutral-900">
             <paymentProcessor.icon className="size-8" />
           </div>
           <h3 className="mt-6 text-lg font-semibold text-neutral-800">
@@ -327,7 +327,7 @@ function Docs() {
         </div>
         {!isSameProvider && (
           <div>
-            <div className="flex size-12 items-center justify-center rounded-lg border border-neutral-200 text-neutral-900">
+            <div className="flex size-12 items-center justify-center rounded-lg border-[6px] border-neutral-100 text-neutral-900">
               <authProvider.icon className="size-8" />
             </div>
             <h3 className="mt-6 text-lg font-semibold text-neutral-800">
@@ -387,8 +387,8 @@ function Docs() {
           </Link>
         ))}
       </div>
-      <div className="mt-4 flex items-start gap-3 rounded-lg border border-neutral-300 p-4">
-        <div className="hidden rounded-md border border-neutral-300 p-1.5 sm:block">
+      <div className="mt-4 flex items-start gap-3 rounded-xl border-[6px] border-neutral-200 p-4">
+        <div className="hidden rounded-xl border-[2px] border-neutral-300 p-1.5 sm:block">
           <SquareChart className="size-5" />
         </div>
         <div>

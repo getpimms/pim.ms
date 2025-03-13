@@ -88,7 +88,7 @@ function AdvancedModal({
               }
               side="right"
             >
-              <kbd className="flex size-6 cursor-default items-center justify-center gap-1 rounded-md border border-neutral-200 font-sans text-xs text-neutral-950">
+              <kbd className="flex size-6 cursor-default items-center justify-center gap-1 rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-950">
                 A
               </kbd>
             </Tooltip>

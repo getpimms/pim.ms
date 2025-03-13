@@ -490,7 +490,7 @@ function LinkBuilderInner({
               </div>
               <div className="scrollbar-hide px-6 md:overflow-auto">
                 <div className="relative">
-                  {/* <div className="absolute inset-0 border border-neutral-200 bg-neutral-50 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div> */}
+                  {/* <div className="absolute inset-0 border-[6px] border-neutral-100 bg-neutral-50 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div> */}
                   <div className="relative flex flex-col gap-6">
                     {/* <QRCodePreview /> */}
                     <LinkPreview />

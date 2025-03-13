@@ -297,7 +297,7 @@ function CreatePayoutSheetContent(props: CreatePayoutSheetProps) {
       className="flex h-full flex-col"
     >
       <div>
-        <div className="flex items-start justify-between border-b border-neutral-200 p-6">
+        <div className="flex items-start justify-between border-b-[6px] border-neutral-100 p-6">
           <Sheet.Title className="text-xl font-semibold">
             Create manual payout
           </Sheet.Title>
@@ -517,7 +517,7 @@ function CreatePayoutSheetContent(props: CreatePayoutSheetProps) {
           {partnerId && Object.entries(invoiceData).length > 0 && (
             <div className="flex flex-col gap-2">
               <p className="text-sm font-medium text-neutral-800">Summary</p>
-              <div className="grid grid-cols-2 gap-3 rounded-md border border-neutral-200 bg-neutral-50 p-4 text-sm text-neutral-600">
+              <div className="grid grid-cols-2 gap-3 rounded-xl border-[2px] border-neutral-100 bg-neutral-50 p-4 text-sm text-neutral-600">
                 {Object.entries(invoiceData).map(([key, value]) => (
                   <Fragment key={key}>
                     <div className="font-medium text-neutral-500">{key}</div>
@@ -533,7 +533,7 @@ function CreatePayoutSheetContent(props: CreatePayoutSheetProps) {
       </div>
 
       <div className="flex grow flex-col justify-end">
-        <div className="flex items-center justify-end gap-2 border-t border-neutral-200 p-5">
+        <div className="flex items-center justify-end gap-2 border-t-[6px] border-neutral-100 p-5">
           <Button
             type="button"
             variant="secondary"

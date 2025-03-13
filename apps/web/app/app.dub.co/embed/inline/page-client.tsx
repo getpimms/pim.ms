@@ -57,7 +57,7 @@ export function EmbedInlinePageClient({
       }
     >
       <div className="p-5">
-        <div className="relative flex flex-col overflow-hidden rounded-lg border border-neutral-300 p-4 md:p-6">
+        <div className="relative flex flex-col overflow-hidden rounded-xl border-[6px] border-neutral-200 p-4 md:p-6">
           <HeroBackground logo={program.logo} color={program.brandColor} />
           <span className="flex items-center gap-2 text-sm text-neutral-500">
             <MoneyBill className="size-4" />
@@ -77,7 +77,7 @@ export function EmbedInlinePageClient({
               type="text"
               readOnly
               value={getPrettyUrl(links[0].shortLink)}
-              className="xs:w-auto h-10 w-full rounded-md border border-neutral-300 px-3 text-sm focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 lg:min-w-64 xl:min-w-72"
+              className="xs:w-auto h-10 w-full rounded-xl border-[2px] border-neutral-300 px-3 text-sm focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 lg:min-w-64 xl:min-w-72"
             />
             <Button
               icon={

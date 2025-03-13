@@ -92,7 +92,7 @@ function ImportBitlyModal({
         })
       }
     >
-      <div className="flex flex-col items-center justify-center space-y-3 border-b border-neutral-200 px-4 py-8 sm:px-16">
+      <div className="flex flex-col items-center justify-center space-y-3 border-b-[6px] border-neutral-100 px-4 py-8 sm:px-16">
         <div className="flex items-center space-x-3 py-4">
           <img
             src="https://assets.dub.co/misc/icons/bitly.svg"
@@ -166,7 +166,7 @@ function ImportBitlyModal({
                     {bsds.map((bsd) => (
                       <div
                         key={bsd}
-                        className="flex items-center justify-between space-x-2 rounded-md border border-neutral-200 bg-white px-4 py-2"
+                        className="flex items-center justify-between space-x-2 rounded-xl border-[2px] border-neutral-100 bg-white px-4 py-2"
                       >
                         <p className="font-medium text-neutral-800">{bsd}</p>
                         <Switch
@@ -243,7 +243,7 @@ function ImportBitlyModal({
                 <img
                   src="https://assets.dub.co/misc/icons/bitly.svg"
                   alt="Bitly logo"
-                  className="h-5 w-5 rounded-full border border-neutral-200"
+                  className="h-5 w-5 rounded-full border-[6px] border-neutral-100"
                 />
               }
               onClick={() => {

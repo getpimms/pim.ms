@@ -91,7 +91,7 @@ function ImportShortModal({
         })
       }
     >
-      <div className="flex flex-col items-center justify-center space-y-3 border-b border-neutral-200 px-4 py-8 sm:px-16">
+      <div className="flex flex-col items-center justify-center space-y-3 border-b-[6px] border-neutral-100 px-4 py-8 sm:px-16">
         <div className="flex items-center space-x-3 py-4">
           <img
             src="https://assets.dub.co/misc/icons/short.svg"
@@ -152,7 +152,7 @@ function ImportShortModal({
               <div className="flex flex-col space-y-2">
                 <p className="text-sm font-medium text-neutral-700">Domains</p>
                 {domains.map(({ id, domain, links }) => (
-                  <div className="flex items-center justify-between space-x-2 rounded-md border border-neutral-200 bg-white px-4 py-2">
+                  <div className="flex items-center justify-between space-x-2 rounded-xl border-[2px] border-neutral-100 bg-white px-4 py-2">
                     <div>
                       <p className="font-medium text-neutral-800">{domain}</p>
                       {links > 0 && (

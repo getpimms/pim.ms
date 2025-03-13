@@ -46,7 +46,7 @@ export default function WrappedPageClient() {
         Here's a look back at your activity in {year}:
       </p>
 
-      <div className="animate-slide-up-fade mb-4 mt-8 rounded-lg border border-neutral-200 bg-white p-2 shadow-md [animation-delay:450ms] [animation-duration:1s] [animation-fill-mode:both]">
+      <div className="animate-slide-up-fade mb-4 mt-8 rounded-xl border-[6px] border-neutral-100 bg-white p-2 shadow-md [animation-delay:450ms] [animation-duration:1s] [animation-fill-mode:both]">
         <div
           className="flex h-24 flex-col items-center justify-center rounded-lg"
           style={{
@@ -99,7 +99,7 @@ export default function WrappedPageClient() {
       </div>
 
       <Link
-        className="group flex flex-col gap-4 rounded-lg border border-neutral-200 bg-white p-4 sm:flex-row"
+        className="group flex flex-col gap-4 rounded-xl border-[6px] border-neutral-100 bg-white p-4 sm:flex-row"
         href="https://dub.co/blog/2024"
         target="_blank"
       >
@@ -168,7 +168,7 @@ const StatTable = ({
         }}
         initial="hidden"
         animate="show"
-        className="grid divide-y divide-neutral-200 text-sm"
+        className="grid divide-y-[6px] divide-neutral-100 text-sm"
       >
         {value.map(({ item, count }, index) => {
           const [domain, ...pathParts] = item.split("/");

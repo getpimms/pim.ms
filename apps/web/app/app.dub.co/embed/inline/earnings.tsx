@@ -100,7 +100,7 @@ export function EmbedEarnings({ salesCount }: { salesCount: number }) {
       <Table
         {...tableProps}
         table={table}
-        containerClassName="rounded-md border border-neutral-200"
+        containerClassName="rounded-xl border-[2px] border-neutral-100"
         scrollWrapperClassName="min-h-[22rem]"
       />
     </motion.div>

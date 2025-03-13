@@ -117,7 +117,7 @@ function ExpirationModal({
               }
               side="right"
             >
-              <kbd className="flex size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-950">
+              <kbd className="flex size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-950">
                 E
               </kbd>
             </Tooltip>
@@ -134,7 +134,7 @@ function ExpirationModal({
               Date and Time
             </label>
           </div>
-          <div className="mt-2 flex w-full items-center justify-between rounded-md border border-neutral-300 bg-white shadow-sm transition-all focus-within:border-neutral-800 focus-within:outline-none focus-within:ring-1 focus-within:ring-neutral-500">
+          <div className="mt-2 flex w-full items-center justify-between rounded-xl border-[2px] border-neutral-300 bg-white shadow-sm transition-all focus-within:border-neutral-800 focus-within:outline-none focus-within:ring-1 focus-within:ring-neutral-500">
             <input
               ref={inputRef}
               id={`${id}-expiresAt`}

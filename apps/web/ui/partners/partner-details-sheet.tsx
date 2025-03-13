@@ -107,7 +107,7 @@ function PartnerDetailsSheetContent({
             </div>
             <div className="flex min-w-[40%] shrink grow basis-1/2 flex-col items-end justify-end gap-2">
               {partner.country && (
-                <div className="flex min-w-20 items-center gap-2 rounded-full border border-neutral-200 bg-white px-1.5 py-0.5 text-xs text-neutral-700">
+                <div className="flex min-w-20 items-center gap-2 rounded-full border-[6px] border-neutral-100 bg-white px-1.5 py-0.5 text-xs text-neutral-700">
                   <img
                     alt=""
                     src={`https://flag.vercel.app/m/${partner.country}.svg`}
@@ -121,7 +121,7 @@ function PartnerDetailsSheetContent({
 
           {/* Stats */}
           {partner.status === "approved" && (
-            <div className="xs:grid-cols-4 mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-neutral-200 bg-neutral-200">
+            <div className="xs:grid-cols-4 mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 [
                   "Clicks",
@@ -229,7 +229,7 @@ function PartnerDetailsSheetContent({
 
       {partner.status === "pending" && (
         <div className="flex grow flex-col justify-end">
-          <div className="border-t border-neutral-200 p-5">
+          <div className="border-t-[6px] border-neutral-100 p-5">
             <PartnerApproval partner={partner} setIsOpen={setIsOpen} />
           </div>
         </div>
@@ -239,7 +239,7 @@ function PartnerDetailsSheetContent({
         <>
           {createPayoutSheet}
           <div className="flex grow flex-col justify-end">
-            <div className="border-t border-neutral-200 p-5">
+            <div className="border-t-[6px] border-neutral-100 p-5">
               <Button
                 variant="primary"
                 text="Create payout"
@@ -528,7 +528,7 @@ function PartnerPayouts({ partner }: { partner: EnrolledPartnerProps }) {
       description="When this partner is eligible for or has received payouts, they will appear here."
       cardContent={() => (
         <>
-          <div className="flex size-7 items-center justify-center rounded-md border border-neutral-200 bg-neutral-50">
+          <div className="flex size-7 items-center justify-center rounded-xl border-[2px] border-neutral-100 bg-neutral-50">
             <GreekTemple className="size-4 text-neutral-700" />
           </div>
           <div className="h-2.5 w-28 min-w-0 rounded-sm bg-neutral-200" />

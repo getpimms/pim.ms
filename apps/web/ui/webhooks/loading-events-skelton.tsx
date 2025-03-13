@@ -1,6 +1,6 @@
 export const WebhookEventListSkeleton = () => {
   return (
-    <div className="rounded-xl border border-neutral-200">
+    <div className="rounded-xl border-[6px] border-neutral-100">
       <div className="flex flex-col divide-y divide-neutral-200">
         {[...Array(5)].map((_, index) => (
           <div

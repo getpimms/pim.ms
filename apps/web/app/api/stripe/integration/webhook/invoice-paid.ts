@@ -171,18 +171,18 @@ export async function invoicePaid(event: Stripe.Event) {
   }
 
   // send workspace webhook
-  waitUntil(
-    sendWorkspaceWebhook({
-      trigger: "sale.created",
-      workspace,
-      data: transformSaleEventData({
-        ...saleData,
-        clickedAt: customer.clickedAt || customer.createdAt,
-        link: linkUpdated,
-        customer,
-      }),
-    }),
-  );
+  // waitUntil(
+  //   sendWorkspaceWebhook({
+  //     trigger: "sale.created",
+  //     workspace,
+  //     data: transformSaleEventData({
+  //       ...saleData,
+  //       clickedAt: customer.clickedAt || customer.createdAt,
+  //       link: linkUpdated,
+  //       customer,
+  //     }),
+  //   }),
+  // );
 
   return `Sale recorded for customer ID ${customer.id} and invoice ID ${invoiceId}`;
 }

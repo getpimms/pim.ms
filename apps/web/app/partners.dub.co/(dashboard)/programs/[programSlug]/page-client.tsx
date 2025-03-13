@@ -61,7 +61,7 @@ export default function ProgramPageClient() {
 
   return (
     <MaxWidthWrapper className="pb-10">
-      <div className="relative z-0 flex flex-col overflow-hidden rounded-lg border border-neutral-300 p-4 md:p-6">
+      <div className="relative z-0 flex flex-col overflow-hidden rounded-xl border-[6px] border-neutral-200 p-4 md:p-6">
         {program && (
           <HeroBackground logo={program.logo} color={program.brandColor} />
         )}
@@ -88,7 +88,7 @@ export default function ProgramPageClient() {
               type="text"
               readOnly
               value={getPrettyUrl(masterLink.shortLink)}
-              className="xs:w-auto h-10 w-full rounded-md border border-neutral-300 px-3 text-sm focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 lg:min-w-64 xl:min-w-72"
+              className="xs:w-auto h-10 w-full rounded-xl border-[2px] border-neutral-300 px-3 text-sm focus:border-neutral-500 focus:outline-none focus:ring-neutral-500 lg:min-w-64 xl:min-w-72"
             />
           ) : (
             <div className="h-10 w-16 animate-pulse rounded-md bg-neutral-200 lg:w-72" />
@@ -133,7 +133,7 @@ export default function ProgramPageClient() {
           color: program?.brandColor ?? undefined,
         }}
       >
-        <div className="mt-6 rounded-lg border border-neutral-300">
+        <div className="mt-6 rounded-xl border-[6px] border-neutral-200">
           <div className="p-4 md:p-6 md:pb-4">
             <EarningsChart />
           </div>
@@ -240,7 +240,7 @@ function EarningsChart() {
             tooltipContent={(d) => {
               return (
                 <>
-                  <p className="border-b border-neutral-200 px-4 py-3 text-sm text-neutral-900">
+                  <p className="border-b-[6px] border-neutral-100 px-4 py-3 text-sm text-neutral-900">
                     {formatDateTooltip(d.date, {
                       interval,
                       start,
@@ -339,7 +339,7 @@ function StatCard({
   return (
     <Link
       href={`/programs/${programSlug}/analytics?event=${event}${getQueryString()?.replace("?", "&")}`}
-      className="hover:drop-shadow-card-hover block rounded-md border border-neutral-300 bg-white p-5 transition-[filter]"
+      className="hover:drop-shadow-card-hover block rounded-xl border-[2px] border-neutral-300 bg-white p-5 transition-[filter]"
     >
       <span className="block text-sm text-neutral-500">{title}</span>
       {total !== undefined ? (

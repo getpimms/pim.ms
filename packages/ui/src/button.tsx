@@ -60,7 +60,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <Tooltip content={disabledTooltip}>
           <div
             className={cn(
-              "flex h-10 w-full cursor-not-allowed items-center justify-center gap-x-2 border border-neutral-200 bg-neutral-100 px-4 text-sm text-neutral-400 transition-all focus:outline-none",
+              "flex h-10 w-full cursor-not-allowed items-center justify-center gap-x-2 border-[6px] border-neutral-100 bg-neutral-100 px-4 text-sm text-neutral-400 transition-all focus:outline-none",
               {
                 "border-transparent bg-transparent":
                   variant?.endsWith("outline"),
@@ -83,7 +83,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {shortcut && (
               <kbd
                 className={cn(
-                  "hidden border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-400 md:inline-block",
+                  "hidden border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-400 md:inline-block",
                   {
                     "bg-neutral-100": variant?.endsWith("outline"),
                   },

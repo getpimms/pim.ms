@@ -90,7 +90,7 @@ function LinksSettingsForm({ program }: { program: ProgramProps }) {
 
   return (
     <form
-      className="rounded-lg border border-neutral-200 bg-white"
+      className="rounded-xl border-[6px] border-neutral-100 bg-white"
       onSubmit={handleSubmit(async (data) => {
         await executeAsync({
           workspaceId: workspaceId!,
@@ -166,7 +166,7 @@ function LinksSettingsForm({ program }: { program: ProgramProps }) {
                 <label
                   key={linkStructure.label}
                   className={cn(
-                    "relative flex w-full cursor-pointer items-start gap-0.5 rounded-md border border-neutral-200 bg-white p-3 text-neutral-600",
+                    "relative flex w-full cursor-pointer items-start gap-0.5 rounded-xl border-[2px] border-neutral-100 bg-white p-3 text-neutral-600",
                     linkStructure.comingSoon
                       ? "cursor-default opacity-80"
                       : "hover:bg-neutral-50",
@@ -248,7 +248,7 @@ function LinksSettingsForm({ program }: { program: ProgramProps }) {
         </SettingsRow>
       </div>
 
-      <div className="flex items-center justify-end rounded-b-lg border-t border-neutral-200 bg-neutral-50 px-6 py-5">
+      <div className="flex items-center justify-end rounded-b-lg border-t-[6px] border-neutral-100 bg-neutral-50 px-6 py-5">
         <div>
           <Button
             text="Save changes"

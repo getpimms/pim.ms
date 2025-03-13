@@ -30,7 +30,7 @@ export function StatCard({
   return (
     <Wrapper
       href={href}
-      className="hover:drop-shadow-card-hover block rounded-md border border-neutral-300 bg-white p-5 transition-[filter]"
+      className="hover:drop-shadow-card-hover block rounded-xl border-[2px] border-neutral-300 bg-white p-5 transition-[filter]"
     >
       <span className="block text-sm text-neutral-500">{title}</span>
       {total !== undefined ? (

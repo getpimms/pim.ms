@@ -19,7 +19,7 @@ export default function DeleteWorkspace() {
 
   return (
     <div
-      className={cn("rounded-lg border border-red-600 bg-white", {
+      className={cn("rounded-xl border-[6px] border-red-400 bg-white", {
         "border-neutral-200": permissionsError,
       })}
     >
@@ -32,11 +32,6 @@ export default function DeleteWorkspace() {
           with caution.
         </p>
       </div>
-      <div
-        className={cn("border-b border-red-600", {
-          "border-neutral-200": permissionsError,
-        })}
-      />
 
       <div className="flex items-center justify-end px-5 py-4 sm:px-10">
         <div>

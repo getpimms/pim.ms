@@ -176,7 +176,7 @@ export default function AddEditWebhookForm({
             </h2>
             <InfoTooltip content="A secret token used to sign the webhook payload." />
           </label>
-          <div className="flex items-center justify-between rounded-md border border-neutral-300 bg-white px-3 py-1">
+          <div className="flex items-center justify-between rounded-xl border-[2px] border-neutral-300 bg-white px-3 py-1">
             <p className="text-nowrap font-mono text-sm text-neutral-500">
               {secret}
             </p>
@@ -186,7 +186,7 @@ export default function AddEditWebhookForm({
           </div>
         </div>
 
-        <div className="rounded-md border border-neutral-200 p-4">
+        <div className="rounded-xl border-[2px] border-neutral-100 p-4">
           <label htmlFor="triggers" className="flex flex-col gap-1">
             <h2 className="text-sm font-medium text-neutral-900">
               Workspace level events
@@ -196,10 +196,11 @@ export default function AddEditWebhookForm({
             </span>
           </label>
           <div className="mt-3 flex flex-col gap-2">
-            {WORKSPACE_LEVEL_WEBHOOK_TRIGGERS.filter(
+            {/* {WORKSPACE_LEVEL_WEBHOOK_TRIGGERS.filter(
               // if partners are not enabled, don't show partner.created
               (trigger) => partnersEnabled || trigger !== "partner.created",
-            ).map((trigger) => (
+            ).map((trigger) => ( */}
+            {WORKSPACE_LEVEL_WEBHOOK_TRIGGERS.map((trigger) => (
               <div key={trigger} className="group flex gap-2">
                 <Checkbox
                   value={trigger}
@@ -226,7 +227,7 @@ export default function AddEditWebhookForm({
           </div>
         </div>
 
-        <div className="rounded-md border border-neutral-200 p-4">
+        <div className="rounded-xl border-[2px] border-neutral-100 p-4">
           <label htmlFor="triggers" className="flex flex-col gap-1">
             <h2 className="text-sm font-medium text-neutral-900">
               Link level events{" "}

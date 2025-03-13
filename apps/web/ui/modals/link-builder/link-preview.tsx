@@ -292,7 +292,7 @@ function DefaultOGPreview({ title, description, children }: OGPreviewProps) {
 
   return (
     <div>
-      <div className="group relative overflow-hidden rounded-md border border-neutral-300">
+      <div className="group relative overflow-hidden rounded-xl border-[2px] border-neutral-300">
         {children}
       </div>
       <ReactTextareaAutosize

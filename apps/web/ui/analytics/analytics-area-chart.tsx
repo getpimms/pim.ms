@@ -115,7 +115,7 @@ export default function AnalyticsAreaChart({
           tooltipContent={(d) => {
             return (
               <>
-                <p className="border-b border-neutral-200 px-4 py-3 text-sm text-neutral-900">
+                <p className="border-b-[6px] border-neutral-100 px-4 py-3 text-sm text-neutral-900">
                   {formatDateTooltip(d.date, {
                     interval: demo ? "day" : interval,
                     start,

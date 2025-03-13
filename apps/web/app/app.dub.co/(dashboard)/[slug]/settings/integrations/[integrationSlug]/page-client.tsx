@@ -154,7 +154,7 @@ export default function IntegrationPageClient({
             <button
               onClick={() => setOpenPopover(!openPopover)}
               className={cn(
-                "flex h-10 items-center rounded-md border px-1.5 outline-none transition-all",
+                "flex h-10 items-center rounded-xl border-[2px] px-1.5 outline-none transition-all",
                 "border-neutral-200 bg-white text-neutral-900 placeholder-neutral-400",
                 "focus-visible:border-neutral-500 data-[state=open]:border-neutral-500 data-[state=open]:ring-4 data-[state=open]:ring-neutral-200",
               )}
@@ -165,7 +165,7 @@ export default function IntegrationPageClient({
         )}
       </div>
 
-      <div className="flex flex-col justify-between gap-4 rounded-lg border border-neutral-200 bg-white p-4 sm:flex-row sm:gap-0">
+      <div className="flex flex-col justify-between gap-4 rounded-xl border-[6px] border-neutral-100 bg-white p-4 sm:flex-row sm:gap-0">
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
           {[
             ...(integration.installed
@@ -271,7 +271,7 @@ export default function IntegrationPageClient({
         </div>
       </div>
 
-      <div className="w-full rounded-lg border border-neutral-200 bg-white">
+      <div className="w-full rounded-xl border-[6px] border-neutral-100 bg-white">
         {integration.screenshots && integration.screenshots.length > 0 ? (
           <Carousel autoplay={{ delay: 5000 }}>
             <div className="relative rounded-t-lg bg-white p-4">
@@ -283,7 +283,7 @@ export default function IntegrationPageClient({
                       alt={`Screenshot ${idx + 1} of ${integration.name}`}
                       width={900}
                       height={580}
-                      className="aspect-[900/580] w-[5/6] overflow-hidden rounded-md border border-neutral-200 object-cover object-top"
+                      className="aspect-[900/580] w-[5/6] overflow-hidden rounded-xl border-[2px] border-neutral-100 object-cover object-top"
                     />
                   </CarouselItem>
                 ))}

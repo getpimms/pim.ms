@@ -98,7 +98,7 @@ function OnboardingButtonInner({
             </div>
           </div>
           <div className="p-3">
-            <div className="grid divide-y divide-neutral-200 rounded-lg border border-neutral-200 bg-white">
+            <div className="grid divide-y-[6px] divide-neutral-100 rounded-xl border-[6px] border-neutral-100 bg-white">
               {tasks.map(({ display, cta, checked }) => {
                 return (
                   <Link

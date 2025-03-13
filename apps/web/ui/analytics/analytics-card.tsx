@@ -65,7 +65,7 @@ export function AnalyticsCard<T extends string>({
         setShowModal={setShowModal}
         className="max-w-lg px-0"
       >
-        <div className="border-b border-neutral-200 px-6 py-4">
+        <div className="border-b-[6px] border-neutral-100 px-6 py-4">
           <h1 className="text-lg font-semibold">{selectedTab?.label}</h1>
         </div>
         {subTabs && selectedSubTabId && onSelectSubTab && (
@@ -79,11 +79,11 @@ export function AnalyticsCard<T extends string>({
       </Modal>
       <div
         className={cn(
-          "relative z-0 h-[400px] overflow-hidden border border-neutral-200 bg-white sm:rounded-xl",
+          "relative z-0 h-[400px] overflow-hidden border-[6px] border-neutral-100 bg-white sm:rounded-xl",
           className,
         )}
       >
-        <div className="flex items-center justify-between border-b border-neutral-200 px-4">
+        <div className="flex items-center justify-between border-b-[6px] border-neutral-100 px-4">
           {/* Main tabs */}
           {isMobile ? (
             <Popover
@@ -165,12 +165,11 @@ export function AnalyticsCard<T extends string>({
         </div>
         {hasMore && (
           <div className="absolute bottom-0 left-0 z-10 flex w-full items-end">
-            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-full bg-gradient-to-t from-white" />
             <button
               onClick={() => setShowModal(true)}
               className="group relative flex w-full items-center justify-center py-4"
             >
-              <div className="rounded-md border border-neutral-200 bg-white px-2.5 py-1 text-sm text-neutral-950 group-hover:bg-neutral-100 group-active:border-neutral-300">
+              <div className="rounded-xl border-[2px] border-[#08272E] bg-white px-2.5 py-1 text-sm text-neutral-950 group-hover:bg-neutral-100 group-active:border-neutral-300">
                 View All
               </div>
             </button>
@@ -199,7 +198,7 @@ function SubTabs({
       }))}
       selected={selectedTab}
       selectAction={(period) => onSelectTab(period)}
-      className="flex w-full flex-wrap rounded-none border-x-0 border-t-0 border-neutral-200 bg-neutral-50 px-6 py-2.5 sm:flex-nowrap"
+      className="flex w-full flex-wrap rounded-none border-x-0 border-t-0 border-neutral-100 bg-neutral-50 px-6 py-2.5 sm:flex-nowrap"
       optionClassName="text-xs px-2 font-normal hover:text-neutral-700"
       indicatorClassName="border-0 bg-neutral-200 rounded-md"
     />

@@ -174,7 +174,7 @@ function LinkQRModalInner({
             }
             side="right"
           >
-            <kbd className="flex size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-950">
+            <kbd className="flex size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-950">
               Q
             </kbd>
           </Tooltip>
@@ -224,7 +224,7 @@ function LinkQRModalInner({
             </div>
           )}
         </div>
-        <div className="relative mt-2 flex h-44 items-center justify-center overflow-hidden rounded-md border border-neutral-300">
+        <div className="relative mt-2 flex h-44 items-center justify-center overflow-hidden rounded-xl border-[2px] border-neutral-300">
           {!isMobile && (
             <ShimmerDots className="opacity-30 [mask-image:radial-gradient(40%_80%,transparent_50%,black)]" />
           )}

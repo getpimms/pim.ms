@@ -232,7 +232,7 @@ export function AddEditDomainForm({
           )}
         </div>
         {props && lockDomain ? (
-          <div className="mt-2 cursor-not-allowed rounded-md border border-neutral-300 bg-neutral-100 px-3 py-2 text-sm text-neutral-500 shadow-sm">
+          <div className="mt-2 cursor-not-allowed rounded-xl border-[2px] border-neutral-300 bg-neutral-100 px-3 py-2 text-sm text-neutral-500 shadow-sm">
             {domain}
           </div>
         ) : (
@@ -244,7 +244,7 @@ export function AddEditDomainForm({
                   "bg-neutral-200 text-neutral-500",
               )}
             >
-              <div className="flex rounded-md border border-neutral-300 bg-white">
+              <div className="flex rounded-xl border-[2px] border-neutral-300 bg-white">
                 <input
                   {...register("slug", {
                     onChange: (e) => {
@@ -253,7 +253,7 @@ export function AddEditDomainForm({
                     },
                   })}
                   className="block w-full rounded-md border-0 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-0 sm:text-sm"
-                  placeholder="go.acme.com"
+                  placeholder="go.domain.io"
                   autoFocus={!isMobile}
                 />
               </div>
@@ -303,7 +303,7 @@ export function AddEditDomainForm({
                   <div key={id}>
                     <label className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
-                        <div className="hidden rounded-lg border border-neutral-200 bg-white p-2 sm:block">
+                        <div className="hidden rounded-xl border-[6px] border-neutral-100 bg-white p-2 sm:block">
                           <Icon className="size-5 text-neutral-500" />
                         </div>
                         <div>
@@ -344,7 +344,7 @@ export function AddEditDomainForm({
                     >
                       <div className="relative mt-2 rounded-md shadow-sm">
                         {id === "logo" ? (
-                          <div className="flex h-24 items-center justify-center overflow-hidden rounded-md border border-neutral-300">
+                          <div className="flex h-24 items-center justify-center overflow-hidden rounded-xl border-[2px] border-neutral-300">
                             {!isMobile && (
                               <ShimmerDots className="pointer-events-none z-10 opacity-30 [mask-image:radial-gradient(40%_80%,transparent_50%,black)]" />
                             )}

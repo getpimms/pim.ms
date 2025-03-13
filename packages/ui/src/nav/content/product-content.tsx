@@ -107,7 +107,7 @@ export function ProductContent({ domain }: { domain: string }) {
                   getUtmParams({ domain, utm_content: title }),
                 )}
                 icon={
-                  <div className="shrink-0 rounded-[10px] border border-neutral-200 bg-white/50 p-2 dark:border-white/20 dark:bg-white/10">
+                  <div className="shrink-0 rounded-[10px] border-[6px] border-neutral-100 bg-white/50 p-2 dark:border-white/20 dark:bg-white/10">
                     <Icon
                       className={cn(
                         "h-4 w-4 shrink-0 text-neutral-600 transition-colors dark:text-white/60",

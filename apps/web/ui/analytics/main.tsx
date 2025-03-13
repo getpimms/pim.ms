@@ -73,13 +73,13 @@ export default function Main() {
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      <div className="scrollbar-hide w-full divide-x overflow-y-hidden border border-neutral-200 sm:rounded-t-xl">
+      <div className="scrollbar-hide w-full divide-x overflow-y-hidden border-[6px] border-neutral-100 sm:rounded-t-xl">
         <NumberFlowGroup>
           {tabs.map(({ id, label, colorClassName, conversions }, idx) => {
             return (
               <div key={id} className="relative z-0">
                 {idx > 0 && (
-                  <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-200 bg-white p-1.5">
+                  <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-neutral-100 bg-white p-1.5">
                     <ChevronRight
                       className="h-3 w-3 text-neutral-400"
                       strokeWidth={2.5}
@@ -90,7 +90,7 @@ export default function Main() {
                   <ToggleGroup
                     className="absolute right-3 top-3 hidden w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100 sm:flex"
                     optionClassName="size-8 p-0 flex items-center justify-center"
-                    indicatorClassName="border border-neutral-200 bg-white"
+                    indicatorClassName="border-[6px] border-neutral-100 bg-white"
                     options={[
                       {
                         label: <div className="text-base">$</div>,
@@ -125,13 +125,13 @@ export default function Main() {
                   }
                   aria-current
                 >
-                  {/* Active tab indicator */}
+                  {/* Active tab indicator
                   <div
                     className={cn(
                       "absolute bottom-0 left-0 h-0.5 w-full bg-black transition-transform duration-100",
                       tab.id !== id && "translate-y-[3px]", // Translate an extra pixel to avoid sub-pixel issues
                     )}
-                  />
+                  /> */}
 
                   <div className="flex items-center gap-2.5 text-sm text-neutral-600">
                     <div
@@ -187,7 +187,7 @@ export default function Main() {
       <div className="relative">
         <div
           className={cn(
-            "relative overflow-hidden border-x border-b border-neutral-200 sm:rounded-b-xl",
+            "relative overflow-hidden border-x-[6px] border-b-[6px] border-neutral-100 sm:rounded-b-xl",
             showPaywall &&
               "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
           )}
@@ -202,7 +202,7 @@ export default function Main() {
         {/* <ToggleGroup
           className="absolute right-3 top-3 flex w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100"
           optionClassName="size-8 p-0 flex items-center justify-center"
-          indicatorClassName="border border-neutral-200 bg-white"
+          indicatorClassName="border-[6px] border-neutral-100 bg-white"
           options={[
             {
               label: <ChartLine className="size-4 text-neutral-600" />,
@@ -235,7 +235,7 @@ function ConversionTrackingPaywall() {
         <Link
           href="https://d.to/conversions"
           target="_blank"
-          className="group relative flex aspect-video w-full max-w-80 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100"
+          className="group relative flex aspect-video w-full max-w-80 items-center justify-center overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-100"
         >
           <BlurImage
             src="https://assets.dub.co/blog/conversion-analytics.png"

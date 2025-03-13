@@ -141,18 +141,18 @@ export async function customerCreated(event: Stripe.Event) {
       // });
     }
 
-    waitUntil(
-      sendWorkspaceWebhook({
-        trigger: "lead.created",
-        workspace,
-        data: transformLeadEventData({
-          ...clickData,
-          eventName,
-          link: linkUpdated,
-          customer,
-        }),
-      }),
-    );
+    // waitUntil(
+    //   sendWorkspaceWebhook({
+    //     trigger: "lead.created",
+    //     workspace,
+    //     data: transformLeadEventData({
+    //       ...clickData,
+    //       eventName,
+    //       link: linkUpdated,
+    //       customer,
+    //     }),
+    //   }),
+    // );
 
     return `New Dub customer created: ${customer.id}. Lead event recorded: ${leadData.event_id}`;
   }

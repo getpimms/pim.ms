@@ -89,7 +89,7 @@ export function QRCodePreview() {
           /> */}
         </div>
       </div>
-      <div className="relative mt-2 h-24 overflow-hidden rounded-md border border-neutral-300">
+      <div className="relative mt-2 h-24 overflow-hidden rounded-xl border-[2px] border-neutral-300">
         <Button
           type="button"
           variant="secondary"

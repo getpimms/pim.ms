@@ -195,7 +195,7 @@ export function Combobox({
           className="pointer-events-auto"
         >
           <Command loop shouldFilter={shouldFilter}>
-            <div className="flex items-center overflow-hidden rounded-t-lg border-b border-neutral-200">
+            <div className="flex items-center overflow-hidden rounded-t-lg border-b-[6px] border-neutral-100">
               <CommandInput
                 placeholder={searchPlaceholder}
                 value={search}
@@ -216,7 +216,7 @@ export function Combobox({
                 }}
               />
               {shortcutHint && (
-                <kbd className="mr-2 hidden shrink-0 rounded border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
+                <kbd className="mr-2 hidden shrink-0 rounded border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
                   {shortcutHint}
                 </kbd>
               )}

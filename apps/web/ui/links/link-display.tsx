@@ -87,7 +87,7 @@ export default function LinkDisplay() {
             <div className="flex items-center gap-2">
               <div className="flex w-6 items-center justify-center">
                 <BoxArchive className="size-4 text-neutral-800 group-hover:hidden" />
-                <kbd className="hidden rounded border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 group-hover:block">
+                <kbd className="hidden rounded border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 group-hover:block">
                   A
                 </kbd>
               </div>

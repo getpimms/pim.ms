@@ -145,7 +145,7 @@ export const PLANS: any[] = [
       text: "Start for free",
       href: "https://app.pimms.io/register",
       color:
-        "bg-white hover:bg-neutral-50 border border-neutral-200 hover:ring-neutral-100 text-neutral-800",
+        "bg-white hover:bg-neutral-50 border-[6px] border-neutral-100 hover:ring-neutral-100 text-neutral-800",
     },
     featureTitle: "What's included:",
     features: [
@@ -346,7 +346,7 @@ export const PLANS: any[] = [
   //     text: "Contact us",
   //     href: "/enterprise",
   //     color:
-  //       "bg-white hover:bg-neutral-50 border border-neutral-200 hover:ring-neutral-100 text-neutral-800",
+  //       "bg-white hover:bg-neutral-50 border-[6px] border-neutral-100 hover:ring-neutral-100 text-neutral-800",
   //   },
   //   featureTitle: "Everything in Business, plus:",
   //   features: [

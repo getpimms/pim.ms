@@ -68,7 +68,7 @@ export const FolderDropdown = ({
                 <Link
                   href={`/${slug}/settings/library/folders`}
                   onClick={() => setOpenPopover(false)}
-                  className="rounded-md border border-neutral-200 px-2 py-1 text-xs transition-colors hover:bg-neutral-100"
+                  className="rounded-xl border-[2px] border-neutral-100 px-2 py-1 text-xs transition-colors hover:bg-neutral-100"
                 >
                   View All
                 </Link>

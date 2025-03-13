@@ -208,7 +208,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
       <div ref={ref}>
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Icon className="size-3.5 text-neutral-600" />
+            {/* <Icon className="size-3.5 text-neutral-600" /> */}
             <span className="text-xs font-medium text-neutral-700">
               {label}
             </span>

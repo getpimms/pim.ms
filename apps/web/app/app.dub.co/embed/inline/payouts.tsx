@@ -8,7 +8,7 @@ export function EmbedPayouts({
   payouts: { status: PayoutStatus; amount: number }[];
 }) {
   return (
-    <div className="flex flex-col justify-between gap-4 rounded-lg border border-neutral-200 bg-white p-4">
+    <div className="flex flex-col justify-between gap-4 rounded-xl border-[6px] border-neutral-100 bg-white p-4">
       <div className="flex items-center gap-1">
         <p className="text-sm text-neutral-500">Payouts</p>
         <InfoTooltip content="Payouts are processed at the start of each month. Your earnings are automatically transferred to your bank account." />

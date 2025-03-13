@@ -60,7 +60,7 @@ export function NavMobile({
           open && "block",
         )}
       >
-        <ul className="grid divide-y divide-neutral-200 dark:divide-white/[0.15]">
+        <ul className="grid divide-y-[6px] divide-neutral-100 dark:divide-white/[0.15]">
           {navItems.map(({ name, href, childItems }, idx) => (
             <MobileNavItem
               key={idx}
@@ -157,7 +157,7 @@ const MobileNavItem = ({
   //                 onClick={() => setOpen(false)}
   //                 className="flex w-full gap-3"
   //               >
-  //                 <div className="flex size-10 items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-t from-neutral-100">
+  //                 <div className="flex size-10 items-center justify-center rounded-lg border-[6px] border-neutral-100 bg-gradient-to-t from-neutral-100">
   //                   <Icon className="size-5 text-neutral-700" />
   //                 </div>
   //                 <div>

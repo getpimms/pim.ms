@@ -236,7 +236,7 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                 className="h-9 px-2 font-medium"
               />
             </div>
-            <div className="border-t border-neutral-200" />
+            <div className="border-t-[6px] border-neutral-100" />
             <div className="grid gap-px p-2">
               {/* {flags?.linkFolders && folders && folders.length > 0 && (
                 <Button

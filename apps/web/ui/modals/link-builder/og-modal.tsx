@@ -241,7 +241,7 @@ function OGModalInner({
                 }
                 side="right"
               >
-                <kbd className="flex size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-950">
+                <kbd className="flex size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-950">
                   L
                 </kbd>
               </Tooltip>
@@ -364,7 +364,7 @@ function OGModalInner({
               </div>
               <div className="relative mt-1 flex rounded-xl shadow-sm">
                 {generatingMetatags && (
-                  <div className="absolute flex h-full w-full items-center justify-center rounded-md border border-neutral-300 bg-white">
+                  <div className="absolute flex h-full w-full items-center justify-center rounded-xl border-[2px] border-neutral-300 bg-white">
                     <LoadingCircle />
                   </div>
                 )}
@@ -420,7 +420,7 @@ function OGModalInner({
               </div>
               <div className="relative mt-1 flex rounded-xl shadow-sm">
                 {generatingMetatags && (
-                  <div className="absolute flex h-full w-full items-center justify-center rounded-md border border-neutral-300 bg-white">
+                  <div className="absolute flex h-full w-full items-center justify-center rounded-xl border-[2px] border-neutral-300 bg-white">
                     <LoadingCircle />
                   </div>
                 )}

@@ -206,11 +206,11 @@ export const POST = withWorkspaceEdge(
           customer,
         });
 
-        await sendWorkspaceWebhookOnEdge({
-          trigger: "sale.created",
-          data: sale,
-          workspace,
-        });
+        // await sendWorkspaceWebhookOnEdge({
+        //   trigger: "sale.created",
+        //   data: sale,
+        //   workspace,
+        // });
       })(),
     );
 

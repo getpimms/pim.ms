@@ -80,7 +80,7 @@ export function EmbedLeaderboard() {
 
   return (
     <motion.div
-      className="relative rounded-md border border-neutral-200"
+      className="relative rounded-xl border-[2px] border-neutral-100"
       {...TAB_ITEM_ANIMATION_SETTINGS}
     >
       <Table

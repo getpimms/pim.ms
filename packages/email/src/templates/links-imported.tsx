@@ -122,7 +122,7 @@ export function LinksImported({
                       </Column>
                     </Row>
                     {index !== links.length - 1 && (
-                      <Hr className="my-2 w-full border border-neutral-200" />
+                      <Hr className="my-2 w-full border-[6px] border-neutral-100" />
                     )}
                   </div>
                 ))}

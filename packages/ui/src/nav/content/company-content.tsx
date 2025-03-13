@@ -36,7 +36,7 @@ export function CompanyContent({ domain }: { domain: string }) {
               target="_blank"
               className="-mx-2"
               icon={
-                <div className="shrink-0 rounded-lg border border-neutral-200 bg-white/50 p-1.5 dark:border-white/20 dark:bg-white/10">
+                <div className="shrink-0 rounded-xl border-[6px] border-neutral-100 bg-white/50 p-1.5 dark:border-white/20 dark:bg-white/10">
                   <Icon className="size-4 shrink-0 text-neutral-600 transition-colors dark:text-white/60" />
                 </div>
               }

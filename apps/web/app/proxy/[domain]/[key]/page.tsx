@@ -59,7 +59,7 @@ export default async function ProxyPage({
 
   return (
     <main className="flex h-screen w-screen items-center justify-center">
-      <div className="mx-5 w-full max-w-lg overflow-hidden rounded-lg border border-neutral-200 sm:mx-0">
+      <div className="mx-5 w-full max-w-lg overflow-hidden rounded-lg border-[6px] border-neutral-100 sm:mx-0">
         <img
           src={data.image}
           alt={unescape(data.title || "")}

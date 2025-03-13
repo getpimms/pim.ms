@@ -23,7 +23,7 @@ export function EmbedActivity({
   );
 
   return (
-    <div className="grid h-full grid-cols-3 divide-x divide-neutral-200 rounded-lg border border-neutral-200 bg-white sm:col-span-2">
+    <div className="grid h-full grid-cols-3 divide-x divide-neutral-200 rounded-xl border-[6px] border-neutral-100 bg-white sm:col-span-2">
       {[
         {
           label: "Clicks",

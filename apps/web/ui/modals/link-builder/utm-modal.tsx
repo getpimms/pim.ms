@@ -191,7 +191,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
             }
             side="right"
           >
-            <kbd className="flex size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-950">
+            <kbd className="flex size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-950">
               U
             </kbd>
           </Tooltip>
@@ -227,7 +227,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
           <span className="block text-sm font-medium text-neutral-700">
             URL Preview
           </span>
-          <div className="scrollbar-hide mt-2 overflow-scroll break-words rounded-lg border border-neutral-200 bg-neutral-50 px-2.5 py-2 font-mono text-xs text-neutral-500">
+          <div className="scrollbar-hide mt-2 overflow-scroll break-words rounded-lg border-[6px] border-neutral-100 bg-neutral-50 px-2.5 py-2 font-mono text-xs text-neutral-500">
             {url}
           </div>
         </div>

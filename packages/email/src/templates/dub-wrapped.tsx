@@ -216,7 +216,7 @@ export function DubWrapped({
               className="max-w-[500px] rounded-lg"
             />
 
-            <Hr className="mx-0 my-6 w-full border border-neutral-200" />
+            <Hr className="mx-0 my-6 w-full border-[6px] border-neutral-100" />
 
             <Heading className="mx-0 mb-4 mt-8 p-0 text-xl font-semibold text-black">
               What we shipped 🚢
@@ -248,7 +248,7 @@ export function DubWrapped({
               </div>
             ))}
 
-            <Hr className="mx-0 my-6 w-full border border-neutral-200" />
+            <Hr className="mx-0 my-6 w-full border-[6px] border-neutral-100" />
 
             <Text className="text-sm leading-6 text-black">
               You can also check out more updates on our{" "}
@@ -350,7 +350,7 @@ const StatTable = ({
               </Column>
             </Row>
             {index !== value.length - 1 && (
-              <Hr className="my-0 w-full border border-neutral-200" />
+              <Hr className="my-0 w-full border-[6px] border-neutral-100" />
             )}
           </div>
         );

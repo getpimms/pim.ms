@@ -9,7 +9,7 @@ export default function LinkPreviewTooltip({ data }: { data: LinkProps }) {
 
   return (
     <div className="relative flex w-[28rem] items-center gap-x-2 px-4 py-2">
-      <div className="relative flex-none rounded-full border border-neutral-200 bg-gradient-to-t from-neutral-100 pr-0.5 sm:p-2">
+      <div className="relative flex-none rounded-full border-[6px] border-neutral-100 bg-gradient-to-t from-neutral-100 pr-0.5 sm:p-2">
         <LinkLogo
           apexDomain={getApexDomain(url)}
           className="h-4 w-4 shrink-0 transition-[width,height] sm:h-6 sm:w-6 group-data-[variant=loose]/card-list:sm:h-5 group-data-[variant=loose]/card-list:sm:w-5"

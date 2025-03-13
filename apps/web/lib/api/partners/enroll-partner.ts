@@ -137,11 +137,11 @@ export const enrollPartner = async ({
           value: partner.email,
         }),
 
-      sendWorkspaceWebhook({
-        workspace,
-        trigger: "partner.created",
-        data: enrolledPartner,
-      }),
+      // sendWorkspaceWebhook({
+      //   workspace,
+      //   trigger: "partner.created",
+      //   data: enrolledPartner,
+      // }),
     ]),
   );
 

@@ -99,7 +99,7 @@ export const MoveLinkForm = ({
 
   return (
     <>
-      <div className="space-y-2 border-b border-neutral-200 px-4 py-4 sm:px-6">
+      <div className="space-y-2 border-b-[6px] border-neutral-100 px-4 py-4 sm:px-6">
         <LinkLogo apexDomain={apexDomain} />
         <h3 className="text-lg font-medium">Move {shortlink}</h3>
         <p className="text-sm text-neutral-500">
@@ -129,7 +129,7 @@ export const MoveLinkForm = ({
             </div>
           </div>
 
-          <div className="mt-8 flex justify-end gap-2 border-t border-neutral-200 px-4 py-4 sm:px-6">
+          <div className="mt-8 flex justify-end gap-2 border-t-[6px] border-neutral-100 px-4 py-4 sm:px-6">
             <Button
               type="button"
               variant="secondary"

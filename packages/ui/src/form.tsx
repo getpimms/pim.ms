@@ -35,7 +35,7 @@ export function Form({
         });
         setSaving(false);
       }}
-      className="rounded-lg border border-neutral-200 bg-white"
+      className="rounded-xl border-[6px] border-neutral-100 bg-white"
     >
       <div className="relative flex flex-col space-y-6 p-5 sm:p-10">
         <div className="flex flex-col space-y-3">
@@ -62,7 +62,7 @@ export function Form({
         )}
       </div>
 
-      <div className="flex items-center justify-between space-x-4 rounded-b-lg border-t border-neutral-200 bg-neutral-50 p-3 sm:px-10">
+      <div className="flex items-center justify-between space-x-4 rounded-b-lg border-t-[6px] border-neutral-100 bg-neutral-50 p-3 sm:px-10">
         {typeof helpText === "string" ? (
           <p
             className="prose-sm prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-neutral-700 text-neutral-500 transition-colors"

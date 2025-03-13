@@ -22,7 +22,7 @@ export default function RegisterPageClient() {
 function SignUp() {
   return (
     <>
-      <div className="rounded-lg border border-neutral-200 bg-white p-8 pb-10">
+      <div className="rounded-xl border-[6px] border-neutral-100 bg-white p-8 pb-10">
         <h1 className="text-lg font-medium text-neutral-800">
           Create a Dub Partner account
         </h1>
@@ -48,7 +48,7 @@ function Verify() {
 
   return (
     <>
-      <div className="rounded-lg border border-neutral-200 bg-white p-8 pb-10">
+      <div className="rounded-xl border-[6px] border-neutral-100 bg-white p-8 pb-10">
         <h1 className="text-lg font-medium text-neutral-800">
           Verify your email address
         </h1>

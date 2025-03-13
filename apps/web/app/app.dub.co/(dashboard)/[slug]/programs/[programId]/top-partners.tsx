@@ -24,8 +24,8 @@ export function TopPartners() {
   const isLoading = !partners && !error;
 
   return (
-    <div className="rounded-md border border-neutral-200">
-      <div className="flex items-center justify-between border-b border-neutral-200 p-5">
+    <div className="rounded-xl border-[2px] border-neutral-100">
+      <div className="flex items-center justify-between border-b-[6px] border-neutral-100 p-5">
         <h2 className="text-base font-semibold text-neutral-900">
           Top partners
         </h2>

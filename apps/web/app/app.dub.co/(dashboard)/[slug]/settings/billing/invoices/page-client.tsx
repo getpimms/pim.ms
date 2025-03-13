@@ -30,7 +30,7 @@ export default function WorkspaceInvoicesClient() {
   );
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white">
+    <div className="rounded-xl border-[6px] border-neutral-100 bg-white">
       <div className="flex flex-col items-start justify-between gap-y-4 p-6 md:p-8 md:pb-2 lg:flex-row">
         <div>
           <h2 className="text-xl font-medium">Invoices</h2>
@@ -56,7 +56,7 @@ export default function WorkspaceInvoicesClient() {
           }}
         />
       )}
-      <div className="grid divide-y divide-neutral-200 border-t border-neutral-200">
+      <div className="grid divide-y-[6px] divide-neutral-100 border-t-[6px] border-neutral-100">
         {invoices ? (
           invoices.length > 0 ? (
             invoices.map((invoice) => (

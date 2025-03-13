@@ -180,7 +180,7 @@ export function Table<T>({
   return (
     <div
       className={cn(
-        "relative rounded-xl border border-neutral-200 bg-white",
+        "relative rounded-xl border-[6px] border-neutral-100 bg-white",
         containerClassName,
       )}
     >
@@ -345,7 +345,7 @@ export function Table<T>({
         </div>
       )}
       {pagination && !error && !!data?.length && !!rowCount && (
-        <div className="sticky bottom-0 mx-auto -mt-px flex w-full max-w-full items-center justify-between rounded-b-[inherit] border-t border-neutral-200 bg-white px-4 py-3.5 text-sm leading-6 text-neutral-600">
+        <div className="sticky bottom-0 mx-auto -mt-px flex w-full max-w-full items-center justify-between rounded-b-[inherit] border-t-[6px] border-neutral-100 bg-white px-4 py-3.5 text-sm leading-6 text-neutral-600">
           <div>
             <span className="hidden sm:inline-block">Viewing</span>{" "}
             <span className="font-medium">

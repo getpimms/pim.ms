@@ -46,7 +46,7 @@ export function FilterList({
                     key={`loader-${filterValue}`}
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="h-9 w-48 animate-pulse rounded-xl border border-neutral-200 bg-white"
+                    className="h-9 w-48 animate-pulse rounded-xl border-[6px] border-neutral-100 bg-white"
                   />
                 );
               }
@@ -88,7 +88,7 @@ export function FilterList({
                     key={`${key}-${value}`}
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center divide-x rounded-xl border border-neutral-200 bg-white text-sm text-black"
+                    className="flex items-center divide-x rounded-xl border-[6px] border-neutral-100 bg-white text-sm text-black"
                   >
                     {/* Filter */}
                     <div className="flex items-center gap-2.5 px-3 py-2">

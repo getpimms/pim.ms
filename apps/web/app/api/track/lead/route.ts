@@ -140,16 +140,16 @@ export const POST = withWorkspaceEdge(
           // });
         }
 
-        await sendWorkspaceWebhookOnEdge({
-          trigger: "lead.created",
-          data: transformLeadEventData({
-            ...clickData,
-            eventName,
-            link,
-            customer,
-          }),
-          workspace,
-        });
+        // await sendWorkspaceWebhookOnEdge({
+        //   trigger: "lead.created",
+        //   data: transformLeadEventData({
+        //     ...clickData,
+        //     eventName,
+        //     link,
+        //     customer,
+        //   }),
+        //   workspace,
+        // });
       })(),
     );
 

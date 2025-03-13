@@ -106,7 +106,7 @@ export function MoreDropdown() {
                           }
                         />
                       </div>
-                      <kbd className="hidden size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-800 sm:flex">
+                      <kbd className="hidden size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-800 sm:flex">
                         {option.shortcutKey.toUpperCase()}
                       </kbd>
                     </div>
@@ -134,7 +134,7 @@ export function MoreDropdown() {
                     />
                     Advanced Settings
                   </div>
-                  <kbd className="hidden size-6 cursor-default items-center justify-center rounded-md border border-neutral-200 font-sans text-xs text-neutral-800 sm:flex">
+                  <kbd className="hidden size-6 cursor-default items-center justify-center rounded-xl border-[2px] border-neutral-100 font-sans text-xs text-neutral-800 sm:flex">
                     A
                   </kbd>
                 </div>

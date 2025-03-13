@@ -74,7 +74,7 @@ export function LinkTitleColumn({ link }: { link: ResponseLink }) {
         )}
       >
         {/* Link logo background circle */}
-        <div className="absolute inset-0 shrink-0 rounded-md border border-neutral-200 opacity-0 transition-opacity group-data-[variant=loose]/card-list:sm:opacity-100">
+        <div className="absolute inset-0 shrink-0 rounded-md border-[2px] border-neutral-100 opacity-0 transition-opacity group-data-[variant=loose]/card-list:sm:opacity-100">
           <div className="h-full w-full rounded-md border border-white bg-gradient-to-t from-neutral-100" />
         </div>
         <div className="relative pr-0.5 transition-[padding] group-data-[variant=loose]/card-list:sm:p-2">
@@ -198,7 +198,7 @@ function SettingsBadge({ link }: { link: ResponseLink }) {
           <HoverCard.Content
             side="bottom"
             sideOffset={8}
-            className="animate-slide-up-fade z-[99] items-center overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm"
+            className="animate-slide-up-fade z-[99] items-center overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-white shadow-sm"
           >
             <div className="flex w-[340px] flex-col p-3 text-sm">
               {settings.map(({ label, icon: Icon }) => (

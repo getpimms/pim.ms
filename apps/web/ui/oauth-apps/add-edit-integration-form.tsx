@@ -127,7 +127,7 @@ export default function AddEditIntegrationForm({
         <div>
           <FileUpload
             accept="images"
-            className="h-24 w-24 rounded-full border border-neutral-300"
+            className="h-24 w-24 rounded-full border-[2px] border-neutral-300"
             iconClassName="w-5 h-5"
             variant="plain"
             readFile
@@ -264,7 +264,7 @@ export default function AddEditIntegrationForm({
               <Reorder.Item
                 key={screenshot.key}
                 value={screenshot}
-                className="group flex w-full items-center justify-between rounded-md border border-neutral-200 bg-white transition-shadow hover:cursor-grab active:cursor-grabbing active:shadow-lg"
+                className="group flex w-full items-center justify-between rounded-xl border-[2px] border-neutral-100 bg-white transition-shadow hover:cursor-grab active:cursor-grabbing active:shadow-lg"
               >
                 <div className="flex flex-1 items-center space-x-2 p-2">
                   {screenshot.uploading ? (

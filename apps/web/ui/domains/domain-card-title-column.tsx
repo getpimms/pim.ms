@@ -19,7 +19,7 @@ export function DomainCardTitleColumn({
 }) {
   return (
     <div className="flex min-w-0 items-center gap-4">
-      <div className="hidden rounded-full border border-neutral-200 sm:block">
+      <div className="hidden rounded-full border-[6px] border-neutral-100 sm:block">
         <div
           className={cn(
             "rounded-full",

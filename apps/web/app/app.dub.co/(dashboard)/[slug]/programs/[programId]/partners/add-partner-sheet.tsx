@@ -128,7 +128,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
       className="flex h-full flex-col"
     >
       <div>
-        <div className="flex items-start justify-between border-b border-neutral-200 p-6">
+        <div className="flex items-start justify-between border-b-[6px] border-neutral-100 p-6">
           <Sheet.Title className="text-xl font-semibold">
             Add partner
           </Sheet.Title>
@@ -149,7 +149,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
                 <label
                   key={actionType.label}
                   className={cn(
-                    "relative flex w-full cursor-pointer items-start gap-0.5 rounded-md border border-neutral-200 bg-white p-3 text-neutral-600 hover:bg-neutral-50",
+                    "relative flex w-full cursor-pointer items-start gap-0.5 rounded-xl border-[2px] border-neutral-100 bg-white p-3 text-neutral-600 hover:bg-neutral-50",
                     "transition-all duration-150",
                     isSelected &&
                       "border-black bg-neutral-50 text-neutral-900 ring-1 ring-black",
@@ -288,7 +288,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
           {selectedActionType === "invite" && (
             <div className="mt-8">
               <h2 className="text-sm font-medium text-neutral-900">Preview</h2>
-              <div className="mt-2 overflow-hidden rounded-md border border-neutral-200">
+              <div className="mt-2 overflow-hidden rounded-xl border-[2px] border-neutral-100">
                 <div className="grid gap-4 p-6 pb-10">
                   <BlurImage
                     src={program?.logo || "https://assets.dub.co/logo.png"}
@@ -311,7 +311,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
                     className="w-fit"
                   />
                 </div>
-                <div className="grid gap-1 border-t border-neutral-200 bg-neutral-50 px-6 py-4">
+                <div className="grid gap-1 border-t-[6px] border-neutral-100 bg-neutral-50 px-6 py-4">
                   <p className="text-sm text-neutral-500">
                     <strong className="font-medium text-neutral-900">
                       From:{" "}
@@ -331,7 +331,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
         </div>
       </div>
       <div className="flex grow flex-col justify-end">
-        <div className="flex items-center justify-end gap-2 border-t border-neutral-200 p-5">
+        <div className="flex items-center justify-end gap-2 border-t-[6px] border-neutral-100 p-5">
           <Button
             type="button"
             variant="secondary"

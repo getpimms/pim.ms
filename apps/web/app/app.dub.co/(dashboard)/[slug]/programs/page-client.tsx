@@ -21,7 +21,7 @@ export function ProgramsPageClient() {
           }
         >
           <div className="scrollbar-hide flex size-full grow flex-col overflow-y-auto rounded-lg bg-white">
-            <div className="flex items-center justify-between border-b border-neutral-200 px-8 py-5">
+            <div className="flex items-center justify-between border-b-[6px] border-neutral-100 px-8 py-5">
               <Drawer.Title className="text-xl font-medium text-zinc-900">
                 Create program
               </Drawer.Title>
@@ -66,7 +66,7 @@ const CreateOrUpdateProgramForm = () => {
           <h3 className="text-base font-semibold leading-[17.60px] text-neutral-900">
             Summary
           </h3>
-          <p className="rounded-md border border-neutral-200 bg-[#f9f9f9] p-4 text-sm font-normal leading-[18.20px] text-neutral-900">
+          <p className="rounded-xl border-[2px] border-neutral-100 bg-[#f9f9f9] p-4 text-sm font-normal leading-[18.20px] text-neutral-900">
             Earn $10.00 for each conversion, and again for every conversion of
             the customers lifetime.
           </p>
@@ -87,7 +87,7 @@ const CreateOrUpdateProgramForm = () => {
                 <label
                   key={value}
                   className={cn(
-                    "relative inline-flex w-full cursor-pointer flex-col gap-1 rounded-md border border-neutral-200 bg-white p-3 hover:bg-neutral-50",
+                    "relative inline-flex w-full cursor-pointer flex-col gap-1 rounded-xl border-[2px] border-neutral-100 bg-white p-3 hover:bg-neutral-50",
                     value === commissionType && "border-2 border-neutral-900",
                   )}
                 >
@@ -199,7 +199,7 @@ const CreateOrUpdateProgramForm = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-end border-t border-neutral-200 bg-neutral-50 px-8 py-5">
+      <div className="flex items-center justify-end border-t-[6px] border-neutral-100 bg-neutral-50 px-8 py-5">
         <div>
           <Button text="Save changes" className="h-8" />
         </div>

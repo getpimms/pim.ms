@@ -174,7 +174,7 @@ export function FilterSelect({
               !selectedFilter || selectedFilter.shouldFilter !== false
             }
           >
-            <div className="flex items-center overflow-hidden rounded-t-lg border-b border-neutral-200">
+            <div className="flex items-center overflow-hidden rounded-t-lg border-b-[6px] border-neutral-100">
               <CommandInput
                 placeholder={`${selectedFilter?.label || "Filter"}...`}
                 value={search}
@@ -205,7 +205,7 @@ export function FilterSelect({
                 }}
               />
               {!selectedFilter && (
-                <kbd className="mr-2 hidden shrink-0 rounded border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
+                <kbd className="mr-2 hidden shrink-0 rounded border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
                   F
                 </kbd>
               )}
@@ -226,7 +226,7 @@ export function FilterSelect({
                           onSelect={() => openFilter(filter.key)}
                         />
                         {filter.separatorAfter && (
-                          <Command.Separator className="-mx-1 my-1 border-b border-neutral-200" />
+                          <Command.Separator className="-mx-1 my-1 border-b-[6px] border-neutral-100" />
                         )}
                       </Fragment>
                     ))
@@ -283,8 +283,8 @@ export function FilterSelect({
       <button
         type="button"
         className={cn(
-          "group flex h-10 cursor-pointer appearance-none items-center gap-x-2 truncate rounded-md border px-3 text-sm outline-none transition-all",
-          "border-neutral-200 bg-white text-neutral-900 placeholder-neutral-400",
+          "group flex h-10 cursor-pointer appearance-none items-center gap-x-2 truncate rounded-xl border-[2px] px-3 text-sm outline-none transition-all",
+          "border-neutral-100 bg-white text-neutral-900 placeholder-neutral-400",
           "focus-visible:border-neutral-500 data-[state=open]:border-neutral-500 data-[state=open]:ring-4 data-[state=open]:ring-neutral-200",
           className,
         )}

@@ -25,7 +25,7 @@ export const FolderCard = ({ folder }: { folder: Folder }) => {
   const unsortedLinks = folder.id === "unsorted";
 
   return (
-    <div className="hover:drop-shadow-card-hover relative flex flex-col justify-between rounded-xl border border-neutral-200 bg-white px-5 py-4 transition-all duration-200 sm:h-36">
+    <div className="hover:drop-shadow-card-hover relative flex flex-col justify-between rounded-xl border-[6px] border-neutral-100 bg-white px-5 py-4 transition-all duration-200 sm:h-36">
       <Link
         href={`/${workspaceSlug}${unsortedLinks ? "" : `?folderId=${folder.id}`}`}
         className="absolute inset-0 h-full w-full"

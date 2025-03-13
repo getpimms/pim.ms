@@ -107,18 +107,18 @@ export async function createShopifySale({
     redis.del(`shopify:checkout:${checkoutToken}`),
   ]);
 
-  waitUntil(
-    sendWorkspaceWebhook({
-      trigger: "sale.created",
-      workspace,
-      data: transformSaleEventData({
-        ...saleData,
-        link,
-        clickedAt: customer.clickedAt || customer.createdAt,
-        customer,
-      }),
-    }),
-  );
+  // waitUntil(
+  //   sendWorkspaceWebhook({
+  //     trigger: "sale.created",
+  //     workspace,
+  //     data: transformSaleEventData({
+  //       ...saleData,
+  //       link,
+  //       clickedAt: customer.clickedAt || customer.createdAt,
+  //       customer,
+  //     }),
+  //   }),
+  // );
 
   // for program links
   // TODO: check if link.partnerId as well, so we can just do findUnique partnerId_programId

@@ -183,7 +183,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
             "bg-[#B3E4FF] font-medium text-[#08272E] hover:bg-[#B3E4FF]/50 active:bg-[#B3E4FF]/80",
         )}
       >
-        {Icon && (
+        {/* {Icon && (
           <Icon
             className={cn(
               "size-4 text-neutral-500 transition-colors duration-75",
@@ -191,7 +191,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
             )}
             data-hovered={hovered}
           />
-        )}
+        )} */}
         {name}
         {items && (
           <div className="flex grow justify-end">

@@ -34,7 +34,7 @@ export default function UserInfo({ data }: { data: UserInfoProps }) {
         url={data.impersonateUrl.partners}
       />
       {Object.keys(data.defaultDomainLinks).length > 0 && (
-        <div className="grid divide-y divide-neutral-200">
+        <div className="grid divide-y-[6px] divide-neutral-100">
           {Object.entries(data.defaultDomainLinks).map(([domain, count]) => (
             <div key={domain} className="flex justify-between py-2">
               <div className="flex items-center space-x-2">
@@ -50,7 +50,7 @@ export default function UserInfo({ data }: { data: UserInfoProps }) {
         {data.workspaces.map((workspace) => (
           <div
             key={workspace.slug}
-            className="flex flex-col space-y-2 rounded-lg border border-neutral-200 p-2"
+            className="flex flex-col space-y-2 rounded-lg border-[6px] border-neutral-100 p-2"
           >
             <div className="flex items-center space-x-2">
               <p className="font-semibold">{workspace.name}</p>
@@ -94,7 +94,7 @@ const LoginLinkCopyButton = ({ text, url }: { text: string; url: string }) => {
 
   return (
     <div className="flex w-full items-center space-x-3">
-      <div className="w-full rounded-md border border-neutral-300 px-4 py-2 text-sm text-neutral-900">
+      <div className="w-full rounded-xl border-[2px] border-neutral-300 px-4 py-2 text-sm text-neutral-900">
         {text}
       </div>
       <button
@@ -104,7 +104,7 @@ const LoginLinkCopyButton = ({ text, url }: { text: string; url: string }) => {
             success: "Copied to clipboard",
           })
         }
-        className="rounded-md border border-neutral-300 p-2"
+        className="rounded-xl border-[2px] border-neutral-300 p-2"
       >
         {copied ? (
           <Tick className="h-5 w-5 text-neutral-500" />

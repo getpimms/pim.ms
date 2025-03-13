@@ -44,7 +44,7 @@ export default function PaymentMethods() {
   }
 
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white">
+    <div className="rounded-xl border-[6px] border-neutral-100 bg-white">
       <div className="flex flex-col items-start justify-between gap-y-4 p-6 md:flex-row md:items-center md:p-8">
         <div>
           <h2 className="text-xl font-medium">Payment methods</h2>
@@ -62,7 +62,7 @@ export default function PaymentMethods() {
           />
         )}
       </div>
-      <div className="grid gap-4 border-t border-neutral-200 bg-neutral-100 p-6">
+      <div className="grid gap-4 border-t-[6px] border-neutral-100 bg-neutral-100 p-6">
         {regularPaymentMethods ? (
           regularPaymentMethods.length > 0 ? (
             regularPaymentMethods.map((paymentMethod) => (
@@ -146,7 +146,7 @@ const PaymentMethodCard = ({
 
   return (
     <RecommendedForPayoutsWrapper recommended={type === "us_bank_account"}>
-      <div className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white p-4 drop-shadow-sm">
+      <div className="flex items-center justify-between rounded-xl border-[6px] border-neutral-100 bg-white p-4 drop-shadow-sm">
         <div className="flex items-center gap-4">
           <div
             className={cn(
@@ -214,7 +214,7 @@ const RecommendedForPayoutsWrapper = ({
 
 const PaymentMethodCardSkeleton = () => {
   return (
-    <div className="flex items-center justify-between rounded-lg border border-neutral-200 p-4">
+    <div className="flex items-center justify-between rounded-lg border-[6px] border-neutral-100 p-4">
       <div className="flex items-center gap-4">
         <div className="flex size-12 animate-pulse items-center justify-center rounded-lg bg-neutral-200" />
         <div>

@@ -71,7 +71,7 @@ export function Modal({
             }}
             className={cn(
               "fixed bottom-0 left-0 right-0 z-50 flex flex-col",
-              "rounded-t-[10px] border-t border-neutral-200 bg-white",
+              "rounded-t-[10px] border-t-[6px] border-neutral-100 bg-white",
               className,
             )}
           >

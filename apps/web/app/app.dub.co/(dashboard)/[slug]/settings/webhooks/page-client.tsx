@@ -25,7 +25,7 @@ export default function WebhooksPageClient() {
 
   if (needsHigherPlan) {
     return (
-      <div className="rounded-md border border-neutral-200 bg-white p-10">
+      <div className="rounded-xl border-[2px] border-neutral-100 bg-white p-10">
         <EmptyState
           icon={Webhook}
           title="Webhooks"
@@ -75,12 +75,12 @@ export default function WebhooksPageClient() {
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center gap-4 rounded-xl border border-neutral-200 py-10">
+            <div className="flex flex-col items-center gap-4 rounded-xl border-[6px] border-neutral-100 py-10">
               <EmptyState
                 icon={Webhook}
                 title="You haven't set up any webhooks yet."
-                description="Webhooks allow you to receive HTTP requests whenever a specific event (eg: someone clicked your link) occurs in Dub."
-                learnMore="https://d.to/webhooks"
+                description="Webhooks allow you to receive HTTP requests whenever a specific event (eg: someone clicked your link) occurs in PIMMS."
+                // learnMore="https://d.to/webhooks"
               />
             </div>
           )
