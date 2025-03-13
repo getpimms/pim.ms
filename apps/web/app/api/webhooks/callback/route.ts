@@ -42,19 +42,19 @@ export const POST = async (req: Request) => {
   const isFailed = status >= 400;
 
   // Unsubscribe Zapier webhook
-  if (
-    webhook.receiver === "zapier" &&
-    webhook.installationId &&
-    status === 410
-  ) {
-    await prisma.webhook.delete({
-      where: {
-        id: webhookId,
-      },
-    });
+  // if (
+  //   webhook.receiver === "zapier" &&
+  //   webhook.installationId &&
+  //   status === 410
+  // ) {
+  //   await prisma.webhook.delete({
+  //     where: {
+  //       id: webhookId,
+  //     },
+  //   });
 
-    return new Response(`Unsubscribed Zapier webhook ${webhookId}`);
-  }
+  //   return new Response(`Unsubscribed Zapier webhook ${webhookId}`);
+  // }
 
   await Promise.all([
     // Record the webhook event

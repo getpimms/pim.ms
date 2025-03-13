@@ -220,7 +220,7 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                     ? "You don't have permission to duplicate this link."
                     : undefined
                 }
-              />
+              /> */}
               <Button
                 text="Copy Link ID"
                 variant="outline"
@@ -234,7 +234,7 @@ export function LinkControls({ link }: { link: ResponseLink }) {
                 }
                 shortcut="I"
                 className="h-9 px-2 font-medium"
-              /> */}
+              />
             </div>
             <div className="border-t border-neutral-200" />
             <div className="grid gap-px p-2">

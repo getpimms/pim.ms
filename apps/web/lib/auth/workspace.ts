@@ -85,7 +85,7 @@ export const withWorkspace = (
         let workspaceSlug: string | undefined;
         let permissions: PermissionAction[] = [];
         let token: any | null = null;
-        const isRestrictedToken = apiKey?.startsWith("dub_");
+        const isRestrictedToken = apiKey?.startsWith("pimms_");
 
         const idOrSlug =
           params?.idOrSlug ||

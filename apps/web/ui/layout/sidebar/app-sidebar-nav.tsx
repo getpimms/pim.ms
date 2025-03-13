@@ -147,11 +147,11 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: Users6,
             href: `/${slug}/settings/people`,
           },
-          // {
-          //   name: "Integrations",
-          //   icon: ConnectedDots,
-          //   href: `/${slug}/settings/integrations`,
-          // },
+          {
+            name: "Integrations",
+            icon: ConnectedDots,
+            href: `/${slug}/settings/integrations`,
+          },
           // {
           //   name: "Analytics",
           //   icon: LinesY,
@@ -164,26 +164,26 @@ const NAV_AREAS: SidebarNavAreas<{
           // },
         ],
       },
-      // {
-      //   name: "Developer",
-      //   items: [
-      //     {
-      //       name: "API Keys",
-      //       icon: Key,
-      //       href: `/${slug}/settings/tokens`,
-      //     },
-      //     {
-      //       name: "OAuth Apps",
-      //       icon: CubeSettings,
-      //       href: `/${slug}/settings/oauth-apps`,
-      //     },
-      //     {
-      //       name: "Webhooks",
-      //       icon: Webhook,
-      //       href: `/${slug}/settings/webhooks`,
-      //     },
-      //   ],
-      // },
+      {
+        name: "Developer",
+        items: [
+          // {
+          //   name: "API Keys",
+          //   icon: Key,
+          //   href: `/${slug}/settings/tokens`,
+          // },
+          // {
+          //   name: "OAuth Apps",
+          //   icon: CubeSettings,
+          //   href: `/${slug}/settings/oauth-apps`,
+          // },
+          {
+            name: "Webhooks",
+            icon: Webhook,
+            href: `/${slug}/settings/webhooks`,
+          },
+        ],
+      },
       {
         name: "Account",
         items: [

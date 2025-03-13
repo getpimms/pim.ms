@@ -2,8 +2,8 @@ import { Webhook, WebhookReceiver } from "@dub/prisma/client";
 import { LINK_LEVEL_WEBHOOK_TRIGGERS } from "./constants";
 
 const webhookReceivers: Record<string, WebhookReceiver> = {
-  "zapier.com": "zapier",
-  "hooks.zapier.com": "zapier",
+  // "zapier.com": "zapier",
+  // "hooks.zapier.com": "zapier",
   "make.com": "make",
   "hooks.slack.com": "slack",
   "api.segment.io": "segment",

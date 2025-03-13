@@ -45,7 +45,7 @@ export default function WebhooksPageClient() {
           <h1 className="text-2xl font-semibold tracking-tight text-black">
             Webhooks
           </h1>
-          <InfoTooltip
+          {/* <InfoTooltip
             content={
               <TooltipContent
                 title="Webhooks allow you to receive HTTP requests whenever a specific event (eg: someone clicked your link) occurs in Dub."
@@ -54,7 +54,7 @@ export default function WebhooksPageClient() {
                 cta="Learn more"
               />
             }
-          />
+          /> */}
         </div>
         <div className="flex w-full items-center gap-3 sm:w-auto">
           <Button
