@@ -84,7 +84,8 @@ export const constructURLFromUTMParams = (
 ) => {
   if (!url) return "";
   try {
-    const newURL = new URL(url);
+    const parsedUrl = getUrlFromString(url);
+    const newURL = new URL(parsedUrl);
     for (const [key, value] of Object.entries(utmParams)) {
       if (value === "") {
         newURL.searchParams.delete(key);
@@ -108,13 +109,9 @@ export const paramsMetadata = [
 ];
 
 export const getUrlWithoutUTMParams = (url: string) => {
-  // add https:// if it's missing
-  if (!url.startsWith("http")) {
-    url = `https://${url}`;
-  }
-  
   try {
-    const newURL = new URL(url);
+    const parsedUrl = getUrlFromString(url);
+    const newURL = new URL(parsedUrl);
     paramsMetadata.forEach((param) => newURL.searchParams.delete(param.key));
     return newURL.toString();
   } catch (e) {

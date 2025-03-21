@@ -93,7 +93,7 @@ export function UTMBuilder({
   }, []);
 
   return (
-    <div className={cn("grid gap-y-3", className)}>
+    <div className={cn("grid gap-y-1", className)}>
       {UTM_PARAMETERS.map(
         ({ key, icon: Icon, label, placeholder, description }, idx) => {
           return (

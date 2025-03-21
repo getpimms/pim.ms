@@ -1,9 +1,10 @@
+import useWorkspace from "@/lib/swr/use-workspace";
+import { UtmTemplateProps } from "@/lib/types";
 import {
   Button,
   DiamondTurnRight,
-  InfoTooltip,
+  LoadingSpinner,
   Modal,
-  SimpleTooltipContent,
   Tooltip,
   useKeyboardShortcut,
   UTM_PARAMETERS,
@@ -12,8 +13,9 @@ import {
 import {
   cn,
   constructURLFromUTMParams,
+  fetcher,
   getParamsFromURL,
-  isValidUrl,
+  getUrlFromStringIfValid,
 } from "@dub/utils";
 import {
   Dispatch,
@@ -22,13 +24,15 @@ import {
   useMemo,
   useState,
 } from "react";
-import { FormProvider, useForm, useFormContext } from "react-hook-form";
+import { useForm, useFormContext } from "react-hook-form";
+import useSWR from "swr";
 import { LinkFormData } from ".";
-import { UTMTemplatesCombo } from "./utm-templates-combo";
+import { UTMTemplateList } from "./utm-templates-button";
 
 type UTMModalProps = {
   showUTMModal: boolean;
   setShowUTMModal: Dispatch<SetStateAction<boolean>>;
+  onLoad: (params: Record<string, string>) => void;
 };
 
 function UTMModal(props: UTMModalProps) {
@@ -43,7 +47,7 @@ function UTMModal(props: UTMModalProps) {
   );
 }
 
-function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
+function UTMModalInner({ setShowUTMModal, onLoad }: UTMModalProps) {
   const { getValues: getValuesParent, setValue: setValueParent } =
     useFormContext<LinkFormData>();
 
@@ -77,6 +81,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
   } = form;
 
   const url = watch("url");
+  const isUrlValid = useMemo(() => !!getUrlFromStringIfValid(url), [url]);
   const enabledParams = useMemo(() => getParamsFromURL(url), [url]);
 
   // Update targeting URL params if they previously matched the same params of the destination URL
@@ -149,6 +154,15 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
     [],
   );
 
+  const { id: workspaceId } = useWorkspace();
+  const { data: utmData, isLoading: isUtmLoading } = useSWR<UtmTemplateProps[]>(
+    workspaceId && `/api/utm?workspaceId=${workspaceId}`,
+    fetcher,
+    {
+      dedupingInterval: 60000,
+    },
+  );
+
   return (
     <form
       onSubmit={(e) => {
@@ -168,8 +182,30 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
       }}
     >
       <div className="flex items-center justify-between">
+        {utmData ? (
+          <div className="text-sm">
+            <div className="max-w-64">
+              <UTMTemplateList
+                enabledParams={enabledParams}
+                data={utmData}
+                onLoad={(params) => {
+                  onLoad(params);
+                }}
+                disabled={!isUrlValid}
+              />
+            </div>
+          </div>
+        ) : isUtmLoading ? (
+          <div className="flex w-full items-center justify-center py-2 md:w-32">
+            <LoadingSpinner className="size-4" />
+          </div>
+        ) : (
+          <div className="flex w-full items-center justify-center p-2 text-center text-xs text-neutral-500 md:w-32">
+            Failed to load templates
+          </div>
+        )}
         <div className="flex items-center gap-2">
-          <h3 className="text-lg font-medium">UTM Builder</h3>
+          {/* <h3 className="text-lg font-medium">UTM Builder</h3> */}
           {/* <InfoTooltip
             content={
               <SimpleTooltipContent
@@ -198,7 +234,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
         </div>
       </div>
 
-      <div className="py-4">
+      <div className="py-1">
         <UTMBuilder
           values={enabledParams}
           onChange={(key, value) => {
@@ -214,7 +250,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
             );
           }}
           disabledTooltip={
-            isValidUrl(url)
+            isUrlValid
               ? undefined
               : "Enter a destination URL to add UTM parameters"
           }
@@ -222,7 +258,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
         />
       </div>
 
-      {isValidUrl(url) && (
+      {isUrlValid && (
         <div className="mt-4 grid gap-y-1">
           <span className="block text-sm font-medium text-neutral-700">
             URL Preview
@@ -243,7 +279,7 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
                 });
               }}
               disabledTooltip={
-                isValidUrl(url)
+                isUrlValid
                   ? undefined
                   : "Enter a destination URL to use UTM templates"
               }
@@ -263,10 +299,10 @@ function UTMModalInner({ setShowUTMModal }: UTMModalProps) {
           />
           <Button
             type="submit"
-            variant="primary"
-            text="Save"
+            variant="secondary"
+            text="Close"
             className="h-9 w-fit"
-            disabled={!isDirty}
+            // disabled={!isDirty}
           />
         </div>
       </div>
@@ -296,24 +332,32 @@ function UTMButton({
   return (
     <Button
       variant="secondary"
-      text="Custom UTM"
+      text="UTM"
       icon={
         <DiamondTurnRight
           className={cn("size-4", enabled && "text-[#08272E]")}
         />
       }
-      className="border-0 flex w-full items-center gap-2 rounded-md p-2 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-neutral-500 active:bg-neutral-200 group-hover:bg-neutral-100"
+      className="flex h-auto w-full items-center gap-2 rounded-md border-0 px-1 py-1 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-neutral-500 active:bg-neutral-200 group-hover:bg-neutral-100"
       onClick={() => setShowUTMModal(true)}
     />
   );
 }
 
-export function useUTMModal() {
+export function useUTMModal({
+  onLoad,
+}: {
+  onLoad: (params: Record<string, string>) => void;
+}) {
   const [showUTMModal, setShowUTMModal] = useState(false);
 
   const UTMModalCallback = useCallback(() => {
     return (
-      <UTMModal showUTMModal={showUTMModal} setShowUTMModal={setShowUTMModal} />
+      <UTMModal
+        showUTMModal={showUTMModal}
+        setShowUTMModal={setShowUTMModal}
+        onLoad={onLoad}
+      />
     );
   }, [showUTMModal, setShowUTMModal]);
 

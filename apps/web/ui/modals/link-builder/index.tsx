@@ -54,7 +54,7 @@ import { usePasswordModal } from "./password-modal";
 import { TagSelect } from "./tag-select";
 import { useTargetingModal } from "./targeting-modal";
 import { useMetatags } from "./use-metatags";
-import { UTMTemplatesButton } from "./utm-templates-button";
+import { useUTMModal } from "./utm-modal";
 
 export const LinkModalContext = createContext<{
   workspaceId?: string;
@@ -208,9 +208,18 @@ function LinkBuilderInner({
   const { PasswordModal, PasswordButton } = usePasswordModal();
 
   const [, copyToClipboard] = useCopyToClipboard();
+  const { UTMModal, UTMButton } = useUTMModal({
+    onLoad: (params) => {
+      setValue(
+        "url",
+        constructURLFromUTMParams(url, params),
+        { shouldDirty: true });
+    },
+  });
 
   return (
     <>
+      <UTMModal />
       {/* <PasswordModal /> */}
       {/* <TargetingModal />
       <ExpirationModal /> */}
@@ -405,18 +414,8 @@ function LinkBuilderInner({
                         required={key !== "_root"}
                         error={errors.url?.message || undefined}
                         right={
-                          <div className="h-6">
-                            <UTMTemplatesButton
-                              onLoad={(params) => {
-                                setValue(
-                                  "url",
-                                  constructURLFromUTMParams(url, params),
-                                  {
-                                    shouldDirty: true,
-                                  },
-                                );
-                              }}
-                            />
+                          <div className="h-8">
+                            <UTMButton />
                           </div>
                         }
                       />

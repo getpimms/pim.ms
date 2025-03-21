@@ -33,7 +33,9 @@ export function UTMTemplatesButton({
 
   const [openPopover, setOpenPopover] = useState(false);
 
-  const { UTMModal, UTMButton } = useUTMModal();
+  const { UTMModal, UTMButton } = useUTMModal({
+    onLoad,
+  });
 
   return (
     <>
@@ -56,7 +58,7 @@ export function UTMTemplatesButton({
                   <UTMTemplateList
                     data={data}
                     onLoad={(params) => {
-                      setOpenPopover(false);
+                      // setOpenPopover(false);
                       onLoad(params);
                     }}
                   />
@@ -91,12 +93,16 @@ export function UTMTemplatesButton({
   );
 }
 
-function UTMTemplateList({
+export function UTMTemplateList({
+  enabledParams,
   data,
   onLoad,
+  disabled,
 }: {
+  enabledParams?: Record<string, string>;
   data: UtmTemplateProps[];
   onLoad: (params: Record<string, string>) => void;
+  disabled?: boolean;
 }) {
   const { setValue } = useFormContext();
 
@@ -107,47 +113,52 @@ function UTMTemplateList({
       </span>
       {data.map((template) => (
         <UTMTemplateOption
+          disabled={disabled}
           key={template.id}
           template={template}
           onClick={() => {
             const paramEntries = Object.entries(template)
               .filter(([key]) => key === "ref" || key.startsWith("utm_"))
-              .map(([key, value]) => [key, (value || "").toString()]);
+              .map(([key, value]) => [key, (value || "").toString()])
+              .filter(([key, value]) => value !== "");
+
+            // merge enabledParams with paramEntries
+            const mergedParams = { ...enabledParams, ...Object.fromEntries(paramEntries) };
 
             paramEntries.forEach(([key, value]) =>
               setValue(key, value, { shouldDirty: true }),
             );
-
-            onLoad(Object.fromEntries(paramEntries));
+            
+            onLoad(mergedParams);
           }}
         />
       ))}
     </div>
   ) : (
-    <div className="flex items-center justify-center p-3 text-center text-xs text-neutral-500">
-      No templates found
-    </div>
+    <h3 className="text-lg font-medium my-4">UTM Builder</h3>
   );
 }
 
 function UTMTemplateOption({
   template,
   onClick,
+  disabled,
 }: {
   template: UtmTemplateProps;
   onClick: () => void;
+  disabled?: boolean;
 }) {
   return (
     <div className="group relative">
-      <button
-        onClick={onClick}
-        className="flex w-full items-center justify-between gap-2 rounded-md p-2 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-neutral-500 active:bg-neutral-200 group-hover:bg-neutral-100"
+      <a
+        onClick={disabled ? undefined : onClick}
+        className="cursor-pointer flex w-full items-center justify-between gap-2 rounded-md p-2 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-neutral-500 active:bg-neutral-200 group-hover:bg-neutral-100"
       >
         <span className="flex items-center gap-2">
           <Note className="size-4 text-neutral-500" />
           {template.name}
         </span>
-      </button>
+      </a>
     </div>
   );
 }
