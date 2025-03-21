@@ -18,7 +18,7 @@ export function PartnerInvite({
   email = "cheers@pimms.io",
   appName = "PIMMS",
   program = {
-    name: "Acme",
+    name: "PIMMS",
     logo: DUB_WORDMARK,
   },
 }: {
@@ -45,18 +45,18 @@ export function PartnerInvite({
             </Section>
 
             <Heading className="mx-0 p-0 text-lg font-medium text-black">
-              {program.name} invited you to join Dub Partners
+              {program.name} invited you to join PIMMS Partners
             </Heading>
 
             <Text className="text-sm leading-6 text-neutral-600">
-              {program.name} uses Dub Partners to power their partnership
+              {program.name} uses PIMMS Partners to power their partnership
               programs and wants to partner with great people like yourself!
             </Text>
 
             <Section className="mb-12 mt-8">
               <Link
-                className="rounded-md bg-neutral-900 px-4 py-3 text-[12px] font-medium text-white no-underline"
-                href="https://partners.dub.co"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
+                href="https://partners.pimms.io"
               >
                 Accept Invite
               </Link>

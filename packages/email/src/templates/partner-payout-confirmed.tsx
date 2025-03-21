@@ -93,7 +93,7 @@ export function PartnerPayoutConfirmed({
 
             <Section className="mb-12 mt-8">
               <Link
-                className="rounded-md bg-neutral-900 px-4 py-3 text-[12px] font-medium text-white no-underline"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://partners.dub.co/settings/payouts?payoutId=${payout.id}`}
               >
                 View payout

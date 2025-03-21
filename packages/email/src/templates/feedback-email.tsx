@@ -14,7 +14,7 @@ import {
 
 export function FeedbackEmail({
   email = "cheers@pimms.io",
-  feedback = "I love Dub!",
+  feedback = "I love PIMMS!",
 }: {
   email: string;
   feedback: string;

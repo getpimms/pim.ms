@@ -16,8 +16,8 @@ import { Footer } from "../components/footer";
 
 export function ConfirmEmailChange({
   email = "cheers@pimms.io",
-  newEmail = "panic+1@thedis.co",
-  confirmUrl = "https://dub.co/auth/confirm-email-change",
+  newEmail = "cheers+2@pimms.io",
+  confirmUrl = "https://app.pimms.io/auth/confirm-email-change",
 }: {
   email: string;
   newEmail: string;

@@ -18,11 +18,11 @@ export function NewSaleCreated({
   email = "cheers@pimms.io",
   partner = {
     id: "pn_OfewI1Faaf5pV8QH3mha8L7S",
-    referralLink: "https://refer.dub.co/steven",
+    referralLink: "https://refer.pimms.io/alexandre",
   },
   program = {
     id: "prog_CYCu7IMAapjkRpTnr8F1azjN",
-    name: "Acme",
+    name: "PIMMS",
     logo: DUB_WORDMARK,
   },
   sale = {
@@ -45,7 +45,7 @@ export function NewSaleCreated({
     earnings: number;
   };
 }) {
-  const linkToSale = `https://partners.dub.co/${partner.id}/${program.id}/sales`;
+  const linkToSale = `https://partners.pimms.io/${partner.id}/${program.id}/sales`;
 
   const earningsInDollars = currencyFormatter(sale.earnings / 100, {
     minimumFractionDigits: 2,
@@ -84,12 +84,12 @@ export function NewSaleCreated({
               <strong className="text-black">{saleAmountInDollars}</strong>{" "}
               purchase on <strong className="text-black">{program.name}</strong>{" "}
               using your referral link (
-              <a
+              <Link
                 href={partner.referralLink}
                 className="text-semibold font-medium text-black underline"
               >
                 {getPrettyUrl(partner.referralLink)}
-              </a>
+              </Link>
               ).
             </Text>
             <Text className="text-sm leading-6 text-neutral-600">
@@ -101,7 +101,7 @@ export function NewSaleCreated({
 
             <Section className="mb-12 mt-8">
               <Link
-                className="rounded-md bg-neutral-900 px-4 py-3 text-[12px] font-medium text-white no-underline"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={linkToSale}
               >
                 View sale

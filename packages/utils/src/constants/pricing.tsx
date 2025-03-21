@@ -36,7 +36,7 @@ const BUSINESS_PLAN_MODIFIER = ({
 }) => ({
   name,
   tagline: "For fast-growing startups and businesses looking to scale",
-  link: "https://dub.co/help/article/business-plan",
+  link: "https://pimms.io",
   price: {
     monthly,
     yearly,

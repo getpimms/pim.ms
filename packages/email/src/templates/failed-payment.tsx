@@ -17,7 +17,7 @@ import { WorkspaceProps } from "../types";
 
 export function FailedPayment({
   user = { name: "Brendon Urie", email: "cheers@pimms.io" },
-  workspace = { name: "Dub", slug: "dub" },
+  workspace = { name: "PIMMS", slug: "pimms" },
   amountDue = 2400,
   attemptCount = 2,
 }: {

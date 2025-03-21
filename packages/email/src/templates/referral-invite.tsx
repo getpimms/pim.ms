@@ -63,7 +63,7 @@ export function ReferralInvite({
             )}
             <Section className="my-8">
               <Link
-                className="cursor-pointer rounded-xl bg-[#dc2e65] px-5 py-2 font-semibold text-white no-underline outline outline-[6px] transition hover:outline-[#F0A8BF]"
+                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={url}
               >
                 Learn More

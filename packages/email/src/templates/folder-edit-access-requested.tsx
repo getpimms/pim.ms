@@ -16,7 +16,7 @@ import { Footer } from "../components/footer";
 
 export function FolderEditAccessRequested({
   email = "cheers@pimms.io",
-  folderUrl = "http://localhost:8888/acme/settings/library/folders/cm1elre430005nf59czif340u/members",
+  folderUrl = "http://localhost:8888/pimms/settings/library/folders/cm1elre430005nf59czif340u/members",
   folder = {
     name: "Social Media",
   },

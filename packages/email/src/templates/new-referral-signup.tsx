@@ -19,8 +19,8 @@ export const REFERRAL_CLICKS_QUOTA_BONUS = 500;
 export function NewReferralSignup({
   email = "cheers@pimms.io",
   workspace = {
-    name: "Acme, Inc",
-    slug: "acme",
+    name: "PIMMS",
+    slug: "pimms",
   },
 }: {
   email: string;
@@ -29,7 +29,7 @@ export function NewReferralSignup({
     slug: string;
   };
 }) {
-  const referralLink = `https://refer.dub.co/${workspace.slug}`;
+  const referralLink = `https://refer.pimms.io/${workspace.slug}`;
   return (
     <Html>
       <Head />
@@ -59,7 +59,7 @@ export function NewReferralSignup({
               </a>
             </Text>
             <Text className="text-sm leading-6 text-black">
-              As a thank you from us for spreading the word about Dub, you've
+              As a thank you from us for spreading the word about PIMMS, you've
               earned an additional {REFERRAL_CLICKS_QUOTA_BONUS} clicks quota
               for your{" "}
               <a

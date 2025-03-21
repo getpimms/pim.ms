@@ -17,8 +17,8 @@ import { Footer } from "../components/footer";
 export function WebhookAdded({
   email = "cheers@pimms.io",
   workspace = {
-    name: "Acme, Inc",
-    slug: "acme",
+    name: "PIMMS",
+    slug: "pimms",
   },
   webhook = {
     name: "My Webhook",
@@ -55,7 +55,7 @@ export function WebhookAdded({
               Webhook with the name <strong>{webhook.name}</strong> has been
               added to your PIMMS workspace {workspace.name}.
             </Text>
-            <Section className="mb-8 mt-4 text-center">
+            <Section className="my-8 text-center">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${workspace.slug}/settings/webhooks`}

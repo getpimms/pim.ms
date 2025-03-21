@@ -19,7 +19,7 @@ export function InvalidDomain({
   domain = "pim.ms",
   workspaceSlug = "pimms",
   invalidDays = 14,
-  appDomain = "dub.co",
+  appDomain = "pimms.io",
 }: {
   email: string;
   domain: string;
