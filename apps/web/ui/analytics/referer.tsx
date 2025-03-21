@@ -61,7 +61,7 @@ export default function Referer() {
     <AnalyticsCard
       tabs={[
         { id: "referers", label: "Referrers", icon: ReferredVia },
-        { id: "utms", label: "UTM Parameters", icon: Note },
+        { id: "utms", label: "UTM Params", icon: Note },
       ]}
       selectedTabId={tab}
       onSelectTab={setTab}
@@ -74,7 +74,7 @@ export default function Referer() {
           {data ? (
             data.length > 0 ? (
               <BarList
-                tab={tab === "referers" ? "Referrer" : "UTM Parameter"}
+                tab={tab === "referers" ? "Referrer" : "UTM Param"}
                 data={
                   data
                     ?.map((d) => ({
@@ -113,14 +113,14 @@ export default function Referer() {
                 }
                 unit={selectedTab}
                 maxValue={Math.max(...data?.map((d) => d[dataKey] ?? 0)) ?? 0}
-                barBackground="bg-blue-100"
-                hoverBackground="hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent hover:border-blue-500"
+                barBackground="bg-[#B3E4FF]"
+                hoverBackground="hover:bg-neutral-100"
                 setShowModal={setShowModal}
                 {...(limit && { limit })}
               />
             ) : (
               <div className="flex h-[300px] items-center justify-center">
-                <p className="text-sm text-neutral-600">No data available</p>
+                <p className="text-sm text-neutral-600">No data</p>
               </div>
             )
           ) : (

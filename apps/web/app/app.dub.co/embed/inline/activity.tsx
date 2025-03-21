@@ -31,7 +31,7 @@ export function EmbedActivity({
           description: "Total number of unique clicks your link has received",
         },
         {
-          label: "Leads",
+          label: "Conversions",
           value: leads,
           description: "Total number of signups that came from your link",
         },

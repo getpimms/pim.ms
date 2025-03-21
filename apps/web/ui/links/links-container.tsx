@@ -128,15 +128,15 @@ function LinksList({
               </div>
             </>
           }
-          {...(!isFiltered && {
-            addButton: (
-              <div>
-                <CreateLinkButton />
-              </div>
-            ),
-            learnMoreHref: "https://dub.co/help/article/how-to-create-link",
-            learnMoreClassName: "h-10",
-          })}
+          // {...(!isFiltered && {
+          //   addButton: (
+          //     <div>
+          //       <CreateLinkButton />
+          //     </div>
+          //   ),
+          //   learnMoreHref: "https://dub.co/help/article/how-to-create-link",
+          //   learnMoreClassName: "h-10",
+          // })}
         />
       )}
 
@@ -144,14 +144,14 @@ function LinksList({
       {links && (
         <>
           <div className="h-[90px]" />
-          <div className="fixed bottom-4 left-0 w-full sm:max-[1330px]:w-[calc(100%-150px)] md:left-[240px] md:w-[calc(100%-240px)] md:max-[1330px]:w-[calc(100%-240px-150px)]">
+          <div className="fixed bottom-0 left-0 w-full sm:max-[1330px]:w-[calc(100%-150px)] md:left-[240px] md:w-[calc(100%-240px)]">
             <div
               className={cn(
-                "relative left-1/2 w-full max-w-[768px] -translate-x-1/2 px-5",
-                "max-[1330px]:left-0 max-[1330px]:translate-x-0",
+                "relative w-full px-4",
+                // "max-[1330px]:left-0 max-[1330px]:translate-x-0",
               )}
             >
-              <div className="rounded-xl border-2 border-neutral-200 ring-[6px] ring-neutral-100 bg-white px-4 py-3.5">
+              <div className="rounded-t-xl border-2 border-b-0 border-neutral-200 ring-t-[6px] ring-neutral-100 bg-white px-4 py-3.5">
                 <PaginationControls
                   pagination={pagination}
                   setPagination={setPagination}

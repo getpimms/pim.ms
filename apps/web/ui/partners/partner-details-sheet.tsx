@@ -560,7 +560,7 @@ const PartnerLinks = ({ partner }: { partner: EnrolledPartnerProps }) => {
         minSize: 1,
       },
       {
-        header: "Leads",
+        header: "Conversions",
         accessorFn: (d) => nFormatter(d.leads),
         size: 1,
         minSize: 1,

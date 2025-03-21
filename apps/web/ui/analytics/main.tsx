@@ -49,16 +49,16 @@ export default function Main() {
           ? [
               {
                 id: "leads",
-                label: "Leads",
-                colorClassName: "text-violet-600/50",
+                label: "Conversions",
+                colorClassName: "text-[#08272E]/50",
                 conversions: true,
               },
-              {
-                id: "sales",
-                label: "Sales",
-                colorClassName: "text-teal-400/50",
-                conversions: true,
-              },
+              // {
+              //   id: "sales",
+              //   label: "Sales",
+              //   colorClassName: "text-[#08272E]/50",
+              //   conversions: true,
+              // },
             ]
           : []),
       ] as Tab[],
@@ -73,19 +73,19 @@ export default function Main() {
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      <div className="scrollbar-hide w-full divide-x overflow-y-hidden border-[6px] border-neutral-100 sm:rounded-t-xl">
+      <div className="flex flex-row scrollbar-hide w-full divide-x overflow-y-hidden border-[6px] border-neutral-100 sm:rounded-t-xl">
         <NumberFlowGroup>
           {tabs.map(({ id, label, colorClassName, conversions }, idx) => {
             return (
               <div key={id} className="relative z-0">
-                {idx > 0 && (
+                {/* {idx > 0 && (
                   <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-neutral-100 bg-white p-1.5">
                     <ChevronRight
                       className="h-3 w-3 text-neutral-400"
                       strokeWidth={2.5}
                     />
                   </div>
-                )}
+                )} */}
                 {id === "sales" && (
                   <ToggleGroup
                     className="absolute right-3 top-3 hidden w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100 sm:flex"
@@ -113,7 +113,7 @@ export default function Main() {
                   className={cn(
                     "border-box relative block h-full min-w-[110px] flex-none px-4 py-3 sm:min-w-[240px] sm:px-8 sm:py-6",
                     "transition-colors hover:bg-neutral-50 focus:outline-none active:bg-neutral-100",
-                    "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-xl",
+                    "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-lg",
                   )}
                   href={
                     queryParams({
@@ -125,21 +125,21 @@ export default function Main() {
                   }
                   aria-current
                 >
-                  {/* Active tab indicator
+                  {/* Active tab indicator */}
                   <div
                     className={cn(
                       "absolute bottom-0 left-0 h-0.5 w-full bg-black transition-transform duration-100",
                       tab.id !== id && "translate-y-[3px]", // Translate an extra pixel to avoid sub-pixel issues
                     )}
-                  /> */}
+                  />
 
                   <div className="flex items-center gap-2.5 text-sm text-neutral-600">
-                    <div
+                    {/* <div
                       className={cn(
                         "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
                         colorClassName,
                       )}
-                    />
+                    /> */}
                     <span>{label}</span>
                   </div>
                   <div className="mt-1 flex h-12 items-center">
@@ -152,7 +152,7 @@ export default function Main() {
                         }
                         className={cn(
                           "text-2xl font-medium sm:text-3xl",
-                          showPaywall && "opacity-30",
+                          // showPaywall && "opacity-30",
                         )}
                         format={
                           id === "sales" && saleUnit === "saleAmount"
@@ -188,8 +188,8 @@ export default function Main() {
         <div
           className={cn(
             "relative overflow-hidden border-x-[6px] border-b-[6px] border-neutral-100 sm:rounded-b-xl",
-            showPaywall &&
-              "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
+            // showPaywall &&
+            //   "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
           )}
         >
           {view === "timeseries" && (
@@ -220,7 +220,7 @@ export default function Main() {
             });
           }}
         /> */}
-        {showPaywall && <ConversionTrackingPaywall />}
+        {/* {showPaywall && <ConversionTrackingPaywall />} */}
       </div>
     </div>
   );

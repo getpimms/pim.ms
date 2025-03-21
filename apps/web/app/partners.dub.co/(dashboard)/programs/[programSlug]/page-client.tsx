@@ -141,7 +141,7 @@ export default function ProgramPageClient() {
         <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-3">
           <NumberFlowGroup>
             <StatCard title="Clicks" event="clicks" />
-            <StatCard title="Leads" event="leads" />
+            <StatCard title="Conversions" event="leads" />
             <StatCard title="Sales" event="sales" />
           </NumberFlowGroup>
         </div>

@@ -61,7 +61,7 @@ export function SidebarNav<T extends Record<any, any>>({
   return (
     <ClientOnly className="scrollbar-hide relative flex h-full w-full flex-col overflow-y-auto overflow-x-hidden">
       <nav className="relative flex grow flex-col p-3 text-neutral-500">
-        <div className="relative flex items-start justify-between gap-1 pb-3">
+        <div className="relative flex items-center justify-between gap-1 pb-3">
           {Object.entries(areas).map(([area, areaConfig]) => {
             const { title, backHref } = areaConfig(data);
 
@@ -73,8 +73,7 @@ export function SidebarNav<T extends Record<any, any>>({
                   "rounded-md px-1 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-black/50",
                   area === currentArea
                     ? "relative opacity-100"
-                    : "pointer-events-none absolute opacity-0",
-                  (!title || !backHref) && "mb-1",
+                    : "pointer-events-none absolute opacity-0"
                 )}
                 aria-hidden={area !== currentArea ? true : undefined}
                 {...{ inert: area !== currentArea ? "" : undefined }}
@@ -90,10 +89,6 @@ export function SidebarNav<T extends Record<any, any>>({
               </Link>
             );
           })}
-          <div className="hidden items-center gap-3 md:flex">
-            {/* <Suspense fallback={null}>{toolContent}</Suspense> */}
-            <UserDropdown />
-          </div>
         </div>
         <div className="relative w-full grow">
           {Object.entries(areas).map(([area, areaConfig]) => {

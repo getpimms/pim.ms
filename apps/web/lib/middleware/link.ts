@@ -191,7 +191,7 @@ export default async function LinkMiddleware(
   }
 
   const cookieStore = cookies();
-  let clickId = cookieStore.get("dub_id")?.value;
+  let clickId = cookieStore.get("pimms_id")?.value;
   if (!clickId) {
     clickId = nanoid(16);
   }

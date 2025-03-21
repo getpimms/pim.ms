@@ -26,6 +26,13 @@ const DEMO_DATA = [
   }))
   .reverse();
 
+const RESOURCE_LABELS = {
+  clicks: "Clicks",
+  leads: "Conversions",
+  sales: "Sales",
+  saleAmount: "Revenue",
+};
+
 export default function AnalyticsAreaChart({
   resource,
   demo,
@@ -91,13 +98,13 @@ export default function AnalyticsAreaChart({
       id: "leads",
       valueAccessor: (d) => d.values.leads,
       isActive: resource === "leads",
-      colorClassName: "text-violet-600",
+      colorClassName: "text-[#08272E]",
     },
     {
       id: "sales",
       valueAccessor: (d) => d.values[saleUnit],
       isActive: resource === "sales",
-      colorClassName: "text-teal-400",
+      colorClassName: "text-[#08272E]",
     },
   ];
 
@@ -126,15 +133,17 @@ export default function AnalyticsAreaChart({
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2 px-4 py-3 text-sm">
                   <Fragment key={resource}>
                     <div className="flex items-center gap-2">
-                      {activeSeries && (
+                      {/* {activeSeries && (
                         <div
                           className={cn(
                             activeSeries.colorClassName,
                             "h-2 w-2 rounded-sm bg-current opacity-50 shadow-[inset_0_0_0_1px_#0003]",
                           )}
                         />
-                      )}
-                      <p className="capitalize text-neutral-600">{resource}</p>
+                      )} */}
+                      <p className="capitalize text-neutral-600">
+                        {RESOURCE_LABELS[resource]}
+                      </p>
                     </div>
                     <p className="text-right font-medium text-neutral-900">
                       {resource === "sales" && saleUnit === "saleAmount"

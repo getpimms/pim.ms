@@ -220,7 +220,7 @@ function OGModalInner({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <h3 className="text-lg font-medium">Link Preview</h3>
-              <ProBadgeTooltip
+              {/* <ProBadgeTooltip
                 content={
                   <SimpleTooltipContent
                     title="Customize how your links look when shared on social media to improve click-through rates. When enabled, the preview settings below will be shown publicly (instead of the URL's original metatags)."
@@ -228,7 +228,7 @@ function OGModalInner({
                     href="https://dub.co/help/article/custom-link-previews"
                   />
                 }
-              />
+              /> */}
             </div>
             <div className="max-md:hidden">
               <Tooltip

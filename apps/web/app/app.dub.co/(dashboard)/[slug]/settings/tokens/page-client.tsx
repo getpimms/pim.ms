@@ -175,7 +175,7 @@ export default function TokensPageClient() {
           </>
         )}
         addButton={<AddTokenButton />}
-        learnMoreHref="https://dub.co/docs/api-reference/tokens"
+        // learnMoreHref="https://dub.co/docs/api-reference/tokens"
       />
     ),
     resourceName: (plural) => `token${plural ? "s" : ""}`,

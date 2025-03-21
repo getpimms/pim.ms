@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 export const trackLead = async (user: User) => {
   const clickId =
-    cookies().get("dub_id")?.value || cookies().get("dclid")?.value;
+    cookies().get("pimms_id")?.value || cookies().get("dclid")?.value;
 
   if (!clickId) {
     console.log("No clickId cookie found, skipping lead tracking...");
@@ -23,5 +23,5 @@ export const trackLead = async (user: User) => {
 
   // delete the clickId cookie
   cookies().delete("dclid");
-  cookies().delete("dub_id");
+  cookies().delete("pimms_id");
 };

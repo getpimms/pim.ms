@@ -50,22 +50,11 @@ export function Areas({
                 key={`${s.id}_${startDate.toString()}_${endDate.toString()}`}
               >
                 {/* Area background mask gradient */}
-                <LinearGradient
-                  id={`${s.id}-mask-gradient`}
-                  from="white"
-                  to="white"
-                  fromOpacity={0.2}
-                  toOpacity={0}
-                  x1={0}
-                  x2={0}
-                  y1={0}
-                  y2={1}
-                />
                 <mask id={`${s.id}-mask`} maskContentUnits="objectBoundingBox">
                   <rect
                     width="1"
                     height="1"
-                    fill={`url(#${s.id}-mask-gradient)`}
+                    fill="rgba(245, 245, 245, 0.05)"
                   />
                 </mask>
 

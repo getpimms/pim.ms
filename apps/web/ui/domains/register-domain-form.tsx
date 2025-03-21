@@ -146,7 +146,7 @@ export function RegisterDomainForm({
               Search domains
             </p>
 
-            {workspace.plan === "free" && variant === "modal" && (
+            {/* {workspace.plan === "free" && variant === "modal" && (
               <ProBadgeTooltip
                 content={
                   <SimpleTooltipContent
@@ -156,7 +156,7 @@ export function RegisterDomainForm({
                   />
                 }
               />
-            )}
+            )} */}
           </div>
 
           <div className="mt-2">
@@ -293,7 +293,7 @@ export function RegisterDomainForm({
             </div>
           )}
 
-        {searchedDomain && (
+        {/* {searchedDomain && (
           <p className="-my-2 text-pretty text-left text-sm text-neutral-400">
             By claiming your .link domain, you agree to our{" "}
             <a
@@ -305,7 +305,7 @@ export function RegisterDomainForm({
             </a>
             .
           </p>
-        )}
+        )} */}
       </div>
       <div
         className={cn(
@@ -376,13 +376,13 @@ function DomainSavedToast() {
       <CheckCircleFill className="size-5 shrink-0 text-black" />
       <p className="text-[13px] font-medium text-neutral-900">
         Domain saved. You'll need a pro plan to complete the registration.{" "}
-        <a
+        {/* <a
           href="https://dub.co/help/article/free-dot-link-domain"
           target="_blank"
           className="text-neutral-500 underline transition-colors hover:text-neutral-800"
         >
           Learn more
-        </a>
+        </a> */}
       </p>
     </div>
   );

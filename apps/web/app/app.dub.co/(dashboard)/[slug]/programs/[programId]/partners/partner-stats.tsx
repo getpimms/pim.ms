@@ -54,7 +54,7 @@ export function PartnerStats() {
         }
         count={approved}
         icon={ChartLine}
-        iconClassName="text-blue-600 bg-blue-100"
+        iconClassName="text-blue-600 bg-[#B3E4FF]"
         error={!!error}
       />
       <ProgramStatsFilter

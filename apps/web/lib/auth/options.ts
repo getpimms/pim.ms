@@ -519,7 +519,7 @@ export const authOptions: NextAuthOptions = {
               subscribe({ email, name: user.name || undefined }),
               sendEmail({
                 email,
-                replyTo: "steven.tey@dub.co",
+                replyTo: "alexandre@pimms.io",
                 subject: "Welcome to PIMMS!",
                 react: WelcomeEmail({
                   email,

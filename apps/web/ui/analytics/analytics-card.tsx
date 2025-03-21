@@ -10,7 +10,7 @@ import {
 } from "@dub/ui";
 import { CursorRays, InvoiceDollar, UserCheck } from "@dub/ui/icons";
 import { cn } from "@dub/utils";
-import { ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown, Target } from "lucide-react";
 import {
   Dispatch,
   ReactNode,
@@ -19,6 +19,12 @@ import {
   useState,
 } from "react";
 import { AnalyticsContext } from "./analytics-provider";
+
+const EVENTS_MAPPING = {
+  sales: "Sales",
+  leads: "Conversions",
+  clicks: "Clicks",
+};
 
 export function AnalyticsCard<T extends string>({
   tabs,
@@ -68,13 +74,13 @@ export function AnalyticsCard<T extends string>({
         <div className="border-b-[6px] border-neutral-100 px-6 py-4">
           <h1 className="text-lg font-semibold">{selectedTab?.label}</h1>
         </div>
-        {subTabs && selectedSubTabId && onSelectSubTab && (
+        {/* {subTabs && selectedSubTabId && onSelectSubTab && (
           <SubTabs
             subTabs={subTabs}
             selectedTab={selectedSubTabId}
             onSelectTab={onSelectSubTab}
           />
-        )}
+        )} */}
         {children({ setShowModal, event })}
       </Modal>
       <div
@@ -137,14 +143,14 @@ export function AnalyticsCard<T extends string>({
             {event === "sales" ? (
               <InvoiceDollar className="hidden h-4 w-4 sm:block" />
             ) : event === "leads" ? (
-              <UserCheck className="hidden h-4 w-4 sm:block" />
+              <Target className="hidden h-4 w-4 sm:block" />
             ) : (
               <CursorRays className="hidden h-4 w-4 sm:block" />
             )}
-            <p className="text-xs uppercase">{event}</p>
+            <p className="text-xs uppercase">{EVENTS_MAPPING[event]}</p>
           </div>
         </div>
-        <AnimatedSizeContainer
+        {/* <AnimatedSizeContainer
           height
           transition={{ ease: "easeInOut", duration: 0.2 }}
         >
@@ -155,7 +161,7 @@ export function AnalyticsCard<T extends string>({
               onSelectTab={onSelectSubTab}
             />
           )}
-        </AnimatedSizeContainer>
+        </AnimatedSizeContainer> */}
         <div className="py-4">
           {children({
             limit: expandLimit,

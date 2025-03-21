@@ -24,7 +24,7 @@ export const getFinalUrl = (
   // reasoning: if you're skipping tracking, there's no point in passing the clickId anyway
   if (clickId && !searchParams.has("dub-no-track")) {
     // add clickId to the final url if it exists
-    urlObj.searchParams.set("dub_id", clickId);
+    urlObj.searchParams.set("pimms_id", clickId);
   }
 
   // if there are no query params, then return the target url as is (no need to parse it)

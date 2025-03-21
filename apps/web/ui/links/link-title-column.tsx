@@ -44,7 +44,7 @@ import { LinksDisplayContext } from "./links-display-provider";
 
 const quickViewSettings = [
   { label: "Conversion Tracking", icon: SquareChart, key: "trackConversion" },
-  { label: "Deep previews", icon: Cards, key: "proxy" },
+  // { label: "Deep previews", icon: Cards, key: "proxy" },
   { label: "Link Cloaking", icon: Incognito, key: "rewrite" },
   { label: "Password Protection", icon: InputPassword, key: "password" },
   { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },
@@ -132,6 +132,7 @@ export function LinkTitleColumn({ link }: { link: ResponseLink }) {
                 })}
                 variant="neutral"
                 className="p-1.5"
+                withText
               />
               {hasQuickViewSettings && <SettingsBadge link={link} />}
               {link.comments && <CommentsBadge comments={link.comments} />}
@@ -278,14 +279,14 @@ const Details = memo(
             </span>
           )}
         </div>
-        <div
+        {/* <div
           className={cn(
             "hidden shrink-0",
             displayProperties.includes("user") && "sm:block",
           )}
         >
           <UserAvatar link={link} />
-        </div>
+        </div> */}
         <div
           className={cn(
             "hidden shrink-0",

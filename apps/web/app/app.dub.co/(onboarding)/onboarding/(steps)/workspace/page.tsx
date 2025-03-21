@@ -9,7 +9,7 @@ export default function Workspace() {
       title="Create a workspace"
       description={
         <a
-          href="https://dub.co/help/article/what-is-a-workspace"
+          href="https://pimms.io"
           target="_blank"
           className="underline transition-colors hover:text-neutral-700"
         >

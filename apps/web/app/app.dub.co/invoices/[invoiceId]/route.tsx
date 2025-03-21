@@ -185,9 +185,9 @@ export const GET = withSession(async ({ session, params }) => {
           <Image src={DUB_WORDMARK} style={tw("w-20 h-10")} />
           <View style={tw("text-right w-1/2")}>
             <Text style={tw("text-sm font-medium text-neutral-800")}>
-              Dub Technologies Inc.
+              PIMMS
             </Text>
-            <Text style={tw("text-sm text-neutral-500 ")}>support@dub.co</Text>
+            <Text style={tw("text-sm text-neutral-500 ")}>alexandre@pimms.io</Text>
           </View>
         </View>
 
@@ -351,12 +351,12 @@ export const GET = withSession(async ({ session, params }) => {
 
         <Text style={tw("text-sm text-neutral-600 mt-6")}>
           If you have any questions, visit our support site at{" "}
-          <Link href="https://dub.co/help" style={tw("text-neutral-900")}>
-            https://dub.co/help
+          <Link href="https://pimms.io" style={tw("text-neutral-900")}>
+            https://pimms.io
           </Link>{" "}
           or contact us at{" "}
-          <Link href="mailto:support@dub.co" style={tw("text-neutral-900")}>
-            support@dub.co
+          <Link href="mailto:alexandre@pimms.io" style={tw("text-neutral-900")}>
+            alexandre@pimms.io
           </Link>
         </Text>
       </Page>

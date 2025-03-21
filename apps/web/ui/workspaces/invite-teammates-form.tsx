@@ -175,13 +175,13 @@ function InviteSavedToast({ teammates }: { teammates: number }) {
       <p className="text-[13px] font-medium text-neutral-900">
         {pluralize("Invitation", teammates)} saved. You'll need a pro plan to
         invite teammates.{" "}
-        <a
+        {/* <a
           href="https://dub.co/help/article/how-to-invite-teammates"
           target="_blank"
           className="text-neutral-500 underline transition-colors hover:text-neutral-800"
         >
           Learn more
-        </a>
+        </a> */}
       </p>
     </div>
   );

@@ -100,7 +100,7 @@ export default function DomainCard({ props }: { props: DomainProps }) {
         onPointerEnter={() => setGroupHover(true)}
         onPointerLeave={() => setGroupHover(false)}
       >
-        {isDubProvisioned && (
+        {/* {isDubProvisioned && (
           <div className="flex items-center justify-between gap-2 rounded-t-xl border-b border-neutral-100 bg-neutral-50 px-5 py-2 text-xs">
             <div className="flex items-center gap-1.5">
               <Wordmark className="h-4" />
@@ -116,7 +116,7 @@ export default function DomainCard({ props }: { props: DomainProps }) {
               Learn more
             </a>
           </div>
-        )}
+        )} */}
         <div className="p-4 sm:p-5">
           <div className="grid grid-cols-[1.5fr_1fr] items-center gap-3 sm:grid-cols-[3fr_1fr_1.5fr] sm:gap-4 md:grid-cols-[2fr_1fr_0.5fr_1.5fr]">
             <DomainCardTitleColumn

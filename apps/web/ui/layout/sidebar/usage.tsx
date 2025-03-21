@@ -3,7 +3,7 @@
 import useWorkspace from "@/lib/swr/use-workspace";
 import ManageSubscriptionButton from "@/ui/workspaces/manage-subscription-button";
 import { AnimatedSizeContainer, buttonVariants, Icon } from "@dub/ui";
-import { CircleDollar, CursorRays, Hyperlink } from "@dub/ui/icons";
+import { Hyperlink } from "@dub/ui/icons";
 import {
   cn,
   getFirstAndLastDay,
@@ -18,6 +18,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { CSSProperties, forwardRef, useMemo, useState } from "react";
 import { ConversionsOnboarding } from "./conversions/conversions-onboarding";
+import UserDropdown from "./user-dropdown";
 
 export function Usage() {
   const { slug } = useParams() as { slug?: string };
@@ -81,13 +82,19 @@ function UsageInner() {
     <>
       <AnimatedSizeContainer height>
         <div className="p-3">
-          <Link
-            className="group flex items-center gap-0.5 text-sm font-normal text-neutral-500 transition-colors hover:text-neutral-700"
-            href={`/${slug}/settings/billing`}
-          >
-            Usage
-            <ChevronRight className="size-3 text-neutral-400 transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-neutral-500" />
-          </Link>
+          <div className="flex items-center justify-between gap-3">
+            <Link
+              className="group flex items-center gap-0.5 text-sm font-normal text-neutral-500 transition-colors hover:text-neutral-700"
+              href={`/${slug}/settings/billing`}
+            >
+              Usage
+              <ChevronRight className="size-3 text-neutral-400 transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-neutral-500" />
+            </Link>
+            <div className="items-center gap-3 flex">
+              {/* <Suspense fallback={null}>{toolContent}</Suspense> */}
+              <UserDropdown />
+            </div>
+          </div>
 
           <div className="mt-4 flex flex-col gap-4">
             {/* <UsageRow
@@ -126,22 +133,24 @@ function UsageInner() {
 
           <ConversionsOnboarding referenceElement={salesRef} />
 
-          <div className="mt-3">
-            {loading ? (
-              <div className="h-4 w-2/3 animate-pulse rounded-md bg-neutral-500/10" />
-            ) : (
-              <p
-                className={cn(
-                  "text-xs text-neutral-900/40",
-                  paymentFailedAt && "text-red-600",
-                )}
-              >
-                {paymentFailedAt
-                  ? "Your last payment failed. Please update your payment method to continue using Dub."
-                  : `Usage will reset ${billingEnd}`}
-              </p>
-            )}
-          </div>
+          {paymentFailedAt && (
+            <div className="mt-3">
+              {loading ? (
+                <div className="h-4 w-2/3 animate-pulse rounded-md bg-neutral-500/10" />
+              ) : (
+                <p
+                  className={cn(
+                    "text-xs text-neutral-900/40",
+                    paymentFailedAt && "text-red-600",
+                  )}
+                >
+                  {paymentFailedAt
+                    ? "Your last payment failed. Please update your payment method to continue using PIMMS."
+                    : `Usage will reset ${billingEnd}`}
+                </p>
+              )}
+            </div>
+          )}
 
           {paymentFailedAt ? (
             <ManageSubscriptionButton

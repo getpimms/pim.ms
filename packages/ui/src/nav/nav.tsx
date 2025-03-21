@@ -90,11 +90,11 @@ export function Nav({
     },
   );
 
-  // here we need to check if the user has a dub_id cookie
+  // here we need to check if the user has a pimms_id cookie
   // if they do, we should just use app.pimms.io links
   // if not, we can use conversion-enabled d.to links
   const hasDubCookie =
-    domain === "pimms.io" && Cookies.get("dub_id") ? true : false;
+    domain === "pimms.io" && Cookies.get("pimms_id") ? true : false;
 
   return (
     <NavContext.Provider value={{ theme }}>

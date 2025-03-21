@@ -16,7 +16,7 @@ export async function customerCreated(event: Stripe.Event) {
   const externalId = stripeCustomer.metadata?.dubCustomerId;
   const clickId = stripeCustomer.metadata?.dubClickId;
 
-  // The client app should always send dubClickId (dub_id) via metadata
+  // The client app should always send dubClickId (pimms_id) via metadata
   if (!clickId) {
     return "Click ID not found in Stripe customer metadata, skipping...";
   }

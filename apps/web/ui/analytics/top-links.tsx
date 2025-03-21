@@ -22,7 +22,7 @@ export default function TopLinks() {
   return (
     <AnalyticsCard
       tabs={[
-        { id: "links", label: "Short Links", icon: Hyperlink },
+        { id: "links", label: "Deeplinks", icon: Hyperlink },
         { id: "urls", label: "Destination URLs", icon: Globe },
       ]}
       expandLimit={8}
@@ -73,14 +73,14 @@ export default function TopLinks() {
               }
               unit={selectedTab}
               maxValue={Math.max(...data?.map((d) => d[dataKey] ?? 0)) ?? 0}
-              barBackground="bg-blue-100"
-              hoverBackground="hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent hover:border-blue-500"
+              barBackground="bg-[#B3E4FF]"
+              hoverBackground="hover:bg-neutral-100"
               setShowModal={setShowModal}
               {...(limit && { limit })}
             />
           ) : (
             <div className="flex h-[300px] items-center justify-center">
-              <p className="text-sm text-neutral-600">No data available</p>
+              <p className="text-sm text-neutral-600">No data</p>
             </div>
           )
         ) : (
