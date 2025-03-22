@@ -73,24 +73,25 @@ const BUSINESS_PLAN_MODIFIER = ({
       id: "links",
       text: `${Intl.NumberFormat("en-US").format(links)} new links/mo`,
     },
-    // {
-    //   id: "sales",
-    //   text: `${currencyFormatter(sales / 100)} tracked sales/mo`,
-    //   footnote: {
-    //     title:
-    //       "Use Dub Conversions to track how your link clicks are converting to signups and sales. Limits are based on the total sale amount tracked within a given month.",
-    //     cta: "Learn more.",
-    //     href: "https://d.to/conversions",
-    //   },
-    // },
+    {
+      id: "conversions",
+      text: `${nFormatter(sales/100)} tracked conversions/mo`,
+      // text: `${currencyFormatter(sales / 100)} tracked conversions/mo`,
+      // footnote: {
+      //   title:
+      //     "Use Dub Conversions to track how your link clicks are converting to signups and sales. Limits are based on the total sale amount tracked within a given month.",
+      //   cta: "Learn more.",
+      //   href: "https://d.to/conversions",
+      // },
+    },
     {
       id: "retention",
       text: "3-year analytics retention",
     },
-    // {
-    //   id: "domains",
-    //   text: `${domains} domains`,
-    // },
+    {
+      id: "domains",
+      text: `${domains} domains`,
+    },
     // {
     //   id: "users",
     //   text: `${users} users`,
@@ -220,7 +221,7 @@ export const PLANS: any[] = [
       { id: "clicks", text: "50K tracked clicks/mo" },
       { id: "links", text: "1,000 new links/mo" },
       { id: "retention", text: "1-year analytics retention" },
-      // { id: "domains", text: "10 domains" },
+      { id: "domains", text: "3 domains" },
       // { id: "users", text: "5 users" },
       // {
       //   id: "link-features",
@@ -258,7 +259,7 @@ export const PLANS: any[] = [
     links: 5000,
     clicks: 150000,
     sales: 5000_00,
-    domains: 40,
+    domains: 10,
     folders: 10,
     users: 15,
     ids: [

@@ -1,4 +1,4 @@
-import { dub } from "@/lib/dub";
+import { pimms } from "@/lib/pimms";
 import { prisma } from "@dub/prisma";
 import "dotenv-flow/config";
 
@@ -27,7 +27,7 @@ async function main() {
 
   console.table(workspaces.slice(0, 10));
 
-  const res = await dub.links.createMany(
+  const res = await pimms.links.createMany(
     workspaces.map((workspace) => ({
       domain: "refer.dub.co",
       key: workspace.slug,

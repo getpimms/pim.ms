@@ -117,7 +117,7 @@ function LinksList({
           description={
             isFiltered
               ? "Bummer! There are no links that match your filters. Adjust your filters to yield more results."
-              : "Start creating short links for your marketing campaigns, referral programs, and more."
+              : "Start creating your first link."
           }
           cardContent={
             <>

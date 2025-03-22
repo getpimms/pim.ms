@@ -25,14 +25,14 @@ export function DomainSelector() {
     </div>
   ) : (
     <>
-      <div className="animate-fade-in mx-auto grid w-full max-w-[312px] gap-4 sm:max-w-2xl sm:grid-cols-2">
+      <div className="animate-fade-in mx-auto grid w-full max-w-[312px] gap-4 sm:max-w-2xl">
         <DomainOption
           title="Connect a custom domain"
-          example="acme.com"
+          example="apple.com"
           onClick={() => setSelectedOption("custom")}
           isSelected={selectedOption === "custom"}
         />
-        <DomainOption
+        {/* <DomainOption
           title={
             <>
               Claim a free{" "}
@@ -46,7 +46,7 @@ export function DomainSelector() {
           onClick={() => setSelectedOption("register")}
           isSelected={selectedOption === "register"}
           paidPlanRequired={true}
-        />
+        /> */}
       </div>
       <div className="mx-auto mt-8 w-full max-w-sm">
         <Button

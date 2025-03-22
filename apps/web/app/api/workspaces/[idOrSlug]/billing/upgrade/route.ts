@@ -1,5 +1,5 @@
 import { withWorkspace } from "@/lib/auth";
-import { getDubCustomer } from "@/lib/dub";
+// import { getPimmsCustomer } from "@/lib/pimms";
 import { stripe } from "@/lib/stripe";
 import { APP_DOMAIN } from "@dub/utils";
 import { NextResponse } from "next/server";
@@ -47,7 +47,7 @@ export const POST = withWorkspace(async ({ req, workspace, session }) => {
     });
     return NextResponse.json({ url });
   } else {
-    // const customer = await getDubCustomer(session.user.id);
+    // const customer = await getPimmsCustomer(session.user.id);
 
     // For both new users and users with canceled subscriptions
     const stripeSession = await stripe.checkout.sessions.create({

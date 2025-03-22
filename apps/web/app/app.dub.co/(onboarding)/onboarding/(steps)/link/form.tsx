@@ -193,7 +193,8 @@ export function Form() {
           loading={isSubmitting || isSubmitSuccessful}
         />
       </form>
-      <LaterButton next="domain" className="mt-4" />
+      {/* <LaterButton next="domain" className="mt-4" /> */}
+      <LaterButton next="plan" className="mt-4" />
     </>
   );
 }

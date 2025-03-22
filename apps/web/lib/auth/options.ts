@@ -327,10 +327,12 @@ export const authOptions: NextAuthOptions = {
       console.log({ user, account, profile });
 
       if (!user.email || (await isBlacklistedEmail(user.email))) {
+        console.log("Blacklisted email");
         return false;
       }
 
       if (user?.lockedAt) {
+        console.log("Locked account");
         return false;
       }
 
@@ -492,7 +494,8 @@ export const authOptions: NextAuthOptions = {
   },
   events: {
     async signIn(message) {
-      if (message.isNewUser) {
+      console.log("signIn event", message);
+      // if (message.isNewUser) {
         const email = message.user.email as string;
         const user = await prisma.user.findUnique({
           where: { email },
@@ -505,35 +508,37 @@ export const authOptions: NextAuthOptions = {
           },
         });
         if (!user) {
+          console.log("User not found");
           return;
         }
         // only send the welcome email if the user was created in the last 10s
         // (this is a workaround because the `isNewUser` flag is triggered when a user does `dangerousEmailAccountLinking`)
         if (
           user.createdAt &&
-          new Date(user.createdAt).getTime() > Date.now() - 10000 &&
-          process.env.NEXT_PUBLIC_IS_DUB
+          new Date(user.createdAt).getTime() > Date.now() - 10000
+          // && process.env.NEXT_PUBLIC_IS_DUB
         ) {
+          console.log("subscribing to email and tracking lead");
           waitUntil(
             Promise.allSettled([
               subscribe({ email, name: user.name || undefined }),
-              sendEmail({
-                email,
-                replyTo: "alexandre@pimms.io",
-                subject: "Welcome to PIMMS!",
-                react: WelcomeEmail({
-                  email,
-                  name: user.name || null,
-                }),
-                // send the welcome email 5 minutes after the user signed up
-                scheduledAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
-                marketing: true,
-              }),
+              // sendEmail({
+              //   email,
+              //   replyTo: "alexandre@pimms.io",
+              //   subject: "Welcome to PIMMS!",
+              //   react: WelcomeEmail({
+              //     email,
+              //     name: user.name || null,
+              //   }),
+              //   // send the welcome email 5 minutes after the user signed up
+              //   scheduledAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
+              //   marketing: true,
+              // }),
               trackLead(user),
             ]),
           );
         }
-      }
+      // }
       // lazily backup user avatar to R2
       const currentImage = message.user.image;
       if (currentImage && !isStored(currentImage)) {

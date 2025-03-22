@@ -1,4 +1,4 @@
-import { dub } from "@/lib/dub";
+import { pimms } from "@/lib/pimms";
 import { User } from "next-auth";
 import { cookies } from "next/headers";
 
@@ -6,13 +6,15 @@ export const trackLead = async (user: User) => {
   const clickId =
     cookies().get("pimms_id")?.value || cookies().get("dclid")?.value;
 
+  console.log("clickId", clickId);
+  
   if (!clickId) {
     console.log("No clickId cookie found, skipping lead tracking...");
     return;
   }
 
-  // send the lead event to Dub
-  await dub.track.lead({
+  // send the lead event to PIMMS
+  await pimms.track.lead({
     clickId,
     eventName: "Sign Up",
     externalId: user.id,
@@ -22,6 +24,6 @@ export const trackLead = async (user: User) => {
   });
 
   // delete the clickId cookie
-  cookies().delete("dclid");
-  cookies().delete("pimms_id");
+  // cookies().delete("pimms_id");
+  // cookies().delete("dclid");
 };

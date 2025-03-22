@@ -26,7 +26,7 @@ export default function Welcome() {
           Welcome to PIMMS
         </h1>
         <p className="animate-slide-up-fade mt-2 text-neutral-500 [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
-          Supercharge your marketing with pim.ms deep links
+          Grow with deeplinks
         </p>
         <div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-delay:750ms] [animation-duration:1s] [animation-fill-mode:both]">
           <NextButton text="Get started" step="workspace" />

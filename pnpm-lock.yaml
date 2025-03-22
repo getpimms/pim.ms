@@ -69,6 +69,9 @@ importers:
       '@floating-ui/react':
         specifier: ^0.26.20
         version: 0.26.20(react-dom@18.2.0)(react@18.2.0)
+      '@getpimms/analytics':
+        specifier: ^0.0.27
+        version: 0.0.27
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.52.1)
@@ -252,6 +255,9 @@ importers:
       openapi3-ts:
         specifier: ^4.2.1
         version: 4.2.1
+      pimms:
+        specifier: ^0.0.6
+        version: 0.0.6(zod@3.23.8)
       posthog-js:
         specifier: ^1.164.1
         version: 1.164.1
@@ -4666,6 +4672,12 @@ packages:
     resolution: {integrity: sha512-af3qATX+m4Rnd9+wHcjJ4w2ijq+rAVP3CCinJQvFv1kgSu1W6jypUmvleJxcewdxmutM8dmIRZFxO/IQBZmP2Q==}
     dependencies:
       tslib: 2.8.1
+    dev: false
+
+  /@getpimms/analytics@0.0.27:
+    resolution: {integrity: sha512-E9AygdrlNZ1ixDmhwDnd0IygRLSgeJdAmekkj/2ASU1uKUN7FDJK6riP1mGgV+63WqSFGy9A2QP5WFjQBWbNIg==}
+    dependencies:
+      server-only: 0.0.1
     dev: false
 
   /@googleapis/admin@18.0.0(encoding@0.1.13):
@@ -18445,6 +18457,19 @@ packages:
   /pify@4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
+    dev: false
+
+  /pimms@0.0.6(zod@3.23.8):
+    resolution: {integrity: sha512-Q1iovclNFGyw7dd2w1KOvefr59tsByGzYWEaUdz7wFH9zVq3Dp3hSLZsugjZbBsySz+DRMC//pP3TfOmD8CWzw==}
+    hasBin: true
+    peerDependencies:
+      '@modelcontextprotocol/sdk': ^1.5.0
+      zod: '>= 3'
+    peerDependenciesMeta:
+      '@modelcontextprotocol/sdk':
+        optional: true
+    dependencies:
+      zod: 3.23.8
     dev: false
 
   /pirates@4.0.6:

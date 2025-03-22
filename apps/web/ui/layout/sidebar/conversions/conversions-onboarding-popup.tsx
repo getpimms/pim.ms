@@ -1,7 +1,6 @@
 "use client";
 
-import { X } from "@/ui/shared/icons";
-import { BlurImage, Button } from "@dub/ui";
+import { Button } from "@dub/ui";
 import {
   arrow,
   autoUpdate,
@@ -11,8 +10,6 @@ import {
   shift,
   useFloating,
 } from "@floating-ui/react";
-import { Play } from "lucide-react";
-import Link from "next/link";
 import { useRef } from "react";
 
 export function ConversionOnboardingPopup({
@@ -27,7 +24,7 @@ export function ConversionOnboardingPopup({
   const arrowRef = useRef<SVGSVGElement>(null);
 
   const { refs, floatingStyles, context } = useFloating({
-    placement: "right-end",
+    placement: "bottom-end",
     strategy: "fixed",
     whileElementsMounted(referenceEl, floatingEl, update) {
       const cleanup = autoUpdate(referenceEl, floatingEl, update, {
@@ -60,8 +57,8 @@ export function ConversionOnboardingPopup({
         style={floatingStyles}
         className="drop-shadow-sm"
       >
-        <div className="animate-slide-up-fade relative flex w-[244px] flex-col rounded-xl border-[6px] border-neutral-100 bg-white p-3 text-left">
-          <div className="relative">
+        <div className="animate-slide-up-fade relative flex w-[240px] flex-col rounded-xl border-[6px] border-neutral-100 bg-white p-3 text-left">
+          {/* <div className="relative">
             <Link
               href="https://d.to/conversions"
               target="_blank"
@@ -84,15 +81,14 @@ export function ConversionOnboardingPopup({
             >
               <X className="size-4 text-neutral-500" />
             </button>
-          </div>
+          </div> */}
           <h2 className="mt-4 text-sm font-semibold text-neutral-700">
-            Conversion analytics unlocked
+            🎉 New conversion analytics
           </h2>
           <p className="mt-1.5 text-xs text-neutral-500">
-            Follow our guides to get set up and track your short link
-            conversions
+            Follow our guide to get set up and track your deep link conversions
           </p>
-          <div className="mt-4 grid w-full grid-cols-2 gap-2">
+          <div className="grid-row-2 mt-4 grid w-full gap-2">
             <Button
               type="button"
               variant="secondary"
@@ -104,7 +100,7 @@ export function ConversionOnboardingPopup({
               type="button"
               variant="primary"
               className="h-7 text-xs"
-              text="View guides"
+              text="View guide"
               onClick={onCTA}
             />
           </div>

@@ -1,5 +1,5 @@
 import { withSession } from "@/lib/auth";
-import { dub } from "@/lib/dub";
+import { pimms } from "@/lib/pimms";
 import { NextResponse } from "next/server";
 
 export const GET = withSession(async ({ session }) => {
@@ -9,7 +9,7 @@ export const GET = withSession(async ({ session }) => {
     return NextResponse.json({ publicToken: null }, { status: 200 });
   }
 
-  const { publicToken } = await dub.embedTokens.create({
+  const { publicToken } = await pimms.embedTokens.create({
     programId: "prog_d8pl69xXCv4AoHNT281pHQdo",
     partnerId: dubPartnerId,
   });

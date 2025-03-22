@@ -1,12 +1,12 @@
 "use client";
 
 import { PosthogPageview } from "@/ui/layout/posthog-pageview";
-import { Analytics as DubAnalytics } from "@dub/analytics/react";
 import {
   KeyboardShortcutProvider,
   TooltipProvider,
   useRemoveGAParams,
 } from "@dub/ui";
+import { Analytics as PimmsAnalytics } from "@getpimms/analytics/react";
 import PlausibleProvider from "next-plausible";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
@@ -42,9 +42,14 @@ export default function RootProviders({ children }: { children: ReactNode }) {
           <Toaster closeButton className="pointer-events-auto" />
           <PosthogPageview />
           {children}
-          <DubAnalytics
+          {/* <DubAnalytics
             apiHost="/_proxy/dub"
             shortDomain="refer.pimms.io"
+            cookieOptions={{
+              domain: ".pimms.io",
+            }}
+          /> */}
+          <PimmsAnalytics
             cookieOptions={{
               domain: ".pimms.io",
             }}
