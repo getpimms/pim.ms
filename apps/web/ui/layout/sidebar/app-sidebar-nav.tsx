@@ -167,11 +167,11 @@ const NAV_AREAS: SidebarNavAreas<{
       {
         name: "Developer",
         items: [
-          // {
-          //   name: "API Keys",
-          //   icon: Key,
-          //   href: `/${slug}/settings/tokens`,
-          // },
+          {
+            name: "API Keys",
+            icon: Key,
+            href: `/${slug}/settings/tokens`,
+          },
           // {
           //   name: "OAuth Apps",
           //   icon: CubeSettings,

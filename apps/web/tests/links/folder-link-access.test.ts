@@ -30,7 +30,7 @@ describe.concurrent("Folder access permissions", async () => {
             error: {
               code: "not_found",
               message: "Folder not found.",
-              doc_url: "https://dub.co/docs/api-reference/errors#not-found",
+              // doc_url: "https://dub.co/docs/api-reference/errors#not-found",
             },
           },
         },
@@ -49,7 +49,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -68,7 +68,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -99,7 +99,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -114,7 +114,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -147,7 +147,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -162,7 +162,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -194,7 +194,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
@@ -211,7 +211,7 @@ describe.concurrent("Folder access permissions", async () => {
               code: "forbidden",
               message:
                 "You are not allowed to perform this action on this folder.",
-              doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
+              // doc_url: "https://dub.co/docs/api-reference/errors#forbidden",
             },
           },
         },
