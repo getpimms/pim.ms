@@ -79,7 +79,7 @@ export const analyticsQuerySchema = z
     linkId: z
       .string()
       .optional()
-      .describe("The unique ID of the short link on Dub."),
+      .describe("The unique ID of the short link on PIMMS."),
     externalId: z
       .string()
       .optional()

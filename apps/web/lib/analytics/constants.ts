@@ -117,7 +117,7 @@ export const INTERVAL_DATA: Record<
     granularity: "month",
   },
   all: {
-    // Dub.co founding date
+    // PIMMS founding date
     startDate: DUB_FOUNDING_DATE,
     granularity: "month",
   },

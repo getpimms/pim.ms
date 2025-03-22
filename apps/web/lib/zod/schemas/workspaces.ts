@@ -75,7 +75,7 @@ export const WorkspaceSchema = z
       ),
     partnersEnabled: z
       .boolean()
-      .describe("Whether the workspace has Dub Partners enabled."),
+      .describe("Whether the workspace has PIMMS Partners enabled."),
 
     createdAt: z
       .date()
@@ -110,7 +110,7 @@ export const WorkspaceSchema = z
       .array(z.string())
       .nullable()
       .describe("Specifies hostnames permitted for client-side click tracking.")
-      .openapi({ example: ["dub.sh"] }),
+      .openapi({ example: ["pim.ms"] }),
   })
   .openapi({
     title: "Workspace",

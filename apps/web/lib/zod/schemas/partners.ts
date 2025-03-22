@@ -195,7 +195,7 @@ export const createPartnerSchema = z.object({
     .max(190)
     .email()
     .describe(
-      "Email for the partner in your system. Partners will be able to claim their profile by signing up to Dub Partners with this email.",
+      "Email for the partner in your system. Partners will be able to claim their profile by signing up to PIMMS Partners with this email.",
     ),
   username: z
     .string()

@@ -23,23 +23,23 @@ import { workspacesPaths } from "./workspaces";
 export const document = createDocument({
   openapi: "3.0.3",
   info: {
-    title: "Dub.co API",
+    title: "PIMMS API",
     description:
-      "Dub is link management infrastructure for companies to create marketing campaigns, link sharing features, and referral programs.",
+      "PIMMS | Grow with deeplinks",
     version: "0.0.1",
     contact: {
-      name: "Dub.co Support",
-      email: "support@dub.co",
-      url: "https://dub.co/api",
+      name: "PIMMS Support",
+      email: "alexandre@pimms.io",
+      url: "https://pimms.io/api",
     },
     license: {
       name: "AGPL-3.0 license",
-      url: "https://github.com/dubinc/dub/blob/main/LICENSE.md",
+      url: "https://github.com/getpimms/pimms/blob/main/LICENSE.md",
     },
   },
   servers: [
     {
-      url: "https://api.dub.co",
+      url: "https://api.pimms.io",
       description: "Production API",
     },
   ],
@@ -73,7 +73,7 @@ export const document = createDocument({
         type: "http",
         description: "Default authentication mechanism",
         scheme: "bearer",
-        "x-speakeasy-example": "DUB_API_KEY",
+        "x-speakeasy-example": "PIMMS_API_KEY",
       },
     },
     responses: {
