@@ -235,7 +235,7 @@ export default function WorkspaceDomainsClient() {
             ) : (
               <AnimatedEmptyState
                 title="No domains found"
-                description="Use custom domains for better brand recognition and click-through rates"
+                description="Use custom domains for better to share branded deeplinks"
                 cardContent={
                   <>
                     <Globe className="size-4 text-neutral-700" />

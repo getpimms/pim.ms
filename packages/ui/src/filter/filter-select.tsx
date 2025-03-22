@@ -204,11 +204,11 @@ export function FilterSelect({
                   } else selectOption(search);
                 }}
               />
-              {!selectedFilter && (
+              {/* {!selectedFilter && (
                 <kbd className="mr-2 hidden shrink-0 rounded border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
                   F
                 </kbd>
-              )}
+              )} */}
             </div>
             <FilterScroll key={selectedFilterKey} ref={listContainer}>
               <Command.List
@@ -408,9 +408,9 @@ function FilterButton({
       onSelect={onSelect}
       value={label + option?.value}
     >
-      <span className="shrink-0 text-neutral-600">
+      {/* <span className="shrink-0 text-neutral-600">
         {isReactNode(Icon) ? Icon : <Icon className="h-4 w-4" />}
-      </span>
+      </span> */}
       {truncate(label, 48)}
       <div className="ml-1 flex shrink-0 grow justify-end text-neutral-500">
         {right}

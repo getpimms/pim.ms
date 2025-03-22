@@ -111,7 +111,7 @@ export default function Main() {
                 )}
                 <Link
                   className={cn(
-                    "border-box relative block h-full min-w-[110px] flex-none px-4 py-3 sm:min-w-[240px] sm:px-8 sm:py-6",
+                    "border-box relative h-full min-w-[110px] flex flex-row items-center gap-3 px-4 py-1 sm:min-w-[240px] sm:px-8 sm:py-6",
                     "transition-colors hover:bg-neutral-50 focus:outline-none active:bg-neutral-100",
                     "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-lg",
                   )}
@@ -126,23 +126,14 @@ export default function Main() {
                   aria-current
                 >
                   {/* Active tab indicator */}
-                  <div
+                  {/* <div
                     className={cn(
                       "absolute bottom-0 left-0 h-0.5 w-full bg-black transition-transform duration-100",
                       tab.id !== id && "translate-y-[3px]", // Translate an extra pixel to avoid sub-pixel issues
                     )}
-                  />
+                  /> */}
 
-                  <div className="flex items-center gap-2.5 text-sm text-neutral-600">
-                    {/* <div
-                      className={cn(
-                        "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
-                        colorClassName,
-                      )}
-                    /> */}
-                    <span>{label}</span>
-                  </div>
-                  <div className="mt-1 flex h-12 items-center">
+                  <div className="flex items-center">
                     {totalEvents?.[id] || totalEvents?.[id] === 0 ? (
                       <NumberFlow
                         value={
@@ -178,6 +169,15 @@ export default function Main() {
                       <div className="h-9 w-16 animate-pulse rounded-md bg-neutral-200" />
                     )}
                   </div>
+                  <div className="flex items-center gap-2.5 text-sm text-neutral-600 uppercase">
+                    {/* <div
+                      className={cn(
+                        "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
+                        colorClassName,
+                      )}
+                    /> */}
+                    <span>{label}</span>
+                  </div>
                 </Link>
               </div>
             );
@@ -193,7 +193,7 @@ export default function Main() {
           )}
         >
           {view === "timeseries" && (
-            <div className="p-5 pt-10 sm:p-10">
+            <div className="p-2 pt-2 sm:pt-10 sm:p-10">
               <AnalyticsAreaChart resource={tab.id} demo={showPaywall} />
             </div>
           )}

@@ -10,7 +10,7 @@ import {
 } from "@dub/ui";
 import { CursorRays, InvoiceDollar, UserCheck } from "@dub/ui/icons";
 import { cn } from "@dub/utils";
-import { ChevronsUpDown, Target } from "lucide-react";
+import { ChevronsUpDown, MousePointerClick, Target } from "lucide-react";
 import {
   Dispatch,
   ReactNode,
@@ -145,7 +145,7 @@ export function AnalyticsCard<T extends string>({
             ) : event === "leads" ? (
               <Target className="hidden h-4 w-4 sm:block" />
             ) : (
-              <CursorRays className="hidden h-4 w-4 sm:block" />
+              <MousePointerClick className="hidden h-4 w-4 sm:block" />
             )}
             <p className="text-xs uppercase">{EVENTS_MAPPING[event]}</p>
           </div>

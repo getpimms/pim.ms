@@ -7,12 +7,12 @@ export function Form({
   description,
   inputAttrs,
   helpText,
-  buttonText = "Save Changes",
+  buttonText = "Save",
   disabledTooltip,
   handleSubmit,
 }: {
   title: string;
-  description: string;
+  description?: string;
   inputAttrs: InputHTMLAttributes<HTMLInputElement>;
   helpText?: string | ReactNode;
   buttonText?: string;
@@ -40,7 +40,9 @@ export function Form({
       <div className="relative flex flex-col space-y-6 p-5 sm:p-10">
         <div className="flex flex-col space-y-3">
           <h2 className="text-xl font-medium">{title}</h2>
-          <p className="text-sm text-neutral-500">{description}</p>
+          {description && (
+            <p className="text-sm text-neutral-500">{description}</p>
+          )}
         </div>
         {typeof inputAttrs.defaultValue === "string" ? (
           <input

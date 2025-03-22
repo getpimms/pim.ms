@@ -36,6 +36,7 @@ import { LinkControls } from "./link-controls";
 import { ResponseLink } from "./links-container";
 import { LinksDisplayContext } from "./links-display-provider";
 import TagBadge from "./tag-badge";
+import { MousePointerClick, TargetIcon } from "lucide-react";
 
 function useOrganizedTags(tags: ResponseLink["tags"]) {
   const searchParams = useSearchParams();
@@ -147,7 +148,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
     () => [
       {
         id: "clicks",
-        icon: CursorRays,
+        icon: MousePointerClick,
         value: clicks,
         iconClassName: "data-[active=true]:text-[#08272E]",
       },
@@ -158,18 +159,18 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
         ? [
             {
               id: "leads",
-              icon: UserCheck,
+              icon: TargetIcon,
               value: leads,
               className: "hidden sm:flex",
-              iconClassName: "data-[active=true]:text-purple-500",
+              iconClassName: "data-[active=true]:text-[#08272E]",
             },
-            {
-              id: "sales",
-              icon: InvoiceDollar,
-              value: saleAmount,
-              className: "hidden sm:flex",
-              iconClassName: "data-[active=true]:text-teal-500",
-            },
+            // {
+            //   id: "sales",
+            //   icon: InvoiceDollar,
+            //   value: saleAmount,
+            //   className: "hidden sm:flex",
+            //   iconClassName: "data-[active=true]:text-[#08272E]",
+            // },
           ]
         : []),
     ],

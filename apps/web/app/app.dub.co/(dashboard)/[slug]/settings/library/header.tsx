@@ -25,8 +25,7 @@ export default function LibraryHeader() {
         Library
       </h1>
       <p className="mb-2 mt-2 text-base text-neutral-600">
-        Manage and organize your links with customizable tags, and UTM
-        templates.
+        Manage tags to organize your links, and create UTM templates.
       </p>
       <TabSelect
         variant="accent"

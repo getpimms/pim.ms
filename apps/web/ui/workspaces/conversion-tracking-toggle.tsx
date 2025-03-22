@@ -22,7 +22,6 @@ export function ConversionTrackingToggle() {
           </label>
           <p className="mt-1 flex items-center gap-1 text-sm text-neutral-500">
             Enable conversion tracking for all future links in this workspace.
-            This only affects links made with the link builder.
           </p>
         </div>
       </div>

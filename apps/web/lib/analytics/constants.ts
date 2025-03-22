@@ -52,17 +52,17 @@ export const INTERVAL_DISPLAYS = [
     shortcut: "l",
   },
   {
-    display: "Month to Date",
+    display: "Month to date",
     value: "mtd",
     shortcut: "m",
   },
+  // {
+  //   display: "Quarter to date",
+  //   value: "qtd",
+  //   shortcut: "q",
+  // },
   {
-    display: "Quarter to Date",
-    value: "qtd",
-    shortcut: "q",
-  },
-  {
-    display: "Year to Date",
+    display: "Year to date",
     value: "ytd",
     shortcut: "y",
   },

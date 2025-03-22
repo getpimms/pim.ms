@@ -92,13 +92,13 @@ export function FilterList({
                   >
                     {/* Filter */}
                     <div className="flex items-center gap-2.5 px-3 py-2">
-                      <span className="shrink-0 text-neutral-600">
+                      {/* <span className="shrink-0 text-neutral-600">
                         {isReactNode(filter.icon) ? (
                           filter.icon
                         ) : (
                           <filter.icon className="h-4 w-4" />
                         )}
-                      </span>
+                      </span> */}
                       {filter.label}
                     </div>
 

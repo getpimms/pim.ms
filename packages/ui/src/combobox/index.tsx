@@ -215,11 +215,11 @@ export function Combobox({
                   }
                 }}
               />
-              {shortcutHint && (
+              {/* {shortcutHint && (
                 <kbd className="mr-2 hidden shrink-0 rounded border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-500 md:block">
                   {shortcutHint}
                 </kbd>
-              )}
+              )} */}
             </div>
             <Scroll>
               <Command.List

@@ -9,6 +9,6 @@ export interface APIError {
   error: {
     code: string;
     message: string;
-    doc_url: string;
+    // doc_url: string;
   };
 }

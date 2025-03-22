@@ -106,7 +106,7 @@ export function SidebarNav<T extends Record<any, any>>({
 
                 <div className="flex flex-col gap-4 pt-4">
                   {content.map(({ name, items }, idx) => (
-                    <div key={idx} className="flex flex-col gap-0.5">
+                    <div key={idx} className="flex flex-col gap-2">
                       {name && (
                         <div className="mb-2 pl-1 text-sm text-neutral-500">
                           {name}
@@ -171,22 +171,21 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
         className={cn(
-          "group flex items-center gap-2.5 rounded-md p-2 text-sm leading-none text-neutral-600 transition-[background-color,color,font-weight] duration-75 hover:bg-neutral-200/50 active:bg-neutral-200/80",
+          "group flex items-center gap-2.5 rounded-full p-2 text-sm leading-none text-neutral-600 transition-[background-color,color,font-weight] duration-75 hover:bg-neutral-200/50 active:bg-neutral-200/80",
           "outline-none focus-visible:ring-2 focus-visible:ring-black/50",
           isActive &&
             !items &&
             "bg-[#B3E4FF] font-medium text-[#08272E] hover:bg-[#B3E4FF]/50 active:bg-[#B3E4FF]/80",
         )}
       >
-        {/* {Icon && (
+        {Icon && (
           <Icon
             className={cn(
-              "size-4 text-neutral-500 transition-colors duration-75",
-              !items && "group-data-[active=true]:text-[#08272E]",
+              "size-8 text-[#08272E] bg-white rounded-full p-1.5 transition-colors duration-75 overflow-visible",
             )}
             data-hovered={hovered}
           />
-        )} */}
+        )}
         {name}
         {items && (
           <div className="flex grow justify-end">
@@ -210,7 +209,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
           >
             <div className="pl-px pt-1">
               <div className="pl-3.5">
-                <div className="flex flex-col gap-0.5 border-l border-neutral-200 pl-2">
+                <div className="flex flex-col gap-2 border-l border-neutral-200 pl-2">
                   {items.map((item) => (
                     <NavItem key={item.name} item={item} />
                   ))}

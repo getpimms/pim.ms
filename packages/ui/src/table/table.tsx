@@ -360,7 +360,7 @@ export function Table<T>({
             <span className="font-medium">
               {table.getRowCount().toLocaleString()}
             </span>{" "}
-            {resourceName?.(table.getRowCount() !== 1) || "items"}
+            {/* {resourceName?.(table.getRowCount() !== 1) || "items"} */}
           </div>
           <div className="flex items-center gap-2">
             <Button

@@ -29,6 +29,7 @@ import { LinesY } from "./icons/lines-y";
 import { SidebarNav, SidebarNavAreas } from "./sidebar-nav";
 import { Usage } from "./usage";
 import { WorkspaceDropdown } from "./workspace-dropdown";
+import { BarChart2, Link, MousePointerClick, Receipt, Settings, Settings2, Split, Target, TargetIcon, WalletCards } from "lucide-react";
 
 const NAV_AREAS: SidebarNavAreas<{
   slug: string;
@@ -48,23 +49,24 @@ const NAV_AREAS: SidebarNavAreas<{
         items: [
           {
             name: "Deep links",
-            icon: Hyperlink,
+            icon: Link,
             href: `/${slug}${pathname === `/${slug}` ? "" : queryString}`,
             exact: true,
           },
           {
             name: "Analytics",
-            icon: LinesY,
+            icon: BarChart2,
             href: `/${slug}/analytics${pathname === `/${slug}/analytics` ? "" : queryString}`,
           },
-          // {
-          //   name: "Events",
-          //   icon: CursorRays,
-          //   href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
-          // },
+          {
+            name: "Conversions",
+            icon: Target,
+            // href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
+            href: `/${slug}/events?event=leads`,
+          },
           {
             name: "Settings",
-            icon: Gear,
+            icon: Settings2,
             href: `/${slug}/settings`,
           },
         ],
@@ -123,14 +125,9 @@ const NAV_AREAS: SidebarNavAreas<{
         items: [
           {
             name: "General",
-            icon: Gear2,
+            icon: Settings,
             href: `/${slug}/settings`,
             exact: true,
-          },
-          {
-            name: "Billing",
-            icon: Receipt2,
-            href: `/${slug}/settings/billing`,
           },
           {
             name: "Domains",
@@ -138,9 +135,14 @@ const NAV_AREAS: SidebarNavAreas<{
             href: `/${slug}/settings/domains`,
           },
           {
-            name: "Library",
-            icon: Books2,
+            name: "UTM Templates",
+            icon: Split,
             href: `/${slug}/settings/library`,
+          },
+          {
+            name: "Conversions",
+            icon: TargetIcon,
+            href: `/${slug}/settings/analytics`,
           },
           {
             name: "People",
@@ -148,14 +150,14 @@ const NAV_AREAS: SidebarNavAreas<{
             href: `/${slug}/settings/people`,
           },
           {
-            name: "Integrations",
-            icon: ConnectedDots,
-            href: `/${slug}/settings/integrations`,
+            name: "Billing",
+            icon: WalletCards,
+            href: `/${slug}/settings/billing`,
           },
           // {
-          //   name: "Analytics",
-          //   icon: LinesY,
-          //   href: `/${slug}/settings/analytics`,
+          //   name: "Integrations",
+          //   icon: ConnectedDots,
+          //   href: `/${slug}/settings/integrations`,
           // },
           // {
           //   name: "Security",
@@ -167,11 +169,11 @@ const NAV_AREAS: SidebarNavAreas<{
       {
         name: "Developer",
         items: [
-          // {
-          //   name: "API Keys",
-          //   icon: Key,
-          //   href: `/${slug}/settings/tokens`,
-          // },
+          {
+            name: "API Keys",
+            icon: Key,
+            href: `/${slug}/settings/tokens`,
+          },
           // {
           //   name: "OAuth Apps",
           //   icon: CubeSettings,
@@ -184,16 +186,16 @@ const NAV_AREAS: SidebarNavAreas<{
           },
         ],
       },
-      {
-        name: "Account",
-        items: [
-          {
-            name: "Notifications",
-            icon: CircleInfo,
-            href: `/${slug}/settings/notifications`,
-          },
-        ],
-      },
+      // {
+      //   name: "Account",
+      //   items: [
+      //     {
+      //       name: "Notifications",
+      //       icon: CircleInfo,
+      //       href: `/${slug}/settings/notifications`,
+      //     },
+      //   ],
+      // },
     ],
   }),
 

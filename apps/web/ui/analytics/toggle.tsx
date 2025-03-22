@@ -445,19 +445,19 @@ export default function Toggle({
             //   ],
             // },
           ]),
-      {
-        key: "trigger",
-        icon: CursorRays,
-        label: "Trigger",
-        options:
-          triggers?.map(({ trigger, count }) => ({
-            value: trigger,
-            label: TRIGGER_DISPLAY[trigger],
-            icon: trigger === "qr" ? QRCode : CursorRays,
-            right: nFormatter(count, { full: true }),
-          })) ?? null,
-        separatorAfter: !dashboardProps,
-      },
+      // {
+      //   key: "trigger",
+      //   icon: CursorRays,
+      //   label: "Trigger",
+      //   options:
+      //     triggers?.map(({ trigger, count }) => ({
+      //       value: trigger,
+      //       label: TRIGGER_DISPLAY[trigger],
+      //       icon: trigger === "qr" ? QRCode : CursorRays,
+      //       right: nFormatter(count, { full: true }),
+      //     })) ?? null,
+      //   separatorAfter: !dashboardProps,
+      // },
       {
         key: "country",
         icon: FlagWavy,
@@ -495,39 +495,39 @@ export default function Toggle({
             right: nFormatter(count, { full: true }),
           })) ?? null,
       },
-      {
-        key: "region",
-        icon: LocationPin,
-        label: "Region",
-        options:
-          regions?.map(({ region, country, count }) => ({
-            value: region,
-            label: REGIONS[region] || region.split("-")[1],
-            icon: (
-              <img
-                alt={country}
-                src={`https://flag.vercel.app/m/${country}.svg`}
-                className="h-2.5 w-4"
-              />
-            ),
-            right: nFormatter(count, { full: true }),
-          })) ?? null,
-      },
-      {
-        key: "continent",
-        icon: MapPosition,
-        label: "Continent",
-        getOptionIcon: (value) => (
-          <ContinentIcon display={value} className="size-2.5" />
-        ),
-        getOptionLabel: (value) => CONTINENTS[value],
-        options:
-          continents?.map(({ continent, count }) => ({
-            value: continent,
-            label: CONTINENTS[continent],
-            right: nFormatter(count, { full: true }),
-          })) ?? null,
-      },
+      // {
+      //   key: "region",
+      //   icon: LocationPin,
+      //   label: "Region",
+      //   options:
+      //     regions?.map(({ region, country, count }) => ({
+      //       value: region,
+      //       label: REGIONS[region] || region.split("-")[1],
+      //       icon: (
+      //         <img
+      //           alt={country}
+      //           src={`https://flag.vercel.app/m/${country}.svg`}
+      //           className="h-2.5 w-4"
+      //         />
+      //       ),
+      //       right: nFormatter(count, { full: true }),
+      //     })) ?? null,
+      // },
+      // {
+      //   key: "continent",
+      //   icon: MapPosition,
+      //   label: "Continent",
+      //   getOptionIcon: (value) => (
+      //     <ContinentIcon display={value} className="size-2.5" />
+      //   ),
+      //   getOptionLabel: (value) => CONTINENTS[value],
+      //   options:
+      //     continents?.map(({ continent, count }) => ({
+      //       value: continent,
+      //       label: CONTINENTS[continent],
+      //       right: nFormatter(count, { full: true }),
+      //     })) ?? null,
+      // },
       {
         key: "device",
         icon: MobilePhone,
@@ -574,34 +574,34 @@ export default function Toggle({
             right: nFormatter(count, { full: true }),
           })) ?? null,
       },
-      {
-        key: "referer",
-        icon: ReferredVia,
-        label: "Referer",
-        getOptionIcon: (value, props) => (
-          <RefererIcon display={value} className="h-4 w-4" />
-        ),
-        options:
-          referers?.map(({ referer, count }) => ({
-            value: referer,
-            label: referer,
-            right: nFormatter(count, { full: true }),
-          })) ?? null,
-      },
-      {
-        key: "refererUrl",
-        icon: ReferredVia,
-        label: "Referrer URL",
-        getOptionIcon: (value, props) => (
-          <RefererIcon display={value} className="h-4 w-4" />
-        ),
-        options:
-          refererUrls?.map(({ refererUrl, count }) => ({
-            value: refererUrl,
-            label: refererUrl,
-            right: nFormatter(count, { full: true }),
-          })) ?? null,
-      },
+      // {
+      //   key: "referer",
+      //   icon: ReferredVia,
+      //   label: "Referer",
+      //   getOptionIcon: (value, props) => (
+      //     <RefererIcon display={value} className="h-4 w-4" />
+      //   ),
+      //   options:
+      //     referers?.map(({ referer, count }) => ({
+      //       value: referer,
+      //       label: referer,
+      //       right: nFormatter(count, { full: true }),
+      //     })) ?? null,
+      // },
+      // {
+      //   key: "refererUrl",
+      //   icon: ReferredVia,
+      //   label: "Referrer URL",
+      //   getOptionIcon: (value, props) => (
+      //     <RefererIcon display={value} className="h-4 w-4" />
+      //   ),
+      //   options:
+      //     refererUrls?.map(({ refererUrl, count }) => ({
+      //       value: refererUrl,
+      //       label: refererUrl,
+      //       right: nFormatter(count, { full: true }),
+      //     })) ?? null,
+      // },
       {
         key: "url",
         icon: LinkBroken,

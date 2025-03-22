@@ -135,15 +135,15 @@ export default function EventsTable({
                 apexDomain={getApexDomain(getValue().url)}
                 className="size-4 shrink-0 sm:size-4"
               />
-              <CopyText
+              {/* <CopyText
                 value={getValue().shortLink}
                 successMessage="Copied link to clipboard!"
                 className="truncate"
-              >
+              > */}
                 <span className="truncate" title={getValue().shortLink}>
                   {getPrettyUrl(getValue().shortLink)}
                 </span>
-              </CopyText>
+              {/* </CopyText> */}
             </div>
           ),
         },
@@ -230,25 +230,25 @@ export default function EventsTable({
             </div>
           ),
         },
-        {
-          id: "continent",
-          header: "Continent",
-          accessorKey: "click.continent",
-          meta: {
-            filterParams: ({ getValue }) => ({ continent: getValue() }),
-          },
-          cell: ({ getValue }) => (
-            <div
-              className="flex items-center gap-3"
-              title={CONTINENTS[getValue()] ?? "Unknown"}
-            >
-              <ContinentIcon display={getValue()} className="size-4 shrink-0" />
-              <span className="truncate">
-                {CONTINENTS[getValue()] ?? "Unknown"}
-              </span>
-            </div>
-          ),
-        },
+        // {
+        //   id: "continent",
+        //   header: "Continent",
+        //   accessorKey: "click.continent",
+        //   meta: {
+        //     filterParams: ({ getValue }) => ({ continent: getValue() }),
+        //   },
+        //   cell: ({ getValue }) => (
+        //     <div
+        //       className="flex items-center gap-3"
+        //       title={CONTINENTS[getValue()] ?? "Unknown"}
+        //     >
+        //       <ContinentIcon display={getValue()} className="size-4 shrink-0" />
+        //       <span className="truncate">
+        //         {CONTINENTS[getValue()] ?? "Unknown"}
+        //       </span>
+        //     </div>
+        //   ),
+        // },
         {
           id: "device",
           header: "Device",
@@ -423,15 +423,15 @@ export default function EventsTable({
           ),
         },
         // Menu
-        {
-          id: "menu",
-          enableHiding: false,
-          minSize: 43,
-          size: 43,
-          maxSize: 43,
-          header: ({ table }) => <EditColumnsButton table={table} />,
-          cell: ({ row }) => <RowMenuButton row={row} />,
-        },
+        // {
+        //   id: "menu",
+        //   enableHiding: false,
+        //   minSize: 43,
+        //   size: 43,
+        //   maxSize: 43,
+        //   header: ({ table }) => <EditColumnsButton table={table} />,
+        //   cell: ({ row }) => <RowMenuButton row={row} />,
+        // },
       ].filter((c) => c.id === "menu" || eventColumns[tab].all.includes(c.id)),
     [tab],
   );

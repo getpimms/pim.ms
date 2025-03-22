@@ -34,7 +34,7 @@ export default function Locations() {
         { id: "countries", label: "Countries", icon: FlagWavy },
         { id: "cities", label: "Cities", icon: OfficeBuilding },
         // { id: "regions", label: "Regions", icon: LocationPin },
-        { id: "continents", label: "Continents", icon: MapPosition },
+        // { id: "continents", label: "Continents", icon: MapPosition },
       ]}
       selectedTabId={tab}
       onSelectTab={setTab}
