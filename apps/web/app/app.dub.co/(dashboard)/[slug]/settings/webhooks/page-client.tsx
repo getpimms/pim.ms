@@ -30,7 +30,7 @@ export default function WebhooksPageClient() {
           icon={Webhook}
           title="Webhooks"
           description="Webhooks allow you to receive HTTP requests whenever a specific event (eg: someone clicked your link) occurs in Dub."
-          learnMore="https://d.to/webhooks"
+          // learnMore="https://d.to/webhooks"
           buttonText="Upgrade to Business"
           buttonLink={`/${slug}/upgrade`}
         />

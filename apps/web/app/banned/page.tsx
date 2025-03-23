@@ -52,13 +52,13 @@ export default async function BannedPage({
             </p>
           </div>
 
-          <div
+          {/* <div
             className={cn(
               "xs:flex-row relative mx-auto mt-8 flex max-w-fit flex-col items-center gap-4",
               "animate-slide-up-fade motion-reduce:animate-fade-in [--offset:5px] [animation-delay:300ms] [animation-duration:1s] [animation-fill-mode:both]",
             )}
           >
-            <ButtonLink variant="primary" href="https://d.to/register">
+            <ButtonLink variant="primary" href="https://app.pimms.io/register">
               Try Dub today
             </ButtonLink>
             <ButtonLink
@@ -71,7 +71,7 @@ export default async function BannedPage({
             >
               Learn more
             </ButtonLink>
-          </div>
+          </div> */}
         </Hero>
         <div className="mt-20">
           <FeaturesSection domain={params.domain} utmParams={UTM_PARAMS} />

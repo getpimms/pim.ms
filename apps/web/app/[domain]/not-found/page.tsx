@@ -58,8 +58,8 @@ export default function NotFoundLinkPage({
             "animate-slide-up-fade motion-reduce:animate-fade-in [--offset:5px] [animation-delay:300ms] [animation-duration:1s] [animation-fill-mode:both]",
           )}
         >
-          <ButtonLink variant="primary" href="https://d.to/register">
-            Try Dub today
+          <ButtonLink variant="primary" href="https://pimms.io/register">
+            Try PIMMS today
           </ButtonLink>
           <ButtonLink
             variant="secondary"

@@ -232,7 +232,7 @@ function ConversionTrackingPaywall() {
   return (
     <div className="animate-slide-up-fade pointer-events-none absolute inset-0 flex items-center justify-center pt-24">
       <div className="pointer-events-auto flex flex-col items-center">
-        <Link
+        {/* <Link
           href="https://d.to/conversions"
           target="_blank"
           className="group relative flex aspect-video w-full max-w-80 items-center justify-center overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-100"
@@ -246,20 +246,20 @@ function ConversionTrackingPaywall() {
           <div className="relative flex size-10 items-center justify-center rounded-full bg-neutral-900 ring-[6px] ring-black/5 transition-all duration-75 group-hover:ring-[8px] group-active:ring-[7px]">
             <Play className="size-4 fill-current text-white" />
           </div>
-        </Link>
+        </Link> */}
         <h2 className="mt-7 text-base font-semibold text-neutral-700">
           Conversion Tracking
         </h2>
         <p className="mt-4 max-w-sm text-center text-sm text-neutral-500">
           Want to see how your clicks are converting to revenue? Upgrade to our
-          Business Plan and start tracking conversion events with Dub.{" "}
-          <Link
+          Business Plan and start tracking conversion events with PIMMS.{" "}
+          {/* <Link
             href="https://d.to/conversions"
             target="_blank"
             className="underline transition-colors duration-75 hover:text-neutral-700"
           >
             Learn more
-          </Link>
+          </Link> */}
         </p>
         <Link
           href={`/${slug}/upgrade`}

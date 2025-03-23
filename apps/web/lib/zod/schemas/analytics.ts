@@ -180,11 +180,15 @@ export const analyticsQuerySchema = z
       .openapi({ example: "google.com" }),
     refererUrl: z
       .string()
+
       .optional()
+
       .describe("The full referer URL to retrieve analytics for.")
-      .openapi({ example: "https://dub.co/blog" }),
+
+      .openapi({ example: "https://pimms.io/blog" }),
     url: z.string().optional().describe("The URL to retrieve analytics for."),
     tagId: z
+
       .string()
       .optional()
       .describe(

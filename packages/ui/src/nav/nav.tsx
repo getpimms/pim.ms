@@ -220,7 +220,7 @@ export function Nav({
                       href={
                         hasDubCookie
                           ? "https://app.pimms.io/register"
-                          : "https://d.to/register"
+                          : "https://app.pimms.io/register"
                       }
                       className={cn(
                         buttonVariants({ variant: "primary" }),

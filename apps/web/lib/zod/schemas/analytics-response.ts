@@ -91,7 +91,7 @@ export const analyticsResponse = {
       country: z
         .enum(COUNTRY_CODES)
         .describe(
-          "The 2-letter ISO 3166-1 country code for the country associated with the location of the user. Learn more: https://d.to/geo",
+          "The 2-letter ISO 3166-1 country code for the country associated with the location of the user.",
         ),
       city: z.literal("*").default("*"),
       clicks: z
@@ -122,7 +122,7 @@ export const analyticsResponse = {
         ),
       country: z
         .enum(COUNTRY_CODES)
-        .describe("The 2-letter country code of the region: https://d.to/geo"),
+        .describe("The 2-letter country code of the region"),
       clicks: z
         .number()
         .describe("The number of clicks from this region")
@@ -147,7 +147,7 @@ export const analyticsResponse = {
       city: z.string().describe("The name of the city"),
       country: z
         .enum(COUNTRY_CODES)
-        .describe("The 2-letter country code of the city: https://d.to/geo"),
+        .describe("The 2-letter country code of the city"),
       clicks: z
         .number()
         .describe("The number of clicks from this city")

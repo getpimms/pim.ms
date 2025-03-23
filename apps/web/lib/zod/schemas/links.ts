@@ -143,7 +143,7 @@ export const domainKeySchema = z.object({
     .string()
     .min(1, "Domain is required.")
     .describe(
-      "The domain of the link to retrieve. E.g. for `d.to/github`, the domain is `d.to`.",
+      "The domain of the link to retrieve.",
     )
     .refine((v) => validDomainRegex.test(v), {
       message: "Invalid domain format",
@@ -152,7 +152,7 @@ export const domainKeySchema = z.object({
     .string()
     .min(1, "Key is required.")
     .describe(
-      "The key of the link to retrieve. E.g. for `d.to/github`, the key is `github`.",
+      "The key of the link to retrieve.",
     ),
 });
 
@@ -275,25 +275,25 @@ export const createLinkBodySchema = z.object({
     .string()
     .nullish()
     .describe(
-      "The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og",
+      "The custom link preview title (og:title). Will be used for Custom Social Media Cards if `proxy` is true.",
     ),
   description: z
     .string()
     .nullish()
     .describe(
-      "The custom link preview description (og:description). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og",
+      "The custom link preview description (og:description). Will be used for Custom Social Media Cards if `proxy` is true.",
     ),
   image: z
     .string()
     .nullish()
     .describe(
-      "The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og",
+      "The custom link preview image (og:image). Will be used for Custom Social Media Cards if `proxy` is true.",
     ),
   video: z
     .string()
     .nullish()
     .describe(
-      "The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og",
+      "The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true.",
     ),
   rewrite: z
     .boolean()
@@ -322,7 +322,7 @@ export const createLinkBodySchema = z.object({
     .boolean()
     .optional()
     .describe(
-      "Allow search engines to index your short link. Defaults to `false` if not provided. Learn more: https://d.to/noindex",
+      "Allow search engines to index your short link. Defaults to `false` if not provided.",
     ),
   utm_source: z
     .string()
@@ -498,7 +498,7 @@ export const LinkSchema = z
       .string()
       .nullable()
       .describe(
-        "The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true. Learn more: https://d.to/og",
+        "The custom link preview video (og:video). Will be used for Custom Social Media Cards if `proxy` is true.",
       ),
     rewrite: z
       .boolean()
@@ -524,7 +524,7 @@ export const LinkSchema = z
       .record(z.enum(COUNTRY_CODES), z.string().url())
       .nullable()
       .describe(
-        "Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`. Learn more: https://d.to/geo",
+        "Geo targeting information for the short link in JSON format `{[COUNTRY]: https://example.com }`.",
       ),
     publicStats: z
       .boolean()

@@ -66,12 +66,12 @@ export const WorkspaceSchema = z
     conversionEnabled: z
       .boolean()
       .describe(
-        "Whether the workspace has conversion tracking enabled automatically for new links (d.to/conversions).",
+        "Whether the workspace has conversion tracking enabled automatically for new links.",
       ),
     dotLinkClaimed: z
       .boolean()
       .describe(
-        "Whether the workspace has claimed a free .link domain. (dub.link/free)",
+        "Whether the workspace has claimed a free domain.",
       ),
     partnersEnabled: z
       .boolean()

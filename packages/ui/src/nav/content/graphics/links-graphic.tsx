@@ -406,7 +406,7 @@ export function LinksGraphic(props: SVGProps<SVGSVGElement>) {
           style={{ whiteSpace: "pre" }}
         >
           <tspan x="97" y="165.364">
-            d.to/try
+            pim.ms/try
           </tspan>
         </text>
         <path

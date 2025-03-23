@@ -104,7 +104,7 @@ function AdvancedModal({
                 className="flex items-center gap-2 text-sm font-medium text-neutral-700"
               >
                 External ID{" "}
-                <InfoTooltip
+                {/* <InfoTooltip
                   content={
                     <SimpleTooltipContent
                       title="A unique identifier for this link in your database."
@@ -112,9 +112,9 @@ function AdvancedModal({
                       href="https://d.to/externalId"
                     />
                   }
-                />
+                /> */}
               </label>
-              <Tooltip
+              {/* <Tooltip
                 content={
                   <SimpleTooltipContent
                     title="A unique identifier for this link in your system."
@@ -122,7 +122,7 @@ function AdvancedModal({
                     href="https://d.to/externalId"
                   />
                 }
-              />
+              /> */}
             </div>
             <div className="mt-2 rounded-md shadow-sm">
               <input
