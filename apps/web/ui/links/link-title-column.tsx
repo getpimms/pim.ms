@@ -50,7 +50,7 @@ const quickViewSettings = [
   { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },
   { label: "iOS Targeting", icon: Apple, key: "ios" },
   { label: "Android Targeting", icon: Robot, key: "android" },
-  { label: "Geo Targeting", icon: EarthPosition, key: "geo" },
+  // { label: "Geo Targeting", icon: EarthPosition, key: "geo" },
 ];
 
 export function LinkTitleColumn({ link }: { link: ResponseLink }) {

@@ -210,10 +210,9 @@ function LinkBuilderInner({
   const [, copyToClipboard] = useCopyToClipboard();
   const { UTMModal, UTMButton } = useUTMModal({
     onLoad: (params) => {
-      setValue(
-        "url",
-        constructURLFromUTMParams(url, params),
-        { shouldDirty: true });
+      setValue("url", constructURLFromUTMParams(url, params), {
+        shouldDirty: true,
+      });
     },
   });
 
@@ -221,8 +220,8 @@ function LinkBuilderInner({
     <>
       <UTMModal />
       {/* <PasswordModal /> */}
-      {/* <TargetingModal />
-      <ExpirationModal /> */}
+      <TargetingModal />
+      {/* <ExpirationModal /> */}
       <Modal
         showModal={showLinkBuilder}
         setShowModal={setShowLinkBuilder}
@@ -414,7 +413,8 @@ function LinkBuilderInner({
                         required={key !== "_root"}
                         error={errors.url?.message || undefined}
                         right={
-                          <div className="h-8">
+                          <div className="h-8 flex items-center gap-2">
+                            <TargetingButton />
                             <UTMButton />
                           </div>
                         }
@@ -507,6 +507,7 @@ function LinkBuilderInner({
                 <WebhookSelect />
                 <MoreDropdown />
               </div> */}
+
               {homepageDemo ? (
                 <Button
                   disabledTooltip="This is a demo link. You can't edit it."
