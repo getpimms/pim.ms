@@ -55,6 +55,7 @@ import { TagSelect } from "./tag-select";
 import { useTargetingModal } from "./targeting-modal";
 import { useMetatags } from "./use-metatags";
 import { useUTMModal } from "./utm-modal";
+import { ConversionTrackingToggle } from "./conversion-tracking-toggle";
 
 export const LinkModalContext = createContext<{
   workspaceId?: string;
@@ -480,7 +481,7 @@ function LinkBuilderInner({
                     />
                   </div>
 
-                  {/* <ConversionTrackingToggle /> */}
+                  <ConversionTrackingToggle />
 
                   {/* <div className="flex grow flex-col justify-end">
                     <OptionsList />

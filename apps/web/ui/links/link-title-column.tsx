@@ -35,7 +35,7 @@ import {
   timeAgo,
 } from "@dub/utils";
 import * as HoverCard from "@radix-ui/react-hover-card";
-import { Mail } from "lucide-react";
+import { Mail, Settings2, TargetIcon, ToggleLeft } from "lucide-react";
 import { memo, PropsWithChildren, useContext, useRef, useState } from "react";
 import { useLinkBuilder } from "../modals/link-builder";
 import { CommentsBadge } from "./comments-badge";
@@ -43,13 +43,13 @@ import { ResponseLink } from "./links-container";
 import { LinksDisplayContext } from "./links-display-provider";
 
 const quickViewSettings = [
-  { label: "Conversion Tracking", icon: SquareChart, key: "trackConversion" },
+  { label: "Conversion Tracking", icon: TargetIcon, key: "trackConversion" },
   // { label: "Deep previews", icon: Cards, key: "proxy" },
-  { label: "Link Cloaking", icon: Incognito, key: "rewrite" },
-  { label: "Password Protection", icon: InputPassword, key: "password" },
-  { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },
-  { label: "iOS Targeting", icon: Apple, key: "ios" },
-  { label: "Android Targeting", icon: Robot, key: "android" },
+  // { label: "Link Cloaking", icon: Incognito, key: "rewrite" },
+  // { label: "Password Protection", icon: InputPassword, key: "password" },
+  // { label: "Link Expiration", icon: CircleHalfDottedClock, key: "expiresAt" },
+  { label: "Open in Apple Store", icon: Apple, key: "ios" },
+  { label: "Open in Google Play Store", icon: Robot, key: "android" },
   // { label: "Geo Targeting", icon: EarthPosition, key: "geo" },
 ];
 
@@ -223,8 +223,8 @@ function SettingsBadge({ link }: { link: ResponseLink }) {
           </HoverCard.Content>
         </HoverCard.Portal>
         <HoverCard.Trigger asChild>
-          <div className="rounded-full p-1.5 hover:bg-neutral-100">
-            <Bolt className="size-3.5" />
+          <div className="rounded-full p-1.5 bg-neutral-100 hover:bg-neutral-200">
+            <ToggleLeft className="size-3.5" />
           </div>
         </HoverCard.Trigger>
       </HoverCard.Root>

@@ -41,9 +41,9 @@ export function ConversionTrackingToggle() {
           <InfoTooltip
             content={
               <SimpleTooltipContent
-                title="View analytics on conversions from your short links."
+                title="View conversions from your deep links."
                 cta="Learn more."
-                href="https://dub.co/docs/conversions/quickstart"
+                href="https://pim.ms/start-tracking"
               />
             }
           />
