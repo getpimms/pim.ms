@@ -2,27 +2,20 @@ import useWorkspace from "@/lib/swr/use-workspace";
 import {
   FileUpload,
   Icon,
-  InfoTooltip,
   ShimmerDots,
   Switch,
-  TooltipContent,
   useKeyboardShortcut,
   useMediaQuery,
 } from "@dub/ui";
-import {
-  CrownSmall,
-  LinkedIn,
-  LoadingCircle,
-  NucleoPhoto,
-} from "@dub/ui/icons";
+import { LinkedIn, LoadingCircle, NucleoPhoto } from "@dub/ui/icons";
 import { getDomainWithoutWWW, resizeImage } from "@dub/utils";
+import { Upload } from "lucide-react";
 import {
   ChangeEvent,
   ComponentType,
   PropsWithChildren,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -97,9 +90,7 @@ export function LinkPreview() {
       <OGModal />
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-sm font-medium text-neutral-700">
-            Preview
-          </h2>
+          <h2 className="text-sm font-medium text-neutral-700">Preview</h2>
         </div>
 
         <Switch
@@ -274,7 +265,14 @@ export const ImagePreview = ({
   return (
     <>
       {previewImage}
+      <label
+        htmlFor="file-upload"
+        className="absolute left-0 top-0 flex cursor-pointer items-center gap-2 rounded-xl border-2 border-neutral-300 bg-neutral-100 p-2 text-sm font-medium"
+      >
+        <Upload className="size-4" />
+      </label>
       <input
+        id="file-upload"
         key={image}
         ref={inputFileRef}
         onChange={onInputFileChange}
@@ -379,14 +377,14 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
   const { proxy } = watch();
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border-2 p-2 mb-2">
+    <div className="mb-2 flex items-center gap-3 rounded-lg border-2 p-2">
       <div
         className="relative w-32 shrink-0 overflow-hidden rounded-lg"
         style={{ "--aspect": "128/72" } as any}
       >
         {children}
       </div>
-      <div className="grid gap-2">
+      <div className="grid gap-2 w-full">
         <ReactTextareaAutosize
           className="line-clamp-2 w-full resize-none border-none p-0 text-xs font-semibold text-[#000000E6] outline-none focus:ring-0"
           value={title || "Add a title..."}
@@ -396,11 +394,13 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
               shouldDirty: true,
             });
             // if (plan && plan !== "free") {
-              setValue("proxy", true, { shouldDirty: true });
+            setValue("proxy", true, { shouldDirty: true });
             // }
           }}
         />
-        <p className="text-xs text-[#00000099]">{proxy ? "pim.ms" : hostname || "domain.com"}</p>
+        <p className="text-xs text-[#00000099]">
+          {proxy ? "pim.ms" : hostname || "domain.com"}
+        </p>
       </div>
     </div>
   );

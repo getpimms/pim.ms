@@ -1,8 +1,7 @@
 import { SINGULAR_ANALYTICS_ENDPOINTS } from "@/lib/analytics/constants";
 import { UTM_TAGS_PLURAL, UTM_TAGS_PLURAL_LIST } from "@/lib/zod/schemas/utm";
-import { BlurImage, useRouterStuff, UTM_PARAMETERS } from "@dub/ui";
+import { useRouterStuff, UTM_PARAMETERS } from "@dub/ui";
 import { Note, ReferredVia } from "@dub/ui/icons";
-import { getApexDomain, GOOGLE_FAVICON_URL } from "@dub/utils";
 import { Link2 } from "lucide-react";
 import { useContext, useMemo, useState } from "react";
 import { AnalyticsCard } from "./analytics-card";
@@ -81,21 +80,26 @@ export default function Referer() {
                       icon:
                         tab === "utms" ? (
                           <UTMTagIcon />
-                        ) : d[singularTabName] === "(direct)" ? (
-                          <Link2 className="h-4 w-4" />
                         ) : (
-                          <BlurImage
-                            src={`${GOOGLE_FAVICON_URL}${
-                              tab === "referers"
-                                ? d[singularTabName]
-                                : getApexDomain(d[singularTabName])
-                            }`}
-                            alt={d[singularTabName]}
-                            width={20}
-                            height={20}
-                            className="h-4 w-4 rounded-full"
-                          />
+                          <Link2 className="h-4 w-4" />
                         ),
+                      // tab === "utms" ? (
+                      //   <UTMTagIcon />
+                      // ) : d[singularTabName] === "(direct)" ? (
+                      //   <Link2 className="h-4 w-4" />
+                      // ) : (
+                      //   <BlurImage
+                      //     src={`${GOOGLE_FAVICON_URL}${
+                      //       tab === "referers"
+                      //         ? d[singularTabName]
+                      //         : getApexDomain(d[singularTabName])
+                      //     }`}
+                      //     alt={d[singularTabName]}
+                      //     width={20}
+                      //     height={20}
+                      //     className="h-4 w-4 rounded-full"
+                      //   />
+                      // ),
                       title: d[singularTabName],
                       href: queryParams({
                         ...(searchParams.has(singularTabName)

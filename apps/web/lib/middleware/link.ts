@@ -2,6 +2,7 @@ import {
   createResponseWithCookie,
   detectBot,
   getFinalUrl,
+  isExceptionToDirectRedirect,
   isNativeBrowser,
   isSupportedDeeplinkProtocol,
   isSupportedDirectAppLink,
@@ -442,7 +443,12 @@ export default async function LinkMiddleware(
       { clickId, path: `/${originalKey}` },
     );
     // regular redirect
-  } else if ((ua?.device?.type != "mobile" && ua?.device?.type != "tablet") || shallShowDirectPreview(req) || isNativeBrowser(req)) {
+  } else if (
+    (ua?.device?.type != "mobile" && ua?.device?.type != "tablet") ||
+    shallShowDirectPreview(req) ||
+    isNativeBrowser(req) ||
+    isExceptionToDirectRedirect(req)
+  ) {
     ev.waitUntil(
       recordClick({
         req,

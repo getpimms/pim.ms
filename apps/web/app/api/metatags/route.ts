@@ -30,6 +30,7 @@ export async function GET(req: NextRequest) {
       },
     );
   } catch (error) {
+    console.error("error generating metatags", error);
     return handleAndReturnErrorResponse(error, CORS_HEADERS);
   }
 }
