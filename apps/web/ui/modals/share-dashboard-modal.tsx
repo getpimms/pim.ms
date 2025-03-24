@@ -230,7 +230,7 @@ function ShareDashboardModalInner({
                         Copy link
                       </button>
                     </div>
-                    <form
+                    {/* <form
                       className="grid w-full gap-3 px-px pt-4"
                       onSubmit={handleSubmit(handleUpdate)}
                     >
@@ -276,7 +276,7 @@ function ShareDashboardModalInner({
                         text="Save changes"
                         className="h-9"
                       />
-                    </form>
+                    </form> */}
                   </div>
                 ) : (
                   <div className="mt-4 h-7 w-full animate-pulse rounded-md bg-neutral-200" />

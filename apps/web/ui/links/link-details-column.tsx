@@ -199,7 +199,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
   // ) : (
   return (
     <>
-      {/* <ShareDashboardModal /> */}
+      <ShareDashboardModal />
       {/* <Tooltip
         key={modalShowCount}
         side="top"
@@ -253,7 +253,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
             variant === "loose" ? "hover:bg-neutral-100" : "hover:bg-white",
           )}
         >
-          <div className="items-center gap-0.5 flex flex-col sm:flex-row">
+          <div className="items-end gap-0.5 flex flex-col">
             {stats.map(
               ({ id: tab, icon: Icon, value, className, iconClassName }) => (
                 <div
@@ -263,24 +263,25 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
                     className,
                   )}
                 >
-                  <Icon
+                  {/* <Icon
                     data-active={value > 0}
                     className={cn("h-4 w-4 shrink-0", iconClassName)}
-                  />
+                  /> */}
                   <span>
                     {tab === "sales"
                       ? currencyFormatter(value / 100)
                       : nFormatter(value)}
-                    {stats.length === 1 && " clicks"}
+                    {tab === "clicks" && " clicks"}
+                    {tab === "leads" && " leads"}
                   </span>
                 </div>
               ),
             )}
-            {link.dashboardId && (
+            {/* {link.dashboardId && (
               <div className="border-l border-neutral-200 px-1.5">
                 <ReferredVia className="h-4 w-4 shrink-0 text-neutral-600" />
               </div>
-            )}
+            )} */}
           </div>
         </Link>
       {/* </Tooltip> */}

@@ -1,7 +1,6 @@
 import { generateFilters } from "@/lib/ai/generate-filters";
 import {
   INTERVAL_DISPLAYS,
-  TRIGGER_DISPLAY,
   VALID_ANALYTICS_FILTERS,
 } from "@/lib/analytics/constants";
 import { validDateRangeForPlan } from "@/lib/analytics/utils";
@@ -19,14 +18,10 @@ import { FOLDERS_MAX_PAGE_SIZE } from "@/lib/zod/schemas/folders";
 import { TAGS_MAX_PAGE_SIZE } from "@/lib/zod/schemas/tags";
 import {
   BlurImage,
-  Button,
-  ChartLine,
   DateRangePicker,
   ExpandingArrow,
   Filter,
   LinkLogo,
-  Sliders,
-  SquareLayoutGrid6,
   TooltipContent,
   useMediaQuery,
   useRouterStuff,
@@ -35,19 +30,13 @@ import {
 } from "@dub/ui";
 import {
   Cube,
-  CursorRays,
   FlagWavy,
-  Folder,
   Globe2,
   Hyperlink,
   LinkBroken,
-  LocationPin,
-  Magic,
-  MapPosition,
   MobilePhone,
   OfficeBuilding,
   QRCode,
-  ReferredVia,
   Tag,
   Window,
 } from "@dub/ui/icons";
@@ -55,7 +44,6 @@ import {
   APP_DOMAIN,
   capitalize,
   cn,
-  CONTINENTS,
   COUNTRIES,
   DUB_DEMO_LINKS,
   DUB_LOGO,
@@ -65,7 +53,6 @@ import {
   GOOGLE_FAVICON_URL,
   linkConstructor,
   nFormatter,
-  REGIONS,
 } from "@dub/utils";
 import { readStreamableValue } from "ai/rsc";
 import posthog from "posthog-js";
@@ -78,14 +65,9 @@ import {
 } from "react";
 import useSWR from "swr";
 import { useDebounce } from "use-debounce";
-import { FolderIcon } from "../folders/folder-icon";
 import TagBadge from "../links/tag-badge";
-import AnalyticsOptions from "./analytics-options";
 import { AnalyticsContext } from "./analytics-provider";
-import ContinentIcon from "./continent-icon";
 import DeviceIcon from "./device-icon";
-import EventsOptions from "./events/events-options";
-import RefererIcon from "./referer-icon";
 import { ShareButton } from "./share-button";
 import { useAnalyticsFilterOption } from "./utils";
 
@@ -879,6 +861,13 @@ export default function Toggle({
                 })}
               >
                 {isMobile ? filterSelect : dateRangePicker}
+
+                {!dashboardProps &&
+                  domain &&
+                  key &&
+                  page === "analytics" &&
+                  !partnerPage && <ShareButton />}
+
                 {/* {!dashboardProps && (
                   <div className="flex grow justify-end gap-2">
                     {page === "analytics" && !partnerPage && (
