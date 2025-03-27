@@ -36,7 +36,7 @@ const subscriptionInvoices = async (stripeId: string) => {
         id: invoice.id,
         total: invoice.amount_paid,
         createdAt: new Date(invoice.created * 1000),
-        description: "Dub subscription",
+        description: "PIMMS subscription",
         pdfUrl: invoice.invoice_pdf,
       };
     });
@@ -66,7 +66,7 @@ const payoutInvoices = async (workspaceId: string) => {
   return invoices.map((invoice) => {
     return {
       ...invoice,
-      description: "Dub Partner payout",
+      description: "PIMMS Partner payout",
       pdfUrl: `${APP_DOMAIN}/invoices/${invoice.id}`,
     };
   });

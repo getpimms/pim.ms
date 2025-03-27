@@ -34,7 +34,7 @@ const FEATURES = [
     icon: CursorRays,
     title: "Track everything",
     description:
-      "Dub gives you the power to track every click, lead, and conversion. Knowledge of non-knowledge is power.",
+      "PIMMS gives you the power to track every click, lead, and conversion. Knowledge of non-knowledge is power.",
   },
 ];
 
@@ -108,7 +108,7 @@ export default async function SuccessPage({
             {!hasPartnerProfile && (
               <p>
                 Complete your account setup on{" "}
-                <strong className="font-semibold">Dub Partners</strong> to
+                <strong className="font-semibold">PIMMS Partners</strong> to
                 finish submitting your application.
               </p>
             )}

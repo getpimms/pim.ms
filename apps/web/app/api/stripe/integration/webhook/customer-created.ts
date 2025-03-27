@@ -66,7 +66,7 @@ export async function customerCreated(event: Stripe.Event) {
         projectConnectId: stripeAccountId,
       },
     });
-    return `Dub customer with ID ${customer.id} updated with Stripe customer ID ${stripeCustomer.id}`;
+    return `PIMMS customer with ID ${customer.id} updated with Stripe customer ID ${stripeCustomer.id}`;
   } else {
     // else create a new customer
     customer = await prisma.customer.create({
@@ -154,6 +154,6 @@ export async function customerCreated(event: Stripe.Event) {
     //   }),
     // );
 
-    return `New Dub customer created: ${customer.id}. Lead event recorded: ${leadData.event_id}`;
+    return `New PIMMS customer created: ${customer.id}. Lead event recorded: ${leadData.event_id}`;
   }
 }

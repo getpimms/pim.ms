@@ -8,7 +8,7 @@ export default function LoginPage() {
     <div className="mx-auto my-10 w-full max-w-md md:mt-16 lg:mt-20">
       <div className="rounded-xl border-[6px] border-neutral-100 bg-white p-8 pb-10">
         <h1 className="text-lg font-medium text-neutral-800">
-          Sign in to your Dub Partner account
+          Sign in to your PIMMS Partner account
         </h1>
         <div className="mt-8">
           <ClientOnly>

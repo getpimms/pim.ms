@@ -6,9 +6,9 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useContext } from "react";
 
-const CHANGELOG_URL = "https://dub.link/builder";
-const CHANGELOG_IMAGE_URL = "https://assets.dub.co/blog/new-link-builder.jpg";
-const CHANGELOG_TITLE = "Introducing the new Dub Link Builder";
+const CHANGELOG_URL = "https://pimms.link/builder";
+const CHANGELOG_IMAGE_URL = "https://assets.pimms.io/blog/new-link-builder.jpg";
+const CHANGELOG_TITLE = "Introducing the new PIMMS Link Builder";
 const CHANGELOG_DESCRIPTION =
   "Today, we're launching our new Link Builder to help you manage your links better.";
 const CHANGELOG_ID = "hideChangelogPopup10032024";

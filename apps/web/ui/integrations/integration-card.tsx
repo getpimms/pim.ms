@@ -38,7 +38,7 @@ export default function IntegrationCard(
       <h3 className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-neutral-800">
         {integration.name}
         {dubCrafted && (
-          <Tooltip content="This is an official integration built and maintained by Dub">
+          <Tooltip content="This is an official integration built and maintained by PIMMS">
             <div>
               <DubCraftedShield className="size-4 -translate-y-px" />
             </div>

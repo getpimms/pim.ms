@@ -43,7 +43,7 @@ export function LinksLimitAlert({
     <Html>
       <Head />
       <Preview>
-        Your Dub workspace, {name} has used {percentage.toString()}% of its
+        Your PIMMS workspace, {name} has used {percentage.toString()}% of its
         links limit for the month.
       </Preview>
       <Tailwind>

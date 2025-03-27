@@ -21,7 +21,7 @@ export type DubEmbedOptions = {
 };
 
 export interface IframeMessage {
-  originator?: "Dub";
+  originator?: "PIMMS";
   event?: "ERROR";
   data?: {
     code: string;

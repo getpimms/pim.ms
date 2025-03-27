@@ -136,7 +136,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
     <Box css={{ width: "6/12", stack: "y", gap: "large" }}>
       {workspace ? (
         <Banner
-          title="Dub workspace"
+          title="PIMMS workspace"
           description={`Connected to ${workspace.name}`}
           actions={
             <Button

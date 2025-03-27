@@ -22,7 +22,7 @@ export function EmbedFAQ({ program }: { program: Program }) {
     {
       title: "How should I promote the program?",
       content:
-        "You should promote the program by sharing your unique referral link with your audience. When you post or distribute content about Dub, your message must make it obvious that you have a financially compensated relationship with Dub. We need all promotions to be FTC compliant. A helpful guide can be found [here](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers).",
+        "You should promote the program by sharing your unique referral link with your audience. When you post or distribute content about PIMMS, your message must make it obvious that you have a financially compensated relationship with PIMMS. We need all promotions to be FTC compliant. A helpful guide can be found [here](https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers).",
     },
     {
       title: "Can I refer myself?",

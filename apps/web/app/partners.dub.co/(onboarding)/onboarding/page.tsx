@@ -11,7 +11,7 @@ export default function PartnerOnboarding() {
         <ConnectedDots4 className="size-5 text-neutral-900" />
       </div>
       <h1 className="animate-slide-up-fade mt-6 text-lg font-medium [--offset:8px] [animation-delay:250ms] [animation-duration:1s] [animation-fill-mode:both]">
-        Create your Dub Partner profile
+        Create your PIMMS Partner profile
       </h1>
       <div className="animate-slide-up-fade mt-8 w-full [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
         <Suspense fallback={<OnboardingForm />}>

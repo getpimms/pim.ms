@@ -129,7 +129,7 @@ export const POST = withWorkspace(
     waitUntil(
       sendEmail({
         email: session.user.email,
-        subject: `A new API key has been created for your workspace ${workspace.name} on Dub`,
+        subject: `A new API key has been created for your workspace ${workspace.name} on PIMMS`,
         react: APIKeyCreated({
           email: session.user.email,
           token: {

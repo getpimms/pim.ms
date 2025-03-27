@@ -81,7 +81,7 @@ function BrandingSettingsForm({ program }: { program: ProgramProps }) {
               Branding styles
             </h2>
             <p className="mt-2 text-sm text-neutral-600">
-              Change the default styles to match your brand across the Dub
+              Change the default styles to match your brand across the PIMMS
               Partner experiences.
             </p>
           </div>

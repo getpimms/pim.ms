@@ -124,12 +124,12 @@ export default async function PasswordProtectedLinkPage({
             utm_source: "Password Protected Link",
             utm_medium: "Link Password Page",
             utm_campaign: link.domain,
-            utm_content: "What is Dub?",
+            utm_content: "What is PIMMS?",
           })}
           target="_blank"
           className="mt-4 block text-sm font-medium text-neutral-600 underline transition-colors duration-75 hover:text-neutral-800"
         >
-          What is Dub?
+          What is PIMMS?
         </Link>
       </main>
     </>

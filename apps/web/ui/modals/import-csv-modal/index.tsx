@@ -163,7 +163,7 @@ function ImportCsvModal({
           <div className="absolute inset-x-0 -top-6 mx-4 grid grid-cols-[1fr_min-content_1fr] items-center gap-x-4 gap-y-2 rounded-xl border-[2px] border-neutral-100 bg-white p-2 text-center text-sm font-medium uppercase text-neutral-600 sm:mx-12">
             <p>CSV data column</p>
             <ArrowRight className="size-4 text-neutral-500" />
-            <p>Dub data field</p>
+            <p>PIMMS data field</p>
           </div>
         )}
 

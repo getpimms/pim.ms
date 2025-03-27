@@ -82,7 +82,7 @@ function WelcomeModal({
                 )}
               >
                 {plan
-                  ? `Dub ${plan.name} looks good on you!`
+                  ? `PIMMS ${plan.name} looks good on you!`
                   : "Welcome to PIMMS!"}
               </h1>
               <p

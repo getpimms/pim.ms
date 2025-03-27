@@ -20,7 +20,7 @@ export function PartnersWaitlistPageClient() {
         </p>
         <div className="my-8 h-px w-full bg-neutral-300" />
         <h2 className="text-sm font-medium text-neutral-800">
-          Subscribe to Dub news
+          Subscribe to PIMMS news
         </h2>
         <p className="mt-0.5 text-sm text-neutral-500">
           Stay up to date with everything important.

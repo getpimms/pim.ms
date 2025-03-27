@@ -100,7 +100,7 @@ const App = () => {
     token={token}
   />`;
 
-const htmlSnippet = `<script type="module" src="https://www.dubcdn.com/embed/script.js"></script>
+const htmlSnippet = `<script type="module" src="https://cdn.pimms.io/embed/script.js"></script>
 
 <script>
   const createToken = async () => {
@@ -109,7 +109,7 @@ const htmlSnippet = `<script type="module" src="https://www.dubcdn.com/embed/scr
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    Dub.init({
+    Pimms.init({
       token: await createToken(),
     });
   });

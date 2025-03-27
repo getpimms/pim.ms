@@ -96,7 +96,7 @@ export const createPayout = async ({
             increment: totalQuantity,
           },
           periodEnd,
-          description: existingPayout.description ?? "Dub Partners payout",
+          description: existingPayout.description ?? "PIMMS Partners payout",
         },
       });
     } else {
@@ -109,7 +109,7 @@ export const createPayout = async ({
           periodEnd,
           amount: totalAmount,
           quantity: totalQuantity,
-          description: "Dub Partners payout",
+          description: "PIMMS Partners payout",
           type: `${type}s`,
         },
       });

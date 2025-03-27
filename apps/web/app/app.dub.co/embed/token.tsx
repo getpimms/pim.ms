@@ -16,7 +16,7 @@ export const LinkToken = () => {
     if (error) {
       window.parent.postMessage(
         {
-          originator: "Dub",
+          originator: "Pimms",
           event: "ERROR",
           data: error.info,
         },

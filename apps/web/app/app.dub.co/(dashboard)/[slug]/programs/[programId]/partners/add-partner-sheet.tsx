@@ -231,7 +231,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
               {selectedActionType === "enroll" && (
                 <p className="mt-1 text-xs text-neutral-500">
                   Partner will be able to claim their profile by signing up to
-                  Dub Partners with this email
+                  PIMMS Partners with this email
                 </p>
               )}
             </div>
@@ -291,17 +291,17 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
               <div className="mt-2 overflow-hidden rounded-xl border-[2px] border-neutral-100">
                 <div className="grid gap-4 p-6 pb-10">
                   <BlurImage
-                    src={program?.logo || "https://assets.dub.co/logo.png"}
-                    alt={program?.name || "Dub"}
+                    src={program?.logo || "https://assets.pimms.io/logo.png"}
+                    alt={program?.name || "PIMMS"}
                     className="my-2 size-8 rounded-full"
                     width={48}
                     height={48}
                   />
                   <h3 className="font-medium text-neutral-900">
-                    {program?.name || "Dub"} invited you to join Dub Partners
+                    {program?.name || "PIMMS"} invited you to join PIMMS Partners
                   </h3>
                   <p className="text-sm text-neutral-500">
-                    {program?.name || "Dub"} uses Dub Partners to power their
+                    {program?.name || "PIMMS"} uses PIMMS Partners to power their
                     partnership programs and wants to partner with great people
                     like yourself!
                   </p>
@@ -322,7 +322,7 @@ function AddPartnerSheetContent({ setIsOpen }: AddPartnerSheetProps) {
                     <strong className="font-medium text-neutral-900">
                       Subject:{" "}
                     </strong>
-                    You've been invited to Dub Partners
+                    You've been invited to PIMMS Partners
                   </p>
                 </div>
               </div>

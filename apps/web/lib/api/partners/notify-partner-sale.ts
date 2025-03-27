@@ -39,8 +39,8 @@ export async function notifyPartnerSale({
     partnerUsers.map(({ user }) =>
       limiter.schedule(() =>
         sendEmailViaResend({
-          subject: "You just made a sale via Dub Partners!",
-          from: "Dub Partners <system@dub.co>",
+          subject: "You just made a sale via PIMMS Partners!",
+          from: "PIMMS Partners <system@dub.co>",
           email: user.email!,
           react: NewSaleCreated({
             email: user.email!,

@@ -196,14 +196,14 @@ const RecommendedForPayoutsWrapper = ({
       <span className="flex items-center gap-2 px-3 pb-1 pt-1.5 text-xs text-neutral-800">
         <MoneyBill2 className="size-3.5 shrink-0" />
         <span>
-          Recommended for Dub Partner payouts.{" "}
-          <Link
+          Recommended for PIMMS Partner payouts.{" "}
+          {/* <Link
             href="https://dub.co/help/article/how-to-set-up-bank-account"
             target="_blank"
             className="underline underline-offset-2 transition-colors duration-75 hover:text-neutral-900"
           >
             Learn more
-          </Link>
+          </Link> */}
         </span>
       </span>
     </div>

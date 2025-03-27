@@ -15,14 +15,14 @@ export function EmbedSection() {
         </h2>
         <p className="mt-2 text-sm text-neutral-600">
           View our {/* TODO: Update link to an installation guide */}
-          <a
+          {/* <a
             href="https://dub.co/help/category/partners"
             target="_blank"
             className="underline hover:text-neutral-800"
           >
             installation guide
-          </a>{" "}
-          to add Dub Embed to your website
+          </a>{" "} */}
+          to add PIMMS Embed to your website
         </p>
       </div>
 
@@ -106,7 +106,7 @@ function Snippet({
   );
 }
 
-const reactSnippet = `import { DubEmbed } from "@dub/embed-react";
+const reactSnippet = `import { PimmsEmbed } from "@pimms/embed-react";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -120,11 +120,11 @@ const App = () => {
     createToken();
   }, []);
 
-  return <DubEmbed 
+  return <PimmsEmbed 
     token={token}
   />`;
 
-const htmlSnippet = `<script type="module" src="https://www.dubcdn.com/embed/script.js"></script>
+const htmlSnippet = `<script type="module" src="https://cdn.pimms.io/embed/script.js"></script>
 
 <script>
   const createToken = async () => {
@@ -133,7 +133,7 @@ const htmlSnippet = `<script type="module" src="https://www.dubcdn.com/embed/scr
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    Dub.init({
+    Pimms.init({
       token: await createToken(),
     });
   });

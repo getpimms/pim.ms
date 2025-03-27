@@ -105,7 +105,7 @@ export function ResourcesContent({ domain }: { domain: string }) {
               href={createHref(
                 "/brand",
                 domain,
-                getUtmParams({ domain, utm_content: "Dub Brand" }),
+                getUtmParams({ domain, utm_content: "PIMMS Brand" }),
               )}
               className="group relative flex flex-col overflow-hidden rounded-xl bg-black transition-colors duration-75 dark:border dark:border-white/20"
             >
@@ -123,7 +123,7 @@ export function ResourcesContent({ domain }: { domain: string }) {
               <div className="relative flex items-center justify-between px-5 py-4">
                 <div>
                   <span className="block text-sm font-medium text-white">
-                    Dub Brand
+                  PIMMS Brand
                   </span>
                   <p className="text-sm text-white/60">Logos, wordmark, etc.</p>
                 </div>

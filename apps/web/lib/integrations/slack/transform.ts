@@ -93,7 +93,7 @@ const clickLinkTemplate = ({ data }: { data: ClickEventWebhookData }) => {
         elements: [
           {
             type: "mrkdwn",
-            text: `<${linkToClicks}|View on Dub>`,
+            text: `<${linkToClicks}|View on PIMMS>`,
           },
         ],
       },
@@ -142,7 +142,7 @@ const createLeadTemplate = ({ data }: { data: LeadEventWebhookData }) => {
         elements: [
           {
             type: "mrkdwn",
-            text: `<${linkToLeads}|View on Dub>`,
+            text: `<${linkToLeads}|View on PIMMS>`,
           },
         ],
       },
@@ -192,7 +192,7 @@ const createSaleTemplate = ({ data }: { data: SaleEventWebhookData }) => {
         elements: [
           {
             type: "mrkdwn",
-            text: `<${linkToSales}|View on Dub>`,
+            text: `<${linkToSales}|View on PIMMS>`,
           },
         ],
       },

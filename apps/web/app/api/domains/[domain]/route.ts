@@ -82,7 +82,7 @@ export const PATCH = withWorkspace(
       if (registeredDomain) {
         throw new DubApiError({
           code: "forbidden",
-          message: "You cannot update a Dub-provisioned domain.",
+          message: "You cannot update a PIMMS-provisioned domain.",
         });
       }
       const validDomain = await validateDomain(newDomain);
@@ -168,7 +168,7 @@ export const DELETE = withWorkspace(
     if (registeredDomain) {
       throw new DubApiError({
         code: "forbidden",
-        message: "You cannot delete a Dub-provisioned domain.",
+        message: "You cannot delete a PIMMS-provisioned domain.",
       });
     }
 

@@ -65,7 +65,7 @@ export const invitePartner = async ({
   waitUntil(
     Promise.allSettled([
       sendEmail({
-        subject: `${program.name} invited you to join Dub Partners`,
+        subject: `${program.name} invited you to join PIMMS Partners`,
         email,
         react: PartnerInvite({
           email,

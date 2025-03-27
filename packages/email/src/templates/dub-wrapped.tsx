@@ -21,9 +21,9 @@ import { Footer } from "../components/footer";
 export function DubWrapped({
   email = "cheers@pimms.io",
   workspace = {
-    name: "Dub",
-    slug: "dub",
-    logo: "https://assets.dub.co/logo.png",
+    name: "PIMMS",
+    slug: "pimms",
+    logo: "https://assets.pimms.io/logo.png",
   },
   stats = {
     "Total Links": 1429,
@@ -130,7 +130,7 @@ export function DubWrapped({
       <Head />
       <Preview>
         In 2024, you created {nFormatter(stats["Total Links"], { full: true })}{" "}
-        links on Dub and got {nFormatter(stats["Total Clicks"], { full: true })}{" "}
+        links on PIMMS and got {nFormatter(stats["Total Clicks"], { full: true })}{" "}
         clicks.
       </Preview>
       <Tailwind>
@@ -145,7 +145,7 @@ export function DubWrapped({
               />
             </Section>
             <Heading className="mx-0 mb-4 mt-8 p-0 text-xl font-semibold text-black">
-              Dub Year in Review 🎊
+            PIMMS Year in Review 🎊
             </Heading>
             <Text className="text-sm leading-6 text-black">
               As we put a wrap on 2024, we wanted to say thank you for your

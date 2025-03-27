@@ -103,13 +103,13 @@ export default function IntegrationPageClient({
                 {integration.name}
               </h1>
               {integration.projectId === DUB_WORKSPACE_ID ? (
-                <Tooltip content="This is an official integration built and maintained by Dub">
+                <Tooltip content="This is an official integration built and maintained by PIMMS">
                   <div>
                     <DubCraftedShield className="size-4 -translate-y-px" />
                   </div>
                 </Tooltip>
               ) : !integration.verified ? (
-                <Tooltip content="Dub hasn't verified this integration. Install it at your own risk.">
+                <Tooltip content="PIMMS hasn't verified this integration. Install it at your own risk.">
                   <div>
                     <CircleWarning className="size-5 text-neutral-500" invert />
                   </div>
