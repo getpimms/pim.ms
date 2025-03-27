@@ -50,7 +50,7 @@ import {
   fetcher,
   getApexDomain,
   getNextPlan,
-  GOOGLE_FAVICON_URL,
+  getGoogleFavicon,
   linkConstructor,
   nFormatter,
 } from "@dub/utils";
@@ -357,7 +357,7 @@ export default function Toggle({
             //   shouldFilter: !domainsAsync,
             //   getOptionIcon: (value) => (
             //     <BlurImage
-            //       src={`${GOOGLE_FAVICON_URL}${value}`}
+            //       src={getGoogleFavicon(value, false)}
             //       alt={value}
             //       className="h-4 w-4 rounded-full"
             //       width={16}
@@ -831,7 +831,7 @@ export default function Toggle({
                   alt={url || "PIMMS"}
                   src={
                     url
-                      ? `${GOOGLE_FAVICON_URL}${getApexDomain(url)}`
+                      ? getGoogleFavicon(url)
                       : DUB_LOGO
                   }
                   className="mr-2 h-6 w-6 flex-shrink-0 overflow-hidden rounded-full"

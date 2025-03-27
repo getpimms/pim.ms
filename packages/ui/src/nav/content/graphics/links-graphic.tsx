@@ -1,4 +1,4 @@
-import { cn, GOOGLE_FAVICON_URL } from "@dub/utils";
+import { cn, getGoogleFavicon } from "@dub/utils";
 import { SVGProps, useId } from "react";
 
 export function LinksGraphic(props: SVGProps<SVGSVGElement>) {
@@ -652,7 +652,7 @@ export function LinksGraphic(props: SVGProps<SVGSVGElement>) {
           <use xlinkHref={`#${id}-z`} transform="scale(.01563)" />
         </pattern>
         <image
-          href={`${GOOGLE_FAVICON_URL}pim.ms`}
+          href={getGoogleFavicon("pimms.io", false)}
           id={`${id}-z`}
           width="64"
           height="64"

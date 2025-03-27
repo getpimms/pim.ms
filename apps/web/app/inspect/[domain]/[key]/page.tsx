@@ -8,7 +8,7 @@ import {
   NavMobile,
 } from "@dub/ui";
 import {
-  GOOGLE_FAVICON_URL,
+  getGoogleFavicon,
   constructMetadata,
   getApexDomain,
 } from "@dub/utils";
@@ -39,7 +39,7 @@ export async function generateMetadata({
     title: unescape(data.title || ""),
     description: unescape(data.description || ""),
     image: data.image,
-    icons: `${GOOGLE_FAVICON_URL}${apexDomain}`,
+    icons: getGoogleFavicon(apexDomain, false),
     noIndex: true,
   });
 }

@@ -5,7 +5,7 @@ import useUsers from "@/lib/swr/use-users";
 import { TagProps } from "@/lib/types";
 import { TAGS_MAX_PAGE_SIZE } from "@/lib/zod/schemas/tags";
 import { Avatar, BlurImage, Globe, Tag, User, useRouterStuff } from "@dub/ui";
-import { GOOGLE_FAVICON_URL, nFormatter } from "@dub/utils";
+import { getGoogleFavicon, GOOGLE_FAVICON_URL, nFormatter } from "@dub/utils";
 import { useContext, useMemo, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { LinksDisplayContext } from "./links-display-provider";
@@ -56,7 +56,7 @@ export function useLinkFilters() {
       //   label: "Domain",
       //   getOptionIcon: (value) => (
       //     <BlurImage
-      //       src={`${GOOGLE_FAVICON_URL}${value}`}
+      //       src={getGoogleFavicon(value, false)}
       //       alt={value}
       //       className="h-4 w-4 rounded-full"
       //       width={16}
