@@ -135,11 +135,11 @@ export function DubWrapped({
       </Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border border-solid border-neutral-200 px-10 py-5">
+          <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
             <Section className="mt-8">
               <Img
                 src={DUB_WORDMARK}
-                height="20"
+                height="14"
                 alt="PIMMS"
                 className="my-0"
               />
@@ -152,7 +152,7 @@ export function DubWrapped({
               support! Here's a look back at your activity in 2024:
             </Text>
 
-            <Section className="my-8 rounded-lg border border-solid border-neutral-200 p-2">
+            <Section className="my-8 rounded-lg border-[6px] border-solid border-neutral-100 p-2">
               <div>
                 <Img
                   src="https://assets.dub.co/misc/year-in-review-header.jpg"

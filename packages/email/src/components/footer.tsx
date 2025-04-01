@@ -57,9 +57,7 @@ export function Footer({
       )}
       <Text className="text-[12px] text-neutral-500">
         PIMMS.
-        <br />
         Chemin de Louis-Hubert 2
-        <br />
         Petit Lancy, 1213
       </Text>
     </Tailwind>
