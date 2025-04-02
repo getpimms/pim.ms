@@ -42,9 +42,9 @@ const eventSchemas: Record<WebhookTrigger, z.ZodSchema> = {
   "link.updated": linkEventSchema,
   "link.deleted": linkEventSchema,
   "link.clicked": clickWebhookEventSchema,
-  // "lead.created": leadWebhookEventSchemaExtended,
-  // "sale.created": saleWebhookEventSchemaExtended,
-  // "partner.created": enrolledPartnerSchemaExtended,
+  "lead.created": leadWebhookEventSchemaExtended,
+  "sale.created": saleWebhookEventSchemaExtended,
+  "partner.created": enrolledPartnerSchemaExtended,
 };
 
 describe("Webhooks", () => {

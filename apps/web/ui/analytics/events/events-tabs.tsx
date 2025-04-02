@@ -79,9 +79,9 @@ export default function EventsTabs() {
     // <div className="grid w-full grid-cols-3 gap-2 overflow-x-auto sm:gap-4">
     <div className="grid w-full grid-cols-2 gap-2 overflow-x-auto sm:gap-4">
       {[
-        "clicks",
+        // "clicks",
         "leads",
-        // "sales"
+        "sales"
       ].map((event) => (
         <button
           key={event}

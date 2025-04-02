@@ -53,12 +53,12 @@ export default function Main() {
                 colorClassName: "text-[#08272E]/50",
                 conversions: true,
               },
-              // {
-              //   id: "sales",
-              //   label: "Sales",
-              //   colorClassName: "text-[#08272E]/50",
-              //   conversions: true,
-              // },
+              {
+                id: "sales",
+                label: "Sales",
+                colorClassName: "text-[#08272E]/50",
+                conversions: true,
+              },
             ]
           : []),
       ] as Tab[],
@@ -86,7 +86,7 @@ export default function Main() {
                     />
                   </div>
                 )} */}
-                {id === "sales" && (
+                {/* {id === "sales" && (
                   <ToggleGroup
                     className="absolute right-3 top-3 hidden w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100 sm:flex"
                     optionClassName="size-8 p-0 flex items-center justify-center"
@@ -108,10 +108,10 @@ export default function Main() {
                       });
                     }}
                   />
-                )}
+                )} */}
                 <Link
                   className={cn(
-                    "border-box relative h-full min-w-[110px] flex flex-row items-center gap-3 px-4 py-1 sm:min-w-[240px] sm:px-8 sm:py-6",
+                    "border-box relative h-full min-w-[110px] flex flex-col sm:flex-row items-center sm:gap-3 px-4 py-1 sm:min-w-[240px] sm:px-8 sm:py-6",
                     "transition-colors hover:bg-neutral-50 focus:outline-none active:bg-neutral-100",
                     "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-lg",
                   )}
@@ -126,12 +126,14 @@ export default function Main() {
                   aria-current
                 >
                   {/* Active tab indicator */}
-                  {/* <div
-                    className={cn(
-                      "absolute bottom-0 left-0 h-0.5 w-full bg-black transition-transform duration-100",
-                      tab.id !== id && "translate-y-[3px]", // Translate an extra pixel to avoid sub-pixel issues
-                    )}
-                  /> */}
+                  {showConversions && (
+                    <div
+                      className={cn(
+                        "absolute bottom-0 left-0 h-0.5 w-full bg-[#08272E] transition-transform duration-100",
+                        tab.id !== id && "h-0", // Translate an extra pixel to avoid sub-pixel issues
+                      )}
+                    />
+                  )}
 
                   <div className="flex items-center">
                     {totalEvents?.[id] || totalEvents?.[id] === 0 ? (
@@ -142,7 +144,7 @@ export default function Main() {
                             : totalEvents[id]
                         }
                         className={cn(
-                          "text-2xl font-medium sm:text-3xl",
+                          "text-xl font-medium sm:text-3xl",
                           // showPaywall && "opacity-30",
                         )}
                         format={
@@ -169,15 +171,17 @@ export default function Main() {
                       <div className="h-9 w-16 animate-pulse rounded-md bg-neutral-200" />
                     )}
                   </div>
-                  <div className="flex items-center gap-2.5 text-sm text-neutral-600 uppercase">
-                    {/* <div
-                      className={cn(
-                        "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
+                  {id !== "sales" && (
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-600 uppercase">
+                      {/* <div
+                        className={cn(
+                          "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
                         colorClassName,
                       )}
                     /> */}
-                    <span>{label}</span>
-                  </div>
+                      <span>{label}</span>
+                    </div>
+                  )}
                 </Link>
               </div>
             );

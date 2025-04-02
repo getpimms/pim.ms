@@ -238,6 +238,7 @@ export const POST = withWorkspaceEdge(
   },
   {
     requiredPlan: [
+      "pro",
       "business",
       "business plus",
       "business extra",

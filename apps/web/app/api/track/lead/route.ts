@@ -55,7 +55,7 @@ export const POST = withWorkspaceEdge(
 
     // Find click event
     const clickEvent = await getClickEvent({ clickId });
-
+    
     if (!clickEvent || clickEvent.data.length === 0) {
       throw new DubApiError({
         code: "not_found",
@@ -176,6 +176,7 @@ export const POST = withWorkspaceEdge(
   },
   {
     requiredPlan: [
+      "pro",
       "business",
       "business plus",
       "business extra",

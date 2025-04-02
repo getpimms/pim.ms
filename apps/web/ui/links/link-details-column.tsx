@@ -1,27 +1,9 @@
 import { useCheckFolderPermission } from "@/lib/swr/use-folder-permissions";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { TagProps } from "@/lib/types";
-import {
-  Button,
-  CardList,
-  CopyButton,
-  CursorRays,
-  InvoiceDollar,
-  Tooltip,
-  useMediaQuery,
-  UserCheck,
-  useRouterStuff,
-} from "@dub/ui";
-import { ReferredVia } from "@dub/ui/icons";
-import {
-  APP_DOMAIN,
-  cn,
-  currencyFormatter,
-  INFINITY_NUMBER,
-  nFormatter,
-  pluralize,
-  timeAgo,
-} from "@dub/utils";
+import { CardList, Tooltip, useMediaQuery, useRouterStuff } from "@dub/ui";
+import { cn, currencyFormatter, nFormatter } from "@dub/utils";
+import { CoinsIcon, MousePointerClick, TargetIcon } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -36,7 +18,6 @@ import { LinkControls } from "./link-controls";
 import { ResponseLink } from "./links-container";
 import { LinksDisplayContext } from "./links-display-provider";
 import TagBadge from "./tag-badge";
-import { MousePointerClick, TargetIcon } from "lucide-react";
 
 function useOrganizedTags(tags: ResponseLink["tags"]) {
   const searchParams = useSearchParams();
@@ -164,13 +145,13 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
               className: "",
               iconClassName: "data-[active=true]:text-[#08272E]",
             },
-            // {
-            //   id: "sales",
-            //   icon: InvoiceDollar,
-            //   value: saleAmount,
-            //   className: "hidden sm:flex",
-            //   iconClassName: "data-[active=true]:text-[#08272E]",
-            // },
+            {
+              id: "sales",
+              icon: CoinsIcon,
+              value: saleAmount,
+              className: "",
+              iconClassName: "data-[active=true]:text-[#08272E]",
+            },
           ]
         : []),
     ],
@@ -246,44 +227,69 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
           </div>
         }
       > */}
-        <Link
-          href={`/${slug}/analytics?domain=${domain}&key=${key}&interval=${plan === "free" ? "30d" : plan === "pro" ? "1y" : "all"}`}
-          className={cn(
-            "overflow-hidden rounded-xl border-[2px] border-neutral-100 bg-neutral-50 p-0.5 text-sm text-neutral-600 transition-colors",
-            variant === "loose" ? "hover:bg-neutral-100" : "hover:bg-white",
-          )}
-        >
-          <div className="items-end gap-0.5 flex flex-col">
-            {stats.map(
-              ({ id: tab, icon: Icon, value, className, iconClassName }) => (
-                <div
-                  key={tab}
-                  className={cn(
-                    "flex items-center gap-1 whitespace-nowrap rounded-md px-1 py-px transition-colors",
-                    className,
-                  )}
-                >
-                  {/* <Icon
-                    data-active={value > 0}
-                    className={cn("h-4 w-4 shrink-0", iconClassName)}
-                  /> */}
-                  <span>
-                    {tab === "sales"
-                      ? currencyFormatter(value / 100)
-                      : nFormatter(value)}
-                    {tab === "clicks" && " clicks"}
-                    {tab === "leads" && " leads"}
-                  </span>
-                </div>
-              ),
-            )}
-            {/* {link.dashboardId && (
+      <Link
+        href={`/${slug}/analytics?domain=${domain}&key=${key}&interval=${plan === "free" ? "30d" : plan === "pro" ? "1y" : "all"}`}
+        className={cn(
+          "overflow-hidden rounded-xl border-[2px] border-neutral-100 bg-neutral-50 text-sm text-neutral-600 transition-colors",
+          variant === "loose" ? "hover:bg-neutral-100" : "hover:bg-white",
+        )}
+      >
+        <div className="flex flex-col items-center gap-0.5 w-full sm:px-1">
+          <div className="flex flex-row items-center gap-1 w-full justify-center">
+            {stats
+              .filter(({ id }) => id === "clicks")
+              .map(
+                ({ id: tab, icon: Icon, value, className, iconClassName }) => (
+                  <div
+                    key={tab}
+                    className={cn(
+                      "flex items-center gap-1 whitespace-nowrap rounded-md px-1 py-px transition-colors",
+                      className,
+                    )}
+                  >
+                    <span className="text-xs sm:text-sm">
+                      {nFormatter(value)} {value <= 1 ? "click" : "clicks"}
+                    </span>
+                  </div>
+                ),
+              )}
+          </div>
+          <div className="flex flex-row items-center gap-0.5 w-full border-t border-neutral-100">
+            {stats
+              .filter(({ id }) => id !== "clicks")
+              .map(
+                ({ id: tab, icon: Icon, value, className, iconClassName }) => (
+                  <div
+                    key={tab}
+                    className={cn(
+                      "flex items-center gap-1 whitespace-nowrap rounded-md px-1 py-px transition-colors",
+                      className,
+                    )}
+                  >
+                    {tab !== "sales" && (
+                      <Icon
+                        data-active={value > 0}
+                        className={cn("h-3 w-3 shrink-0", iconClassName)}
+                      />
+                    )}
+                    <div className="flow-col flex gap-1">
+                      <span className="text-xs sm:text-sm">
+                        {tab === "sales"
+                          ? currencyFormatter(value / 100)
+                          : nFormatter(value)}
+                      </span>
+                    </div>
+                  </div>
+                ),
+              )}
+          </div>
+          {/* {link.dashboardId && (
               <div className="border-l border-neutral-200 px-1.5">
                 <ReferredVia className="h-4 w-4 shrink-0 text-neutral-600" />
               </div>
             )} */}
-          </div>
-        </Link>
+        </div>
+      </Link>
       {/* </Tooltip> */}
     </>
   );

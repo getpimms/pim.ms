@@ -89,7 +89,7 @@ export const POST = withWorkspace(async ({ req, workspace, session }) => {
       mode: "subscription",
       client_reference_id: workspace.id,
       metadata: {
-        dubCustomerId: session.user.id,
+        pimmsCustomerId: session.user.id,
       },
     });
 

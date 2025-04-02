@@ -189,7 +189,7 @@ export const PLANS: any[] = [
       monthly: 24,
       yearly: 19,
       ids: [
-        "price_1QxoOlBN5sOoOmBUWpZhqLua", // new monthly (test)
+        "price_1R9AM5BL7DFxjjSQ9e32QsT1", // new monthly (test)
         "price_1QxoMQBN5sOoOmBU7JByAg4s", // new monthly (prod)
         "price_1QxoOyBN5sOoOmBUKEy5qXku", // new yearly (test)
         "price_1QxoNcBN5sOoOmBUxsG7P0ZZ", // new yearly (prod)
@@ -263,8 +263,8 @@ export const PLANS: any[] = [
     folders: 10,
     users: 15,
     ids: [
-      "price_1QxoPiBN5sOoOmBUwajH8iug", // new monthly (test)
-      "price_1QxoQ7BN5sOoOmBUgyTo0MHA", // new yearly (test)
+      "price_1R9AM5BL7DFxjjSQ9e32QsT1", // new monthly (test)
+      "price_1R9AM5BL7DFxjjSQcvE5Yu0T", // new yearly (test)
       "price_1QxoQiBN5sOoOmBUBKeD5OCA", // new monthly (prod)
       "price_1QxoQwBN5sOoOmBUjUL0V39C", // new yearly (prod)
     ],
@@ -320,45 +320,45 @@ export const PLANS: any[] = [
   //     "price_1OzOh5AlJJEpqkPVtCSX7dlE", // yearly (prod)
   //   ],
   // }),
-  // {
-  //   name: "Enterprise",
-  //   tagline: "For large organizations and governments with custom needs",
-  //   link: "https://dub.co/enterprise",
-  //   price: {
-  //     monthly: null,
-  //     yearly: null,
-  //   },
-  //   limits: {
-  //     links: 250000,
-  //     clicks: 5000000,
-  //     sales: 1000000_00,
-  //     domains: 1000,
-  //     tags: INFINITY_NUMBER,
-  //     folders: INFINITY_NUMBER,
-  //     users: 500,
-  //     ai: 10000,
-  //     api: 10000,
-  //   },
-  //   colors: {
-  //     bg: "bg-violet-600",
-  //     text: "text-violet-600",
-  //   },
-  //   cta: {
-  //     text: "Contact us",
-  //     href: "/enterprise",
-  //     color:
-  //       "bg-white hover:bg-neutral-50 border-[6px] border-neutral-100 hover:ring-neutral-100 text-neutral-800",
-  //   },
-  //   featureTitle: "Everything in Business, plus:",
-  //   features: [
-  //     { id: "sso", text: "SSO/SAML" },
-  //     { id: "roles", text: "Role-based controls" },
-  //     { id: "volume", text: "Volume discounts" },
-  //     { id: "sla", text: "Custom SLA" },
-  //     { id: "logs", text: "Audit logs" },
-  //     { id: "success", text: "Dedicated success manager" },
-  //   ] as PlanFeature[],
-  // },
+  {
+    name: "Enterprise",
+    tagline: "For custom needs",
+    // link: "https://dub.co/enterprise",
+    price: {
+      monthly: null,
+      yearly: null,
+    },
+    limits: {
+      links: 250000,
+      clicks: 5000000,
+      sales: 1000000_00,
+      domains: 1000,
+      tags: INFINITY_NUMBER,
+      folders: INFINITY_NUMBER,
+      users: 500,
+      ai: 10000,
+      api: 10000,
+    },
+    colors: {
+      bg: "bg-[#B3E4FF]",
+      text: "text-[#08272E]",
+    },
+    // cta: {
+    //   text: "Contact us",
+    //   href: "/enterprise",
+    //   color:
+    //     "bg-white hover:bg-neutral-50 border-[6px] border-neutral-100 hover:ring-neutral-100 text-neutral-800",
+    // },
+    featureTitle: "Everything in Business, plus:",
+    features: [
+      // { id: "sso", text: "SSO/SAML" },
+      // { id: "roles", text: "Role-based controls" },
+      // { id: "volume", text: "Volume discounts" },
+      // { id: "sla", text: "Custom SLA" },
+      // { id: "logs", text: "Audit logs" },
+      { id: "success", text: "Dedicated success manager" },
+    ] as PlanFeature[],
+  },
 ];
 
 export const FREE_PLAN = PLANS.find((plan) => plan.name === "Free")!;

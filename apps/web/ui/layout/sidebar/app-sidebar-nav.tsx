@@ -3,16 +3,11 @@
 import usePrograms from "@/lib/swr/use-programs";
 import { useRouterStuff } from "@dub/ui";
 import {
-  Books2,
-  CircleInfo,
-  ConnectedDots,
   ConnectedDots4,
-  CubeSettings,
   Gear2,
   Gift,
   Globe,
   Key,
-  Receipt2,
   ShieldCheck,
   Users6,
   Webhook,
@@ -21,15 +16,10 @@ import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import { useParams, usePathname } from "next/navigation";
 import { ReactNode, useMemo } from "react";
-import UserSurveyButton from "../user-survey";
-import { CursorRays } from "./icons/cursor-rays";
-import { Gear } from "./icons/gear";
-import { Hyperlink } from "./icons/hyperlink";
-import { LinesY } from "./icons/lines-y";
 import { SidebarNav, SidebarNavAreas } from "./sidebar-nav";
 import { Usage } from "./usage";
 import { WorkspaceDropdown } from "./workspace-dropdown";
-import { BarChart2, Link, MousePointerClick, Receipt, Settings, Settings2, Split, Target, TargetIcon, WalletCards } from "lucide-react";
+import { BarChart2, CoinsIcon, Link, Settings, Settings2, Split, Target, TargetIcon, WalletCards } from "lucide-react";
 
 const NAV_AREAS: SidebarNavAreas<{
   slug: string;
@@ -62,7 +52,13 @@ const NAV_AREAS: SidebarNavAreas<{
             name: "Conversions",
             icon: Target,
             // href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
-            href: `/${slug}/events?event=leads`,
+            href: `/${slug}/leads?event=leads`,
+          },
+          {
+            name: "Sales",
+            icon: CoinsIcon,
+            // href: `/${slug}/events${pathname === `/${slug}/events` ? "" : queryString}`,
+            href: `/${slug}/sales?event=sales`,
           },
           {
             name: "Settings",

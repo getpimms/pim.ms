@@ -123,14 +123,14 @@ export default function PlanUsage() {
       </div>
       <div className="grid grid-cols-[minmax(0,1fr)] divide-y-[6px] divide-neutral-100 border-t-[6px] border-neutral-100">
         <div>
-          <div className="grid gap-4 p-6 md:p-8 lg:gap-6">
-            {/* <UsageTabCard
+          <div className="grid gap-4 p-6 md:p-8 lg:gap-6 grid-cols-1 md:grid-cols-2">
+            <UsageTabCard
               id="events"
               icon={CursorRays}
               title="Events tracked"
               usage={usage}
               limit={usageLimit}
-            /> */}
+            />
             <UsageTabCard
               id="links"
               icon={Hyperlink}
@@ -250,7 +250,7 @@ function UsageTabCard({
       className={cn(
         "rounded-xl border-[6px] border-neutral-200 bg-white px-4 py-3 text-left transition-colors duration-75",
         "outline-none focus-visible:border-blue-600 focus-visible:ring-1 focus-visible:ring-blue-600",
-        isActive && "border-neutral-900 ring-1 ring-neutral-900",
+        isActive && "border-neutral-200 ring-1 ring-neutral-200",
         requiresUpgrade
           ? "border-neutral-100 bg-neutral-100 hover:bg-neutral-100"
           : "hover:bg-neutral-50 lg:px-5 lg:py-4",

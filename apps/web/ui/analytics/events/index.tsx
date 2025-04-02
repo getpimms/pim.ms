@@ -8,7 +8,7 @@ import AnalyticsProvider, { AnalyticsContext } from "../analytics-provider";
 import Toggle from "../toggle";
 import EventsTable from "./events-table";
 import EventsTabs from "./events-tabs";
-import { TargetIcon } from "lucide-react";
+import { CoinsIcon, TargetIcon } from "lucide-react";
 
 export default function AnalyticsEvents({
   staticDomain,
@@ -46,11 +46,11 @@ function EventsTableContainer() {
       requiresUpgrade={requiresUpgrade}
       upgradeOverlay={
         <EmptyState
-          icon={TargetIcon}
-          title="Real-time Conversions"
-          description="Want to see your conversions in realtime ?"
+          icon={selectedTab === "sales" ? CoinsIcon : TargetIcon}
+          title={selectedTab === "sales" ? "Real-time Sales" : "Real-time Conversions"}
+          description={`Want to see your ${selectedTab === "sales" ? "sales" : "conversions"} in realtime ?`}
           // learnMore="https://d.to/events"
-          buttonText="Upgrade to Business"
+          buttonText="Upgrade to Pro"
           buttonLink={`/${slug}/upgrade`}
         />
       }

@@ -1,4 +1,3 @@
-import { claimDotLinkDomain } from "@/lib/api/domains/claim-dot-link-domain";
 import { inviteUser } from "@/lib/api/users";
 import { limiter } from "@/lib/cron/limiter";
 import { stripe } from "@/lib/stripe";
@@ -172,27 +171,27 @@ async function completeOnboarding({
     })(),
 
     // Register saved domain
-    (async () => {
-      const data = await redis.get<{ domain: string; userId: string }>(
-        `onboarding-domain:${workspaceId}`,
-      );
-      if (!data || !data.domain || !data.userId) return;
-      const { domain, userId } = data;
+    // (async () => {
+    //   const data = await redis.get<{ domain: string; userId: string }>(
+    //     `onboarding-domain:${workspaceId}`,
+    //   );
+    //   if (!data || !data.domain || !data.userId) return;
+    //   const { domain, userId } = data;
 
-      try {
-        await claimDotLinkDomain({
-          domain,
-          userId,
-          workspace,
-        });
-        await redis.del(`onboarding-domain:${workspaceId}`);
-      } catch (e) {
-        console.error(
-          "Failed to register saved domain from onboarding",
-          { domain, userId, workspace },
-          e,
-        );
-      }
-    })(),
+    //   try {
+    //     await claimDotLinkDomain({
+    //       domain,
+    //       userId,
+    //       workspace,
+    //     });
+    //     await redis.del(`onboarding-domain:${workspaceId}`);
+    //   } catch (e) {
+    //     console.error(
+    //       "Failed to register saved domain from onboarding",
+    //       { domain, userId, workspace },
+    //       e,
+    //     );
+    //   }
+    // })(),
   ]);
 }

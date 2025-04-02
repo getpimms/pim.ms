@@ -16,12 +16,12 @@ export const SegmentSettings = (props: InstalledIntegrationInfoProps) => {
         installed={!!installed?.id}
         credentials={credentials as SegmentIntegrationCredentials}
       />
-      {/* {installed && webhookId && (
+      {installed && webhookId && (
         <ConfigureWebhook
           webhookId={webhookId}
           supportedEvents={["lead.created", "sale.created"]}
         />
-      )} */}
+      )}
     </>
   );
 };

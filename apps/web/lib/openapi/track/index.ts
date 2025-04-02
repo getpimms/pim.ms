@@ -6,7 +6,7 @@ export const trackPaths: ZodOpenApiPathsObject = {
   "/track/lead": {
     post: trackLead,
   },
-  // "/track/sale": {
-  //   post: trackSale,
-  // },
+  "/track/sale": {
+    post: trackSale,
+  },
 };

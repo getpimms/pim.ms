@@ -21,10 +21,10 @@ export const formatEventForSegment = (
   switch (event) {
     case "link.clicked":
       return transformClickEvent(data);
-    // case "lead.created":
-    //   return transformLeadEvent(data);
-    // case "sale.created":
-    //   return transformSaleEvent(data);
+    case "lead.created":
+      return transformLeadEvent(data);
+    case "sale.created":
+      return transformSaleEvent(data);
     default:
       throw new Error(`Event ${event} is not supported for Segment.`);
   }

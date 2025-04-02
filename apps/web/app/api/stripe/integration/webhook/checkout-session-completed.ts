@@ -1,7 +1,7 @@
+import { createId } from "@/lib/api/create-id";
 import { includeTags } from "@/lib/api/links/include-tags";
 import { notifyPartnerSale } from "@/lib/api/partners/notify-partner-sale";
 import { calculateSaleEarnings } from "@/lib/api/sales/calculate-earnings";
-import { createId } from "@/lib/api/utils";
 import {
   getClickEvent,
   getLeadEvent,
@@ -26,13 +26,23 @@ import type Stripe from "stripe";
 // Handle event "checkout.session.completed"
 export async function checkoutSessionCompleted(event: Stripe.Event) {
   let charge = event.data.object as Stripe.Checkout.Session;
-  const dubCustomerId = charge.metadata?.dubCustomerId;
+  const pimmsCustomerId = charge.metadata?.pimmsCustomerId;
   const clientReferenceId = charge.client_reference_id;
-  const stripeAccountId = event.account as string;
+  const stripeAccountId = event.account as string || "acct_1OKQowBN5sOoOmBU";
   const stripeCustomerId = charge.customer as string;
   const stripeCustomerName = charge.customer_details?.name;
   const stripeCustomerEmail = charge.customer_details?.email;
   const invoiceId = charge.invoice as string;
+
+  console.log({
+    pimmsCustomerId,
+    clientReferenceId,
+    stripeAccountId,
+    stripeCustomerId,
+    stripeCustomerName,
+    stripeCustomerEmail,
+    invoiceId,
+  });
 
   let customer: Customer;
   let existingCustomer: Customer | null = null;
@@ -42,18 +52,18 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
 
   /*
     for regular stripe checkout setup:
-    - if dubCustomerId is found, we update the customer with the stripe customerId
+    - if pimmsCustomerId is found, we update the customer with the stripe customerId
     - we then find the lead event using the customer's unique ID on Dub
     - the lead event will then be passed to the remaining logic to record a sale
   */
-  if (dubCustomerId) {
+  if (pimmsCustomerId) {
     try {
       // Update customer with stripe customerId if exists
       customer = await prisma.customer.update({
         where: {
           projectConnectId_externalId: {
             projectConnectId: stripeAccountId,
-            externalId: dubCustomerId,
+            externalId: pimmsCustomerId,
           },
         },
         data: {
@@ -63,7 +73,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
     } catch (error) {
       // Skip if customer not found
       console.log(error);
-      return `Customer with dubCustomerId ${dubCustomerId} not found, skipping...`;
+      return `Customer with pimmsCustomerId ${pimmsCustomerId} not found, skipping...`;
     }
 
     // Find lead
@@ -80,14 +90,14 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
       - the lead event will then be passed to the remaining logic to record a sale
     */
   } else if (clientReferenceId?.startsWith("pimms_id_")) {
-    const dubClickId = clientReferenceId.split("pimms_id_")[1];
+    const pimmsClickId = clientReferenceId.split("pimms_id_")[1];
 
-    clickEvent = await getClickEvent({ clickId: dubClickId }).then(
+    clickEvent = await getClickEvent({ clickId: pimmsClickId }).then(
       (res) => res.data[0],
     );
 
     if (!clickEvent) {
-      return `Click event with pimms_id ${dubClickId} not found, skipping...`;
+      return `Click event with pimms_id ${pimmsClickId} not found, skipping...`;
     }
 
     const workspace = await prisma.project.findUnique({
@@ -122,7 +132,8 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
     const payload = {
       name: stripeCustomerName,
       email: stripeCustomerEmail,
-      externalId: stripeCustomerId, // using Stripe customer ID as externalId
+      // stripeCustomerId can potentially be null, so we use email as fallback
+      externalId: stripeCustomerId || stripeCustomerEmail,
       projectId: workspace.id,
       projectConnectId: stripeAccountId,
       stripeCustomerId,
@@ -180,7 +191,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
 
   if (invoiceId) {
     // Skip if invoice id is already processed
-    const ok = await redis.set(`dub_sale_events:invoiceId:${invoiceId}`, 1, {
+    const ok = await redis.set(`pimms_sale_events:invoiceId:${invoiceId}`, 1, {
       ex: 60 * 60 * 24 * 7,
       nx: true,
     });
@@ -321,36 +332,36 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
     );
   }
 
-  // waitUntil(
-  //   (async () => {
-  //     // if the clickEvent variable exists and there was no existing customer before,
-  //     // we send a lead.created webhook
-  //     if (clickEvent && !existingCustomer) {
-  //       await sendWorkspaceWebhook({
-  //         trigger: "lead.created",
-  //         workspace,
-  //         data: transformLeadEventData({
-  //           ...clickEvent,
-  //           eventName: "Checkout session completed",
-  //           link: linkUpdated,
-  //           customer,
-  //         }),
-  //       });
-  //     }
+  waitUntil(
+    (async () => {
+      // if the clickEvent variable exists and there was no existing customer before,
+      // we send a lead.created webhook
+      if (clickEvent && !existingCustomer) {
+        await sendWorkspaceWebhook({
+          trigger: "lead.created",
+          workspace,
+          data: transformLeadEventData({
+            ...clickEvent,
+            eventName: "Checkout session completed",
+            link: linkUpdated,
+            customer,
+          }),
+        });
+      }
 
-  //     // send workspace webhook
-  //     await sendWorkspaceWebhook({
-  //       trigger: "sale.created",
-  //       workspace,
-  //       data: transformSaleEventData({
-  //         ...saleData,
-  //         clickedAt: customer.clickedAt || customer.createdAt,
-  //         link: linkUpdated,
-  //         customer,
-  //       }),
-  //     });
-  //   })(),
-  // );
+      // send workspace webhook
+      await sendWorkspaceWebhook({
+        trigger: "sale.created",
+        workspace,
+        data: transformSaleEventData({
+          ...saleData,
+          clickedAt: customer.clickedAt || customer.createdAt,
+          link: linkUpdated,
+          customer,
+        }),
+      });
+    })(),
+  );
 
-  return `Checkout session completed for customer with external ID ${dubCustomerId} and invoice ID ${invoiceId}`;
+  return `Checkout session completed for customer with external ID ${pimmsCustomerId} and invoice ID ${invoiceId}`;
 }

@@ -20,13 +20,13 @@ export function AnalyticsFunnelChart({ demo }: { demo?: boolean }) {
         value: demo ? 100 : totalEvents?.leads ?? 0,
         colorClassName: "text-[#08272E]",
       },
-      // {
-      //   id: "sales",
-      //   label: "Sales",
-      //   value: demo ? 24 : totalEvents?.sales ?? 0,
-      //   additionalValue: demo ? 228_00 : totalEvents?.saleAmount ?? 0,
-      //   colorClassName: "text-teal-400",
-      // },
+      {
+        id: "sales",
+        label: "Sales",
+        value: demo ? 24 : totalEvents?.sales ?? 0,
+        additionalValue: demo ? 228_00 : totalEvents?.saleAmount ?? 0,
+        colorClassName: "text-teal-400",
+      },
     ],
     [demo, totalEvents],
   );

@@ -95,6 +95,7 @@ export const POST = withWorkspace(
   },
   {
     requiredPlan: [
+      "pro",
       "business",
       "business extra",
       "business max",
