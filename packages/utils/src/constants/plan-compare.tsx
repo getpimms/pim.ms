@@ -215,7 +215,7 @@ export const PLAN_COMPARE_FEATURES: {
           advanced: true,
           enterprise: true,
         },
-        text: "Partner management",
+        text: "Create your own affiliate program",
         // href: "https://dub.co/help/article/dub-partners",
       },
       {
