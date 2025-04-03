@@ -1,4 +1,5 @@
 import { getEvents } from "@/lib/analytics/get-events";
+import { getFolderIdsToFilter } from "@/lib/analytics/get-folder-ids-to-filter";
 import { validDateRangeForPlan } from "@/lib/analytics/utils";
 import { getDomainOrThrow } from "@/lib/api/domains/get-domain-or-throw";
 import { getLinkOrThrow } from "@/lib/api/links/get-link-or-throw";
@@ -6,7 +7,7 @@ import { throwIfClicksUsageExceeded } from "@/lib/api/links/usage-checks";
 import { withWorkspace } from "@/lib/auth";
 import { verifyFolderAccess } from "@/lib/folder/permissions";
 import { eventsQuerySchema } from "@/lib/zod/schemas/analytics";
-import { Link } from "@dub/prisma/client";
+import { Folder, Link } from "@dub/prisma/client";
 import { NextResponse } from "next/server";
 
 export const GET = withWorkspace(
@@ -45,8 +46,9 @@ export const GET = withWorkspace(
 
     const folderIdToVerify = link?.folderId || folderId;
 
+    let selectedFolder: Pick<Folder, "id" | "type"> | null = null;
     if (folderIdToVerify) {
-      await verifyFolderAccess({
+      selectedFolder = await verifyFolderAccess({
         workspace,
         userId: session.user.id,
         folderId: folderIdToVerify,
@@ -63,11 +65,21 @@ export const GET = withWorkspace(
       throwError: true,
     });
 
+    const folderIds = folderIdToVerify
+      ? undefined
+      : await getFolderIdsToFilter({
+          workspace,
+          userId: session.user.id,
+        });
+
     const response = await getEvents({
       ...parsedParams,
       event,
       ...(link && { linkId: link.id }),
       workspaceId: workspace.id,
+      folderIds,
+      folderId: folderId || "",
+      isMegaFolder: selectedFolder?.type === "mega",
     });
 
     return NextResponse.json(response);
@@ -79,6 +91,7 @@ export const GET = withWorkspace(
       "business plus",
       "business extra",
       "business max",
+      "advanced",
       "enterprise",
     ],
     requiredPermissions: ["analytics.read"],

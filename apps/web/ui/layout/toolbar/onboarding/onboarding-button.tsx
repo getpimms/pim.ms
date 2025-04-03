@@ -1,8 +1,8 @@
 "use client";
 
 import useDomainsCount from "@/lib/swr/use-domains-count";
-import useLinksCount from "@/lib/swr/use-links-count";
 import useUsers from "@/lib/swr/use-users";
+import useWorkspace from "@/lib/swr/use-workspace";
 import { CheckCircleFill, ThreeDots } from "@/ui/shared/icons";
 import { Button, Popover, useLocalStorage, useMediaQuery } from "@dub/ui";
 import { CircleDotted, ExpandingArrow } from "@dub/ui/icons";
@@ -29,11 +29,9 @@ function OnboardingButtonInner({
   onHideForever: () => void;
 }) {
   const { slug } = useParams() as { slug: string };
+  const { totalLinks } = useWorkspace();
 
   const { data: domainsCount, loading: domainsLoading } = useDomainsCount({
-    ignoreParams: true,
-  });
-  const { data: linksCount, loading: linksLoading } = useLinksCount<number>({
     ignoreParams: true,
   });
   const { users, loading: usersLoading } = useUsers();
@@ -41,15 +39,14 @@ function OnboardingButtonInner({
     invites: true,
   });
 
-  const loading =
-    domainsLoading || linksLoading || usersLoading || invitesLoading;
+  const loading = domainsLoading || usersLoading || invitesLoading;
 
   const tasks = useMemo(() => {
     return [
       {
-        display: "Create a new direct link",
+        display: "Create a new link",
         cta: `/${slug}`,
-        checked: linksCount > 0,
+        checked: totalLinks === 0 ? false : true,
       },
       {
         display: "Set up your custom domain",
@@ -62,7 +59,7 @@ function OnboardingButtonInner({
         checked: (users && users.length > 1) || (invites && invites.length > 0),
       },
     ];
-  }, [slug, domainsCount, linksCount, users, invites]);
+  }, [slug, domainsCount, totalLinks, users, invites]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -79,7 +76,7 @@ function OnboardingButtonInner({
               <div>
                 <span className="text-base font-medium">Getting Started</span>
                 <p className="mt-1 text-sm text-neutral-300">
-                  Get familiar with PIMMS by completing the{" "}
+                  Get familiar with PiMMs by completing the{" "}
                   <br className="hidden sm:block" />
                   following tasks
                 </p>
@@ -131,7 +128,7 @@ function OnboardingButtonInner({
     >
       <button
         type="button"
-        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full border border-neutral-950 bg-neutral-950 px-6 text-xs font-medium leading-tight text-white shadow-md transition-all [--offset:10px] hover:bg-neutral-800 hover:ring-4 hover:ring-neutral-200"
+        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full border-[2px] border-neutral-950 bg-neutral-950 px-6 text-xs font-medium leading-tight text-white shadow-md transition-all [--offset:10px] hover:bg-neutral-800 hover:ring-4 hover:ring-neutral-200"
       >
         <span>Getting Started</span>
         <span className="text-neutral-400">

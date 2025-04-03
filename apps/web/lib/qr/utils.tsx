@@ -230,6 +230,7 @@ export function QRCodeSVG(props: QRPropsSVG) {
         shapeRendering="crispEdges"
       />
       <path fill={fgColor} d={fgPath} shapeRendering="crispEdges" />
+      {/* {image} */}
     </svg>
   );
 }

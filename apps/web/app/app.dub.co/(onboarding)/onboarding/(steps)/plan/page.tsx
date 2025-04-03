@@ -1,12 +1,23 @@
 import { LaterButton } from "../../later-button";
 import { StepPage } from "../step-page";
+import { FreePlanButton } from "./free-plan-button";
 import { PlanSelector } from "./plan-selector";
 
 export default function Plan() {
   return (
     <StepPage
       title="Choose your plan"
-      description="Find a plan that fits your needs"
+      description={
+        <>
+          <span className="inline-block">
+            Find a plan that fits your needs, or stay on the
+          </span>{" "}
+          <FreePlanButton className="text-base underline underline-offset-2">
+            free plan
+          </FreePlanButton>
+          .
+        </>
+      }
       className="max-w-2xl"
     >
       <PlanSelector />
@@ -14,11 +25,23 @@ export default function Plan() {
         {/* <a
           href="https://dub.co/enterprise"
           target="_blank"
-          className="w-full text-center text-sm text-neutral-500 transition-colors hover:text-neutral-700"
+          className="flex items-center text-gray-500 underline-offset-4 transition-colors hover:text-gray-800 hover:underline"
         >
-          Looking for enterprise?
+          Looking for enterprise? ↗
         </a> */}
-        <LaterButton next="finish">I'll pick a plan later</LaterButton>
+        <LaterButton
+          next="finish"
+          className="underline-offset-4 hover:underline"
+        >
+          Start for free, pick a plan later
+        </LaterButton>
+        {/* <a
+          href="https://pimms.io/pricing"
+          target="_blank"
+          className="flex items-center text-gray-500 underline-offset-4 transition-colors hover:text-gray-800 hover:underline"
+        >
+          Compare all plans ↗
+        </a> */}
       </div>
     </StepPage>
   );

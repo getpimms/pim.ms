@@ -284,7 +284,7 @@ function LinkQRModalInner({
                 href={
                   slug
                     ? `/${slug}/upgrade?exit=close`
-                    : "https://dub.co/pricing"
+                    : "https://pimms.io/pricing"
                 }
                 target="_blank"
               />

@@ -3,7 +3,7 @@
 import useWorkspace from "@/lib/swr/use-workspace";
 import ManageSubscriptionButton from "@/ui/workspaces/manage-subscription-button";
 import { AnimatedSizeContainer, buttonVariants, Icon } from "@dub/ui";
-import { Hyperlink } from "@dub/ui/icons";
+import { CircleDollar, CursorRays, Hyperlink } from "@dub/ui/icons";
 import {
   cn,
   getFirstAndLastDay,
@@ -81,7 +81,7 @@ function UsageInner() {
   return loading || usage !== undefined ? (
     <>
       <AnimatedSizeContainer height>
-        <div className="p-3">
+      <div className="p-3">
           <div className="flex items-center justify-between gap-3">
             <Link
               className="group flex items-center gap-0.5 text-sm font-normal text-neutral-500 transition-colors hover:text-neutral-700"
@@ -123,9 +123,7 @@ function UsageInner() {
                 usage={salesUsage}
                 limit={salesLimit}
                 showNextPlan={hovered}
-                // nextPlanLimit={nextPlan?.limits.sales}
-                // TODO: Update this once we update the plan limits
-                nextPlanLimit={50000}
+                nextPlanLimit={nextPlan?.limits.sales}
                 warning={warnings[2]}
               />
             ) : null} */}
@@ -133,24 +131,22 @@ function UsageInner() {
 
           <ConversionsOnboarding referenceElement={salesRef} />
 
-          {paymentFailedAt && (
-            <div className="mt-3">
-              {loading ? (
-                <div className="h-4 w-2/3 animate-pulse rounded-md bg-neutral-500/10" />
-              ) : (
-                <p
-                  className={cn(
-                    "text-xs text-neutral-900/40",
-                    paymentFailedAt && "text-red-600",
-                  )}
-                >
-                  {paymentFailedAt
-                    ? "Your last payment failed. Please update your payment method to continue using PIMMS."
-                    : `Usage will reset ${billingEnd}`}
-                </p>
-              )}
-            </div>
-          )}
+          {paymentFailedAt && <div className="mt-3">
+            {loading ? (
+              <div className="h-4 w-2/3 animate-pulse rounded-md bg-neutral-500/10" />
+            ) : (
+              <p
+                className={cn(
+                  "text-xs text-neutral-900/40",
+                  paymentFailedAt && "text-red-600",
+                )}
+              >
+                {paymentFailedAt
+                  ? "Your last payment failed. Please update your payment method to continue using PiMMs."
+                  : `Usage will reset ${billingEnd}`}
+              </p>
+            )}
+          </div>}
 
           {paymentFailedAt ? (
             <ManageSubscriptionButton
@@ -164,8 +160,7 @@ function UsageInner() {
                 setHovered(false);
               }}
             />
-          ) : (warning || plan === "free") &&
-            plan !== "enterprise" ? (
+          ) : (warning || plan === "free") && plan !== "enterprise" ? (
             <Link
               href={`/${slug}/upgrade`}
               className={cn(
@@ -275,7 +270,10 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
                     }}
                   >
                     <motion.span className="ml-1 whitespace-nowrap text-xs font-medium text-blue-600">
-                      {formatNumber(nextPlanLimit)}
+                      {label === "Sales" ? "$" : ""}
+                      {formatNumber(
+                        label === "Sales" ? nextPlanLimit / 100 : nextPlanLimit,
+                      )}
                     </motion.span>
                   </motion.div>
                 )}

@@ -71,15 +71,10 @@ export function LinksImported({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               Your {provider} links have been imported
             </Heading>
             <Text className="text-sm leading-6 text-black">
@@ -87,7 +82,7 @@ export function LinksImported({
               <strong>
                 imported {Intl.NumberFormat("en-us").format(count)} links
               </strong>{" "}
-              from {provider} into your PIMMS workspace,{" "}
+              from {provider} into your PiMMs workspace,{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
@@ -139,14 +134,7 @@ export function LinksImported({
               </Section>
             )}
             <Text className="text-sm leading-6 text-black">
-              If you haven't already{" "}
-              <Link
-                href="https://pimms.io/help/article/how-to-add-custom-domain#step-2-configure-your-domain"
-                className="font-medium text-blue-600 no-underline"
-              >
-                configured your {pluralize("domain", domains.length)}
-              </Link>
-              , you will need to do it before you can start using your links.
+              If you haven't already configured your {pluralize("domain", domains.length)}, you will need to do this before you can start using your links.
             </Text>
             <Footer email={email} />
           </Container>

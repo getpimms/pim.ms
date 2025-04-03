@@ -1,14 +1,12 @@
-// allow letters, numbers, '-', '_', '/', '.', and emojis
-export const validKeyRegex = new RegExp(
-  /^[0-9A-Za-z_\u0080-\uFFFF\/\-\ud800-\udbff\udc00-\udfff.]+$/
-);
+// allow letters, numbers, '-', '_', '/', '.'
+export const validKeyRegex = /^[0-9A-Za-z_\u0080-\uFFFF\/\-.]+$/;
 
 export const isUnsupportedKey = (key: string) => {
   // special case for root domain links
   if (key === "_root") {
     return false;
   }
-  const excludedPrefix = [".well-known", "_"];
+  const excludedPrefix = [".well-known"];
   const excludedSuffix = [".php", ".php7"];
   return (
     excludedPrefix.some((prefix) => key.startsWith(prefix)) ||

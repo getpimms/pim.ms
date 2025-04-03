@@ -43,25 +43,20 @@ export function LinksLimitAlert({
     <Html>
       <Head />
       <Preview>
-        Your PIMMS workspace, {name} has used {percentage.toString()}% of its
+        Your PiMMs workspace, {name} has used {percentage.toString()}% of its
         links limit for the month.
       </Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
-              PIMMS Links Limit Alert
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
+              PiMMs Links Limit Alert
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              Your PIMMS workspace,{" "}
+              Your PiMMs workspace,{" "}
               <Link
                 href={`https://app.pimms.io/${slug}`}
                 className="text-black underline"
@@ -87,14 +82,14 @@ export function LinksLimitAlert({
             ) : percentage === 100 ? (
               <Text className="text-sm leading-6 text-black">
                 All your existing links will continue to work, and we are still
-                collecting data on them, but you'll need to upgrade the {nextPlan.name} to add more links.
+                collecting data on them, but you'll need to upgrade the plan add more links.
               </Text>
             ) : (
               <Text className="text-sm leading-6 text-black">
-                Once you hit your limit, you'll need to upgrade to the {nextPlan.name} to add more links.
+                Once you hit your limit, you'll need to upgrade to the plan to add more links.
               </Text>
             )}
-            <Section className="my-8">
+            <Section className="mb-8">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${slug}/upgrade`}

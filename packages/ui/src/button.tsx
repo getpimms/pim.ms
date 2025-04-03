@@ -1,6 +1,6 @@
 import { cn } from "@dub/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ReactNode, forwardRef, useState } from "react";
+import { ReactNode, forwardRef } from "react";
 import { LoadingSpinner } from "./icons";
 import { Tooltip } from "./tooltip";
 
@@ -32,6 +32,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   text?: ReactNode | string;
   textWrapperClassName?: string;
+  shortcutClassName?: string;
   loading?: boolean;
   icon?: ReactNode;
   shortcut?: string;
@@ -46,6 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       className,
       textWrapperClassName,
+      shortcutClassName,
       loading,
       icon,
       shortcut,
@@ -60,7 +62,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <Tooltip content={disabledTooltip}>
           <div
             className={cn(
-              "flex h-10 w-full cursor-not-allowed items-center justify-center gap-x-2 border-[6px] border-neutral-100 bg-neutral-100 px-4 text-sm text-neutral-400 transition-all focus:outline-none",
+              "flex h-10 w-full rounded-xl cursor-not-allowed items-center justify-center gap-x-2 border-[6px] border-neutral-100 bg-neutral-100 px-4 text-sm text-neutral-400 transition-all focus:outline-none",
               {
                 "border-transparent bg-transparent":
                   variant?.endsWith("outline"),
@@ -83,10 +85,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {shortcut && (
               <kbd
                 className={cn(
-                  "hidden border-[6px] border-neutral-100 bg-neutral-100 px-2 py-0.5 text-xs font-light text-neutral-400 md:inline-block",
+                  "rounded-md hidden px-2 py-0.5 text-xs font-light transition-all duration-75 md:inline-block",
                   {
                     "bg-neutral-100": variant?.endsWith("outline"),
                   },
+                  shortcutClassName,
                 )}
               >
                 {shortcut}
@@ -113,15 +116,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading ? <LoadingSpinner /> : icon ? icon : null}
         {text && (
-              <div
-                className={cn(
-                  "min-w-0 truncate",
-                  shortcut && "flex-1 text-left",
-                  textWrapperClassName,
-                )}
-              >
-                {text}
-              </div>
+          <div
+            className={cn(
+              "min-w-0 truncate",
+              shortcut && "flex-1 text-left",
+              textWrapperClassName,
+            )}
+          >
+            {text}
+          </div>
         )}
         {shortcut && (
           <kbd
@@ -137,6 +140,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 "bg-red-100 text-red-600 group-hover:bg-red-500 group-hover:text-white":
                   variant === "danger-outline",
               },
+              shortcutClassName,
             )}
           >
             {shortcut}

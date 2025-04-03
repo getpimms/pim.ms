@@ -191,18 +191,6 @@ const config: Config = {
         },
       },
       colors: {
-        blue: {
-          50: "#EBF8FE",
-          100: "#D4F0FE",
-          200: "#B3E6FE",
-          300: "#8FE0FE",
-          400: "#6FD9FE",
-          500: "#4FD3FE",
-          600: "#007BFF",
-          700: "#0062CC",
-          800: "#004E99",
-          900: "#003D73",
-        },
         brown: {
           50: "#fdf8f6",
           100: "#f2e8e5",
@@ -215,6 +203,45 @@ const config: Config = {
           800: "#846358",
           900: "#43302b",
         },
+
+        // Light/dark mode colors
+
+        "bg-emphasis": "rgb(var(--bg-emphasis, 229 229 229) / <alpha-value>)",
+        "bg-default": "rgb(var(--bg-default, 255 255 255) / <alpha-value>)",
+        "bg-subtle": "rgb(var(--bg-subtle, 245 245 245) / <alpha-value>)",
+        "bg-muted": "rgb(var(--bg-muted, 250 250 250) / <alpha-value>)",
+        "bg-inverted": "rgb(var(--bg-inverted, 23 23 23) / <alpha-value>)",
+
+        "bg-info": "rgb(var(--bg-info, 191 219 254) / <alpha-value>)",
+        "bg-success": "rgb(var(--bg-success, 220 252 231) / <alpha-value>)",
+        "bg-attention": "rgb(var(--bg-attention, 255 237 213) / <alpha-value>)",
+        "bg-error": "rgb(var(--bg-error, 254 226 226) / <alpha-value>)",
+
+        "border-emphasis":
+          "rgb(var(--border-emphasis, 163 163 163) / <alpha-value>)",
+        "border-default":
+          "rgb(var(--border-default, 212 212 212) / <alpha-value>)",
+        "border-subtle":
+          "rgb(var(--border-subtle, 229 229 229) / <alpha-value>)",
+        "border-muted": "rgb(var(--border-muted, 245 245 245) / <alpha-value>)",
+
+        "content-inverted":
+          "rgb(var(--content-inverted, 255 255 255) / <alpha-value>)",
+        "content-muted":
+          "rgb(var(--content-muted, 163 163 163) / <alpha-value>)",
+        "content-subtle":
+          "rgb(var(--content-subtle, 115 115 115) / <alpha-value>)",
+        "content-default":
+          "rgb(var(--content-default, 64 64 64) / <alpha-value>)",
+        "content-emphasis":
+          "rgb(var(--content-emphasis, 23 23 23) / <alpha-value>)",
+
+        "content-info": "rgb(var(--content-info, 29 78 216) / <alpha-value>)",
+        "content-success":
+          "rgb(var(--content-success, 21 128 61) / <alpha-value>)",
+        "content-attention":
+          "rgb(var(--content-attention, 194 65 12) / <alpha-value>)",
+        "content-error": "rgb(var(--content-error, 185 28 28) / <alpha-value>)",
       },
       dropShadow: {
         "card-hover": ["0 8px 12px #222A350d", "0 32px 80px #2f30370f"],

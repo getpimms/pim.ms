@@ -7,6 +7,7 @@ export * from "./alert";
 export * from "./avatar";
 export * from "./badge";
 export * from "./button";
+export * from "./floating-button";
 export * from "./card-list";
 export * from "./carousel";
 export * from "./checkbox";
@@ -20,6 +21,7 @@ export * from "./grid";
 export * from "./input";
 export * from "./input-select";
 export * from "./label";
+export * from "./menu-item";
 export * from "./mini-area-chart";
 export * from "./modal";
 export * from "./pagination-controls";
@@ -62,6 +64,7 @@ export * from "./link-preview";
 export * from "./popup";
 export * from "./progress-bar";
 export * from "./tab-select";
+export * from "./tooltip-advanced-link-features";
 
 // logos
 export * from "./composite-logo";

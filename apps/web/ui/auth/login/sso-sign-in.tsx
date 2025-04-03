@@ -13,6 +13,7 @@ export const SSOSignIn = () => {
   const {
     setClickedMethod,
     clickedMethod,
+    authMethod,
     setLastUsedAuthMethod,
     setShowSSOOption,
     showSSOOption,
@@ -36,7 +37,7 @@ export const SSOSignIn = () => {
           setLastUsedAuthMethod("saml");
           await signIn("saml", undefined, {
             tenant: data.workspaceId,
-            product: "PIMMS",
+            product: "Dub",
           });
         });
       }}
@@ -44,7 +45,9 @@ export const SSOSignIn = () => {
     >
       {showSSOOption && (
         <div>
-          <div className="mb-4 mt-1 border-t border-neutral-300" />
+          {authMethod !== "saml" && (
+            <div className="mb-4 mt-1 border-t border-neutral-300" />
+          )}
           <div className="flex items-center space-x-2">
             <h2 className="text-sm font-medium text-neutral-900">
               Workspace Slug
@@ -61,7 +64,7 @@ export const SSOSignIn = () => {
             placeholder="my-team"
             autoComplete="off"
             required
-            className="mt-1 block w-full appearance-none rounded-xl border-2 border-neutral-200 text-black outline-none placeholder:text-neutral-400 sm:text-sm transition-all focus:border-neutral-500 focus:ring-0 h-10"
+            className="mt-1 block w-full appearance-none rounded-xl border-[2px] border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
           />
         </div>
       )}

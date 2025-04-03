@@ -23,7 +23,7 @@ export function FilesBlock({
           >
             <div className="flex min-w-0 items-center gap-4">
               <div className="rounded-full border-[6px] border-neutral-100">
-                <div className="rounded-full border border-white bg-gradient-to-t from-neutral-100 p-1 md:p-2">
+                <div className="rounded-full border-[2px] border-white bg-gradient-to-t from-neutral-100 p-1 md:p-2">
                   {logo ? (
                     <img src={logo} alt="" className="size-4 rounded-full" />
                   ) : (

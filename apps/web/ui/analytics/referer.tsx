@@ -2,7 +2,7 @@ import { SINGULAR_ANALYTICS_ENDPOINTS } from "@/lib/analytics/constants";
 import { UTM_TAGS_PLURAL, UTM_TAGS_PLURAL_LIST } from "@/lib/zod/schemas/utm";
 import { BlurImage, useRouterStuff, UTM_PARAMETERS } from "@dub/ui";
 import { Note, ReferredVia } from "@dub/ui/icons";
-import { getGoogleFavicon, getApexDomain } from "@dub/utils";
+import { getApexDomain, getGoogleFavicon, GOOGLE_FAVICON_URL } from "@dub/utils";
 import { Link2 } from "lucide-react";
 import { useContext, useMemo, useState } from "react";
 import { AnalyticsCard } from "./analytics-card";

@@ -129,6 +129,8 @@ export function RegisterDomainForm({
     <form
       onSubmit={async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // prevent the submission event from propagating to the parent form (in the link builder)
+        e.stopPropagation();
         if (searchedDomain && searchedDomain.available) {
           await registerDomain(searchedDomain.domain);
         }
@@ -259,8 +261,8 @@ export function RegisterDomainForm({
               <h2 className="text-sm font-medium text-neutral-800">
                 Available alternatives
               </h2>
-              <div className="mt-2 overflow-hidden rounded-lg border-[6px] border-neutral-100">
-                <div className="flex flex-col divide-y divide-neutral-200">
+              <div className="mt-2 overflow-hidden rounded-xl border-[6px] border-neutral-100">
+                <div className="flex flex-col divide-y-[6px] divide-neutral-100">
                   {availableDomains.map((alternative) => (
                     <div
                       key={alternative.domain}
@@ -365,7 +367,7 @@ function UpgradeTooltipContent() {
         </>
       }
       cta="Upgrade to Pro"
-      onClick={() => window.open(`/${slug}/upgrade?exit=close`)}
+      onClick={() => window.open(`/${slug}/upgrade`)}
     />
   );
 }

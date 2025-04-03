@@ -18,7 +18,7 @@ export function PartnerPayoutSent({
   email = "cheers@pimms.io",
   program = {
     id: "prog_CYCu7IMAapjkRpTnr8F1azjN",
-    name: "Acme",
+    name: "PiMMs",
     logo: DUB_WORDMARK,
   },
   payout = {
@@ -37,8 +37,8 @@ export function PartnerPayoutSent({
   payout: {
     id: string;
     amount: number;
-    startDate: Date;
-    endDate: Date;
+    startDate?: Date | null;
+    endDate?: Date | null;
   };
 }) {
   const saleAmountInDollars = currencyFormatter(payout.amount / 100, {
@@ -46,17 +46,21 @@ export function PartnerPayoutSent({
     maximumFractionDigits: 2,
   });
 
-  const startDate = formatDate(payout.startDate, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const startDate = payout.startDate
+    ? formatDate(payout.startDate, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : null;
 
-  const endDate = formatDate(payout.endDate, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const endDate = payout.endDate
+    ? formatDate(payout.endDate, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : null;
 
   return (
     <Html>
@@ -73,16 +77,23 @@ export function PartnerPayoutSent({
               />
             </Section>
 
-            <Heading className="mx-0 p-0 text-lg font-medium text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               You've been paid!
             </Heading>
 
             <Text className="text-sm leading-6 text-neutral-600">
               <strong className="text-black">{program.name}</strong> has sent
-              you <strong className="text-black">{saleAmountInDollars}</strong>{" "}
-              for affiliate sales made from{" "}
-              <strong className="text-black">{startDate}</strong> to{" "}
-              <strong className="text-black">{endDate}</strong>.
+              you <strong className="text-black">{saleAmountInDollars}</strong>
+              {startDate && endDate ? (
+                <>
+                  {" "}
+                  for affiliate sales made from{" "}
+                  <strong className="text-black">{startDate}</strong> to{" "}
+                  <strong className="text-black">{endDate}</strong>.
+                </>
+              ) : (
+                "."
+              )}
             </Text>
             <Text className="text-sm leading-6 text-neutral-600">
               The funds are on their way to your account.
@@ -91,7 +102,7 @@ export function PartnerPayoutSent({
             <Section className="mb-12 mt-8">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
-                href={`https://partners.dub.co/settings/payouts?payoutId=${payout.id}`}
+                href={`https://partners.pimms.io/settings/payouts?payoutId=${payout.id}`}
               >
                 View payout
               </Link>

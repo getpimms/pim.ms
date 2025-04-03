@@ -36,7 +36,7 @@ export async function keyChecks({
     };
   }
 
-  const link = await checkIfKeyExists(domain, key);
+  const link = await checkIfKeyExists({ domain, key });
   if (link) {
     return {
       error: "Duplicate key: This short link already exists.",
@@ -65,6 +65,16 @@ export async function keyChecks({
         code: "forbidden",
       };
     }
+    // if (
+    //   domain === "dub.link" &&
+    //   key.length <= 5 &&
+    //   (!workspace || workspace.plan === "free" || workspace.plan === "pro")
+    // ) {
+    //   return {
+    //     error: `You can only use dub.link with keys that are 5 characters or less on a Business plan and above. Upgrade to Business to register a ${key.length}-character dub.link key.`,
+    //     code: "forbidden",
+    //   };
+    // }
     if (
       (await isReservedUsername(key)) &&
       (!workspace || workspace.plan === "free")

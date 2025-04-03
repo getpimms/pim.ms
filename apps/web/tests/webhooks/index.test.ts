@@ -102,11 +102,11 @@ const assertQstashMessage = async (
 
   // TODO:
   // Fix the partner.created schema not working on GH CI
-  // if (trigger !== "partner.created") {
-  //   expect(eventSchemas[trigger].safeParse(receivedBody.data).success).toBe(
-  //     true,
-  //   );
-  // }
+  if (trigger !== "partner.created") {
+    expect(eventSchemas[trigger].safeParse(receivedBody.data).success).toBe(
+      true,
+    );
+  }
 };
 
 // TODO:

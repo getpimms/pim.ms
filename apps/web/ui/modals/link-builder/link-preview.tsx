@@ -106,7 +106,7 @@ export function LinkPreview() {
           //       href={
           //         slug
           //           ? `/${slug}/upgrade?exit=close`
-          //           : "https://dub.co/pricing"
+          //           : "https://pimms.io/pricing"
           //       }
           //       target="_blank"
           //     />
@@ -399,7 +399,7 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
           }}
         />
         <p className="text-xs text-[#00000099]">
-          {proxy ? "pim.ms" : hostname || "domain.com"}
+          {proxy ? process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN : hostname || "domain.com"}
         </p>
       </div>
     </div>

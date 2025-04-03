@@ -18,7 +18,7 @@ export function ConversionTrackingToggle() {
   const { slug, plan } = useWorkspace();
   const { watch, setValue } = useFormContext<LinkFormData>();
 
-  const conversionsEnabled = !!plan && plan !== "free" && plan !== "pro";
+  const conversionsEnabled = !!plan && plan !== "free";
 
   const trackConversion = watch("trackConversion");
 
@@ -59,10 +59,10 @@ export function ConversionTrackingToggle() {
         disabledTooltip={
           conversionsEnabled ? undefined : (
             <TooltipContent
-              title="Conversion tracking is only available on Business plans and above."
-              cta="Upgrade to Business"
+              title="Conversion tracking is only available on Pro plans and above."
+              cta="Upgrade to Pro"
               href={
-                slug ? `/${slug}/upgrade?exit=close` : "https://dub.co/pricing"
+                slug ? `/${slug}/upgrade?exit=close` : "https://pimms.io/pricing"
               }
               target="_blank"
             />

@@ -15,10 +15,10 @@ export async function GET(req: NextRequest) {
     new URL("@/styles/Inter-Medium.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
-  const domain = req.nextUrl.searchParams.get("domain") || "pim.ms";
+  const domain = req.nextUrl.searchParams.get("domain") || process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN as string;
   const key = req.nextUrl.searchParams.get("key") || "github";
 
-  const link = await getLinkViaEdge(domain, key);
+  const link = await getLinkViaEdge({ domain, key });
   if (!link?.publicStats) {
     return new Response(`Stats for this link are not public`, {
       status: 403,

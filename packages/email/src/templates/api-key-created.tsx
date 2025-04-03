@@ -17,8 +17,8 @@ import { Footer } from "../components/footer";
 export function APIKeyCreated({
   email = "cheers@pimms.io",
   workspace = {
-    name: "Acme, Inc",
-    slug: "acme",
+    name: "PIMMS",
+    slug: "pimms",
   },
   token = {
     name: "Acme API Key",
@@ -44,19 +44,14 @@ export function APIKeyCreated({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="mb-8 mt-6">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-6 p-0 text-lg font-medium text-black">
               New Workspace API Key Created
             </Heading>
             <Text className="text-sm leading-6 text-black">
-              You've created a new API key for your PIMMS workspace{" "}
+              You've created a new API key for your PiMMs workspace{" "}
               <strong>{workspace.name}</strong> with the name{" "}
               <strong>"{token.name}"</strong> on{" "}
               {formatDate(new Date().toString())}.
@@ -65,7 +60,7 @@ export function APIKeyCreated({
               Since this is a <strong>{token.type}</strong> token, it has{" "}
               {token.permissions}.
             </Text>
-            <Section className="mb-8 mt-4 text-center">
+            <Section className="my-8 text-center">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={`https://app.pimms.io/${workspace.slug}/settings/tokens`}

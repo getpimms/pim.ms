@@ -28,7 +28,7 @@ export async function GET(req: Request) {
       where: {
         slug: {
           // exclude domains that belong to us
-          notIn: ["pim.ms"],
+          notIn: ["pim.ms", "fcksub.com"],
         },
       },
       select: {

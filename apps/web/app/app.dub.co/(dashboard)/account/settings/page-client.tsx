@@ -51,7 +51,7 @@ export default function SettingsPageClient() {
           name: "email",
           type: "email",
           defaultValue: session?.user?.email || undefined,
-          placeholder: "hello@pimms.io",
+          placeholder: "cheers@pimms.io",
         }}
         helpText={<UpdateSubscription />}
         handleSubmit={(data) =>

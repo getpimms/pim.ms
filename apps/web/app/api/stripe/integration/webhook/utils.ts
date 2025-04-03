@@ -1,6 +1,7 @@
 import { createId } from "@/lib/api/create-id";
 import { includeTags } from "@/lib/api/links/include-tags";
 import { generateRandomName } from "@/lib/names";
+import { determinePartnerReward } from "@/lib/partners/determine-partner-reward";
 import { getClickEvent, recordLead } from "@/lib/tinybird";
 import { sendWorkspaceWebhook } from "@/lib/webhook/publish";
 import { transformLeadEventData } from "@/lib/webhook/transform";
@@ -12,7 +13,7 @@ import type Stripe from "stripe";
 export async function createNewCustomer(event: Stripe.Event) {
   const stripeCustomer = event.data.object as Stripe.Customer;
   const stripeAccountId = event.account as string;
-  const externalId = stripeCustomer.metadata?.pimmsCustomerId;
+  const pimmsCustomerExternalId = stripeCustomer.metadata?.pimmsCustomerId;
   const clickId = stripeCustomer.metadata?.pimmsClickId;
 
   // The client app should always send pimmsClickId (pimms_id) via metadata
@@ -48,7 +49,7 @@ export async function createNewCustomer(event: Stripe.Event) {
       email: stripeCustomer.email,
       stripeCustomerId: stripeCustomer.id,
       projectConnectId: stripeAccountId,
-      externalId,
+      externalId: pimmsCustomerExternalId,
       projectId: link.projectId,
       linkId,
       clickId,
@@ -96,30 +97,30 @@ export async function createNewCustomer(event: Stripe.Event) {
     }),
   ]);
 
-  // if (link.programId && link.partnerId) {
-  //   const reward = await determinePartnerReward({
-  //     programId: link.programId,
-  //     partnerId: link.partnerId,
-  //     event: "lead",
-  //   });
+  if (link.programId && link.partnerId) {
+    const reward = await determinePartnerReward({
+      programId: link.programId,
+      partnerId: link.partnerId,
+      event: "lead",
+    });
 
-  //   if (reward) {
-  //     await prisma.commission.create({
-  //       data: {
-  //         id: createId({ prefix: "cm_" }),
-  //         programId: link.programId,
-  //         linkId: link.id,
-  //         partnerId: link.partnerId,
-  //         eventId: leadData.event_id,
-  //         customerId: customer.id,
-  //         type: "lead",
-  //         amount: 0,
-  //         quantity: 1,
-  //         earnings: reward.amount,
-  //       },
-  //     });
-  //   }
-  // }
+    if (reward) {
+      await prisma.commission.create({
+        data: {
+          id: createId({ prefix: "cm_" }),
+          programId: link.programId,
+          linkId: link.id,
+          partnerId: link.partnerId,
+          eventId: leadData.event_id,
+          customerId: customer.id,
+          type: "lead",
+          amount: 0,
+          quantity: 1,
+          earnings: reward.amount,
+        },
+      });
+    }
+  }
 
   waitUntil(
     sendWorkspaceWebhook({

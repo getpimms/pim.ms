@@ -28,6 +28,11 @@ const SAMLSection = () => {
   const { RemoveSAMLModal, setShowRemoveSAMLModal } = useRemoveSAMLModal();
   const { provider, configured, loading } = useSAML();
 
+  const currentProvider = useMemo(
+    () => provider && SAML_PROVIDERS.find((p) => p.name.startsWith(provider)),
+    [provider],
+  );
+
   const data = useMemo(() => {
     if (loading) {
       return {
@@ -35,19 +40,19 @@ const SAMLSection = () => {
         title: null,
         description: null,
       };
-    } else if (configured) {
+    } else if (currentProvider) {
       return {
         logo: (
           <img
-            src={SAML_PROVIDERS.find((p) => p.name === provider)!.logo}
-            alt={provider + " logo"}
+            src={currentProvider.logo}
+            alt={currentProvider.name}
             className="h-8 w-8"
           />
         ),
-        title: `${provider} SAML`,
+        title: `${currentProvider.name} SAML`,
         description: "SAML SSO is configured for your workspace.",
       };
-    } else
+    } else {
       return {
         status: "unconfigured",
         logo: (
@@ -58,6 +63,7 @@ const SAMLSection = () => {
         title: "SAML",
         description: "Choose an identity provider to get started.",
       };
+    }
   }, [provider, configured, loading]);
 
   const [openPopover, setOpenPopover] = useState(false);
@@ -151,7 +157,7 @@ const SAMLSection = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between rounded-b-lg border-t-[6px] border-neutral-100 bg-neutral-50 px-3 py-5 sm:px-10">
+        {/* <div className="flex items-center justify-between rounded-b-lg border-t-[6px] border-neutral-100 bg-neutral-50 px-3 py-5 sm:px-10">
           <a
             href="https://dub.co/help/category/saml-sso"
             target="_blank"
@@ -159,7 +165,7 @@ const SAMLSection = () => {
           >
             Learn more about SAML SSO.
           </a>
-        </div>
+        </div> */}
       </div>
     </>
   );

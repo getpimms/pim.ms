@@ -1,3 +1,4 @@
+import { claimDotLinkDomain } from "@/lib/api/domains/claim-dot-link-domain";
 import { inviteUser } from "@/lib/api/users";
 import { limiter } from "@/lib/cron/limiter";
 import { stripe } from "@/lib/stripe";
@@ -108,7 +109,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
             email: user.email as string,
             plan: plan.name,
           }),
-          marketing: true,
+          variant: "marketing",
         }),
       );
     }),
@@ -121,6 +122,15 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
         rateLimit: plan.limits.api,
       },
     }),
+    // enable dub.link premium default domain for the workspace
+    // prisma.defaultDomains.update({
+    //   where: {
+    //     projectId: workspaceId,
+    //   },
+    //   data: {
+    //     dublink: true,
+    //   },
+    // }),
   ]);
 }
 

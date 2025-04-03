@@ -11,10 +11,10 @@ import { useContext, useState } from "react";
 import { toast } from "sonner";
 import { errorCodes, LoginFormContext } from "./login-form";
 
-export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
+export const EmailSignIn = ({ next }: { next?: string }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams?.get("next");
+  const finalNext = next ?? searchParams?.get("next");
   const { isMobile } = useMediaQuery();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -85,7 +85,7 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
           const response = await signIn(provider, {
             email,
             redirect: false,
-            callbackUrl: next || redirectTo || "/workspaces",
+            callbackUrl: finalNext || "/workspaces",
             ...(password && { password }),
           });
 
@@ -114,10 +114,10 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
           }
 
           if (provider === "credentials") {
-            router.push(response?.url || redirectTo || "/workspaces");
+            router.push(response?.url || finalNext || "/workspaces");
           }
         }}
-        className="flex flex-col gap-y-6"
+        className="flex flex-col gap-y-3"
       >
         {authMethod === "email" && (
           <input
@@ -125,21 +125,20 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
             name="email"
             autoFocus={!isMobile && !showPasswordField}
             type="email"
-            placeholder="hello@pimms.io"
+            placeholder="cheers@pimms.io"
             autoComplete="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             size={1}
             className={cn(
-              "block w-full min-w-0 appearance-none rounded-xl border-2 border-neutral-200 text-black outline-none placeholder:text-neutral-400 sm:text-sm transition-all focus:border-neutral-500 focus:ring-0 h-10",
+              "block w-full min-w-0 appearance-none rounded-xl border-[2px] border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm",
               {
                 "pr-10": isPending,
               },
             )}
           />
         )}
-
 
         {showPasswordField && (
           <div>
@@ -155,7 +154,7 @@ export const EmailSignIn = ({ redirectTo }: { redirectTo?: string }) => {
 
         <Button
           text={`Continue with ${password ? "Password" : "Email"}`}
-          variant="primary"
+          variant="secondary"
           // icon={
           //   password ? (
           //     <InputPassword className="size-4 text-neutral-600" />

@@ -11,6 +11,7 @@ import { UpgradeRequiredToast } from "@/ui/shared/upgrade-required-toast";
 import {
   ArrowTurnLeft,
   Button,
+  FloatingActionButton,
   Modal,
   TooltipContent,
   useCopyToClipboard,
@@ -85,7 +86,7 @@ function LinkBuilderOuter(props: LinkBuilderProps) {
       props.duplicateProps || {
         ...DEFAULT_LINK_PROPS,
         trackConversion:
-          (plan && plan !== "free" && plan !== "pro" && conversionEnabled) ||
+          (plan && plan !== "free" && conversionEnabled) ||
           false,
       },
   });
@@ -541,8 +542,10 @@ function LinkBuilderInner({
 
 export function CreateLinkButton({
   setShowLinkBuilder,
+  floating,
 }: {
   setShowLinkBuilder: Dispatch<SetStateAction<boolean>>;
+  floating?: boolean;
 }) {
   const { slug, nextPlan, exceededLinks } = useWorkspace();
 
@@ -576,8 +579,10 @@ export function CreateLinkButton({
     return () => document.removeEventListener("paste", handlePaste);
   }, []);
 
+  const CustomButton = floating ? FloatingActionButton : Button;
+
   return (
-    <Button
+    <CustomButton
       text="Create link"
       shortcut="C"
       disabledTooltip={
@@ -589,7 +594,8 @@ export function CreateLinkButton({
           />
         ) : undefined
       }
-      onClick={() => setShowLinkBuilder(true)}
+      disabled={exceededLinks}
+      onClick={() => !exceededLinks && setShowLinkBuilder(true)}
     />
   );
 }
@@ -598,10 +604,12 @@ export function useLinkBuilder({
   props,
   duplicateProps,
   homepageDemo,
+  floating,
 }: {
   props?: ExpandedLinkProps;
   duplicateProps?: ExpandedLinkProps;
   homepageDemo?: boolean;
+  floating?: boolean;
 } = {}) {
   const [showLinkBuilder, setShowLinkBuilder] = useState(false);
 
@@ -618,7 +626,12 @@ export function useLinkBuilder({
   }, [showLinkBuilder]);
 
   const CreateLinkButtonCallback = useCallback(() => {
-    return <CreateLinkButton setShowLinkBuilder={setShowLinkBuilder} />;
+    return (
+      <CreateLinkButton
+        setShowLinkBuilder={setShowLinkBuilder}
+        floating={floating}
+      />
+    );
   }, []);
 
   return useMemo(

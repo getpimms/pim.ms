@@ -1,12 +1,11 @@
-import { isBlacklistedEmail, updateConfig } from "@/lib/edge-config";
-import jackson from "@/lib/jackson";
+import { isBlacklistedEmail } from "@/lib/edge-config";
+import { jackson } from "@/lib/jackson";
 import { isStored, storage } from "@/lib/storage";
 import { UserProps } from "@/lib/types";
 import { ratelimit } from "@/lib/upstash";
 import { sendEmail } from "@dub/email";
 import { subscribe } from "@dub/email/resend/subscribe";
 import { LoginLink } from "@dub/email/templates/login-link";
-import { WelcomeEmail } from "@dub/email/templates/welcome-email";
 import { prisma } from "@dub/prisma";
 import { PrismaClient } from "@dub/prisma/client";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
@@ -18,7 +17,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { createId } from "../api/utils";
+
+import { createId } from "../api/create-id";
 import { completeProgramApplications } from "../partners/complete-program-applications";
 import { FRAMER_API_HOST } from "./constants";
 import {
@@ -434,11 +434,6 @@ export const authOptions: NextAuthOptions = {
 
         // account doesn't exist, let the user sign in
         if (!userFound) {
-          // TODO: Remove this once we open up partners.dub.co to everyone
-          await updateConfig({
-            key: "partnersPortal",
-            value: user.email,
-          });
           return true;
         }
 
@@ -496,48 +491,48 @@ export const authOptions: NextAuthOptions = {
     async signIn(message) {
       console.log("signIn event", message);
       // if (message.isNewUser) {
-        const email = message.user.email as string;
-        const user = await prisma.user.findUnique({
-          where: { email },
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            image: true,
-            createdAt: true,
-          },
-        });
-        if (!user) {
-          console.log("User not found");
-          return;
-        }
-        // only send the welcome email if the user was created in the last 10s
-        // (this is a workaround because the `isNewUser` flag is triggered when a user does `dangerousEmailAccountLinking`)
-        if (
-          user.createdAt &&
-          new Date(user.createdAt).getTime() > Date.now() - 10000
-          // && process.env.NEXT_PUBLIC_IS_DUB
-        ) {
-          console.log("subscribing to email and tracking lead");
-          waitUntil(
-            Promise.allSettled([
-              subscribe({ email, name: user.name || undefined }),
-              // sendEmail({
-              //   email,
-              //   replyTo: "alexandre@pimms.io",
-              //   subject: "Welcome to PIMMS!",
-              //   react: WelcomeEmail({
-              //     email,
-              //     name: user.name || null,
-              //   }),
-              //   // send the welcome email 5 minutes after the user signed up
-              //   scheduledAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
-              //   marketing: true,
-              // }),
-              trackLead(user),
-            ]),
-          );
-        }
+      const email = message.user.email as string;
+      const user = await prisma.user.findUnique({
+        where: { email },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          image: true,
+          createdAt: true,
+        },
+      });
+      if (!user) {
+        console.log("User not found");
+        return;
+      }
+      // only send the welcome email if the user was created in the last 10s
+      // (this is a workaround because the `isNewUser` flag is triggered when a user does `dangerousEmailAccountLinking`)
+      if (
+        user.createdAt &&
+        new Date(user.createdAt).getTime() > Date.now() - 10000
+        // && process.env.NEXT_PUBLIC_IS_DUB
+      ) {
+        console.log("subscribing to email and tracking lead");
+        waitUntil(
+          Promise.allSettled([
+            subscribe({ email, name: user.name || undefined }),
+            // sendEmail({
+            //   email,
+            //   replyTo: "steven.tey@dub.co",
+            //   subject: "Welcome to PiMMs!",
+            //   react: WelcomeEmail({
+            //     email,
+            //     name: user.name || null,
+            //   }),
+            //   // send the welcome email 5 minutes after the user signed up
+            //   scheduledAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
+            //   variant: "marketing",
+            // }),
+            trackLead(user),
+          ]),
+        );
+      }
       // }
       // lazily backup user avatar to R2
       const currentImage = message.user.image;

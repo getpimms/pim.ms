@@ -36,6 +36,8 @@ function ImportRebrandlyModal({
   const { id: workspaceId, slug } = useWorkspace();
   const searchParams = useSearchParams();
 
+  const folderId = searchParams.get("folderId");
+
   const {
     data: { domains, tagsCount } = {
       domains: null,
@@ -133,11 +135,14 @@ function ImportRebrandlyModal({
                   body: JSON.stringify({
                     selectedDomains,
                     importTags,
+                    ...(folderId && { folderId }),
                   }),
                 }).then(async (res) => {
                   if (res.ok) {
                     await mutate();
-                    router.push(`/${slug}`);
+                    router.push(
+                      `/${slug}${folderId ? `?folderId=${folderId}` : ""}`,
+                    );
                   } else {
                     setImporting(false);
                     throw new Error();
@@ -254,7 +259,7 @@ function ImportRebrandlyModal({
                 placeholder="93467061146a64622df83c12bcc0bffb"
                 autoComplete="off"
                 required
-                className="mt-1 block w-full appearance-none rounded-xl border-2 border-neutral-200 text-black outline-none placeholder:text-neutral-400 sm:text-sm transition-all focus:border-neutral-500 focus:ring-0 h-10"
+                className="mt-1 block w-full appearance-none rounded-xl border-[2px] border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
               />
             </div>
             <Button text="Confirm API Key" loading={submitting} />

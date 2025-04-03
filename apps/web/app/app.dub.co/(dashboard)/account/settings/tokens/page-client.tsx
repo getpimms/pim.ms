@@ -71,7 +71,7 @@ export default function TokensPageClient() {
               <div>Key</div>
               <div className="text-center">Last used</div>
             </div>
-            <div className="divide-y divide-neutral-200">
+            <div className="divide-y-[6px] divide-neutral-100">
               {tokens.map((token) => (
                 <TokenRow key={token.id} {...token} />
               ))}

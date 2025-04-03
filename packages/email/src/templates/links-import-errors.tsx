@@ -22,7 +22,18 @@ const MAX_ERROR_LINKS = 20;
 export function LinksImportErrors({
   email,
   provider = "CSV",
-  errorLinks,
+  errorLinks = [
+    {
+      domain: "pim.ms",
+      key: "123",
+      error: "Invalid URL",
+    },
+    {
+      domain: "pim.ms",
+      key: "456",
+      error: "Invalid URL",
+    },
+  ],
   workspaceName,
   workspaceSlug,
 }: {
@@ -43,21 +54,16 @@ export function LinksImportErrors({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               Some {provider} links have failed to import
             </Heading>
             <Text className="text-sm leading-6 text-black">
               The following{" "}
               {Intl.NumberFormat("en-us").format(errorLinks.length)} links from{" "}
-              {provider} failed to import into your PIMMS workspace,{" "}
+              {provider} failed to import into your PiMMs workspace,{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"

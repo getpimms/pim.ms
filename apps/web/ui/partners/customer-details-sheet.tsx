@@ -141,7 +141,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-200">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
                   label: "Lead",
@@ -183,7 +183,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-200">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
                   label: "Lifetime value",

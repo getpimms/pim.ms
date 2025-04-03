@@ -2,9 +2,9 @@ import { getStartEndDates } from "@/lib/analytics/utils/get-start-end-dates";
 import { getProgramOrThrow } from "@/lib/api/programs/get-program-or-throw";
 import { withWorkspace } from "@/lib/auth";
 import {
-  getSalesQuerySchema,
-  SaleResponseSchema,
-} from "@/lib/zod/schemas/partners";
+  getProgramSalesQuerySchema,
+  ProgramSaleResponseSchema,
+} from "@/lib/zod/schemas/program-sales";
 import { prisma } from "@dub/prisma";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -13,7 +13,7 @@ import { z } from "zod";
 export const GET = withWorkspace(
   async ({ workspace, params, searchParams }) => {
     const { programId } = params;
-    const parsed = getSalesQuerySchema.parse(searchParams);
+    const parsed = getProgramSalesQuerySchema.parse(searchParams);
     const {
       page,
       pageSize,
@@ -34,25 +34,21 @@ export const GET = withWorkspace(
 
     const sales = await prisma.commission.findMany({
       where: {
+        earnings: {
+          gt: 0,
+        },
         programId,
-        type: "sale",
+        partnerId,
         status,
+        type: "sale",
         customerId,
         payoutId,
-        partnerId,
         createdAt: {
           gte: startDate.toISOString(),
           lte: endDate.toISOString(),
         },
       },
-      select: {
-        id: true,
-        amount: true,
-        earnings: true,
-        currency: true,
-        status: true,
-        createdAt: true,
-        updatedAt: true,
+      include: {
         customer: true,
         partner: true,
       },
@@ -61,6 +57,6 @@ export const GET = withWorkspace(
       orderBy: { [sortBy]: sortOrder },
     });
 
-    return NextResponse.json(z.array(SaleResponseSchema).parse(sales));
+    return NextResponse.json(z.array(ProgramSaleResponseSchema).parse(sales));
   },
 );

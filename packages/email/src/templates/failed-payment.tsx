@@ -28,7 +28,7 @@ export function FailedPayment({
 }) {
   const title = `${
     attemptCount == 2 ? "2nd notice: " : attemptCount == 3 ? "3rd notice: " : ""
-  }Your payment for PIMMS failed`;
+  }Your payment for PiMMs failed`;
 
   return (
     <Html>
@@ -37,17 +37,12 @@ export function FailedPayment({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               {attemptCount == 2 ? "2nd " : attemptCount == 3 ? "3rd  " : ""}
-              Failed Payment for PIMMS
+              Failed Payment for PiMMs
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Hey{user.name ? `, ${user.name}` : ""}!
@@ -55,7 +50,7 @@ export function FailedPayment({
             <Text className="text-sm leading-6 text-black">
               Your payment of{" "}
               <code className="text-purple-600">${amountDue / 100}</code> for
-              your PIMMS workspace{" "}
+              your PiMMs workspace{" "}
               <code className="text-purple-600">{workspace.name}</code> has
               failed. Please update your payment information using the link below:
             </Text>

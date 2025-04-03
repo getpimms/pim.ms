@@ -26,19 +26,18 @@ function AddEditDomainModal({
       showModal={showAddEditDomainModal} // TODO change back to showAddEditDomainModal
       setShowModal={setShowAddEditDomainModal}
       drawerRootProps={{ repositionInputs: false }}
-      className="max-w-lg"
+      className="max-h-[90vh] max-w-lg"
     >
       <h3 className="border-b-[6px] border-neutral-100 px-4 py-4 text-lg font-medium sm:px-6">
         {props ? "Update" : "Add"} Domain
       </h3>
-      <div className="bg-neutral-50">
+      <div className="flex-1 overflow-auto bg-neutral-50">
         <AddEditDomainForm
           props={props}
           onSuccess={() => {
             setShowAddEditDomainModal(false);
           }}
           className="p-8"
-          showAdvancedOptions={false}
         />
       </div>
     </Modal>

@@ -77,7 +77,7 @@ export async function getUserInfo({ token }: { token: Token }) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error("Failed to fetch user info from Dub.", {
+    throw new Error("Failed to fetch user info from PiMMs.", {
       cause: data.error,
     });
   }

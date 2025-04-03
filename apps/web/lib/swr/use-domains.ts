@@ -8,6 +8,7 @@ import {
 } from "@dub/utils";
 import { useMemo } from "react";
 import useSWR from "swr";
+import { prefixWorkspaceId } from "../api/workspace-id";
 import useDefaultDomains from "./use-default-domains";
 import useWorkspace from "./use-workspace";
 
@@ -62,14 +63,18 @@ export default function useDomains({
   const allDomains = useMemo(
     () => [
       ...allWorkspaceDomains,
-      ...(workspaceId === `ws_${DUB_WORKSPACE_ID}` ? [] : DUB_DOMAINS),
+      ...(workspaceId === prefixWorkspaceId(DUB_WORKSPACE_ID)
+        ? []
+        : DUB_DOMAINS),
     ],
     [allWorkspaceDomains, workspaceId],
   );
   const allActiveDomains = useMemo(
     () => [
       ...(activeWorkspaceDomains || []),
-      ...(workspaceId === `ws_${DUB_WORKSPACE_ID}` ? [] : activeDefaultDomains),
+      ...(workspaceId === prefixWorkspaceId(DUB_WORKSPACE_ID)
+        ? []
+        : activeDefaultDomains),
     ],
     [activeWorkspaceDomains, activeDefaultDomains, workspaceId],
   );
@@ -80,6 +85,8 @@ export default function useDomains({
         activeWorkspaceDomains.find(({ primary }) => primary)?.slug ||
         activeWorkspaceDomains[0].slug
       );
+    } else if (activeDefaultDomains.find(({ slug }) => slug === "dub.link")) {
+      return "dub.link";
     }
     return SHORT_DOMAIN;
   }, [activeDefaultDomains, activeWorkspaceDomains]);

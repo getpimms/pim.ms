@@ -37,15 +37,13 @@ export default function UserDropdown() {
             href="/account/settings"
             onClick={() => setOpenPopover(false)}
           />
-          {session?.user?.["dubPartnerId"] && (
-            <UserOption
-              as={Link}
-              label="Refer and earn"
-              icon={Gift}
-              href="/account/settings/referrals"
-              onClick={() => setOpenPopover(false)}
-            />
-          )}
+          {/* <UserOption
+            as={Link}
+            label="Refer and earn"
+            icon={Gift}
+            href="/account/settings/referrals"
+            onClick={() => setOpenPopover(false)}
+          /> */}
           <UserOption
             as="button"
             type="button"
@@ -66,11 +64,10 @@ export default function UserDropdown() {
       <button
         onClick={() => setOpenPopover(!openPopover)}
         className={cn(
-          "flex items-center gap-2 px-2 group relative rounded-full ring-offset-1 ring-offset-neutral-100 transition-all ring-2 ring-black/10 hover:ring-black/15 active:ring-black/20 data-[state='open']:ring-black/15",
+          "group relative rounded-full ring-offset-1 ring-offset-neutral-100 transition-all hover:ring-2 hover:ring-black/10 active:ring-black/15 data-[state='open']:ring-black/15",
           "outline-none focus-visible:ring-2 focus-visible:ring-black/50",
         )}
       >
-        <span className="text-sm text-neutral-500">Account</span>
         {session?.user ? (
           <Avatar
             user={session.user}

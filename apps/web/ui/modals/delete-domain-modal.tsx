@@ -40,7 +40,7 @@ function DeleteDomainModal({
             their anaytics, permanently.
           </p>
           {Boolean(props.registeredDomain) && (
-            <p>The domain will also be provisioned back to PIMMS.</p>
+            <p>The domain will also be provisioned back to PiMMs.</p>
           )}
           <p>
             <strong className="font-semibold text-neutral-700">
