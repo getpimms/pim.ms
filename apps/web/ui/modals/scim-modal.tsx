@@ -131,7 +131,7 @@ function SCIMModal({
               onChange={(e) =>
                 setSelectedProvider(e.target.value as SAMLProviderProps["scim"])
               }
-              className="mt-1 block w-full appearance-none rounded-xl border-2 border-neutral-200 text-black outline-none placeholder:text-neutral-400 sm:text-sm transition-all focus:border-neutral-500 focus:ring-0 h-10"
+              className="mt-1 block w-full appearance-none rounded-xl border-[2px] border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
             >
               <option disabled selected>
                 Select a provider

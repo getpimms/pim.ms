@@ -45,6 +45,12 @@ export const ADMIN_HOSTNAMES = new Set([
   "admin.localhost:8888",
 ]);
 
+export const PARTNERS_HOSTNAMES = new Set([
+  `partners.${process.env.NEXT_PUBLIC_APP_DOMAIN}`,
+  `partners-staging.${process.env.NEXT_PUBLIC_APP_DOMAIN}`,
+  "partners.localhost:8888",
+]);
+
 export const PARTNERS_DOMAIN =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
     ? `https://partners.${process.env.NEXT_PUBLIC_APP_DOMAIN}`
@@ -52,18 +58,19 @@ export const PARTNERS_DOMAIN =
       ? `https://partners-staging.${process.env.NEXT_PUBLIC_APP_DOMAIN}`
       : "http://partners.localhost:8888";
 
-export const PARTNERS_HOSTNAMES = new Set([
-  `partners.${process.env.NEXT_PUBLIC_APP_DOMAIN}`,
-  `partners-staging.${process.env.NEXT_PUBLIC_APP_DOMAIN}`,
-  "partners.localhost:8888",
-]);
+export const PARTNERS_DOMAIN_WITH_NGROK =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
+    ? `https://partners.${process.env.NEXT_PUBLIC_APP_DOMAIN}`
+    : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
+      ? `https://partners-staging.${process.env.NEXT_PUBLIC_APP_DOMAIN}`
+      : process.env.NEXT_PUBLIC_NGROK_URL || "http://partners.localhost:8888";
 
 export const DUB_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_QR_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_WORDMARK = "https://assets.pimms.io/wordmark-black.png";
 export const DUB_THUMBNAIL = "https://assets.pimms.io/thumbnail.jpg?v=3";
 
-export const DUB_WORKSPACE_ID = "cl7pj5kq4006835rbjlt2ofka";
+export const DUB_WORKSPACE_ID = "cm74uxwy50000htdq9p2zdy5d";
 export const ACME_WORKSPACE_ID = "clrei1gld0002vs9mzn93p8ik";
 export const LEGAL_WORKSPACE_ID = "clrflia0j0000vs7sqfhz9c7q";
 export const LEGAL_USER_ID = "clqei1lgc0000vsnzi01pbf47";

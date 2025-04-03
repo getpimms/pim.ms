@@ -55,15 +55,7 @@ function EmbedDocsSheetContent({ setIsOpen }: EmbedDocsSheetProps) {
           </div>
 
           <p className="mt-10 text-sm text-neutral-500">
-            View detailed{" "}
-            <a
-              href="https://dub.co/docs/sdks/client-side/embed"
-              target="_blank"
-              className="underline transition-colors duration-75 hover:text-neutral-600"
-            >
-              installation guides
-            </a>{" "}
-            to add Dub Embed to your website.
+            View detailed installation guides to add PiMMs Embed to your website.
           </p>
         </div>
       </div>
@@ -82,7 +74,7 @@ function EmbedDocsSheetContent({ setIsOpen }: EmbedDocsSheetProps) {
   );
 }
 
-const reactSnippet = `import { DubEmbed } from "@dub/embed-react";
+const reactSnippet = `import { PimmsEmbed } from "@pimms-ts/embed-react";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -96,7 +88,8 @@ const App = () => {
     createToken();
   }, []);
 
-  return <DubEmbed 
+  return <PimmsEmbed 
+    data="referrals"
     token={token}
   />`;
 

@@ -58,10 +58,10 @@ export function ConversionTrackingToggleSwitch(
     <Switch
       disabled={isSubmitting}
       disabledTooltip={
-        plan === "free" || plan === "pro" ? (
+        plan === "free" ? (
           <TooltipContent
-            title="You can only enable conversion tracking on Business plans and above."
-            cta="Upgrade to Business"
+            title="You can only enable conversion tracking on Pro plans and above."
+            cta="Upgrade to Pro"
             href={`/${workspaceSlug}/upgrade`}
           />
         ) : (

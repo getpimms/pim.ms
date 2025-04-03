@@ -126,7 +126,7 @@ export function FilterList({
                     {/* Remove */}
                     <button
                       type="button"
-                      className="h-full rounded-r-xl p-2 text-neutral-500 ring-inset ring-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 focus:outline-none focus-visible:ring-1"
+                      className="h-full rounded-r-md p-2 text-neutral-500 ring-inset ring-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 focus:outline-none focus-visible:ring-1"
                       onClick={() => onRemove(key, value)}
                     >
                       <X className="h-3.5 w-3.5" />
@@ -140,7 +140,7 @@ export function FilterList({
         {activeFilters?.length !== 0 && (
           <button
             type="button"
-            className="group mt-px flex items-center gap-2 whitespace-nowrap rounded-lg border border-transparent px-3 py-2 text-sm text-neutral-500 ring-inset ring-neutral-500 transition-colors hover:border-neutral-200 hover:bg-white hover:text-black focus:outline-none"
+            className="group mt-px flex items-center gap-2 whitespace-nowrap rounded-xl border-[6px] border-transparent px-3 py-2 text-sm text-neutral-500 ring-inset ring-neutral-500 transition-colors hover:border-neutral-200 hover:bg-white hover:text-black focus:outline-none"
             onClick={onRemoveAll}
           >
             Clear

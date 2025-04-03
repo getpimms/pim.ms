@@ -13,7 +13,7 @@ export default function WorkspaceId() {
           <div className="flex flex-col space-y-3">
             <h2 className="text-xl font-medium">Workspace ID</h2>
             <p className="text-sm text-neutral-500">
-              Unique ID of your workspace on PIMMS.
+              Unique ID of your workspace on PiMMs.
             </p>
           </div>
           {id ? (

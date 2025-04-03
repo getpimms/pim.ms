@@ -30,20 +30,15 @@ export function DomainDeleted({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               Domain Deleted
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Your domain <code className="text-purple-600">{domain}</code> for
-              your PIMMS workspace{" "}
+              your PiMMs workspace{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
@@ -51,11 +46,11 @@ export function DomainDeleted({
                 {workspaceSlug}↗
               </Link>{" "}
               has been invalid for 30 days. As a result, it has been deleted
-              from PIMMS.
+              from PiMMs.
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you would like to restore the domain, you can easily create it
-              again on PIMMS with the link below.
+              again on PiMMs with the link below.
             </Text>
             <Section className="my-8 text-center">
               <Link
@@ -66,10 +61,13 @@ export function DomainDeleted({
               </Link>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you did not want to keep using this domain on PIMMS anyway, you
-              can simply ignore this email.
+              If you don’t plan to keep using this domain on PiMMs, feel free to
+              ignore this email.
             </Text>
-            <Footer email={email} />
+            <Footer
+              email={email}
+              notificationSettingsUrl={`https://app.pimms.io/${workspaceSlug}/settings/notifications`}
+            />
           </Container>
         </Body>
       </Tailwind>

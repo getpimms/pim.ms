@@ -7,6 +7,7 @@ import { NewLinkProps, ProcessedLinkProps, WorkspaceProps } from "@/lib/types";
 import { prisma } from "@dub/prisma";
 import {
   DUB_DOMAINS,
+  SHORT_DOMAIN,
   UTMTags,
   combineWords,
   constructURLFromUTMParams,
@@ -33,7 +34,7 @@ export async function processLink<T extends Record<string, any>>({
   skipProgramChecks = false, // only skip for when program is already validated
 }: {
   payload: NewLinkProps & T;
-  workspace?: Pick<WorkspaceProps, "id" | "plan" | "flags">;
+  workspace?: Pick<WorkspaceProps, "id" | "plan">;
   userId?: string;
   bulk?: boolean;
   skipKeyChecks?: boolean;
@@ -159,13 +160,23 @@ export async function processLink<T extends Record<string, any>>({
 
   // if domain is not defined, set it to the workspace's primary domain
   if (!domain) {
-    domain = domains?.find((d) => d.primary)?.slug || "pim.ms";
+    domain = domains?.find((d) => d.primary)?.slug || SHORT_DOMAIN;
   }
 
   // checks for pim.ms links
-  if (domain === "pim.ms") {
-    // for pim.ms: check if user exists (if userId is passed)
-    if (domain === "pim.ms" && userId) {
+  if (domain === SHORT_DOMAIN) {
+    // for dub.link: check if workspace plan is pro+
+    // if (domain === "dub.link" && (!workspace || workspace.plan === "free")) {
+    //   return {
+    //     link: payload,
+    //     error:
+    //       "You can only use dub.link on a Pro plan and above. Upgrade to Pro to use this domain.",
+    //     code: "forbidden",
+    //   };
+    // }
+
+    // for dub.sh: check if user exists (if userId is passed)
+    if (domain === SHORT_DOMAIN && userId) {
       const userExists = await checkIfUserExists(userId);
       if (!userExists) {
         return {
@@ -187,7 +198,7 @@ export async function processLink<T extends Record<string, any>>({
     // checks for other Dub-owned domains (chatg.pt, spti.fi, etc.)
   } else if (isDubDomain(domain)) {
     // coerce type with ! cause we already checked if it exists
-    const { allowedHostnames } = DUB_DOMAINS.find((d) => d.slug === domain)!;
+    const { allowedHostnames } = DUB_DOMAINS.find((d) => d.slug === domain)! as any;
     const urlDomain = getDomainWithoutWWW(url) || "";
     const apexDomain = getApexDomain(url);
     if (
@@ -275,11 +286,11 @@ export async function processLink<T extends Record<string, any>>({
   }
 
   if (trackConversion) {
-    if (!workspace || workspace.plan === "free" || workspace.plan === "pro") {
+    if (!workspace || workspace.plan === "free") {
       return {
         link: payload,
         error:
-          "Conversion tracking is only available for workspaces with a Business plan and above. Please upgrade to continue.",
+          "Conversion tracking is only available for workspaces with a Pro plan and above. Please upgrade to continue.",
         code: "forbidden",
       };
     }
@@ -354,6 +365,7 @@ export async function processLink<T extends Record<string, any>>({
           code: "not_found",
         };
       }
+
       const tags = await prisma.tag.findMany({
         select: {
           name: true,

@@ -19,7 +19,7 @@ export function PartnerPayoutConfirmed({
   email = "cheers@pimms.io",
   program = {
     id: "prog_CYCu7IMAapjkRpTnr8F1azjN",
-    name: "Acme",
+    name: "PiMMs",
     logo: DUB_WORDMARK,
   },
   payout = {
@@ -94,7 +94,7 @@ export function PartnerPayoutConfirmed({
             <Section className="mb-12 mt-8">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
-                href={`https://partners.dub.co/settings/payouts?payoutId=${payout.id}`}
+                href={`https://partners.pimms.io/settings/payouts?payoutId=${payout.id}`}
               >
                 View payout
               </Link>

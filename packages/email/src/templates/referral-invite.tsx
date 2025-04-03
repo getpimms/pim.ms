@@ -16,13 +16,11 @@ import { Footer } from "../components/footer";
 
 export function ReferralInvite({
   email = "cheers@pimms.io",
-  appName = "PIMMS",
   url = "https://pimms.io",
   workspaceUser = "Brendon Urie",
   workspaceUserEmail = "cheers@pimms.io",
 }: {
   email: string;
-  appName: string;
   url: string;
   workspaceUser: string | null;
   workspaceUserEmail: string | null;
@@ -30,20 +28,15 @@ export function ReferralInvite({
   return (
     <Html>
       <Head />
-      <Preview>Sign up for {appName}</Preview>
+      <Preview>Sign up for PiMMs</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
-              Sign up for {appName}
+            <Heading className="mx-0 my-7 p-0 text-xl font-medium text-black">
+              Sign up for PiMMs
             </Heading>
             {workspaceUser && workspaceUserEmail ? (
               <Text className="text-sm leading-6 text-black">
@@ -54,14 +47,14 @@ export function ReferralInvite({
                 >
                   {workspaceUserEmail}
                 </Link>
-                ) has invited you to start using {appName}!
+                ) has invited you to start using PiMMs!
               </Text>
             ) : (
               <Text className="text-sm leading-6 text-black">
-                You have been invited to start using {appName}!
+                You have been invited to start using PiMMs!
               </Text>
             )}
-            <Section className="my-8">
+            <Section className="my-8 text-center">
               <Link
                 className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
                 href={url}

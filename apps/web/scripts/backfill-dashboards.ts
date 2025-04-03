@@ -1,4 +1,4 @@
-import { createId } from "@/lib/api/utils";
+import { createId } from "@/lib/api/create-id";
 import { prisma } from "@dub/prisma";
 import { getPrettyUrl, truncate } from "@dub/utils";
 import "dotenv-flow/config";
@@ -37,7 +37,7 @@ async function main() {
       return {
         shortLink: truncate(getPrettyUrl(link.shortLink), 24),
         clicks: link.clicks,
-        dashboardUrl: `https://preview.dub.co/share/${dashboard.id}`,
+        dashboardUrl: `https://preview.pimms.io/share/${dashboard.id}`,
       };
     }),
   );

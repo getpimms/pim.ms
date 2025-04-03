@@ -13,23 +13,25 @@ export default function RootProviders({ children }: { children: ReactNode }) {
   useRemoveGAParams();
 
   return (
-      <TooltipProvider>
-        <KeyboardShortcutProvider>
-          <Toaster closeButton className="pointer-events-auto" />
-          {children}
-          {/* <DubAnalytics
+    <TooltipProvider>
+      <KeyboardShortcutProvider>
+        <Toaster closeButton className="pointer-events-auto" />
+        {children}
+        {/* <DubAnalytics
             apiHost="/_proxy/dub"
-            shortDomain="refer.pimms.io"
             cookieOptions={{
-              domain: ".pimms.io",
+              domain: process.env.VERCEL === "1" ? ".dub.co" : "localhost",
+            }}
+            domainsConfig={{
+              refer: "refer.pimms.io",
             }}
           /> */}
-          <PimmsAnalytics
-            cookieOptions={{
-              domain: ".pimms.io",
-            }}
-          />
-        </KeyboardShortcutProvider>
-      </TooltipProvider>
+        <PimmsAnalytics
+          cookieOptions={{
+            domain: ".pimms.io",
+          }}
+        />
+      </KeyboardShortcutProvider>
+    </TooltipProvider>
   );
 }

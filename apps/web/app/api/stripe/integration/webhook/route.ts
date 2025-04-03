@@ -5,10 +5,12 @@ import { accountApplicationDeauthorized } from "./account-application-deauthoriz
 import { chargeRefunded } from "./charge-refunded";
 import { checkoutSessionCompleted } from "./checkout-session-completed";
 import { customerCreated } from "./customer-created";
+import { customerUpdated } from "./customer-updated";
 import { invoicePaid } from "./invoice-paid";
 
 const relevantEvents = new Set([
   "customer.created",
+  "customer.updated",
   "checkout.session.completed",
   "invoice.paid",
   "charge.refunded",
@@ -20,10 +22,10 @@ export const POST = withAxiom(async (req: Request) => {
   const buf = await req.text();
   const { livemode } = JSON.parse(buf);
 
+  const sig = req.headers.get("Stripe-Signature");
   // const webhookSecret = !livemode
   //   ? process.env.STRIPE_APP_WEBHOOK_SECRET_TEST
   //   : process.env.STRIPE_APP_WEBHOOK_SECRET;
-  const sig = req.headers.get("Stripe-Signature") as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!sig || !webhookSecret) {
@@ -54,6 +56,9 @@ export const POST = withAxiom(async (req: Request) => {
   switch (event.type) {
     case "customer.created":
       response = await customerCreated(event);
+      break;
+    case "customer.updated":
+      response = await customerUpdated(event);
       break;
     case "checkout.session.completed":
       response = await checkoutSessionCompleted(event);

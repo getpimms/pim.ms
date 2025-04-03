@@ -1,2 +1,2 @@
-export const EMBED_URL = "https://app.dub.co/embed/inline";
-export const DUB_CONTAINER_ID = "dub-embed-container";
+export const EMBED_REFERRALS_URL = "https://app.pimms.io/embed/referrals";
+export const DUB_CONTAINER_ID = "pimms-embed-container";

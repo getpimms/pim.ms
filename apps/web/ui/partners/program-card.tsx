@@ -1,4 +1,4 @@
-import { usePartnerEarnings } from "@/lib/swr/use-partner-earnings";
+import { usePartnerEarningsTimeseries } from "@/lib/swr/use-partner-earnings-timeseries";
 import { ProgramEnrollmentProps, ProgramProps } from "@/lib/types";
 import { BlurImage, MiniAreaChart, StatusBadge } from "@dub/ui";
 import {
@@ -23,6 +23,10 @@ export const ProgramEnrollmentStatusBadges = {
   },
   rejected: {
     label: "Rejected",
+    variant: "error",
+  },
+  banned: {
+    label: "Banned",
     variant: "error",
   },
 };
@@ -72,9 +76,11 @@ export function ProgramCard({
         <div className="mt-4 flex h-24 items-center justify-center text-balance rounded-md border border-neutral-100 bg-neutral-50 p-5 text-center text-sm text-neutral-500">
           {status === "pending"
             ? `Applied ${formatDate(createdAt)}`
-            : `You will be able to apply again after ${formatDate(
-                addDays(createdAt, 30),
-              )}`}
+            : status === "banned"
+              ? `You're banned from this program`
+              : `You will be able to apply again after ${formatDate(
+                  addDays(createdAt, 30),
+                )}`}
         </div>
       )}
     </div>
@@ -88,16 +94,15 @@ export function ProgramCard({
 }
 
 function ProgramCardEarnings({ program }: { program: ProgramProps }) {
-  const { data: analytics } = usePartnerEarnings({
+  const { data: timeseries } = usePartnerEarningsTimeseries({
     programId: program.id,
     interval: "1y",
   });
 
-  const { data: timeseries } = usePartnerEarnings({
-    programId: program.id,
-    groupBy: "timeseries",
-    interval: "1y",
-  });
+  const total = useMemo(
+    () => timeseries?.reduce((acc, { earnings }) => acc + earnings, 0),
+    [timeseries],
+  );
 
   const chartData = useMemo(
     () =>
@@ -113,9 +118,9 @@ function ProgramCardEarnings({ program }: { program: ProgramProps }) {
         <div className="whitespace-nowrap text-sm text-neutral-500">
           Earnings
         </div>
-        {analytics ? (
+        {total !== undefined ? (
           <div className="mt-1 text-2xl font-medium leading-none text-neutral-800">
-            {currencyFormatter(analytics?.earnings / 100 || 0)}
+            {currencyFormatter(total / 100 || 0)}
           </div>
         ) : (
           <div className="mt-1 h-6 w-20 animate-pulse rounded-md bg-neutral-200" />

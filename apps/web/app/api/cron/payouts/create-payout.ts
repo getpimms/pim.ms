@@ -1,4 +1,4 @@
-import { createId } from "@/lib/api/utils";
+import { createId } from "@/lib/api/create-id";
 import { prisma } from "@dub/prisma";
 import { EventType, Payout } from "@dub/prisma/client";
 
@@ -11,14 +11,61 @@ export const createPayout = async ({
   partnerId: string;
   type: EventType;
 }) => {
-  await prisma.$transaction(async (tx) => {
-    const commissions = await tx.commission.findMany({
+  const programEnrollment = await prisma.programEnrollment.findUniqueOrThrow({
+    where: {
+      partnerId_programId: {
+        partnerId,
+        programId,
+      },
+    },
+    select: {
+      status: true,
+      program: {
+        select: {
+          holdingPeriodDays: true,
+        },
+      },
+    },
+  });
+
+  if (programEnrollment.status === "banned") {
+    await prisma.commission.updateMany({
       where: {
         programId,
         partnerId,
-        payoutId: null,
-        type,
         status: "pending",
+      },
+      data: {
+        status: "canceled",
+      },
+    });
+
+    console.log("Canceled commissions for banned partner.", {
+      programId,
+      partnerId,
+    });
+
+    return;
+  }
+
+  const { holdingPeriodDays } = programEnrollment.program;
+
+  await prisma.$transaction(async (tx) => {
+    const commissions = await tx.commission.findMany({
+      where: {
+        earnings: {
+          gt: 0,
+        },
+        programId,
+        partnerId,
+        payoutId: null,
+        status: "pending",
+        // Only process commissions that were created before the holding period
+        ...(holdingPeriodDays > 0 && {
+          createdAt: {
+            lt: new Date(Date.now() - holdingPeriodDays * 24 * 60 * 60 * 1000),
+          },
+        }),
       },
       select: {
         id: true,
@@ -36,6 +83,7 @@ export const createPayout = async ({
         programId,
         partnerId,
         type,
+        holdingPeriodDays,
       });
 
       return;
@@ -96,7 +144,7 @@ export const createPayout = async ({
             increment: totalQuantity,
           },
           periodEnd,
-          description: existingPayout.description ?? "PIMMS Partners payout",
+          description: existingPayout.description ?? "PiMMs Partners payout",
         },
       });
     } else {
@@ -109,7 +157,7 @@ export const createPayout = async ({
           periodEnd,
           amount: totalAmount,
           quantity: totalQuantity,
-          description: "PIMMS Partners payout",
+          description: "PiMMs Partners payout",
           type: `${type}s`,
         },
       });

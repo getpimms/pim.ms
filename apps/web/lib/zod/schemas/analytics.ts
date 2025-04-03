@@ -7,6 +7,7 @@ import {
   eventIntervals,
   intervals,
 } from "@/lib/analytics/constants";
+import { prefixWorkspaceId } from "@/lib/api/workspace-id";
 import z from "@/lib/zod";
 import {
   CONTINENT_CODES,
@@ -79,7 +80,7 @@ export const analyticsQuerySchema = z
     linkId: z
       .string()
       .optional()
-      .describe("The unique ID of the short link on PIMMS."),
+      .describe("The unique ID of the short link on PiMMs."),
     externalId: z
       .string()
       .optional()
@@ -180,15 +181,11 @@ export const analyticsQuerySchema = z
       .openapi({ example: "google.com" }),
     refererUrl: z
       .string()
-
       .optional()
-
       .describe("The full referer URL to retrieve analytics for.")
-
       .openapi({ example: "https://pimms.io/blog" }),
     url: z.string().optional().describe("The URL to retrieve analytics for."),
     tagId: z
-
       .string()
       .optional()
       .describe(
@@ -227,13 +224,7 @@ export const analyticsFilterTB = z
     workspaceId: z
       .string()
       .optional()
-      .transform((v) => {
-        if (v && !v.startsWith("ws_")) {
-          return `ws_${v}`;
-        } else {
-          return v;
-        }
-      }),
+      .transform((v) => (v ? prefixWorkspaceId(v) : undefined)),
     customerId: z.string().optional(),
     root: z.boolean().optional(),
     qr: z.boolean().optional(),
@@ -245,6 +236,12 @@ export const analyticsFilterTB = z
       .string()
       .optional()
       .describe("The UTM tag to group by. Defaults to `utm_source`."),
+    folderIds: z
+      .union([z.string(), z.array(z.string())])
+      .transform((v) => (Array.isArray(v) ? v : v.split(",")))
+      .optional()
+      .describe("The folder IDs to retrieve analytics for."),
+    isMegaFolder: z.boolean().optional(),
   })
   .merge(
     analyticsQuerySchema.pick({
@@ -277,7 +274,7 @@ export const eventsFilterTB = analyticsFilterTB
   .omit({
     granularity: true,
     timezone: true,
-    // page: true,
+    // page: true
   })
   .and(
     z.object({

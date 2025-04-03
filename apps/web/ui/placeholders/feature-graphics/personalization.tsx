@@ -52,7 +52,7 @@ export function Personalization() {
           {OPTIONS.map(({ label, icon: Icon, checked }) => (
             <div
               key={label}
-              className="flex items-center justify-between gap-2 rounded-lg border-[6px] border-neutral-100 p-2.5"
+              className="flex items-center justify-between gap-2 rounded-xl border-[6px] border-neutral-100 p-2.5"
             >
               <div className="flex items-center gap-2 text-neutral-800">
                 <Icon className="size-5" />

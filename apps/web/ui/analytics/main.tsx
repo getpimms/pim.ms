@@ -1,16 +1,9 @@
-import { AnalyticsSaleUnit, EventType } from "@/lib/analytics/types";
+import { EventType } from "@/lib/analytics/types";
 import useWorkspace from "@/lib/swr/use-workspace";
-import {
-  BlurImage,
-  buttonVariants,
-  ChartLine,
-  Filter2,
-  ToggleGroup,
-  useRouterStuff,
-} from "@dub/ui";
+import { BlurImage, buttonVariants, useRouterStuff } from "@dub/ui";
 import { cn } from "@dub/utils";
 import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
-import { ChevronRight, Lock, Play } from "lucide-react";
+import { Lock } from "lucide-react";
 import Link from "next/link";
 import { useContext, useMemo } from "react";
 import AnalyticsAreaChart from "./analytics-area-chart";
@@ -67,53 +60,28 @@ export default function Main() {
 
   const tab = tabs.find(({ id }) => id === selectedTab) ?? tabs[0];
 
-  const showPaywall =
-    (tab.conversions || view === "funnel") &&
-    (plan === "free" || plan === "pro");
+  const showPaywall = (tab.conversions || view === "funnel") && plan === "free";
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      <div className="flex flex-row scrollbar-hide w-full divide-x overflow-y-hidden border-[6px] border-neutral-100 sm:rounded-t-xl">
+      <div className="scrollbar-hide grid w-full grid-cols-3 divide-x overflow-y-hidden border-[6px] border-b-2 border-neutral-100 rounded-t-xl">
         <NumberFlowGroup>
           {tabs.map(({ id, label, colorClassName, conversions }, idx) => {
             return (
               <div key={id} className="relative z-0">
                 {/* {idx > 0 && (
-                  <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-[6px] border-neutral-100 bg-white p-1.5">
+                  <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-neutral-200 bg-white p-1.5">
                     <ChevronRight
                       className="h-3 w-3 text-neutral-400"
                       strokeWidth={2.5}
                     />
                   </div>
                 )} */}
-                {/* {id === "sales" && (
-                  <ToggleGroup
-                    className="absolute right-3 top-3 hidden w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100 sm:flex"
-                    optionClassName="size-8 p-0 flex items-center justify-center"
-                    indicatorClassName="border-[6px] border-neutral-100 bg-white"
-                    options={[
-                      {
-                        label: <div className="text-base">$</div>,
-                        value: "saleAmount",
-                      },
-                      {
-                        label: <div className="text-[11px]">123</div>,
-                        value: "sales",
-                      },
-                    ]}
-                    selected={saleUnit}
-                    selectAction={(option: AnalyticsSaleUnit) => {
-                      queryParams({
-                        set: { saleUnit: option },
-                      });
-                    }}
-                  />
-                )} */}
                 <Link
                   className={cn(
-                    "border-box relative h-full min-w-[110px] flex flex-col sm:flex-row items-center sm:gap-3 px-4 py-1 sm:min-w-[240px] sm:px-8 sm:py-6",
+                    "border-box relative block h-full flex-none px-4 py-3 sm:px-8 sm:py-6",
                     "transition-colors hover:bg-neutral-50 focus:outline-none active:bg-neutral-100",
-                    "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-lg",
+                    "ring-inset ring-neutral-500 focus-visible:ring-1",
                   )}
                   href={
                     queryParams({
@@ -126,16 +94,23 @@ export default function Main() {
                   aria-current
                 >
                   {/* Active tab indicator */}
-                  {showConversions && (
-                    <div
-                      className={cn(
-                        "absolute bottom-0 left-0 h-0.5 w-full bg-[#08272E] transition-transform duration-100",
-                        tab.id !== id && "h-0", // Translate an extra pixel to avoid sub-pixel issues
-                      )}
-                    />
-                  )}
+                  <div
+                    className={cn(
+                      "absolute bottom-0 left-0 h-0.5 w-full bg-[#08272E] transition-transform duration-100",
+                      tab.id !== id && "translate-y-[3px]", // Translate an extra pixel to avoid sub-pixel issues
+                    )}
+                  />
 
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-2.5 text-sm text-neutral-600">
+                    {/* <div
+                      className={cn(
+                        "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
+                        colorClassName,
+                      )}
+                    /> */}
+                    <span>{label}</span>
+                  </div>
+                  <div className="mt-1 flex h-12 items-center">
                     {totalEvents?.[id] || totalEvents?.[id] === 0 ? (
                       <NumberFlow
                         value={
@@ -145,7 +120,7 @@ export default function Main() {
                         }
                         className={cn(
                           "text-xl font-medium sm:text-3xl",
-                          // showPaywall && "opacity-30",
+                          showPaywall && "opacity-30",
                         )}
                         format={
                           id === "sales" && saleUnit === "saleAmount"
@@ -171,18 +146,30 @@ export default function Main() {
                       <div className="h-9 w-16 animate-pulse rounded-md bg-neutral-200" />
                     )}
                   </div>
-                  {id !== "sales" && (
-                    <div className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-600 uppercase">
-                      {/* <div
-                        className={cn(
-                          "h-2 w-2 rounded-sm bg-current shadow-[inset_0_0_0_1px_#00000019]",
-                        colorClassName,
-                      )}
-                    /> */}
-                      <span>{label}</span>
-                    </div>
-                  )}
                 </Link>
+                {/* {id === "sales" && (
+                  <ToggleGroup
+                    className="absolute right-3 top-3 hidden w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100 sm:flex"
+                    optionClassName="size-8 p-0 flex items-center justify-center"
+                    indicatorClassName="border-[6px] border-neutral-100 bg-white"
+                    options={[
+                      {
+                        label: <div className="text-base">$</div>,
+                        value: "saleAmount",
+                      },
+                      {
+                        label: <div className="text-[11px]">123</div>,
+                        value: "sales",
+                      },
+                    ]}
+                    selected={saleUnit}
+                    selectAction={(option: AnalyticsSaleUnit) => {
+                      queryParams({
+                        set: { saleUnit: option },
+                      });
+                    }}
+                  />
+                )} */}
               </div>
             );
           })}
@@ -191,13 +178,13 @@ export default function Main() {
       <div className="relative">
         <div
           className={cn(
-            "relative overflow-hidden border-x-[6px] border-b-[6px] border-neutral-100 sm:rounded-b-xl",
-            // showPaywall &&
-            //   "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
+            "relative overflow-hidden border-x-[6px] border-b-[6px] border-neutral-100 rounded-b-xl",
+            showPaywall &&
+              "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
           )}
         >
           {view === "timeseries" && (
-            <div className="p-2 pt-2 sm:pt-10 sm:p-10">
+            <div className="p-5 pt-10 sm:p-10">
               <AnalyticsAreaChart resource={tab.id} demo={showPaywall} />
             </div>
           )}
@@ -206,7 +193,7 @@ export default function Main() {
         {/* <ToggleGroup
           className="absolute right-3 top-3 flex w-fit shrink-0 items-center gap-1 border-neutral-100 bg-neutral-100"
           optionClassName="size-8 p-0 flex items-center justify-center"
-          indicatorClassName="border-[6px] border-neutral-100 bg-white"
+          indicatorClassName="border border-neutral-200 bg-white"
           options={[
             {
               label: <ChartLine className="size-4 text-neutral-600" />,
@@ -224,7 +211,7 @@ export default function Main() {
             });
           }}
         /> */}
-        {/* {showPaywall && <ConversionTrackingPaywall />} */}
+        {showPaywall && <ConversionTrackingPaywall />}
       </div>
     </div>
   );
@@ -236,34 +223,20 @@ function ConversionTrackingPaywall() {
   return (
     <div className="animate-slide-up-fade pointer-events-none absolute inset-0 flex items-center justify-center pt-24">
       <div className="pointer-events-auto flex flex-col items-center">
-        {/* <Link
-          href="https://d.to/conversions"
-          target="_blank"
-          className="group relative flex aspect-video w-full max-w-80 items-center justify-center overflow-hidden rounded-lg border-[6px] border-neutral-100 bg-neutral-100"
-        >
+        <div className="group relative flex aspect-video w-full max-w-80 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100">
           <BlurImage
-            src="https://assets.dub.co/blog/conversion-analytics.png"
+            src="https://assets.pimms.io/conversion-tracking-1.png"
             alt="thumbnail"
             fill
             className="object-cover"
           />
-          <div className="relative flex size-10 items-center justify-center rounded-full bg-neutral-900 ring-[6px] ring-black/5 transition-all duration-75 group-hover:ring-[8px] group-active:ring-[7px]">
-            <Play className="size-4 fill-current text-white" />
-          </div>
-        </Link> */}
+        </div>
         <h2 className="mt-7 text-base font-semibold text-neutral-700">
-          Conversion Tracking
+          🎉 New conversion analytics
         </h2>
         <p className="mt-4 max-w-sm text-center text-sm text-neutral-500">
           Want to see how your clicks are converting to revenue? Upgrade to our
-          Business Plan and start tracking conversion events with PIMMS.{" "}
-          {/* <Link
-            href="https://d.to/conversions"
-            target="_blank"
-            className="underline transition-colors duration-75 hover:text-neutral-700"
-          >
-            Learn more
-          </Link> */}
+          Pro Plan and start tracking conversion with PiMMs.
         </p>
         <Link
           href={`/${slug}/upgrade`}
@@ -272,7 +245,7 @@ function ConversionTrackingPaywall() {
             "mt-4 flex h-8 items-center justify-center whitespace-nowrap rounded-lg border px-3 text-sm",
           )}
         >
-          Upgrade to Business
+          Upgrade to Pro
         </Link>
       </div>
     </div>

@@ -35,16 +35,24 @@ const socials = [
 ];
 
 const navigation = {
-  features: FEATURES_LIST.map(({ title, href }) => ({
-    name: title,
-    href,
-  })),
   product: [
+    ...FEATURES_LIST.map(({ title, href }) => ({
+      name: title,
+      href,
+    })),
+    { name: "PiMMs Enterprise", href: "/enterprise" },
+    { name: "Pricing", href: "/pricing" },
+  ],
+  solutions: [
+    { name: "Marketing attribution", href: "/analytics" },
+    { name: "Content creators", href: "/solutions/creators" },
+    { name: "Affiliate management", href: "/partners" },
+  ],
+  resources: [
+    { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Changelog", href: "/changelog" },
     { name: "Customers", href: "/customers" },
-    { name: "Enterprise", href: "/enterprise" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Docs", href: "/docs/introduction" },
     { name: "Help Center", href: "/help" },
     { name: "Brand", href: "/brand" },
@@ -88,8 +96,8 @@ export function Footer({
       )}
     >
       <footer>
-        {/* <div className="xl:grid xl:grid-cols-3 xl:gap-8"> */}
-          {/* <div className="flex flex-col gap-6">
+        {/* <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="flex flex-col gap-6">
             <div className="grow">
               <Link
                 href={createHref("/", domain, {
@@ -120,33 +128,55 @@ export function Footer({
                 </a>
               ))}
             </div>
-          </div> */}
-          {/* <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
+          </div>
+          <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2">
-              <div>
-                <h3 className={linkListHeaderClassName}>Product</h3>
-                <ul role="list" className={linkListClassName}>
-                  {navigation.features.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={createHref(item.href, domain, {
-                          utm_source: "Custom Domain",
-                          utm_medium: "Footer",
-                          utm_campaign: domain,
-                          utm_content: item.name,
-                        })}
-                        className={linkListItemClassName}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div className="grid gap-8">
+                <div>
+                  <h3 className={linkListHeaderClassName}>Product</h3>
+                  <ul role="list" className={linkListClassName}>
+                    {navigation.product.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={createHref(item.href, domain, {
+                            utm_source: "Custom Domain",
+                            utm_medium: "Footer",
+                            utm_campaign: domain,
+                            utm_content: item.name,
+                          })}
+                          className={linkListItemClassName}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className={linkListHeaderClassName}>Solutions</h3>
+                  <ul role="list" className={linkListClassName}>
+                    {navigation.solutions.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={createHref(item.href, domain, {
+                            utm_source: "Custom Domain",
+                            utm_medium: "Footer",
+                            utm_campaign: domain,
+                            utm_content: item.name,
+                          })}
+                          className={linkListItemClassName}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className={linkListHeaderClassName}>Resources</h3>
                 <ul role="list" className={linkListClassName}>
-                  {navigation.product.map((item) => (
+                  {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={createHref(item.href, domain, {
@@ -165,7 +195,7 @@ export function Footer({
               </div>
             </div>
             <div className="md:grid md:grid-cols-2">
-              <div className="flex flex-col space-y-8">
+              <div className="grid gap-8">
                 <div>
                   <h3 className={linkListHeaderClassName}>Compare</h3>
                   <ul role="list" className={linkListClassName}>
@@ -242,13 +272,13 @@ export function Footer({
                 </ul>
               </div>
             </div>
-          </div> */}
-        {/* </div> */}
+          </div>
+        </div> */}
 
         {/* Bottom row (status, SOC2, copyright) */}
-        {/* <div className="mt-12 grid grid-cols-1 items-center gap-8 sm:grid-cols-3"> */}
-          {/* <StatusBadge /> */}
-          {/* <Link
+        {/* <div className="mt-12 grid grid-cols-1 items-center gap-8 sm:grid-cols-3">
+          <StatusBadge />
+          <Link
             href={createHref("/blog/soc2", domain, {
               utm_source: "Custom Domain",
               utm_medium: "Footer",
@@ -264,11 +294,11 @@ export function Footer({
               height={32}
               className="h-8 transition-[filter] duration-75 hover:brightness-90"
             />
-          </Link> */}
-          <p className="text-xs text-neutral-500 sm:text-center">
-            © {new Date().getFullYear()} PIMMS.
+          </Link>
+          <p className="text-xs text-neutral-500 sm:text-right">
+            © {new Date().getFullYear()} Dub Technologies, Inc.
           </p>
-        {/* </div> */}
+        </div> */}
       </footer>
     </MaxWidthWrapper>
   );
@@ -283,7 +313,7 @@ function StatusBadge() {
         | "partial_outage"
         | "full_outage";
     }[];
-  }>("https://status.dub.co/api/v1/summary", fetcher);
+  }>("https://status.pimms.io/api/v1/summary", fetcher);
 
   const [color, setColor] = useState("bg-neutral-200");
   const [status, setStatus] = useState("Loading status...");

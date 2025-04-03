@@ -214,15 +214,11 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: ShieldCheck,
             href: "/account/settings/security",
           },
-          ...(session?.user?.["dubPartnerId"]
-            ? [
-                {
-                  name: "Referrals",
-                  icon: Gift,
-                  href: "/account/settings/referrals",
-                },
-              ]
-            : []),
+          {
+            name: "Referrals",
+            icon: Gift,
+            href: "/account/settings/referrals",
+          },
         ],
       },
     ],
@@ -258,7 +254,7 @@ export function AppSidebarNav({
         slug: slug || "",
         pathname,
         queryString: getQueryString(undefined, {
-          include: ["folderId", "tagIds", "domain"],
+          include: ["folderId", "tagIds"],
         }),
         programs,
         session: session || undefined,

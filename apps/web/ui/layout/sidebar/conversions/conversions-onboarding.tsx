@@ -26,6 +26,8 @@ export function ConversionsOnboarding({
     STORE_KEYS.conversionsOnboarding,
   );
 
+  console.log("conversionsOnboarding", conversionsOnboarding);
+
   const { setShowConversionOnboardingModal, conversionOnboardingModal } =
     useConversionOnboardingModal();
 

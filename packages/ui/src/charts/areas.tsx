@@ -8,6 +8,7 @@ import { useChartContext, useChartTooltipContext } from "./chart-context";
 
 export function Areas({
   seriesStyles,
+  showLatestValueCircle = true,
 }: {
   seriesStyles?: {
     id: string;
@@ -16,6 +17,7 @@ export function Areas({
     areaFill?: string;
     lineStroke?: string;
   }[];
+  showLatestValueCircle?: boolean;
 }) {
   const { data, series, margin, xScale, yScale, startDate, endDate } =
     useChartContext();
@@ -50,6 +52,17 @@ export function Areas({
                 key={`${s.id}_${startDate.toString()}_${endDate.toString()}`}
               >
                 {/* Area background mask gradient */}
+                {/* <LinearGradient
+                  id={`${s.id}-mask-gradient`}
+                  from="white"
+                  to="white"
+                  fromOpacity={0.2}
+                  toOpacity={0}
+                  x1={0}
+                  x2={0}
+                  y1={0}
+                  y2={1}
+                /> */}
                 <mask id={`${s.id}-mask`} maskContentUnits="objectBoundingBox">
                   <rect
                     width="1"
@@ -103,8 +116,8 @@ export function Areas({
                   )}
                 </Area>
 
-                {/* Latest value dot */}
-                {!tooltipData && (
+                {/* Latest value circle */}
+                {showLatestValueCircle && !tooltipData && (
                   <Circle
                     cx={xScale(data.at(-1)!.date)}
                     cy={yScale(s.valueAccessor(data.at(-1)!))}

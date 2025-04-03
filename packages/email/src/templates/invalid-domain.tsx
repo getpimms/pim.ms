@@ -19,16 +19,12 @@ export function InvalidDomain({
   domain = "pim.ms",
   workspaceSlug = "pimms",
   invalidDays = 14,
-  appDomain = "pimms.io",
 }: {
   email: string;
   domain: string;
   workspaceSlug: string;
   invalidDays: number;
-  appDomain: string;
 }): JSX.Element {
-  const notificationSettingsUrl = `https://app.${appDomain}/${workspaceSlug}/settings/notifications`;
-
   return (
     <Html>
       <Head />
@@ -36,20 +32,15 @@ export function InvalidDomain({
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
-            <Section className="mt-8">
-              <Img
-                src={DUB_WORDMARK}
-                height="14"
-                alt="PIMMS"
-                className="my-0"
-              />
+            <Section className="my-8">
+              <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
-            <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
+            <Heading className="mx-0 my-7 p-0 text-lg font-medium text-black">
               Invalid Domain Configuration
             </Heading>
             <Text className="text-sm leading-6 text-black">
               Your domain <code className="text-purple-600">{domain}</code> for
-              your PIMMS workspace{" "}
+              your PiMMs workspace{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}`}
                 className="font-medium text-blue-600 no-underline"
@@ -60,7 +51,7 @@ export function InvalidDomain({
             </Text>
             <Text className="text-sm leading-6 text-black">
               If your domain remains unconfigured for 30 days, it will be
-              automatically deleted from PIMMS. Please click the link below to
+              automatically deleted from PiMMs. Please click the link below to
               configure your domain.
             </Text>
             <Section className="my-8 text-center">
@@ -72,7 +63,7 @@ export function InvalidDomain({
               </Link>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you do not want to keep this domain on PIMMS, you can{" "}
+              If you do not want to keep this domain on PiMMs, you can{" "}
               <Link
                 href={`https://app.pimms.io/${workspaceSlug}/settings/domains`}
                 className="font-medium text-blue-600 no-underline"
@@ -88,7 +79,7 @@ export function InvalidDomain({
             </Text>
             <Footer
               email={email}
-              notificationSettingsUrl={notificationSettingsUrl}
+              notificationSettingsUrl={`https://app.pimms.io/${workspaceSlug}/settings/notifications`}
             />
           </Container>
         </Body>

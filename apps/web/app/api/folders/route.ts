@@ -1,5 +1,6 @@
+import { createId } from "@/lib/api/create-id";
 import { DubApiError, exceededLimitError } from "@/lib/api/errors";
-import { createId, parseRequestBody } from "@/lib/api/utils";
+import { parseRequestBody } from "@/lib/api/utils";
 import { withWorkspace } from "@/lib/auth";
 import { getFolders } from "@/lib/folder/get-folders";
 import { getPlanCapabilities } from "@/lib/plan-capabilities";
@@ -9,18 +10,22 @@ import {
   listFoldersQuerySchema,
 } from "@/lib/zod/schemas/folders";
 import { prisma } from "@dub/prisma";
+import { waitUntil } from "@vercel/functions";
 import { NextResponse } from "next/server";
 
 // GET /api/folders - get all folders for a workspace
 export const GET = withWorkspace(
   async ({ workspace, headers, session, searchParams }) => {
-    const { search } = listFoldersQuerySchema.parse(searchParams);
+    const { search, includeLinkCount, pageSize, page } =
+      listFoldersQuerySchema.parse(searchParams);
 
     const folders = await getFolders({
       workspaceId: workspace.id,
       userId: session.user.id,
-      includeLinkCount: true,
       search,
+      pageSize,
+      page,
+      includeLinkCount,
     });
 
     return NextResponse.json(FolderSchema.array().parse(folders), {
@@ -35,6 +40,7 @@ export const GET = withWorkspace(
       "business plus",
       "business extra",
       "business max",
+      "advanced",
       "enterprise",
     ],
     featureFlag: "linkFolders",
@@ -44,13 +50,7 @@ export const GET = withWorkspace(
 // POST /api/folders - create a folder for a workspace
 export const POST = withWorkspace(
   async ({ req, workspace, headers, session }) => {
-    const foldersCount = await prisma.folder.count({
-      where: {
-        projectId: workspace.id,
-      },
-    });
-
-    if (foldersCount >= workspace.foldersLimit) {
+    if (workspace.foldersUsage >= workspace.foldersLimit) {
       throw new DubApiError({
         code: "exceeded_limit",
         message: exceededLimitError({
@@ -91,6 +91,13 @@ export const POST = withWorkspace(
         },
       });
 
+      waitUntil(
+        prisma.project.update({
+          where: { id: workspace.id },
+          data: { foldersUsage: { increment: 1 } },
+        }),
+      );
+
       return NextResponse.json(FolderSchema.parse(newFolder), {
         headers,
         status: 201,
@@ -114,6 +121,7 @@ export const POST = withWorkspace(
       "business plus",
       "business extra",
       "business max",
+      "advanced",
       "enterprise",
     ],
     featureFlag: "linkFolders",

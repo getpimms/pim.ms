@@ -26,7 +26,7 @@ export function PageContent({
   const hasDescription = description !== undefined;
 
   return (
-    <div className="bg-[#ecf8fe] md:bg-white">
+    <div className="bg-[#ecf8fe] md:bg-transparent">
       <MaxWidthWrapper
         className={cn(
           "mt-3",
@@ -71,7 +71,7 @@ export function PageContent({
           </div> */}
         </div>
       </MaxWidthWrapper>
-      <div className="bg-white pt-2.5 max-md:mt-3 max-md:rounded-t-[16px]">
+      <div className="bg-white md:bg-transparent pt-2.5 max-md:mt-3 max-md:rounded-t-[16px]">
         {hasDescription && (
           <MaxWidthWrapper className="">
             <p className="mb-3 mt-1 text-base text-neutral-500 md:hidden">

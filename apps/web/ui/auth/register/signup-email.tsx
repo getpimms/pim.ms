@@ -8,21 +8,23 @@ import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRegisterContext } from "./context";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 
 type SignUpProps = z.infer<typeof signUpSchema>;
 
 export const SignUpEmail = () => {
-  const { setStep, setEmail, setPassword } = useRegisterContext();
+  const { setStep, setEmail, setPassword, email, lockEmail } =
+    useRegisterContext();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
     getValues,
-  } = useForm<SignUpProps>();
+  } = useForm<SignUpProps>({
+    defaultValues: {
+      email,
+    },
+  });
 
   const { executeAsync, isPending } = useAction(sendOtpAction, {
     onSuccess: () => {
@@ -39,15 +41,6 @@ export const SignUpEmail = () => {
     },
   });
 
-  // get email from url
-  const email = useSearchParams().get("email");
-  useEffect(() => {
-    if (email) {
-      // set email in form
-      setValue("email", email);
-    }
-  }, [email, setValue]);
-
   return (
     <form onSubmit={handleSubmit(async (data) => await executeAsync(data))}>
       <div className="flex flex-col space-y-4">
@@ -56,6 +49,7 @@ export const SignUpEmail = () => {
           placeholder="Work Email"
           autoComplete="email"
           required
+          readOnly={!errors.email && lockEmail}
           {...register("email")}
           error={errors.email?.message}
         />

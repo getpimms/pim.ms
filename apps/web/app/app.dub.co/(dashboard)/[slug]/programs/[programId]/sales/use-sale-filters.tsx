@@ -10,7 +10,7 @@ import { SaleStatusBadges } from "@/ui/partners/sale-status-badges";
 import { CircleDotted, useRouterStuff } from "@dub/ui";
 import { User, Users } from "@dub/ui/icons";
 import { cn, DICEBEAR_AVATAR_URL, nFormatter } from "@dub/utils";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useDebounce } from "use-debounce";
 
 export function useSaleFilters() {
@@ -23,7 +23,7 @@ export function useSaleFilters() {
 
   const { partners, partnersAsync } = usePartnerFilterOptions(
     selectedFilter === "partnerId" ? debouncedSearch : "",
-  ) as any;
+  );
 
   const { customers, customersAsync } = useCustomerFilterOptions(
     selectedFilter === "customerId" ? debouncedSearch : "",
@@ -88,7 +88,7 @@ export function useSaleFilters() {
                 )}
               />
             ),
-            right: nFormatter(salesCount?.[value] || 0, { full: true }),
+            right: nFormatter(salesCount?.[value]?.count || 0, { full: true }),
           };
         }),
       },
@@ -105,27 +105,44 @@ export function useSaleFilters() {
       ...(customerId ? [{ key: "customerId", value: customerId }] : []),
       ...(payoutId ? [{ key: "payoutId", value: payoutId }] : []),
     ];
-  }, [searchParamsObj]);
+  }, [
+    searchParamsObj.status,
+    searchParamsObj.partnerId,
+    searchParamsObj.customerId,
+    searchParamsObj.payoutId,
+  ]);
 
-  const onSelect = (key: string, value: any) =>
-    queryParams({
-      set: {
-        [key]: value,
-      },
-      del: "page",
-    });
+  const onSelect = useCallback(
+    (key: string, value: any) =>
+      queryParams({
+        set: {
+          [key]: value,
+        },
+        del: "page",
+      }),
+    [queryParams],
+  );
 
-  const onRemove = (key: string) =>
-    queryParams({
-      del: [key, "page"],
-    });
+  const onRemove = useCallback(
+    (key: string) =>
+      queryParams({
+        del: [key, "page"],
+      }),
+    [queryParams],
+  );
 
-  const onRemoveAll = () =>
-    queryParams({
-      del: ["status", "partnerId", "customerId", "payoutId"],
-    });
+  const onRemoveAll = useCallback(
+    () =>
+      queryParams({
+        del: ["status", "partnerId", "customerId", "payoutId"],
+      }),
+    [queryParams],
+  );
 
-  const isFiltered = activeFilters.length > 0 || searchParamsObj.search;
+  const isFiltered = useMemo(
+    () => activeFilters.length > 0 || searchParamsObj.search,
+    [activeFilters, searchParamsObj.search],
+  );
 
   return {
     filters,
@@ -169,12 +186,13 @@ function usePartnerFilterOptions(search: string) {
           (p) => p.id === searchParamsObj.partnerId,
         ))
       ? null
-      : [
+      : ([
           ...(partners ?? []),
+          // Add selected partner to list if not already in partners
           ...(selectedPartners
             ?.filter((st) => !partners?.some((t) => t.id === st.id))
             ?.map((st) => ({ ...st, hideDuringSearch: true })) ?? []),
-        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[];
+        ] as (EnrolledPartnerProps & { hideDuringSearch?: boolean })[]);
   }, [partnersLoading, partners, selectedPartners, searchParamsObj.partnerId]);
 
   return { partners: result, partnersAsync };
@@ -203,17 +221,19 @@ function useCustomerFilterOptions(search: string) {
 
   const result = useMemo(() => {
     return customersLoading ||
+      // Consider partners loading if we can't find the currently filtered partner
       (searchParamsObj.customerId &&
         ![...(selectedCustomers ?? []), ...(customers ?? [])].some(
           (p) => p.id === searchParamsObj.customerId,
         ))
       ? null
-      : [
+      : ([
           ...(customers ?? []),
+          // Add selected partner to list if not already in partners
           ...(selectedCustomers
             ?.filter((st) => !customers?.some((t) => t.id === st.id))
             ?.map((st) => ({ ...st, hideDuringSearch: true })) ?? []),
-        ] as (CustomerProps & { hideDuringSearch?: boolean })[];
+        ] as (CustomerProps & { hideDuringSearch?: boolean })[]);
   }, [
     customersLoading,
     customers,

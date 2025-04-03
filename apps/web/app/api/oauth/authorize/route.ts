@@ -49,12 +49,12 @@ export const POST = withWorkspace(async ({ session, req, workspace }) => {
     [STRIPE_INTEGRATION_ID, SHOPIFY_INTEGRATION_ID].includes(
       app.integrationId,
     ) &&
-    (workspace.plan === "free" || workspace.plan === "pro")
+    (workspace.plan === "free")
   ) {
     throw new DubApiError({
       code: "bad_request",
       message:
-        "This integration is only available for workspaces with a Business plan or higher. Please upgrade your plan to continue.",
+        "This integration is only available for workspaces with a Pro plan or higher. Please upgrade your plan to continue.",
     });
   }
 

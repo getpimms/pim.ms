@@ -29,7 +29,7 @@ export function AnimatedEmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-6 rounded-lg border-[6px] border-neutral-100 px-4 py-10 md:min-h-[500px]",
+        "flex flex-col items-center justify-center gap-6 rounded-xl border-[6px] border-neutral-100 px-4 mx-3 py-10 md:min-h-[500px]",
         className,
       )}
     >
@@ -62,7 +62,7 @@ export function AnimatedEmptyState({
             target="_blank"
             className={cn(
               buttonVariants({ variant: addButton ? "secondary" : "primary" }),
-              "flex h-9 items-center whitespace-nowrap rounded-lg border px-4 text-sm",
+              "flex h-9 items-center whitespace-nowrap rounded-xl border-[6px] px-4 text-sm",
               learnMoreClassName,
             )}
           >

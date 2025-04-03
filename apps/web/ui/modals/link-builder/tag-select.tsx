@@ -17,12 +17,12 @@ import {
 import { cn } from "@dub/utils";
 import { useCompletion } from "ai/react";
 import posthog from "posthog-js";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 import { mutate } from "swr";
 import { useDebounce } from "use-debounce";
-import { LinkFormData, LinkModalContext } from ".";
+import { LinkFormData } from ".";
 import { MultiTagsIcon } from "./multi-tags-icon";
 
 function getTagOption(tag: TagProps) {
@@ -35,8 +35,12 @@ function getTagOption(tag: TagProps) {
 }
 
 export function TagSelect() {
-  const { slug, mutate: mutateWorkspace, exceededAI } = useWorkspace();
-  const { workspaceId } = useContext(LinkModalContext);
+  const {
+    id: workspaceId,
+    slug,
+    mutate: mutateWorkspace,
+    exceededAI,
+  } = useWorkspace();
 
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebounce(search, 500);
@@ -98,7 +102,7 @@ export function TagSelect() {
     [tags],
   );
 
-  useKeyboardShortcut("t", () => setIsOpen(true), { modal: true });
+  useKeyboardShortcut("t", () => setIsOpen(true), { modal: true, priority: 2 });
 
   const [suggestedTags, setSuggestedTags] = useState<TagProps[]>([]);
 
@@ -152,7 +156,7 @@ export function TagSelect() {
     <div>
       <div className="mb-1 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-medium text-neutral-700">More</p>
+          <p className="text-sm font-medium text-neutral-700">Tags</p>
           {/* <InfoTooltip
             content={
               <SimpleTooltipContent
@@ -192,7 +196,7 @@ export function TagSelect() {
         shortcutHint="T"
         buttonProps={{
           className: cn(
-            "h-auto py-1.5 px-2.5 w-full text-neutral-700 border-neutral-200 items-start",
+            "h-auto py-1.5 px-2.5 w-full text-neutral-700 border-neutral-300 items-start",
             selectedTags.length === 0 && "text-neutral-400",
           ),
         }}

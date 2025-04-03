@@ -7,6 +7,7 @@ import { CoinsIcon, MousePointerClick, TargetIcon } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
+  memo,
   PropsWithChildren,
   useContext,
   useMemo,
@@ -15,6 +16,7 @@ import {
 } from "react";
 import { useShareDashboardModal } from "../modals/share-dashboard-modal";
 import { LinkControls } from "./link-controls";
+import { useLinkSelection } from "./link-selection-provider";
 import { ResponseLink } from "./links-container";
 import { LinksDisplayContext } from "./links-display-provider";
 import TagBadge from "./tag-badge";
@@ -63,10 +65,20 @@ export function LinkDetailsColumn({ link }: { link: ResponseLink }) {
       {displayProperties.includes("analytics") && (
         <AnalyticsBadge link={link} />
       )}
-      <LinkControls link={link} />
+      <Controls link={link} />
     </div>
   );
 }
+
+const Controls = memo(({ link }: { link: ResponseLink }) => {
+  const { isSelectMode } = useLinkSelection();
+
+  return (
+    <div className={cn(isSelectMode && "hidden sm:block")}>
+      <LinkControls link={link} />
+    </div>
+  );
+});
 
 function TagsTooltip({
   additionalTags,
@@ -171,7 +183,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
 
   // return isMobile ? (
   //   <Link
-  //     href={`/${slug}/analytics?domain=${domain}&key=${key}&interval=${plan === "free" ? "30d" : plan === "pro" ? "1y" : "all"}`}
+  //     href={`/${slug}/analytics?domain=${domain}&key=${key}`}
   //     className="flex items-center gap-1 rounded-xl border-[2px] border-neutral-100 bg-neutral-50 px-2 py-0.5 text-sm text-neutral-800"
   //   >
   //     <CursorRays className="h-4 w-4 text-neutral-600" />
@@ -230,7 +242,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
       <Link
         href={`/${slug}/analytics?domain=${domain}&key=${key}&interval=${plan === "free" ? "30d" : plan === "pro" ? "1y" : "all"}`}
         className={cn(
-          "overflow-hidden rounded-xl border-[2px] border-neutral-100 bg-neutral-50 text-sm text-neutral-600 transition-colors",
+          "overflow-hidden rounded-xl border-[2px] border-neutral-100 bg-neutral-50 p-0.5 text-sm text-neutral-600 transition-colors",
           variant === "loose" ? "hover:bg-neutral-100" : "hover:bg-white",
         )}
       >
@@ -254,7 +266,7 @@ function AnalyticsBadge({ link }: { link: ResponseLink }) {
                 ),
               )}
           </div>
-          <div className="flex flex-row items-center gap-0.5 w-full border-t border-neutral-100">
+          <div className="flex flex-row items-center gap-0.5 w-full">
             {stats
               .filter(({ id }) => id !== "clicks")
               .map(

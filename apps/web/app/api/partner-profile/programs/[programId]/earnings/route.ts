@@ -1,11 +1,12 @@
 import { getStartEndDates } from "@/lib/analytics/utils/get-start-end-dates";
 import { getProgramEnrollmentOrThrow } from "@/lib/api/programs/get-program-enrollment-or-throw";
 import { withPartnerProfile } from "@/lib/auth/partner";
+import { generateRandomName } from "@/lib/names";
 import z from "@/lib/zod";
 import {
-  getPartnerSalesQuerySchema,
   PartnerEarningsSchema,
-} from "@/lib/zod/schemas/partners";
+  getPartnerEarningsQuerySchema,
+} from "@/lib/zod/schemas/partner-profile";
 import { prisma } from "@dub/prisma";
 import { NextResponse } from "next/server";
 
@@ -20,15 +21,17 @@ export const GET = withPartnerProfile(
     const {
       page,
       pageSize,
+      type,
       status,
       sortBy,
       sortOrder,
+      linkId,
       customerId,
       payoutId,
       interval,
       start,
       end,
-    } = getPartnerSalesQuerySchema.parse(searchParams);
+    } = getPartnerEarningsQuerySchema.parse(searchParams);
 
     const { startDate, endDate } = getStartEndDates({
       interval,
@@ -38,9 +41,13 @@ export const GET = withPartnerProfile(
 
     const earnings = await prisma.commission.findMany({
       where: {
+        earnings: {
+          gt: 0,
+        },
         programId: program.id,
         partnerId: partner.id,
         status,
+        linkId,
         customerId,
         payoutId,
         createdAt: {
@@ -58,12 +65,33 @@ export const GET = withPartnerProfile(
         createdAt: true,
         updatedAt: true,
         customer: true,
+        link: {
+          select: {
+            id: true,
+            shortLink: true,
+            url: true,
+          },
+        },
       },
       skip: (page - 1) * pageSize,
       take: pageSize,
       orderBy: { [sortBy]: sortOrder },
     });
 
-    return NextResponse.json(z.array(PartnerEarningsSchema).parse(earnings));
+    const data = z.array(PartnerEarningsSchema).parse(
+      earnings.map((e) => ({
+        ...e,
+        customer: e.customer
+          ? {
+              ...e.customer,
+              // fallback to a random name if the customer doesn't have an email
+              email:
+                e.customer.email ?? e.customer.name ?? generateRandomName(),
+            }
+          : null,
+      })),
+    );
+
+    return NextResponse.json(data);
   },
 );

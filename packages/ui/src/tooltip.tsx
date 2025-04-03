@@ -108,7 +108,7 @@ export function TooltipContent({
             {...(target ? { target } : {})}
             className={cn(
               buttonVariants({ variant: "primary" }),
-              "flex h-9 w-full items-center justify-center whitespace-nowrap rounded-lg border px-4 text-sm",
+              "flex h-9 w-full items-center justify-center whitespace-nowrap rounded-xl border-[6px] px-4 text-sm",
             )}
           >
             {cta}
@@ -252,5 +252,21 @@ export function ButtonTooltip({
         {children}
       </button>
     </Tooltip>
+  );
+}
+
+export function DynamicTooltipWrapper({
+  children,
+  tooltipProps,
+}: {
+  children: ReactNode;
+  tooltipProps?: TooltipProps;
+}) {
+  return tooltipProps ? (
+    <Tooltip {...tooltipProps}>
+      <div>{children}</div>
+    </Tooltip>
+  ) : (
+    children
   );
 }

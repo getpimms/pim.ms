@@ -17,6 +17,7 @@ export const GET = withWorkspace(
       },
       select: {
         pimms: true,
+        fcksubcom: true,
       },
     });
 
@@ -58,6 +59,7 @@ export const PATCH = withWorkspace(
       },
       data: {
         pimms: defaultDomains.includes("pim.ms"),
+        fcksubcom: defaultDomains.includes("fcksub.com"),
       },
     });
 

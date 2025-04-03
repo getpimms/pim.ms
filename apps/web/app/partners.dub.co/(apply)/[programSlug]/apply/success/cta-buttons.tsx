@@ -3,31 +3,33 @@
 import { Button } from "@dub/ui";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 export function CTAButtons() {
-  const router = useRouter();
-  const { data: session, status } = useSession();
+  const { programSlug } = useParams();
+  const { status } = useSession();
+
+  const slugPrefix = programSlug ? `/${programSlug}` : "";
 
   return (
     <>
-      <Link href={status === "authenticated" ? "/" : "/register"}>
+      <Link href={status === "authenticated" ? "/" : `${slugPrefix}/register`}>
         <Button
           type="button"
           text={
             status === "authenticated"
-              ? "Continue to PIMMS Partners"
-              : "Create your PIMMS Partners account"
+              ? "Continue to PiMMs Partners"
+              : "Create your PiMMs Partners account"
           }
           className="border-[var(--brand)] bg-[var(--brand)] hover:bg-[var(--brand)] hover:ring-[var(--brand-ring)]"
         />
       </Link>
       {status === "unauthenticated" && (
-        <Link href="/login">
+        <Link href={`${slugPrefix}/login`}>
           <Button
             type="button"
             variant="secondary"
-            text="Log in to PIMMS Partners"
+            text="Log in to PiMMs Partners"
           />
         </Link>
       )}

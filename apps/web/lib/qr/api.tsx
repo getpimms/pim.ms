@@ -79,6 +79,7 @@ export async function getQRAsSVG(props: QRPropsSVG) {
         shapeRendering="crispEdges"
       />
       <path fill={fgColor} d={fgPath} shapeRendering="crispEdges" />
+      {/* {image} */}
     </svg>
   );
 }

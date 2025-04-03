@@ -10,7 +10,7 @@ import {
 } from "@dub/ui";
 import { CursorRays, InvoiceDollar, UserCheck } from "@dub/ui/icons";
 import { cn } from "@dub/utils";
-import { ChevronsUpDown, MousePointerClick, Target } from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
 import {
   Dispatch,
   ReactNode,
@@ -20,7 +20,7 @@ import {
 } from "react";
 import { AnalyticsContext } from "./analytics-provider";
 
-const EVENTS_MAPPING = {
+const EVENT_LABELS = {
   sales: "Sales",
   leads: "Conversions",
   clicks: "Clicks",
@@ -71,8 +71,18 @@ export function AnalyticsCard<T extends string>({
         setShowModal={setShowModal}
         className="max-w-lg px-0"
       >
-        <div className="border-b-[6px] border-neutral-100 px-6 py-4">
+        <div className="flex items-center justify-between border-b-[6px] border-neutral-100 px-6 py-4">
           <h1 className="text-lg font-semibold">{selectedTab?.label}</h1>
+          <div className="flex items-center gap-1 text-neutral-500">
+            {/* {event === "sales" ? (
+              <InvoiceDollar className="h-4 w-4" />
+            ) : event === "leads" ? (
+              <UserCheck className="h-4 w-4" />
+            ) : (
+              <CursorRays className="h-4 w-4" />
+            )} */}
+            <p className="text-xs uppercase">{EVENT_LABELS[event]}</p>
+          </div>
         </div>
         {/* {subTabs && selectedSubTabId && onSelectSubTab && (
           <SubTabs
@@ -85,7 +95,7 @@ export function AnalyticsCard<T extends string>({
       </Modal>
       <div
         className={cn(
-          "relative z-0 h-[400px] overflow-hidden border-[6px] border-neutral-100 bg-white sm:rounded-xl",
+          "group relative z-0 h-[400px] overflow-hidden border-[6px] border-neutral-100 bg-white rounded-xl",
           className,
         )}
       >
@@ -140,14 +150,14 @@ export function AnalyticsCard<T extends string>({
           )}
 
           <div className="flex items-center gap-1 pr-2 text-neutral-500">
-            {event === "sales" ? (
+            {/* {event === "sales" ? (
               <InvoiceDollar className="hidden h-4 w-4 sm:block" />
             ) : event === "leads" ? (
-              <Target className="hidden h-4 w-4 sm:block" />
+              <UserCheck className="hidden h-4 w-4 sm:block" />
             ) : (
-              <MousePointerClick className="hidden h-4 w-4 sm:block" />
-            )}
-            <p className="text-xs uppercase">{EVENTS_MAPPING[event]}</p>
+              <CursorRays className="hidden h-4 w-4 sm:block" />
+            )} */}
+            <p className="text-xs uppercase">{EVENT_LABELS[event]}</p>
           </div>
         </div>
         {/* <AnimatedSizeContainer

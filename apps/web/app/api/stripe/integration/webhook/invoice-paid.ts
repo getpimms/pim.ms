@@ -1,7 +1,9 @@
+import { convertCurrency } from "@/lib/analytics/convert-currency";
+import { createId } from "@/lib/api/create-id";
 import { includeTags } from "@/lib/api/links/include-tags";
 import { notifyPartnerSale } from "@/lib/api/partners/notify-partner-sale";
-import { calculateSaleEarnings } from "@/lib/api/sales/calculate-earnings";
-import { createId } from "@/lib/api/utils";
+import { calculateSaleEarnings } from "@/lib/api/sales/calculate-sale-earnings";
+import { determinePartnerReward } from "@/lib/partners/determine-partner-reward";
 import { getLeadEvent, recordSale } from "@/lib/tinybird";
 import { redis } from "@/lib/upstash";
 import { sendWorkspaceWebhook } from "@/lib/webhook/publish";
@@ -9,6 +11,7 @@ import { transformSaleEventData } from "@/lib/webhook/transform";
 import { prisma } from "@dub/prisma";
 import { nanoid } from "@dub/utils";
 import { waitUntil } from "@vercel/functions";
+import { differenceInMonths } from "date-fns";
 import type Stripe from "stripe";
 
 // Handle event "invoice.paid"
@@ -44,6 +47,19 @@ export async function invoicePaid(event: Stripe.Event) {
 
   if (invoice.amount_paid === 0) {
     return `Invoice with ID ${invoiceId} has an amount of 0, skipping...`;
+  }
+
+  // if currency is not USD, convert it to USD  based on the current FX rate
+  // TODO: allow custom "defaultCurrency" on workspace table in the future
+  if (invoice.currency && invoice.currency !== "usd") {
+    const { currency: convertedCurrency, amount: convertedAmount } =
+      await convertCurrency({
+        currency: invoice.currency,
+        amount: invoice.amount_paid,
+      });
+
+    invoice.currency = convertedCurrency;
+    invoice.amount_paid = convertedAmount;
   }
 
   // Find lead
@@ -114,75 +130,94 @@ export async function invoicePaid(event: Stripe.Event) {
   ]);
 
   // for program links
-  // TODO: check if link.partnerId as well, so we can just do findUnique partnerId_programId
-  if (link.programId) {
-    const { program, ...partner } =
-      await prisma.programEnrollment.findFirstOrThrow({
-        where: {
-          links: {
-            some: {
-              id: link.id,
-            },
+  if (link.programId && link.partnerId) {
+    const reward = await determinePartnerReward({
+      programId: link.programId,
+      partnerId: link.partnerId,
+      event: "sale",
+    });
+
+    if (reward) {
+      let eligibleForCommission = true;
+
+      if (typeof reward.maxDuration === "number") {
+        // Get the first commission (earliest sale) for this customer-partner pair
+        const firstCommission = await prisma.commission.findFirst({
+          where: {
+            partnerId: link.partnerId,
+            customerId: customer.id,
+            type: "sale",
           },
-        },
-        select: {
-          program: true,
-          partnerId: true,
-          commissionAmount: true,
-        },
-      });
+          orderBy: {
+            createdAt: "asc",
+          },
+        });
 
-    const saleEarnings = calculateSaleEarnings({
-      program,
-      partner,
-      sales: 1,
-      saleAmount: saleData.amount,
-    });
+        if (firstCommission) {
+          if (reward.maxDuration === 0) {
+            eligibleForCommission = false;
+          } else {
+            // Calculate months difference between first commission and now
+            const monthsDifference = differenceInMonths(
+              new Date(),
+              firstCommission.createdAt,
+            );
 
-    await prisma.commission.create({
-      data: {
-        id: createId({ prefix: "cm_" }),
-        programId: program.id,
-        linkId: link.id,
-        partnerId: partner.partnerId,
-        eventId,
-        customerId: customer.id,
-        quantity: 1,
-        type: "sale",
-        amount: saleData.amount,
-        earnings: saleEarnings,
-        invoiceId,
-      },
-    });
+            if (monthsDifference >= reward.maxDuration) {
+              eligibleForCommission = false;
+            }
+          }
+        }
+      }
 
-    waitUntil(
-      notifyPartnerSale({
-        partner: {
-          id: partner.partnerId,
-          referralLink: link.shortLink,
-        },
-        program,
-        sale: {
-          amount: saleData.amount,
-          earnings: saleEarnings,
-        },
-      }),
-    );
+      if (eligibleForCommission) {
+        const earnings = calculateSaleEarnings({
+          reward,
+          sale: {
+            quantity: 1,
+            amount: saleData.amount,
+          },
+        });
+
+        const commission = await prisma.commission.create({
+          data: {
+            id: createId({ prefix: "cm_" }),
+            programId: link.programId,
+            linkId: link.id,
+            partnerId: link.partnerId,
+            eventId,
+            customerId: customer.id,
+            quantity: 1,
+            type: "sale",
+            amount: saleData.amount,
+            earnings,
+            invoiceId,
+          },
+        });
+
+        waitUntil(
+          notifyPartnerSale({
+            link,
+            commission,
+          }),
+        );
+      }
+    }
   }
 
   // send workspace webhook
-  // waitUntil(
-  //   sendWorkspaceWebhook({
-  //     trigger: "sale.created",
-  //     workspace,
-  //     data: transformSaleEventData({
-  //       ...saleData,
-  //       clickedAt: customer.clickedAt || customer.createdAt,
-  //       link: linkUpdated,
-  //       customer,
-  //     }),
-  //   }),
-  // );
+  waitUntil(
+    sendWorkspaceWebhook({
+      trigger: "sale.created",
+      workspace,
+      data: transformSaleEventData({
+        ...saleData,
+        clickedAt: customer.clickedAt || customer.createdAt,
+        link: linkUpdated,
+        customer,
+      }),
+    }),
+  );
 
   return `Sale recorded for customer ID ${customer.id} and invoice ID ${invoiceId}`;
 }

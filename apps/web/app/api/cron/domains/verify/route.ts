@@ -6,7 +6,7 @@ import {
 import { handleAndReturnErrorResponse } from "@/lib/api/errors";
 import { verifyVercelSignature } from "@/lib/cron/verify-vercel";
 import { prisma } from "@dub/prisma";
-import { log } from "@dub/utils";
+import { log, SHORT_DOMAIN } from "@dub/utils";
 import { NextResponse } from "next/server";
 import { handleDomainUpdates } from "./utils";
 
@@ -28,7 +28,7 @@ export async function GET(req: Request) {
       where: {
         slug: {
           // exclude domains that belong to us
-          notIn: ["pim.ms"],
+          notIn: [SHORT_DOMAIN],
         },
       },
       select: {

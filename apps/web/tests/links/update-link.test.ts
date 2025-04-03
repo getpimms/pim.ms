@@ -1,3 +1,4 @@
+import { normalizeWorkspaceId } from "@/lib/api/workspace-id";
 import { Link } from "@dub/prisma/client";
 import { afterAll, describe, expect, test } from "vitest";
 import { randomId } from "../utils/helpers";
@@ -11,7 +12,7 @@ describe.sequential("PATCH /links/{linkId}", async () => {
   const h = new IntegrationHarness();
   const { workspace, http, user } = await h.init();
   const workspaceId = workspace.id;
-  const projectId = workspaceId.replace("ws_", "");
+  const projectId = normalizeWorkspaceId(workspaceId);
   const externalId = randomId();
 
   const { data: link } = await http.post<Link>({
@@ -25,9 +26,9 @@ describe.sequential("PATCH /links/{linkId}", async () => {
 
   const toUpdate: Partial<Link> = {
     key: randomId(),
-    url: "https://github.com/dubinc/dub",
-    title: "Dub Inc",
-    description: "Open-source link management infrastructure.",
+    url: "https://github.com/getpimms/pimms",
+    title: "PiMMs",
+    description: "Deeplink for PiMMs",
     comments: "This is a comment.",
     expiresAt: new Date("2030-04-16T17:00:00.000Z"),
     expiredUrl: "https://github.com/expired",
@@ -186,7 +187,7 @@ describe.sequential(
     const h = new IntegrationHarness();
     const { workspace, http, user } = await h.init();
     const workspaceId = workspace.id;
-    const projectId = workspaceId.replace("ws_", "");
+    const projectId = normalizeWorkspaceId(workspaceId);
     const externalId = randomId();
 
     const { data: link } = await http.post<Link>({
@@ -200,9 +201,9 @@ describe.sequential(
 
     const toUpdate: Partial<Link> = {
       key: randomId(),
-      url: "https://github.com/dubinc/dub",
-      title: "Dub Inc",
-      description: "Open-source link management infrastructure.",
+      url: "https://github.com/getpimms/pimms",
+      title: "PiMMs",
+      description: "Deeplink for PiMMs",
       comments: "This is a comment.",
       expiresAt: new Date("2030-04-16T17:00:00.000Z"),
       expiredUrl: "https://github.com/expired",

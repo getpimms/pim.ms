@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@dub/ui";
 import { LinkedIn, LoadingCircle, NucleoPhoto } from "@dub/ui/icons";
-import { getDomainWithoutWWW, resizeImage } from "@dub/utils";
+import { getDomainWithoutWWW, resizeImage, SHORT_DOMAIN } from "@dub/utils";
 import { Upload } from "lucide-react";
 import {
   ChangeEvent,
@@ -106,7 +106,7 @@ export function LinkPreview() {
           //       href={
           //         slug
           //           ? `/${slug}/upgrade?exit=close`
-          //           : "https://dub.co/pricing"
+          //           : "https://pimms.io/pricing"
           //       }
           //       target="_blank"
           //     />
@@ -399,7 +399,7 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
           }}
         />
         <p className="text-xs text-[#00000099]">
-          {proxy ? "pim.ms" : hostname || "domain.com"}
+          {proxy ? SHORT_DOMAIN : hostname || "domain.com"}
         </p>
       </div>
     </div>

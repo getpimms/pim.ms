@@ -2,25 +2,43 @@ import useLinksCount from "@/lib/swr/use-links-count";
 import useTags from "@/lib/swr/use-tags";
 import useTagsCount from "@/lib/swr/use-tags-count";
 import useUsers from "@/lib/swr/use-users";
+import useWorkspace from "@/lib/swr/use-workspace";
 import { TagProps } from "@/lib/types";
 import { TAGS_MAX_PAGE_SIZE } from "@/lib/zod/schemas/tags";
 import { Avatar, BlurImage, Globe, Tag, User, useRouterStuff } from "@dub/ui";
-import { getGoogleFavicon, GOOGLE_FAVICON_URL, nFormatter } from "@dub/utils";
+import { GOOGLE_FAVICON_URL } from "@dub/utils";
 import { useContext, useMemo, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { LinksDisplayContext } from "./links-display-provider";
 import TagBadge from "./tag-badge";
 
 export function useLinkFilters() {
+  const { defaultFolderId } = useWorkspace();
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebounce(search, 500);
+  const { searchParams } = useRouterStuff();
 
-  const { tags, tagsAsync } = useTagFilterOptions(
-    selectedFilter === "tagIds" ? debouncedSearch : "",
-  );
-  const domains = useDomainFilterOptions();
-  const users = useUserFilterOptions();
+  // Decide on the folderId to use
+  let folderId = searchParams.get("folderId");
+  if (folderId) {
+    folderId = folderId === "unsorted" ? "" : folderId;
+  } else {
+    folderId = defaultFolderId ?? "";
+  }
+
+  const { tags, tagsAsync } = useTagFilterOptions({
+    search: selectedFilter === "tagIds" ? debouncedSearch : "",
+    folderId,
+  });
+
+  const domains = useDomainFilterOptions({
+    folderId,
+  });
+
+  const users = useUserFilterOptions({
+    folderId,
+  });
 
   const { queryParams, searchParamsObj } = useRouterStuff();
 
@@ -56,7 +74,7 @@ export function useLinkFilters() {
       //   label: "Domain",
       //   getOptionIcon: (value) => (
       //     <BlurImage
-      //       src={getGoogleFavicon(value, false)}
+      //       src={`${GOOGLE_FAVICON_URL}${value}`}
       //       alt={value}
       //       className="h-4 w-4 rounded-full"
       //       width={16}
@@ -66,7 +84,7 @@ export function useLinkFilters() {
       //   options: domains.map(({ slug, count }) => ({
       //     value: slug,
       //     label: slug,
-      //     right: nFormatter(count, { full: true }),
+      //     right: count,
       //   })),
       // },
       {
@@ -161,7 +179,13 @@ export function useLinkFilters() {
   };
 }
 
-function useTagFilterOptions(search: string) {
+function useTagFilterOptions({
+  search,
+  folderId,
+}: {
+  search: string;
+  folderId: string;
+}) {
   const { searchParamsObj } = useRouterStuff();
 
   const tagIds = useMemo(
@@ -186,7 +210,7 @@ function useTagFilterOptions(search: string) {
       tagId: string;
       _count: number;
     }[]
-  >({ groupBy: "tagId", showArchived });
+  >({ query: { groupBy: "tagId", showArchived, folderId } });
 
   const tagsResult = useMemo(() => {
     return loadingTags ||
@@ -219,7 +243,7 @@ function useTagFilterOptions(search: string) {
   return { tags: tagsResult, tagsAsync };
 }
 
-function useDomainFilterOptions() {
+function useDomainFilterOptions({ folderId }: { folderId: string }) {
   const { showArchived } = useContext(LinksDisplayContext);
 
   const { data: domainsCount } = useLinksCount<
@@ -228,8 +252,11 @@ function useDomainFilterOptions() {
       _count: number;
     }[]
   >({
-    groupBy: "domain",
-    showArchived,
+    query: {
+      groupBy: "domain",
+      showArchived,
+      folderId,
+    },
   });
 
   return useMemo(() => {
@@ -244,7 +271,7 @@ function useDomainFilterOptions() {
   }, [domainsCount]);
 }
 
-function useUserFilterOptions() {
+function useUserFilterOptions({ folderId }: { folderId: string }) {
   const { users } = useUsers();
   const { showArchived } = useContext(LinksDisplayContext);
 
@@ -254,8 +281,11 @@ function useUserFilterOptions() {
       _count: number;
     }[]
   >({
-    groupBy: "userId",
-    showArchived,
+    query: {
+      groupBy: "userId",
+      showArchived,
+      folderId,
+    },
   });
 
   return useMemo(

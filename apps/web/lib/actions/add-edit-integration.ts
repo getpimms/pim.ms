@@ -3,7 +3,7 @@
 import { prisma } from "@dub/prisma";
 import { DUB_WORKSPACE_ID, nanoid, R2_URL } from "@dub/utils";
 import { waitUntil } from "@vercel/functions";
-import { createId } from "../api/utils";
+import { createId } from "../api/create-id";
 import { deleteScreenshots } from "../integrations/utils";
 import { isStored, storage } from "../storage";
 import z from "../zod";
@@ -22,7 +22,7 @@ export const addEditIntegration = authActionClient
   .action(async ({ parsedInput, ctx }) => {
     const { id, workspaceId, ...integration } = parsedInput;
 
-    // this is only available for Dub workspace for now
+    // this is only available for PiMMs workspace for now
     // we might open this up to other workspaces in the future
     if (workspaceId !== DUB_WORKSPACE_ID) {
       throw new Error("Not authorized");
