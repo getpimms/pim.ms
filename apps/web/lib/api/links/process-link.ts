@@ -7,6 +7,7 @@ import { NewLinkProps, ProcessedLinkProps, WorkspaceProps } from "@/lib/types";
 import { prisma } from "@dub/prisma";
 import {
   DUB_DOMAINS,
+  SHORT_DOMAIN,
   UTMTags,
   combineWords,
   constructURLFromUTMParams,
@@ -159,11 +160,11 @@ export async function processLink<T extends Record<string, any>>({
 
   // if domain is not defined, set it to the workspace's primary domain
   if (!domain) {
-    domain = domains?.find((d) => d.primary)?.slug || "pim.ms";
+    domain = domains?.find((d) => d.primary)?.slug || SHORT_DOMAIN;
   }
 
   // checks for pim.ms links
-  if (domain === "pim.ms") {
+  if (domain === SHORT_DOMAIN) {
     // for dub.link: check if workspace plan is pro+
     // if (domain === "dub.link" && (!workspace || workspace.plan === "free")) {
     //   return {
@@ -175,7 +176,7 @@ export async function processLink<T extends Record<string, any>>({
     // }
 
     // for dub.sh: check if user exists (if userId is passed)
-    if (domain === "pim.ms" && userId) {
+    if (domain === SHORT_DOMAIN && userId) {
       const userExists = await checkIfUserExists(userId);
       if (!userExists) {
         return {

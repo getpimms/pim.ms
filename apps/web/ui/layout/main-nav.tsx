@@ -57,9 +57,9 @@ export function MainNav({
       {/* Side nav backdrop */}
       <div
         className={cn(
-          "fixed left-0 top-0 z-50 h-dvh w-screen transition-[background-color,backdrop-filter] md:sticky md:z-auto md:w-full md:bg-transparent",
+          "fixed left-0 top-0 z-50 h-dvh w-screen md:sticky md:z-auto md:w-full md:bg-transparent",
           isOpen
-            ? "bg-black/20 backdrop-blur-sm"
+            ? ""
             : "bg-transparent max-md:pointer-events-none",
         )}
         onClick={(e) => {
@@ -72,8 +72,8 @@ export function MainNav({
         {/* Side nav */}
         <div
           className={cn(
-            "relative h-full w-[240px] max-w-full bg-[#ecf8fe] transition-transform md:translate-x-0",
-            !isOpen && "-translate-x-full",
+            "relative h-[calc(100vh-20px)] top-[10px] left-[10px] py-[10px] w-[220px] border-[6px] border-[#D4F0FE] rounded-3xl max-w-full bg-[#ecf8fe] transition-transform md:translate-x-0",
+            !isOpen && "-translate-x-[calc(100%+20px)]",
           )}
         >
           {/* <div className="absolute inset-0 overflow-hidden">
@@ -87,8 +87,8 @@ export function MainNav({
           <Sidebar toolContent={toolContent} newsContent={newsContent} />
         </div>
       </div>
-      <div className="bg-[#ecf8fe] md:pt-1.5">
-        <div className="relative min-h-full bg-[#ecf8fe] pt-px md:rounded-tl-3xl md:border-[8px] md:border-b-0 md:border-r-0 md:border-[#D4F0FE] md:bg-white">
+      <div className="bg-white md:pt-[10px]">
+        <div className="relative min-h-full bg-[#ecf8fe] pt-px md:rounded-tl-3xl md:border-[6px] md:border-b-0 md:border-r-0 md:border-neutral-200 md:bg-white">
           <SideNavContext.Provider value={{ isOpen, setIsOpen }}>
             {children}
           </SideNavContext.Provider>

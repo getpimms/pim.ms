@@ -4,6 +4,7 @@ import {
   getGoogleFavicon,
   linkConstructor,
   nFormatter,
+  SHORT_DOMAIN,
 } from "@dub/utils";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
@@ -15,7 +16,7 @@ export async function GET(req: NextRequest) {
     new URL("@/styles/Inter-Medium.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
-  const domain = req.nextUrl.searchParams.get("domain") || process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN as string;
+  const domain = req.nextUrl.searchParams.get("domain") || SHORT_DOMAIN;
   const key = req.nextUrl.searchParams.get("key") || "github";
 
   const link = await getLinkViaEdge({ domain, key });

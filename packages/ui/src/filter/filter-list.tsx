@@ -126,7 +126,7 @@ export function FilterList({
                     {/* Remove */}
                     <button
                       type="button"
-                      className="h-full rounded-r-xl p-2 text-neutral-500 ring-inset ring-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 focus:outline-none focus-visible:ring-1"
+                      className="h-full rounded-r-md p-2 text-neutral-500 ring-inset ring-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 focus:outline-none focus-visible:ring-1"
                       onClick={() => onRemove(key, value)}
                     >
                       <X className="h-3.5 w-3.5" />

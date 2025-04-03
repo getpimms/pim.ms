@@ -60,6 +60,13 @@ export default function useDomains({
     [workspaceDefaultDomains],
   );
 
+  console.log("useDomains", {
+    workspaceDefaultDomains,
+    activeDefaultDomains,
+    allWorkspaceDomains,
+    activeWorkspaceDomains,
+  });
+
   const allDomains = useMemo(
     () => [
       ...allWorkspaceDomains,
@@ -85,8 +92,6 @@ export default function useDomains({
         activeWorkspaceDomains.find(({ primary }) => primary)?.slug ||
         activeWorkspaceDomains[0].slug
       );
-    } else if (activeDefaultDomains.find(({ slug }) => slug === "dub.link")) {
-      return "dub.link";
     }
     return SHORT_DOMAIN;
   }, [activeDefaultDomains, activeWorkspaceDomains]);

@@ -584,13 +584,13 @@ const DOMAIN_OPTIONS: {
   icon: any;
   proFeature?: boolean;
 }[] = [
-  {
-    id: "logo",
-    title: "Custom QR code logo",
-    description: "Which logo to use for shortlink QR codes",
-    icon: QrCode,
-    proFeature: true,
-  },
+  // {
+  //   id: "logo",
+  //   title: "Custom QR code logo",
+  //   description: "Which logo to use for shortlink QR codes",
+  //   icon: QrCode,
+  //   proFeature: true,
+  // },
   // {
   //   id: "expiredUrl",
   //   title: "Default expiration URL",

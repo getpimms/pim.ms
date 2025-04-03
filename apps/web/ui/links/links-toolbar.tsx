@@ -216,7 +216,7 @@ export const LinksToolbar = memo(
               // "max-[1330px]:left-0 max-[1330px]:translate-x-0",
             )}
           >
-            <div className="ring-t-[6px] rounded-t-xl border-2 border-b-0 border-neutral-200 bg-white p-0 ring-neutral-100">
+            <div className="ring-t-[6px] rounded-t-xl border-[6px] border-b-0 border-neutral-100 bg-white p-0 ring-neutral-100">
               <AnimatedSizeContainer height>
                 <div
                   className={cn(
@@ -244,7 +244,7 @@ export const LinksToolbar = memo(
                       </>
                     )}
                   </PaginationControls>
-                  <div className="flex items-center gap-2 pt-3 sm:hidden">
+                  <div className="flex items-center sm:hidden">
                     <CreateLinkButton />
                     {/* <Button
                       variant="secondary"
@@ -299,12 +299,15 @@ export const LinksToolbar = memo(
                           action,
                           disabledTooltip,
                           keyboardShortcut,
-                        }) => (
-                          <Button
-                            type="button"
-                            variant="secondary"
-                            className="xs:px-2.5 h-7 gap-1.5 px-2 text-xs min-[1120px]:pr-1.5"
-                            textWrapperClassName="max-[1120px]:hidden"
+                        },
+                        idx,
+                      ) => (
+                        <Button
+                          key={idx}
+                          type="button"
+                          variant="secondary"
+                          className="xs:px-2.5 h-7 gap-1.5 px-2 text-xs min-[1120px]:pr-1.5"
+                          textWrapperClassName="max-[1120px]:hidden"
                             icon={<Icon className="size-3.5" />}
                             text={label}
                             onClick={action}

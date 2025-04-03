@@ -64,7 +64,7 @@ export default function Main() {
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      <div className="scrollbar-hide grid w-full grid-cols-3 divide-x overflow-y-hidden border border-neutral-200 sm:rounded-t-xl">
+      <div className="scrollbar-hide grid w-full grid-cols-3 divide-x overflow-y-hidden border-[6px] border-b-2 border-neutral-100 rounded-t-xl">
         <NumberFlowGroup>
           {tabs.map(({ id, label, colorClassName, conversions }, idx) => {
             return (
@@ -81,7 +81,7 @@ export default function Main() {
                   className={cn(
                     "border-box relative block h-full min-w-[110px] flex-none px-4 py-3 sm:min-w-[240px] sm:px-8 sm:py-6",
                     "transition-colors hover:bg-neutral-50 focus:outline-none active:bg-neutral-100",
-                    "ring-inset ring-neutral-500 focus-visible:ring-1 sm:first:rounded-tl-xl",
+                    "ring-inset ring-neutral-500 focus-visible:ring-1",
                   )}
                   href={
                     queryParams({
@@ -178,7 +178,7 @@ export default function Main() {
       <div className="relative">
         <div
           className={cn(
-            "relative overflow-hidden border-x border-b border-neutral-200 sm:rounded-b-xl",
+            "relative overflow-hidden border-x-[6px] border-b-[6px] border-neutral-100 rounded-b-xl",
             showPaywall &&
               "pointer-events-none [mask-image:linear-gradient(#0006,#0006_25%,transparent_40%)]",
           )}
