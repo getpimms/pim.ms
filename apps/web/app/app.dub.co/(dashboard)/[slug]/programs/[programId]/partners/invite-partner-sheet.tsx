@@ -13,8 +13,6 @@ import {
   AnimatedSizeContainer,
   BlurImage,
   Button,
-  Eye,
-  EyeSlash,
   Sheet,
   useLocalStorage,
   useMediaQuery,
@@ -350,7 +348,7 @@ function EmailPreview() {
     <div className="mt-8 rounded-xl border-[2px] border-neutral-100 bg-neutral-100 p-2 pt-2.5">
       <div className="flex justify-between px-2">
         <h2 className="text-sm font-medium text-neutral-900">Email preview</h2>
-        <button
+        {/* <button
           type="button"
           className="flex items-center gap-2 text-sm font-medium text-neutral-500 transition-colors duration-100 hover:text-neutral-600"
           onClick={() => setShowPreview(!showPreview)}
@@ -361,7 +359,7 @@ function EmailPreview() {
             <Eye className="size-4" />
           )}
           {showPreview ? "Hide" : "Show"}
-        </button>
+        </button> */}
       </div>
       <motion.div
         animate={{
@@ -374,19 +372,26 @@ function EmailPreview() {
             <MemoBlurImage
               src={program?.logo || "https://assets.pimms.io/logo.png"}
               alt={program?.name || "PiMMs"}
-              className="my-2 size-8 rounded-full"
+              className="my-2 size-8"
               width={48}
               height={48}
             />
-            <h3 className="font-medium text-neutral-900">
-              {program?.name || "PiMMs"} invited you to join PiMMs Partners
+            <h3 className="font-medium text-black">
+              {program?.name || "PiMMs"} invited you to join their Affiliate Program!
             </h3>
             <p className="text-sm text-neutral-500">
-              {program?.name || "PiMMs"} uses PiMMs Partners to power their
-              affiliate program and wants to partner with great people like
-              yourself!
+              The {program?.name || "PiMMs"} Affiliate Program, powered by
+              PiMMs, invites you to help spread the word and grow with us.
             </p>
-            <Button type="button" text="Accept invite" className="w-fit" />
+            <p className="text-sm text-neutral-500">
+              With easy-to-use affiliate tools, intuitive tracking, and dedicated
+              support, becoming a {program?.name || "PiMMs"} affiliate is simple
+              and rewarding.
+            </p>
+            <p className="text-sm text-neutral-500">
+              Join today and start turning your recommendations into results.
+            </p>
+            <Button type="button" text="Accept Invite" className="w-fit" />
           </div>
           <div className="grid gap-1 border-t-[6px] border-neutral-100 bg-neutral-50 px-6 py-4">
             <p className="text-sm text-neutral-500">
@@ -397,7 +402,7 @@ function EmailPreview() {
               <strong className="font-medium text-neutral-900">
                 Subject:{" "}
               </strong>
-              You've been invited to PiMMs Partners
+              You're Invited! Join {program?.name || "PiMMs"}'s Affiliate Network
             </p>
           </div>
         </div>

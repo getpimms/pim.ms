@@ -229,7 +229,7 @@ function TokenStep({
             href="https://app.getrewardful.com/company/edit"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#08272E] hover:text-blue-600"
+            className="text-[#08272E] hover:text-[#08272e]"
           >
             Company settings page
           </a>

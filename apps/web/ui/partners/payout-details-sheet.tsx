@@ -205,7 +205,7 @@ function PayoutDetailsSheetContent({
                 href={`/${slug}/programs/${programId}/sales?payoutId=${payout.id}&interval=all`}
                 className={cn(
                   buttonVariants({ variant: "secondary" }),
-                  "flex h-7 items-center rounded-xl border-[6px] px-2 text-sm",
+                  "flex h-7 items-center rounded-xl border-[3px] px-2 text-sm",
                 )}
               >
                 View all

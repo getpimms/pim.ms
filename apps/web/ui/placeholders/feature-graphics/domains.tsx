@@ -52,8 +52,8 @@ export function Domains() {
 
               {primary && (
                 <div className="flex items-center gap-x-1 rounded-md border border-blue-100 bg-blue-50 px-2 py-[0.2rem]">
-                  <FlagWavy className="h-4 w-4 text-blue-700" />
-                  <div className="flex items-center whitespace-nowrap text-sm text-blue-600">
+                  {/* <FlagWavy className="h-4 w-4 text-blue-700" /> */}
+                  <div className="flex items-center whitespace-nowrap text-sm text-[#08272e]">
                     Primary
                   </div>
                 </div>

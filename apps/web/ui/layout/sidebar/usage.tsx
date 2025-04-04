@@ -269,7 +269,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
                       ease: [0.4, 0, 0.2, 1], // Custom cubic-bezier for smooth movement
                     }}
                   >
-                    <motion.span className="ml-1 whitespace-nowrap text-xs font-medium text-blue-600">
+                    <motion.span className="ml-1 whitespace-nowrap text-xs font-medium text-[#08272e]">
                       {label === "Sales" ? "$" : ""}
                       {formatNumber(
                         label === "Sales" ? nextPlanLimit / 100 : nextPlanLimit,

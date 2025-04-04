@@ -30,7 +30,10 @@ export function PartnerInvite({
   return (
     <Html>
       <Head />
-      <Preview>Sign up for {program.name}</Preview>
+      <Preview>
+        You're invited: Join the {program.name} Affiliate Program and start
+        earning!
+      </Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
@@ -43,17 +46,25 @@ export function PartnerInvite({
             </Section>
 
             <Heading className="mx-0 p-0 text-lg font-medium text-black">
-              {program.name} invited you to join PiMMs Partners
+              {program.name} invited you to join their Affiliate Program!
             </Heading>
 
             <Text className="text-sm leading-6 text-neutral-600">
-              {program.name} uses PiMMs Partners to power their affiliate program and wants to partner with great
-              people like yourself!
+              The {program.name} Affiliate Program, powered by PiMMs, invites
+              you to help spread the word and grow with us.
+            </Text>
+            <Text className="text-sm leading-6 text-neutral-600">
+              With easy-to-use affiliate tools, intuitive tracking, and
+              dedicated support, becoming a {program.name} affiliate is simple
+              and rewarding.
+            </Text>
+            <Text className="text-sm leading-6 text-neutral-600">
+              Join today and start turning your recommendations into results.
             </Text>
 
             <Section className="mb-12 mt-8">
               <Link
-                className="px-5 py-3 bg-[#dc2e65] text-white font-semibold outline outline-[6px] transition outline-[#ffeaf1] cursor-pointer no-underline rounded-xl"
+                className="cursor-pointer rounded-xl bg-[#dc2e65] px-5 py-3 font-semibold text-white no-underline outline outline-[6px] outline-[#ffeaf1] transition"
                 href="https://partners.pimms.io/register"
               >
                 Accept Invite

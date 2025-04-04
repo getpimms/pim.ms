@@ -134,7 +134,7 @@ export function PayoutStats() {
             <div className="p-1">
               <div className="text-sm text-neutral-500">Total paid</div>
             </div>
-            <Link
+            {/* <Link
               href={`/${slug}/settings/billing/invoices?type=payout`}
               className={cn(
                 buttonVariants({ variant: "secondary" }),
@@ -142,7 +142,7 @@ export function PayoutStats() {
               )}
             >
               View invoices
-            </Link>
+            </Link> */}
           </div>
           <div className="mt-2 text-2xl text-neutral-800">
             {loading ? (
