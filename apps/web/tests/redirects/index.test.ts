@@ -8,7 +8,7 @@ const fetchOptions: RequestInit = {
   cache: "no-store",
   redirect: "manual",
   headers: {
-    "dub-no-track": "1",
+    "pimms-no-track": "1",
   },
 };
 

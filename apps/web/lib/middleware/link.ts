@@ -46,10 +46,6 @@ export default async function LinkMiddleware(
     return NextResponse.next();
   }
 
-  if (domain === "dev.buff.ly") {
-    domain = "buff.ly";
-  }
-
   // encode the key to ascii
   // links on PiMMs are case insensitive by default
   let key = punyEncode(originalKey);
@@ -90,13 +86,6 @@ export default async function LinkMiddleware(
     });
 
     if (!linkData) {
-      // TODO: remove this once everything is migrated over
-      if (domain === "buff.ly") {
-        return NextResponse.rewrite(
-          new URL(`/api/links/crawl/bitly/${domain}/${key}`, req.url),
-        );
-      }
-
       // check if domain has notFoundUrl configured
       const domainData = await getDomainViaEdge(domain);
       if (domainData?.notFoundUrl) {
