@@ -91,7 +91,7 @@ export default function PaymentMethods() {
             <PaymentMethodCardSkeleton />
           </>
         )}
-        {partnersEnabled && (
+        {/* {partnersEnabled && (
           <>
             {achPaymentMethods && achPaymentMethods.length > 0 ? (
               achPaymentMethods.map((paymentMethod) => (
@@ -105,7 +105,7 @@ export default function PaymentMethods() {
               <PaymentMethodCard type="us_bank_account" />
             )}
           </>
-        )}
+        )} */}
       </div>
     </div>
   );
