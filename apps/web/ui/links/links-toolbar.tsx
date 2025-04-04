@@ -216,7 +216,7 @@ export const LinksToolbar = memo(
               // "max-[1330px]:left-0 max-[1330px]:translate-x-0",
             )}
           >
-            <div className="ring-t-[6px] rounded-t-xl border-[6px] border-b-0 border-neutral-100 bg-white p-0 ring-neutral-100">
+            <div className="ring-t-[6px] rounded-t-xl border-[6px] border-b-0 border-neutral-100 bg-zinc-50 p-0 ring-neutral-100">
               <AnimatedSizeContainer height>
                 <div
                   className={cn(

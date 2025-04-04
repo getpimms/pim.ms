@@ -391,7 +391,7 @@ function EmailPreview() {
           <div className="grid gap-1 border-t-[6px] border-neutral-100 bg-neutral-50 px-6 py-4">
             <p className="text-sm text-neutral-500">
               <strong className="font-medium text-neutral-900">From: </strong>
-              system@dub.co
+              alexandre@pimms.io
             </p>
             <p className="text-sm text-neutral-500">
               <strong className="font-medium text-neutral-900">
