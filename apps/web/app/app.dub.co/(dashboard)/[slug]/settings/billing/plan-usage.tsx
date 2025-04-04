@@ -100,7 +100,7 @@ export default function PlanUsage() {
             </p>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           {plan !== "enterprise" && (
             <Link
               href={`/${slug}/settings/billing/upgrade`}
@@ -194,7 +194,7 @@ export default function PlanUsage() {
             href={`/${slug}/settings/people`}
           />
         </div> */}
-        {partnersEnabled && (
+        {/* {partnersEnabled && (
         <div className="flex flex-col items-center justify-between space-y-3 border-t-[6px] border-neutral-100 px-6 py-4 text-center md:flex-row md:space-y-0 md:px-8 md:text-left">
             <UsageCategory
               title="Partners"
@@ -220,7 +220,7 @@ export default function PlanUsage() {
               // href="https://dub.co/help/article/partner-payouts#payout-fees-and-timing"
             />
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

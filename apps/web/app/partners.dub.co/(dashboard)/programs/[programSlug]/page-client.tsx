@@ -191,7 +191,7 @@ export default function ProgramPageClient() {
               href={`/programs/${programSlug}/earnings${getQueryString()}`}
               className={cn(
                 buttonVariants({ variant: "secondary" }),
-                "flex h-7 items-center rounded-xl border-[6px] px-2 text-sm",
+                "flex h-7 items-center rounded-xl border-[3px] px-2 text-sm",
               )}
             >
               View all

@@ -24,11 +24,7 @@ export function Footer({
           </Link>
         </Text>
         <Text className="text-[12px] text-neutral-500">
-          PIMMS.
-          <br />
-          Chemin de Louis-Hubert 2
-          <br />
-          Petit-Lancy, 1213
+          PIMMS. Chemin de Louis-Hubert 2. Petit-Lancy, 1213
         </Text>
       </Tailwind>
     );
@@ -56,9 +52,7 @@ export function Footer({
         </Text>
       )}
       <Text className="text-[12px] text-neutral-500">
-        PIMMS.
-        Chemin de Louis-Hubert 2
-        Petit Lancy, 1213
+        PIMMS. Chemin de Louis-Hubert 2. Petit-Lancy, 1213
       </Text>
     </Tailwind>
   );

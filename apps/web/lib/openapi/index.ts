@@ -45,7 +45,7 @@ export const document = createDocument({
   ],
   paths: {
     ...linksPaths,
-    // ...analyticsPath,
+    ...analyticsPath,
     // ...eventsPath,
     // ...tagsPaths,
     // ...foldersPaths,
@@ -54,7 +54,7 @@ export const document = createDocument({
     // ...customersPaths,
     // ...partnersPaths,
     // ...workspacesPaths,
-    // ...embedTokensPaths,
+    ...embedTokensPaths,
     ...qrCodePaths,
     // ...metatagsPath,
   },

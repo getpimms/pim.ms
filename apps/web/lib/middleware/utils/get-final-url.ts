@@ -29,7 +29,7 @@ export const getFinalUrl = (
       urlObj.searchParams.set("client_reference_id", `pimms_id_${clickId}`);
       urlObj.searchParams.delete("pimms_client_reference_id");
 
-      // if there's a clickId and no dub-no-track search param, then add clickId to the final url
+      // if there's a clickId and no pimms-no-track search param, then add clickId to the final url
       // reasoning: if you're skipping tracking, there's no point in passing the clickId anyway
     } else if (!searchParams.has("pimms-no-track")) {
       urlObj.searchParams.set("pimms_id", clickId);
@@ -42,8 +42,8 @@ export const getFinalUrl = (
 
   // if searchParams (type: `URLSearchParams`) has the same key as target url, then overwrite it
   for (const [key, value] of searchParams) {
-    // we will pass everything except internal query params (dub-no-track and redir_url)
-    if (["dub-no-track", REDIRECTION_QUERY_PARAM].includes(key)) continue;
+    // we will pass everything except internal query params (pimms-no-track and redir_url)
+    if (["pimms-no-track", REDIRECTION_QUERY_PARAM].includes(key)) continue;
     urlObj.searchParams.set(key, value);
   }
 

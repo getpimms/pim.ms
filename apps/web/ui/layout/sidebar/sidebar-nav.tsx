@@ -4,15 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  PropsWithChildren,
-  ReactNode,
-  Suspense,
-  useMemo,
-  useState,
-} from "react";
+import { PropsWithChildren, ReactNode, useMemo, useState } from "react";
 import { CreateProgramCard } from "./create-program-card";
-import UserDropdown from "./user-dropdown";
 
 export type NavItemCommon = {
   name: string;
@@ -62,7 +55,7 @@ export function SidebarNav<T extends Record<any, any>>({
   return (
     <ClientOnly className="scrollbar-hide relative flex h-full w-full flex-col overflow-y-auto overflow-x-hidden">
       <nav className="relative flex grow flex-col p-3 text-neutral-500">
-        <div className="relative flex items-center justify-between gap-1 pb-3">
+        <div className="relative flex items-center justify-between gap-1">
           {Object.entries(areas).map(([area, areaConfig]) => {
             const { title, backHref } = areaConfig(data);
 
@@ -74,18 +67,16 @@ export function SidebarNav<T extends Record<any, any>>({
                   "rounded-md px-1 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-black/50",
                   area === currentArea
                     ? "relative opacity-100"
-                    : "pointer-events-none absolute opacity-0"
+                    : "pointer-events-none absolute opacity-0",
                 )}
                 aria-hidden={area !== currentArea ? true : undefined}
                 {...{ inert: area !== currentArea ? "" : undefined }}
               >
-                {title && backHref ? (
+                {title && backHref && (
                   <div className="py group -my-1 -ml-1 flex items-center gap-2 py-2 pr-1 text-sm font-medium text-neutral-900">
                     <ChevronLeft className="size-4 text-neutral-500 transition-transform duration-100 group-hover:-translate-x-0.5" />
                     {title}
                   </div>
-                ) : (
-                  <NavWordmark className="h-3.5" isInApp />
                 )}
               </Link>
             );
@@ -105,7 +96,7 @@ export function SidebarNav<T extends Record<any, any>>({
                   <div className="pt-2">{switcher}</div>
                 )}
 
-                <div className="flex flex-col gap-4 pt-4">
+                <div className="flex flex-col gap-2 pt-4">
                   {content.map(({ name, items }, idx) => (
                     <div key={idx} className="flex flex-col gap-2">
                       {name && (
@@ -146,6 +137,9 @@ export function SidebarNav<T extends Record<any, any>>({
       {bottom && (
         <div className="relative flex flex-col justify-end">{bottom}</div>
       )}
+      <div className="relative mx-auto flex items-center justify-between gap-1 pb-2 pt-1">
+        <NavWordmark className="h-2.5" isInApp />
+      </div>
     </ClientOnly>
   );
 }
@@ -185,7 +179,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
         {Icon && (
           <Icon
             className={cn(
-              "size-8 text-[#08272E] bg-white rounded-full p-1.5 transition-colors duration-75 overflow-visible",
+              "size-8 overflow-visible rounded-full bg-white p-1.5 text-[#08272E] transition-colors duration-75",
             )}
             data-hovered={hovered}
           />

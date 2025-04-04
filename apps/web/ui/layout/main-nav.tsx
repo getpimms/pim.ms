@@ -57,7 +57,7 @@ export function MainNav({
       {/* Side nav backdrop */}
       <div
         className={cn(
-          "fixed left-0 top-0 z-50 h-dvh w-screen md:sticky md:z-auto md:w-full md:bg-transparent",
+          "fixed left-0 top-0 z-50 h-dvh w-screen md:sticky md:z-auto md:w-full md:bg-zinc-100",
           isOpen
             ? ""
             : "bg-transparent max-md:pointer-events-none",
@@ -72,7 +72,7 @@ export function MainNav({
         {/* Side nav */}
         <div
           className={cn(
-            "relative h-[calc(100%-20px)] sm:h-[calc(100vh-20px)] top-[10px] left-[10px] py-[10px] w-[220px] border-[6px] border-[#D4F0FE] rounded-3xl max-w-full bg-[#ecf8fe] transition-transform md:translate-x-0",
+            "relative h-[calc(100%-20px)] sm:h-[calc(100vh-20px)] top-[10px] left-[10px] w-[220px] border-[6px] border-[#D4F0FE] bg-[#ecf8fe] shadow-sm md:border-0 md:shadow-none md:bg-transparent rounded-3xl max-w-full transition-transform md:translate-x-0",
             !isOpen && "-translate-x-[calc(100%+20px)]",
           )}
         >
@@ -87,8 +87,8 @@ export function MainNav({
           <Sidebar toolContent={toolContent} newsContent={newsContent} />
         </div>
       </div>
-      <div className="bg-white md:pt-[10px]">
-        <div className="relative min-h-full bg-[#ecf8fe] pt-px md:rounded-tl-3xl md:border-[6px] md:border-b-0 md:border-r-0 md:border-neutral-200 md:bg-white">
+      <div className="bg-zinc-100 md:pt-[10px]">
+        <div className="relative min-h-full bg-[#ecf8fe] pt-px md:rounded-tl-3xl md:border-[6px] md:border-b-0 md:border-r-0 md:border-neutral-200 md:bg-white shadow-sm">
           <SideNavContext.Provider value={{ isOpen, setIsOpen }}>
             {children}
           </SideNavContext.Provider>

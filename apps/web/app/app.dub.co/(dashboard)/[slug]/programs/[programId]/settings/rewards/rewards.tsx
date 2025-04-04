@@ -157,7 +157,7 @@ const Reward = ({ reward }: { reward: RewardProps }) => {
               <ProgramRewardDescription
                 reward={reward}
                 hideIfZero={false}
-                amountClassName="text-blue-600"
+                amountClassName="text-[#08272e]"
               />
             </span>
           </div>

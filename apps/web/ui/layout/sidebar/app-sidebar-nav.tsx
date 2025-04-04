@@ -70,7 +70,6 @@ const NAV_AREAS: SidebarNavAreas<{
       ...(programs?.length
         ? [
             {
-              name: "Programs",
               items: [
                 {
                   name: "Affiliate",
