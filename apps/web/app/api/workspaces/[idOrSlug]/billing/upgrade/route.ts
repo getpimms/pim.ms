@@ -1,6 +1,5 @@
 import { DubApiError } from "@/lib/api/errors";
 import { isDubAdmin, withWorkspace } from "@/lib/auth";
-import { getPimmsCustomer } from "@/lib/pimms";
 import { stripe } from "@/lib/stripe";
 import { APP_DOMAIN } from "@dub/utils";
 import { NextResponse } from "next/server";

@@ -472,11 +472,10 @@ export const isNativeBrowser = (req: NextRequest): boolean => {
 export const isExceptionToDirectRedirect = (req: NextRequest): boolean => {
   const userAgent = req.headers.get("user-agent") || "";
 
-  // Mozilla/5.0 (Linux; Android 12; ...)
-  // Mozilla/5.0 (Linux; Android 14; ...)
-  // check if user agent is for android less or equal to 14
-  const androidVersion = userAgent.match(/Android (\d+)/);
-  return !!androidVersion && parseInt(androidVersion[1]) <= 14
+  // Match 'Android <version>' from user agent
+  const androidVersionMatch = userAgent.match(/Android (\d+)/);
+
+  return !!androidVersionMatch;
 };
 
 export const isLinkedinBot = (req: NextRequest): boolean => {

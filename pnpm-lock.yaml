@@ -271,8 +271,8 @@ importers:
         specifier: ^4.2.1
         version: 4.2.1
       pimms:
-        specifier: ^0.0.6
-        version: 0.0.6(zod@3.23.8)
+        specifier: ^0.4.0
+        version: 0.4.0(zod@3.23.8)
       posthog-js:
         specifier: ^1.164.1
         version: 1.164.1
@@ -18133,8 +18133,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /pimms@0.0.6(zod@3.23.8):
-    resolution: {integrity: sha512-Q1iovclNFGyw7dd2w1KOvefr59tsByGzYWEaUdz7wFH9zVq3Dp3hSLZsugjZbBsySz+DRMC//pP3TfOmD8CWzw==}
+  /pimms@0.4.0(zod@3.23.8):
+    resolution: {integrity: sha512-9PFVdt2eR5GfQzSoSjvwoiJqsxbBJ2NPNnhNCy9zSMTarR349sLJlznkit2oct0MTTPlb4CA/coUa4v76E+JLw==}
     hasBin: true
     peerDependencies:
       '@modelcontextprotocol/sdk': ^1.5.0
