@@ -3,6 +3,7 @@
 import usePrograms from "@/lib/swr/use-programs";
 import { useRouterStuff } from "@dub/ui";
 import {
+  ConnectedDots,
   ConnectedDots4,
   Gear2,
   Gift,
@@ -149,11 +150,11 @@ const NAV_AREAS: SidebarNavAreas<{
             icon: WalletCards,
             href: `/${slug}/settings/billing`,
           },
-          // {
-          //   name: "Integrations",
-          //   icon: ConnectedDots,
-          //   href: `/${slug}/settings/integrations`,
-          // },
+          {
+            name: "Integrations",
+            icon: ConnectedDots,
+            href: `/${slug}/settings/integrations`,
+          },
           // {
           //   name: "Security",
           //   icon: ShieldCheck,

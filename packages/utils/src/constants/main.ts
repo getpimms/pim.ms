@@ -70,7 +70,7 @@ export const DUB_QR_LOGO = "https://assets.pimms.io/logo.png";
 export const DUB_WORDMARK = "https://assets.pimms.io/wordmark-black.png";
 export const DUB_THUMBNAIL = "https://assets.pimms.io/thumbnail.jpg?v=3";
 
-export const DUB_WORKSPACE_ID = "cm74uxwy50000htdq9p2zdy5d";
+export const DUB_WORKSPACE_ID = process.env.NEXT_PUBLIC_PIMMS_WORKSPACE_ID || "cm74uxwy50000htdq9p2zdy5d";
 export const ACME_WORKSPACE_ID = "clrei1gld0002vs9mzn93p8ik";
 export const LEGAL_WORKSPACE_ID = "clrflia0j0000vs7sqfhz9c7q";
 export const LEGAL_USER_ID = "clqei1lgc0000vsnzi01pbf47";

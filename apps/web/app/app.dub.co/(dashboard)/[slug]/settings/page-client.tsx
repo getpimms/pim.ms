@@ -92,7 +92,7 @@ export default function WorkspaceSettingsClient() {
         }
       />
       {/* <UploadLogo /> */}
-      {/* <WorkspaceId /> */}
+      <WorkspaceId />
       <DeleteWorkspace />
     </>
   );
