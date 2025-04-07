@@ -114,7 +114,7 @@ export default function Referer() {
                 }
                 unit={selectedTab}
                 maxValue={Math.max(...data?.map((d) => d[dataKey] ?? 0)) ?? 0}
-                barBackground="bg-[#B3E4FF]"
+                barBackground="bg-[#E7EEFF]"
                 hoverBackground="hover:bg-neutral-100"
                 setShowModal={setShowModal}
                 {...(limit && { limit })}

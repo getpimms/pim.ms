@@ -132,7 +132,7 @@ export const EmailSignIn = ({ next }: { next?: string }) => {
             onChange={(e) => setEmail(e.target.value)}
             size={1}
             className={cn(
-              "block w-full min-w-0 appearance-none rounded-xl border-[2px] border-neutral-300 px-3 py-2 placeholder-neutral-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm",
+              "block w-full min-w-0 appearance-none rounded-xl border-2 border-neutral-200 text-black placeholder-neutral-400 focus:border-neutral-500 focus:outline-none focus:ring-0 sm:text-sm",
               {
                 "pr-10": isPending,
               },
@@ -154,7 +154,8 @@ export const EmailSignIn = ({ next }: { next?: string }) => {
 
         <Button
           text={`Continue with ${password ? "Password" : "Email"}`}
-          variant="secondary"
+          variant="primary"
+          className="my-2"
           // icon={
           //   password ? (
           //     <InputPassword className="size-4 text-neutral-600" />

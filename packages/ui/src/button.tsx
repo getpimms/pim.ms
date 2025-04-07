@@ -8,14 +8,14 @@ export const buttonVariants = cva("transition-all", {
   variants: {
     variant: {
       primary:
-        "bg-[#DC2E65] border-none text-white font-semibold ring-[6px] ring-[#FFEAF1] text-lg transition duration-500",
+        "bg-[#3971ff] border-none text-white font-semibold ring-[6px] ring-[#E7EEFF] text-lg transition duration-500",
       secondary: cn(
         "border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:border-neutral-500 outline-none",
         "data-[state=open]:border-neutral-500 data-[state=open]:ring-4 data-[state=open]:ring-neutral-200",
       ),
       outline: "border-transparent text-neutral-600 hover:bg-neutral-100",
       success:
-        "border-blue-500 bg-[#B3E4FF] text-white hover:bg-blue-600 hover:ring-4 hover:ring-blue-100",
+        "border-blue-500 bg-[#3971ff] text-white hover:bg-blue-600 hover:ring-4 hover:ring-blue-100",
       danger:
         "border-red-500 bg-red-500 text-white hover:bg-red-600 hover:ring-4 hover:ring-red-100",
       "danger-outline":
@@ -131,7 +131,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             className={cn(
               "rounded-md hidden px-2 py-0.5 text-xs font-light transition-all duration-75 md:inline-block",
               {
-                "bg-[#F0A8BF] text-black":
+                "bg-[#e7eeff] text-black":
                   variant === "primary",
                 "bg-neutral-200 text-neutral-400 group-hover:bg-neutral-100 group-hover:text-neutral-500":
                   variant === "secondary",

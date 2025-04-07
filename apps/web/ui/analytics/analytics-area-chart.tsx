@@ -92,19 +92,19 @@ export default function AnalyticsAreaChart({
       id: "clicks",
       valueAccessor: (d) => d.values.clicks,
       isActive: resource === "clicks",
-      colorClassName: "text-[#08272E]",
+      colorClassName: "text-[#3970ff]",
     },
     {
       id: "leads",
       valueAccessor: (d) => d.values.leads,
       isActive: resource === "leads",
-      colorClassName: "text-[#08272E]",
+      colorClassName: "text-[#3970ff]",
     },
     {
       id: "sales",
       valueAccessor: (d) => d.values[saleUnit],
       isActive: resource === "sales",
-      colorClassName: "text-[#08272E]",
+      colorClassName: "text-[#3970ff]",
     },
   ];
 

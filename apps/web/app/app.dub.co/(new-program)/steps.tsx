@@ -117,7 +117,7 @@ export function ProgramOnboardingSteps() {
                         className={cn(
                           "flex h-5 w-5 items-center justify-center rounded-full text-xs",
                           completed && "bg-black text-white",
-                          current && "bg-[#B3E4FF] text-white",
+                          current && "bg-[#3971ff] text-white",
                           !current &&
                             !completed &&
                             "border-[6px] border-neutral-100 text-neutral-500",

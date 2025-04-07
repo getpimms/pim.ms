@@ -88,8 +88,8 @@ export default function EventsTabs() {
           className={cn(
             "flex justify-between gap-4 rounded-xl border-[6px] border-neutral-100 bg-white px-5 py-4 text-left transition-[box-shadow] focus:outline-none",
             tab === event
-              ? "md:border-[#D4F0FE]"
-              : "border-neutral-200 focus-visible:md:border-[#D4F0FE]",
+              ? "md:border-[#3970ff]"
+              : "border-neutral-200 focus-visible:md:border-[#3970ff]",
           )}
           onClick={() => onEventTabClick(event)}
         >

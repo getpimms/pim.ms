@@ -32,7 +32,7 @@ export function FloatingActionButton({
       {...props}
       disabled={false}
       className={cn(
-        "fixed bottom-6 right-4 rounded-full bg-[#DC2E65] p-4 text-white shadow-lg transition hover:bg-[#DC2E65]/90",
+        "fixed bottom-6 right-4 rounded-full bg-[#3970ff] p-4 text-white shadow-lg transition hover:bg-[#3970ff]/90",
         className,
       )}
     >

@@ -84,7 +84,7 @@ export function Areas({
                         initial={{ d: path(zeroedData) || "", opacity: 0 }}
                         animate={{ d: path(data) || "", opacity: 1 }}
                         className={cn(
-                          s.colorClassName ?? "text-[#08272E]",
+                          s.colorClassName ?? "text-[#3970ff]",
                           seriesStyle?.gradientClassName,
                         )}
                         mask={`url(#${s.id}-mask)`}
@@ -105,12 +105,12 @@ export function Areas({
                       initial={{ d: path(zeroedData) || "" }}
                       animate={{ d: path(data) || "" }}
                       className={cn(
-                        s.colorClassName ?? "text-blue-700",
+                        s.colorClassName ?? "text-[#3970ff]",
                         seriesStyle?.lineClassName,
                       )}
                       stroke={seriesStyle?.lineStroke ?? "currentColor"}
                       strokeOpacity={0.8}
-                      strokeWidth={2}
+                      strokeWidth={4}
                       fill="transparent"
                     />
                   )}

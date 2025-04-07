@@ -173,7 +173,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
           "outline-none focus-visible:ring-2 focus-visible:ring-black/50",
           isActive &&
             !items &&
-            "bg-[#B3E4FF] font-medium text-[#08272E] hover:bg-[#B3E4FF]/50 active:bg-[#B3E4FF]/80",
+            "bg-zinc-600 font-medium text-white hover:bg-zinc-700 active:bg-zinc-800",
         )}
       >
         {Icon && (

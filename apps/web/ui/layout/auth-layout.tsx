@@ -57,7 +57,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
         <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-md">
           <BlurImage
             alt="PIMMS Analytics"
-            src="https://assets.pimms.io/dashboard.jpg"
+            src="https://assets.pimms.io/dashboard.jpg?v=2"
             width={2400}
             height={1260}
             className="aspect-[2400/1260] h-full rounded-lg object-cover object-left-top"

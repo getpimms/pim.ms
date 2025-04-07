@@ -27,7 +27,7 @@ export default function IntegrationCard(
       ) : integration.comingSoon ? (
         <Badge className="bg-violet-100 text-violet-800">Coming Soon</Badge>
       ) : integration.guideUrl ? (
-        <Badge className="bg-[#B3E4FF] text-blue-800">
+        <Badge className="bg-[#3971ff] text-white">
           <span>Guide</span>
           <div className="flex w-0 justify-end overflow-hidden opacity-0 transition-[width,opacity] group-hover:w-3 group-hover:opacity-100">
             <ArrowUpRight className="size-2.5" strokeWidth={2.5} />
