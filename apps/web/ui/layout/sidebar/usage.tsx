@@ -257,7 +257,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
                   )}
                 </motion.span>
               </span>
-              <AnimatePresence>
+              {/* <AnimatePresence>
                 {showNextPlan && nextPlanLimit && (
                   <motion.div
                     className="flex items-center"
@@ -277,7 +277,7 @@ const UsageRow = forwardRef<HTMLDivElement, UsageRowProps>(
                     </motion.span>
                   </motion.div>
                 )}
-              </AnimatePresence>
+              </AnimatePresence> */}
             </div>
           ) : (
             <div className="h-4 w-16 animate-pulse rounded-md bg-neutral-500/10" />

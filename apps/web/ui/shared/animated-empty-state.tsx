@@ -29,7 +29,7 @@ export function AnimatedEmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-6 rounded-xl border-[6px] border-neutral-100 px-4 py-10 md:min-h-[500px]",
+        "flex flex-col items-center justify-center gap-6 rounded-xl border-[6px] border-neutral-100 px-4 py-10 mx-3 lg:mx-10 md:min-h-[500px]",
         className,
       )}
     >

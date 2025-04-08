@@ -37,13 +37,7 @@ export const PLAN_COMPARE_FEATURES: {
       {
         text: ({ plan }) => (
           <>
-            <strong>
-              {plan.name === "Enterprise"
-                ? "Unlimited"
-                : nFormatter(plan.limits.links)}
-            </strong>{" "}
-            new links
-            {plan.name === "Enterprise" ? "" : "/mo"}
+            <strong>Unlimited</strong> new links
           </>
         ),
       },
@@ -204,13 +198,13 @@ export const PLAN_COMPARE_FEATURES: {
     ],
   },
   {
-    category: "Affiliate program",
+    category: "Sales tracking",
     href: "https://pimms.io",
     features: [
       {
         check: {
           default: false,
-          pro: true,
+          pro: false,
           business: true,
           advanced: true,
           enterprise: true,

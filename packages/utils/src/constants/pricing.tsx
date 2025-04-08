@@ -34,19 +34,19 @@ export const PLANS = [
     name: "Pro",
     // link: "https://dub.co/help/article/pro-plan",
     price: {
-      monthly: 30,
+      monthly: 15,
       yearly: 25,
       ids: [
         "price_1R9AM5BL7DFxjjSQ9e32QsT1", // new monthly (test)
-        "price_1QxoMQBN5sOoOmBU7JByAg4s", // new monthly (prod)
+        "price_1RBgCrBN5sOoOmBURR514Ec7", // new monthly (prod)
         "price_1QxoOyBN5sOoOmBUKEy5qXku", // new yearly (test)
-        "price_1QxoNcBN5sOoOmBUxsG7P0ZZ", // new yearly (prod)
+        "price_1RBgCCBN5sOoOmBUmBEhPI5E", // new yearly (prod)
       ],
     },
     limits: {
       links: 1_000,
       clicks: 50_000,
-      sales: 2_000_00,
+      sales: 1_000_00,
       domains: 10,
       tags: 25,
       folders: 3,
@@ -106,13 +106,13 @@ export const PLANS = [
   {
     name: "Business",
     price: {
-      monthly: 90,
-      yearly: 75,
+      monthly: 50,
+      yearly: 350,
       ids: [
         "price_1R9AM5BL7DFxjjSQ9e32QsT1", // new monthly (test)
         "price_1R9AM5BL7DFxjjSQcvE5Yu0T", // new yearly (test)
-        "price_1QxoQiBN5sOoOmBUBKeD5OCA", // new monthly (prod)
-        "price_1QxoQwBN5sOoOmBUjUL0V39C", // new yearly (prod)
+        "price_1RBgEFBN5sOoOmBUUITvArZY", // new monthly (prod)
+        "price_1RBgEXBN5sOoOmBUcJyO7uIs", // new yearly (prod)
       ],
     },
     limits: {

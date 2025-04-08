@@ -127,13 +127,15 @@ export function WorkspaceBillingUpgradePageClient() {
                                 className="text-sm font-medium tabular-nums text-neutral-700"
                                 format={{
                                   style: "currency",
-                                  currency: "USD",
+                                  currency: "EUR",
                                   minimumFractionDigits: 0,
                                 }}
                                 continuous
                               />
                               <span className="text-sm font-medium text-neutral-400">
-                                per month
+                                {period === "yearly"
+                                  ? "billed yearly"
+                                  : "per month"}
                               </span>
                             </>
                           )}
