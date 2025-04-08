@@ -56,7 +56,7 @@ export function PlanSelector() {
                 <h2 className="text-xl font-semibold text-neutral-800">
                   {plan.name}
                 </h2>
-                {plan.name === "Business" && (
+                {plan.name === "Pro" && (
                   <Badge variant="blue">Most popular</Badge>
                 )}
               </div>
@@ -66,14 +66,13 @@ export function PlanSelector() {
                   className="tabular-nums text-neutral-700"
                   format={{
                     style: "currency",
-                    currency: "USD",
+                    currency: "EUR",
                     maximumFractionDigits: 0,
                   }}
                   continuous
                 />
                 <span className="ml-1 font-medium">
-                  per month
-                  {period === "yearly" && ", billed yearly"}
+                  {period === "monthly" ? "per month" : "billed yearly"}
                 </span>
               </div>
               <div className="my-6 flex gap-2">

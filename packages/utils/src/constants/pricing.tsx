@@ -57,11 +57,19 @@ export const PLANS = [
     },
     featureTitle: "Everything in Free, plus:",
     features: [
-      { id: "clicks", text: "50K tracked clicks/mo" },
-      { id: "links", text: "1K new links/mo" },
+      { id: "clicks", text: "Unlimited clicks" },
+      { id: "links", text: "Unlimited new links" },
       { id: "retention", text: "1-year analytics retention" },
+      {
+        id: "events",
+        text: "Real-time events stream",
+      },
+      {
+        id: "sales",
+        text: "1k€ tracked sales/mo",
+      },
       { id: "domains", text: "10 domains" },
-      // { id: "users", text: "3 users" },
+      { id: "users", text: "5 users" },
       // {
       //   id: "advanced",
       //   text: "Advanced link features",
@@ -94,12 +102,6 @@ export const PLANS = [
       {
         id: "deeplinks",
         text: "Deep links",
-        // tooltip: {
-        //   title:
-        //     "Redirect users to a specific page within your mobile application using deep links.",
-        //   cta: "Learn more.",
-        //   href: "https://dub.co//help/article/custom-domain-deep-links",
-        // },
       },
     ] as PlanFeature[],
   },
@@ -131,11 +133,7 @@ export const PLANS = [
     features: [
       {
         id: "clicks",
-        text: "250K tracked clicks/mo",
-      },
-      {
-        id: "links",
-        text: "10K new links/mo",
+        text: "Unlimited tracked clicks",
       },
       {
         id: "retention",
@@ -143,28 +141,10 @@ export const PLANS = [
       },
       {
         id: "sales",
-        text: "$25K tracked sales/mo",
-        // tooltip: {
-        //   title:
-        //     "Use PIMMS Conversions to track how your link clicks are converting to signups and sales. Limits are based on the total sale amount tracked within a given month.",
-        //   cta: "Learn more.",
-        //   href: "https://d.to/conversions",
-        // },
+        text: "25k€ tracked sales/mo",
       },
-      {
-        id: "users",
-        text: "10 users",
-      },
-      {
-        id: "events",
-        text: "Real-time events stream",
-        // tooltip: {
-        //   title:
-        //     "Get more data on your link clicks and QR code scans with a detailed, real-time stream of events in your workspace",
-        //   cta: "Learn more.",
-        //   href: "https://dub.co/help/article/real-time-events-stream",
-        // },
-      },
+      { id: "domains", text: "100 domains" },
+      { id: "users", text: "10 users" },
       // {
       //   id: "partners",
       //   text: "Partner management",
@@ -186,17 +166,11 @@ export const PLANS = [
       {
         id: "webhooks",
         text: "Event webhooks",
-        // tooltip: {
-        //   title:
-        //     "Get real-time notifications when a link is clicked or a QR code is scanned using webhooks.",
-        //   cta: "Learn more.",
-        //   href: "https://dub.co/docs/concepts/webhooks/introduction",
-        // },
       },
-      {
-        id: "tests",
-        text: "A/B testing",
-      },
+      // {
+      //   id: "tests",
+      //   text: "A/B testing",
+      // },
     ] as PlanFeature[],
   },
   // {
