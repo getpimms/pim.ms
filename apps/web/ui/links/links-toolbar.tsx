@@ -52,7 +52,7 @@ export const LinksToolbar = memo(
 
     const { canManageFolderPermissions } = getPlanCapabilities(plan);
     const { folders } = useFolderPermissions();
-    const conversionsEnabled = !!plan && plan !== "free";
+    // const conversionsEnabled = !!plan && plan !== "free";
 
     const { openMenuLinkId } = useContext(LinksListContext);
     const {
@@ -138,14 +138,14 @@ export const LinksToolbar = memo(
           label: "Conversion",
           icon: CircleDollar,
           action: () => setShowLinkConversionTrackingModal(true),
-          disabledTooltip: conversionsEnabled ? undefined : (
-            <TooltipContent
-              title="Conversion tracking is only available on Pro plans and above."
-              cta="Upgrade to Pro"
-              href={slug ? `/${slug}/upgrade` : "https://pimms.io/pricing"}
-              target="_blank"
-            />
-          ),
+          // disabledTooltip: conversionsEnabled ? undefined : (
+          //   <TooltipContent
+          //     title="Conversion tracking is only available on Pro plans and above."
+          //     cta="Upgrade to Pro"
+          //     href={slug ? `/${slug}/upgrade` : "https://pimms.io/pricing"}
+          //     target="_blank"
+          //   />
+          // ),
           // keyboardShortcut: "c",
         },
         // {
@@ -168,7 +168,7 @@ export const LinksToolbar = memo(
         //   keyboardShortcut: "x",
         // },
       ],
-      [plan, conversionsEnabled, selectedLinks],
+      [plan, selectedLinks],
     );
 
     useKeyboardShortcut(
@@ -263,7 +263,7 @@ export const LinksToolbar = memo(
                       "pointer-events-none absolute inset-0 translate-y-1/2 opacity-0",
                   )}
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <div className="flex items-center gap-2">
                       <button
                         type="button"

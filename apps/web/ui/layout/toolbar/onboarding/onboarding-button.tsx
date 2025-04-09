@@ -1,6 +1,7 @@
 "use client";
 
 import useDomainsCount from "@/lib/swr/use-domains-count";
+import useIntegrations from "@/lib/swr/use-integrations";
 import useUsers from "@/lib/swr/use-users";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { CheckCircleFill, ThreeDots } from "@/ui/shared/icons";
@@ -12,13 +13,12 @@ import { useParams } from "next/navigation";
 import { forwardRef, HTMLAttributes, Ref, useMemo, useState } from "react";
 
 export function OnboardingButton() {
-  const { isMobile } = useMediaQuery();
   const [hideForever, setHideForever] = useLocalStorage(
     "onboarding-hide-forever",
     false,
   );
 
-  return !isMobile && !hideForever ? (
+  return !hideForever ? (
     <OnboardingButtonInner onHideForever={() => setHideForever(true)} />
   ) : null;
 }
@@ -29,7 +29,8 @@ function OnboardingButtonInner({
   onHideForever: () => void;
 }) {
   const { slug } = useParams() as { slug: string };
-  const { totalLinks } = useWorkspace();
+  const { totalLinks, conversionEnabled } = useWorkspace();
+  const { integrations: activeIntegrations } = useIntegrations();
 
   const { data: domainsCount, loading: domainsLoading } = useDomainsCount({
     ignoreParams: true,
@@ -54,12 +55,22 @@ function OnboardingButtonInner({
         checked: domainsCount && domainsCount > 0,
       },
       {
+        display: "Enable conversion tracking",
+        cta: `/${slug}/settings/analytics`,
+        checked: !!conversionEnabled,
+      },
+      {
+        display: "Setup an integration in 1-step",
+        cta: `/${slug}/settings/integrations`,
+        checked: !!activeIntegrations && activeIntegrations.length > 0,
+      },
+      {
         display: "Invite your teammates",
         cta: `/${slug}/settings/people`,
         checked: (users && users.length > 1) || (invites && invites.length > 0),
       },
     ];
-  }, [slug, domainsCount, totalLinks, users, invites]);
+  }, [slug, domainsCount, totalLinks, users, invites, conversionEnabled, activeIntegrations]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -71,11 +82,11 @@ function OnboardingButtonInner({
       popoverContentClassName="rounded-xl"
       content={
         <div>
-          <div className="rounded-t-xl bg-black p-4 text-white">
+          <div className="rounded-t-md bg-[#3971ff] p-4 text-white">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <span className="text-base font-medium">Getting Started</span>
-                <p className="mt-1 text-sm text-neutral-300">
+                <span className="text-lg font-medium">Getting Started</span>
+                <p className="mt-1 text-sm text-neutral-100">
                   Get familiar with PiMMs by completing the{" "}
                   <br className="hidden sm:block" />
                   following tasks
@@ -128,10 +139,10 @@ function OnboardingButtonInner({
     >
       <button
         type="button"
-        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full border-[2px] border-neutral-950 bg-neutral-950 px-6 text-xs font-medium leading-tight text-white shadow-md transition-all [--offset:10px] hover:bg-neutral-800 hover:ring-4 hover:ring-neutral-200"
+        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full bg-zinc-600 px-6 text-sm font-medium leading-tight text-white shadow-md transition-all [--offset:10px] hover:bg-zinc-700 active:bg-zinc-800"
       >
         <span>Getting Started</span>
-        <span className="text-neutral-400">
+        <span className="text-neutral-200">
           {Math.round((completedTasks / tasks.length) * 100)}% complete
         </span>
       </button>
@@ -146,7 +157,7 @@ const MiniButton = forwardRef(
         ref={ref}
         type="button"
         {...props}
-        className="rounded-md px-1 py-1 text-neutral-400 transition-colors hover:bg-white/20 active:text-white"
+        className="rounded-md px-1 py-1 text-neutral-100 transition-colors bg-white/20 active:text-white"
       />
     );
   },

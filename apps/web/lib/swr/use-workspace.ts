@@ -26,7 +26,7 @@ export default function useWorkspace({
       ...swrOpts,
     },
   );
-
+  
   return {
     ...workspace,
     nextPlan: workspace?.plan ? getNextPlan(workspace.plan) : PRO_PLAN,

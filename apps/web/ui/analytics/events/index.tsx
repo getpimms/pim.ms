@@ -38,7 +38,7 @@ function EventsTableContainer() {
   const { selectedTab } = useContext(AnalyticsContext);
   const { plan, slug } = useWorkspace();
 
-  const requiresUpgrade = plan === "free";
+  const requiresUpgrade = plan === "free" && selectedTab === "sales";
 
   return (
     <EventsTable

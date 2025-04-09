@@ -62,6 +62,11 @@ const NAV_AREAS: SidebarNavAreas<{
             href: `/${slug}/sales?event=sales`,
           },
           {
+            name: "Integrations",
+            icon: ConnectedDots,
+            href: `/${slug}/settings/integrations`,
+          },
+          {
             name: "Settings",
             icon: Settings2,
             href: `/${slug}/settings`,

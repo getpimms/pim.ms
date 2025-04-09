@@ -16,18 +16,18 @@ export default async function Layout({ children }: { children: ReactNode }) {
       <div className="min-h-screen w-full bg-white">
         <MainNav
           sidebar={AppSidebarNav}
-          toolContent={
-            <>
-              <ReferButton />
-              <HelpButtonRSC />
-            </>
-          }
+          // toolContent={
+          //   <>
+          //     <ReferButton />
+          //     <HelpButtonRSC />
+          //   </>
+          // }
           // newsContent={<NewsRSC />}
         >
           {children}
         </MainNav>
       </div>
-      {/* <Toolbar show={["onboarding"]} /> */}
+      <Toolbar show={["onboarding"]} />
     </>
   );
 }

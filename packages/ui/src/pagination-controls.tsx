@@ -27,7 +27,7 @@ export function PaginationControls({
   return (
     <div
       className={cn(
-        "flex items-center sm:justify-between gap-2 text-sm leading-6 text-neutral-600",
+        "flex items-center gap-2 text-sm leading-6 text-neutral-600",
         className,
       )}
     >

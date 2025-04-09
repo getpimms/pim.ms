@@ -18,7 +18,7 @@ export function ConversionTrackingToggle() {
   const { slug, plan } = useWorkspace();
   const { watch, setValue } = useFormContext<LinkFormData>();
 
-  const conversionsEnabled = !!plan && plan !== "free";
+  const conversionsEnabled = true; //!!plan && plan !== "free";
 
   const trackConversion = watch("trackConversion");
 
