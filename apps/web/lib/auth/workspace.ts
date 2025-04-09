@@ -104,7 +104,7 @@ export const withWorkspace = (
         if (!idOrSlug && !isRestrictedToken) {
           // special case for anonymous link creation
           if (
-            req.headers.has("dub-anonymous-link-creation") &&
+            req.headers.has("pimms-anonymous-link-creation") &&
             ["/links", "/api/links"].includes(req.nextUrl.pathname)
           ) {
             // @ts-expect-error

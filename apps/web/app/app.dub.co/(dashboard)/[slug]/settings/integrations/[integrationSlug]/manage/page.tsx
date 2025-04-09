@@ -11,7 +11,7 @@ export default async function IntegrationManagePage({
 }) {
   // this is only available for PiMMs workspace for now
   // we might open this up to other workspaces in the future
-  if (params.slug !== "dub") {
+  if (params.slug !== "pimms" && params.slug !== "pimms-staging") {
     notFound();
   }
   const integration = await prisma.integration.findUnique({

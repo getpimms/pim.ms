@@ -21,7 +21,7 @@ export const PLANS = [
       links: 10,
       clicks: 1000,
       sales: 0,
-      domains: 3,
+      domains: 1,
       tags: 5,
       folders: 0,
       users: 1,

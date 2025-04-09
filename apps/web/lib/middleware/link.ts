@@ -66,9 +66,9 @@ export default async function LinkMiddleware(
   }
 
   // we don't support .php links (too much bot traffic)
-  // hence we redirect to the root domain and add `dub-no-track` header to avoid tracking bot traffic
+  // hence we redirect to the root domain and add `pimms-no-track` header to avoid tracking bot traffic
   if (isUnsupportedKey(key)) {
-    return NextResponse.redirect(new URL("/?dub-no-track=1", req.url), {
+    return NextResponse.redirect(new URL("/?pimms-no-track=1", req.url), {
       headers: {
         ...DUB_HEADERS,
         "X-Robots-Tag": "googlebot: noindex",

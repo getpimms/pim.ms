@@ -32,7 +32,7 @@ export default function OAuthAppsPageClient() {
           <h1 className="text-2xl font-semibold tracking-tight text-black">
             OAuth Applications
           </h1>
-          <InfoTooltip
+          {/* <InfoTooltip
             content={
               <TooltipContent
                 title="Learn how to use OAuth applications to build integrations with PIMMS."
@@ -41,7 +41,7 @@ export default function OAuthAppsPageClient() {
                 cta="Learn more"
               />
             }
-          />
+          /> */}
         </div>
         <div className="flex w-full items-center gap-3 sm:w-auto">
           <Button

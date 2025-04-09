@@ -841,7 +841,7 @@ export default function Toggle({
             to: endDate,
           },
           requiresUpgrade,
-          tooltipContent: requiresUpgrade ? (
+          tooltipContent: requiresUpgrade && !adminPage ? (
             <UpgradeTooltip rangeLabel={display} plan={plan} />
           ) : undefined,
           shortcut,
