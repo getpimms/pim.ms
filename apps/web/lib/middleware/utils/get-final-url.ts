@@ -32,7 +32,12 @@ export const getFinalUrl = (
       // if there's a clickId and no pimms-no-track search param, then add clickId to the final url
       // reasoning: if you're skipping tracking, there's no point in passing the clickId anyway
     } else if (!searchParams.has("pimms-no-track")) {
-      urlObj.searchParams.set("pimms_id", clickId);
+      // if it's a calendly link, then set the pimms_id into the utm_term
+      if (urlObj.hostname.includes("calendly")) {
+        urlObj.searchParams.set("utm_term", `pimms_id_${clickId}`);
+      } else {
+        urlObj.searchParams.set("pimms_id", clickId);
+      }
     }
   }
 

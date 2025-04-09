@@ -66,9 +66,9 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
           </Sheet.Close>
         </div>
 
-        <div className="border-y border-neutral-200 bg-neutral-50 p-6 pb-0">
-          <div className="flex h-12 w-full justify-between">
-            <div>
+        <div className="border-y border-neutral-200 bg-neutral-50 p-6">
+          <div className="flex w-full justify-between">
+            {/* <div>
               <img
                 src={
                   customer.avatar || `${DICEBEAR_AVATAR_URL}${customer.name}`
@@ -76,10 +76,10 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                 alt={customer.name}
                 className="size-12 rounded-full"
               />
-            </div>
+            </div> */}
 
-            <div className="flex min-w-[40%] shrink grow basis-1/2 flex-col items-end justify-end gap-2">
-              {link ? (
+            <div className="flex min-w-[40%] shrink grow basis-1/2 flex-row items-end justify-end gap-2">
+              {/* {link ? (
                 <Link
                   href={`/${slug}/events?domain=${link.domain}&key=${link.key}&interval=all`}
                   target="_blank"
@@ -92,7 +92,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                 </Link>
               ) : (
                 <div className="h-4 w-24 animate-pulse rounded-full bg-neutral-200" />
-              )}
+              )} */}
 
               {country && (
                 <Link
@@ -116,7 +116,7 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
               <span className="text-lg font-semibold leading-tight text-neutral-900">
                 {customer.name}
               </span>
-              <span className="rounded-full border-[6px] border-neutral-100 bg-neutral-200 px-1.5 py-0.5 text-xs text-neutral-900">
+              <span className="rounded-full border-2 border-neutral-100 bg-neutral-200 px-1.5 py-0.5 text-xs text-neutral-900">
                 {new Date(customer.createdAt).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
@@ -133,18 +133,18 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                 <CopyButton
                   value={customer.email}
                   variant="neutral"
-                  className="p-1 [&>*]:h-3 [&>*]:w-3"
+                  className="p-1"
                   successMessage="Copied email to clipboard!"
                 />
               </div>
             )}
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-1">
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
-                  label: "Lead",
+                  label: "Conversion",
                   value: customerActivity?.timeToLead // in milliseconds
                     ? formatDistanceStrict(0, customerActivity.timeToLead)
                     : "-",
@@ -174,16 +174,16 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                     </span>
                   </Tooltip>
                   <span className="text-base text-neutral-900">{value}</span>
-                  {index === 0 && (
+                  {/* {index === 0 && (
                     <div className="absolute inset-0 right-0 z-10 m-auto -mr-2.5 flex size-5 items-center justify-center rounded-full border-[6px] border-neutral-100 bg-neutral-50 text-neutral-900">
                       <ArrowRight className="size-3" />
                     </div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-neutral-200">
+            {/* <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border-[6px] border-neutral-100 bg-neutral-200">
               {[
                 {
                   label: "Lifetime value",
@@ -207,14 +207,14 @@ function CustomerDetailsSheetContent({ customer }: CustomerDetailsSheetProps) {
                   <span className="text-base text-neutral-900">{value}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
-          <TabSelect
+          {/* <TabSelect
             className="mt-2"
             options={[{ id: "activity", label: "Activity" }]}
             selected={"activity"}
-          />
+          /> */}
         </div>
 
         <div className="flex grow flex-col p-6">
