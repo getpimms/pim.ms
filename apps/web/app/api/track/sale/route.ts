@@ -298,5 +298,6 @@ export const POST = withWorkspace(
       "advanced",
       "enterprise",
     ],
+    requiredPermissions: ["sale.write"],
   },
 );

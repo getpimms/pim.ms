@@ -112,31 +112,30 @@ export const POST = withWorkspace(
     }
 
     // Zapier use this endpoint to create webhooks from their app
-    // const isZapierWebhook =
-    //   identifyWebhookReceiver(url) === WebhookReceiver.zapier;
+    const isZapierWebhook =
+      identifyWebhookReceiver(url) === WebhookReceiver.zapier;
 
-    // const zapierInstallation = isZapierWebhook
-    //   ? await prisma.installedIntegration.findFirst({
-    //       where: {
-    //         projectId: workspace.id,
-    //         integrationId: ZAPIER_INTEGRATION_ID,
-    //       },
-    //       select: {
-    //         id: true,
-    //       },
-    //     })
-    //   : undefined;
+    const zapierInstallation = isZapierWebhook
+      ? await prisma.installedIntegration.findFirst({
+          where: {
+            projectId: workspace.id,
+            integrationId: ZAPIER_INTEGRATION_ID,
+          },
+          select: {
+            id: true,
+          },
+        })
+      : undefined;
 
     const webhook = await createWebhook({
       name,
       url,
-      // receiver: isZapierWebhook ? WebhookReceiver.zapier : WebhookReceiver.user,
-      receiver: WebhookReceiver.user,
+      receiver: isZapierWebhook ? WebhookReceiver.zapier : WebhookReceiver.user,
       triggers,
       linkIds,
       secret,
       workspace,
-      // installationId: zapierInstallation ? zapierInstallation.id : undefined,
+      installationId: zapierInstallation ? zapierInstallation.id : undefined,
     });
 
     if (!webhook) {
