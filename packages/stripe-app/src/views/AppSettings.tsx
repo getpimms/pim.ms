@@ -41,12 +41,12 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
     await Promise.all([
       deleteSecret({
         stripe,
-        name: "dub_workspace",
+        name: "pimms_workspace",
       }),
 
       deleteSecret({
         stripe,
-        name: "dub_token",
+        name: "pimms_token",
       }),
     ]);
 
@@ -80,7 +80,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
 
     await setSecret({
       stripe,
-      name: "dub_token",
+      name: "pimms_token",
       payload: JSON.stringify(token),
     });
 
@@ -97,7 +97,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
 
     await setSecret({
       stripe,
-      name: "dub_workspace",
+      name: "pimms_workspace",
       payload: JSON.stringify(workspace),
     });
 
@@ -156,7 +156,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
         />
       ) : (
         <SignInView
-          description="Connect your PIMMS workspace with Stripe to start tracking the conversions."
+          description="Connect your PIMMS workspace with Stripe to start tracking conversions."
           primaryAction={{
             label: connecting
               ? "Connecting please wait..."
@@ -177,7 +177,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
               </Link>
             </>
           }
-          brandColor="#000000"
+          brandColor="#3971ff"
           brandIcon={appIcon}
         />
       )}
