@@ -15,6 +15,7 @@ export const maxDuration = 30;
 // POST /api/oauth/token - Exchange authorization code for access token and refresh access token
 export async function POST(req: NextRequest) {
   try {
+    console.log("oauth token", req);
     const formData = Object.fromEntries(await req.formData());
     const validatedData = tokenGrantSchema.parse(formData);
 
