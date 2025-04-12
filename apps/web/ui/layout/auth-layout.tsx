@@ -30,7 +30,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
           </ClientOnly>
         </div>
 
-        <div className="grid gap-2 pb-8 pt-4">
+        <div className="fixed bottom-0 left-10 grid gap-2 pb-8 pt-4">
           <p className="text-xs text-neutral-600">
             © {new Date().getFullYear()} PIMMS. 
           </p>

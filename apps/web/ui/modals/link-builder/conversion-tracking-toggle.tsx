@@ -29,26 +29,7 @@ export function ConversionTrackingToggle() {
   );
 
   return (
-    <label className="flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        {isNew && (
-          <div className="rounded-full border border-green-200 bg-green-100 px-2 py-0.5 text-[0.625rem] uppercase leading-none text-green-900">
-            New
-          </div>
-        )}
-        <span className="flex select-none items-center gap-1 text-sm font-medium text-neutral-700">
-          Conversion Tracking
-          <InfoTooltip
-            content={
-              <SimpleTooltipContent
-                title="View conversions from your deep links."
-                cta="Learn more."
-                href="https://pim.ms/start-tracking"
-              />
-            }
-          />
-        </span>
-      </div>
+    <label className="flex items-center">
       <Switch
         checked={trackConversion}
         fn={(checked) =>
@@ -62,7 +43,9 @@ export function ConversionTrackingToggle() {
               title="Conversion tracking is only available on Pro plans and above."
               cta="Upgrade to Pro"
               href={
-                slug ? `/${slug}/upgrade?exit=close` : "https://pimms.io/pricing"
+                slug
+                  ? `/${slug}/upgrade?exit=close`
+                  : "https://pimms.io/pricing"
               }
               target="_blank"
             />
@@ -74,6 +57,25 @@ export function ConversionTrackingToggle() {
           )
         }
       />
+      <div className="flex items-center gap-2 ml-4">
+        {isNew && (
+          <div className="rounded-full border border-green-200 bg-green-100 px-2 py-0.5 text-[0.625rem] uppercase leading-none text-green-900">
+            New
+          </div>
+        )}
+        <span className="flex select-none items-center gap-1 text-sm font-medium text-neutral-700">
+          Enable Conversion Tracking
+          <InfoTooltip
+            content={
+              <SimpleTooltipContent
+                title="View conversions from your links."
+                cta="Learn more."
+                href="https://pim.ms/start-tracking"
+              />
+            }
+          />
+        </span>
+      </div>
     </label>
   );
 }

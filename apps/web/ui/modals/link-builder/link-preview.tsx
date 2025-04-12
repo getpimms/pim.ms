@@ -88,11 +88,7 @@ export function LinkPreview() {
   return (
     <div>
       <OGModal />
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <h2 className="text-sm font-medium text-neutral-700">Preview</h2>
-        </div>
-
+      <div className="flex items-center">
         <Switch
           checked={proxy}
           fn={(checked) => setValue("proxy", checked, { shouldDirty: true })}
@@ -118,6 +114,9 @@ export function LinkPreview() {
           //   ) : undefined
           // }
         />
+        <div className="flex items-center gap-2 ml-4">
+          <h2 className="text-sm font-medium text-neutral-700">Disable Custom Preview</h2>
+        </div>
       </div>
       {/* <div className="mt-2.5 grid grid-cols-4 gap-2">
         {tabs.map((tab) => {
@@ -267,7 +266,7 @@ export const ImagePreview = ({
       {previewImage}
       <label
         htmlFor="file-upload"
-        className="absolute left-0 top-0 flex cursor-pointer items-center gap-2 rounded-xl border-2 border-neutral-300 bg-neutral-100 p-2 text-sm font-medium"
+        className="absolute left-0 top-0 flex cursor-pointer items-center gap-2 rounded-xl border-2 border-neutral-400 bg-neutral-100 p-2 text-sm font-medium"
       >
         <Upload className="size-4" />
       </label>
@@ -384,7 +383,7 @@ function LinkedInOGPreview({ title, hostname, children }: OGPreviewProps) {
       >
         {children}
       </div>
-      <div className="grid gap-2 w-full">
+      <div className="grid w-full gap-2">
         <ReactTextareaAutosize
           className="line-clamp-2 w-full resize-none border-none p-0 text-xs font-semibold text-[#000000E6] outline-none focus:ring-0"
           value={title || "Add a title..."}

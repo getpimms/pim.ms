@@ -50,11 +50,6 @@ function OnboardingButtonInner({
         checked: totalLinks === 0 ? false : true,
       },
       {
-        display: "Set up your custom domain",
-        cta: `/${slug}/settings/domains`,
-        checked: domainsCount && domainsCount > 0,
-      },
-      {
         display: "Enable conversion tracking",
         cta: `/${slug}/settings/analytics`,
         checked: !!conversionEnabled,
@@ -63,6 +58,11 @@ function OnboardingButtonInner({
         display: "Setup an integration in 1-step",
         cta: `/${slug}/settings/integrations`,
         checked: !!activeIntegrations && activeIntegrations.length > 0,
+      },
+      {
+        display: "Set up your custom domain",
+        cta: `/${slug}/settings/domains`,
+        checked: domainsCount && domainsCount > 0,
       },
       {
         display: "Invite your teammates",
@@ -139,7 +139,7 @@ function OnboardingButtonInner({
     >
       <button
         type="button"
-        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full bg-zinc-600 px-6 text-sm font-medium leading-tight text-white shadow-md transition-all [--offset:10px] hover:bg-zinc-700 active:bg-zinc-800"
+        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full bg-[#3970ff] px-6 text-sm font-medium leading-tight text-white shadow-md transition-all [--offset:10px]"
       >
         <span>Getting Started</span>
         <span className="text-neutral-200">

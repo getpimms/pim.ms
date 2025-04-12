@@ -1,6 +1,6 @@
 {
   "id": "pimms.io",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "name": "PIMMS",
   "icon": "./stripe-icon.png",
   "permissions": [
@@ -52,9 +52,7 @@
     "content_security_policy": {
       "connect-src": [
         "https://app.pimms.io/api/oauth/",
-        "https://preview.pimms.io/api/oauth/",
-        "https://app.pimms.io/api/stripe/integration",
-        "https://preview.pimms.io/api/stripe/integration"
+        "https://app.pimms.io/api/stripe/integration"
       ],
       "image-src": null,
       "purpose": ""
@@ -65,8 +63,7 @@
     "url": ""
   },
   "allowed_redirect_uris": [
-    "https://app.pimms.io/api/stripe/integration/callback",
-    "https://preview.pimms.io/api/stripe/integration/callback"
+    "https://app.pimms.io/api/stripe/integration/callback"
   ],
   "stripe_api_access_type": "oauth",
   "distribution_type": "public"

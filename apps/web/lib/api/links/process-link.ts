@@ -285,16 +285,16 @@ export async function processLink<T extends Record<string, any>>({
     }
   }
 
-  if (trackConversion) {
-    if (!workspace || workspace.plan === "free") {
-      return {
-        link: payload,
-        error:
-          "Conversion tracking is only available for workspaces with a Pro plan and above. Please upgrade to continue.",
-        code: "forbidden",
-      };
-    }
-  }
+  // if (trackConversion) {
+  //   if (!workspace || workspace.plan === "free") {
+  //     return {
+  //       link: payload,
+  //       error:
+  //         "Conversion tracking is only available for workspaces with a Pro plan and above. Please upgrade to continue.",
+  //       code: "forbidden",
+  //     };
+  //   }
+  // }
 
   if (externalId && workspace && !skipExternalIdChecks) {
     const link = await prisma.link.findUnique({
