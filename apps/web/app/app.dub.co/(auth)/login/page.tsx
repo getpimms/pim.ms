@@ -25,7 +25,7 @@ export default function LoginPage() {
           href="register"
           className="font-semibold text-neutral-500 underline underline-offset-2 transition-colors hover:text-black"
         >
-          Sign up
+          Register
         </Link>
       </p>
     </AuthLayout>

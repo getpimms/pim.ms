@@ -28,7 +28,7 @@ export function ReferralInvite({
   return (
     <Html>
       <Head />
-      <Preview>Sign up for PiMMs</Preview>
+      <Preview>Register for PiMMs</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 max-w-[500px] rounded-3xl border-[6px] border-solid border-neutral-100 px-10 py-5">
@@ -36,7 +36,7 @@ export function ReferralInvite({
               <Img src={DUB_WORDMARK} height="14" alt="PIMMS" className="my-0" />
             </Section>
             <Heading className="mx-0 my-7 p-0 text-xl font-medium text-black">
-              Sign up for PiMMs
+              Register for PiMMs
             </Heading>
             {workspaceUser && workspaceUserEmail ? (
               <Text className="text-sm leading-6 text-black">
