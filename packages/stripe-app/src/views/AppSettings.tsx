@@ -173,7 +173,7 @@ const AppSettings = ({ userContext, oauthContext }: ExtensionContextValue) => {
                 target="_blank"
                 external
               >
-                Sign up
+                Register
               </Link>
             </>
           }

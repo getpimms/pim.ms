@@ -23,7 +23,7 @@ interface AuthLayoutProps {
 export const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-5">
-      <div className="col-span-1 flex min-h-screen flex-col items-center justify-between sm:col-span-3 p-3">
+      <div className="col-span-1 flex min-h-screen flex-col items-center justify-between sm:col-span-3 p-3 bg-zinc-100">
         <div className="flex h-full w-full flex-col items-center justify-center">
           <ClientOnly className="relative flex w-full flex-col items-center justify-center">
             <Suspense>{children}</Suspense>
@@ -32,28 +32,28 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
 
         <div className="grid gap-2 pb-8 pt-4">
           <p className="text-xs text-neutral-600">
-            © {new Date().getFullYear()} PIMMS.
+            © {new Date().getFullYear()} PIMMS. 
           </p>
-          {/* <div className="flex gap-3 text-center text-xs text-neutral-500 underline underline-offset-2">
+          <div className="flex gap-3 text-center text-xs text-neutral-500 underline underline-offset-2">
             <a
-              href="https://dub.co/legal/privacy"
+              href="https://pimms.io/legal/privacy"
               target="_blank"
               className="hover:text-neutral-800"
             >
               Privacy Policy
             </a>
             <a
-              href="https://dub.co/legal/terms"
+              href="https://pimms.io/legal/terms"
               target="_blank"
               className="hover:text-neutral-800"
             >
               Terms of Service
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
 
-      <div className="hidden h-full flex-col justify-center space-y-12 md:col-span-2 md:flex bg-white shadow-[inset_0_0_10px_0_rgba(0,0,0,0.1)]">
+      <div className="hidden h-full flex-col justify-center space-y-12 md:col-span-2 md:flex bg-white shadow-[inset_0_0_10px_0_rgba(0,0,0,0.1)] overflow-hidden">
         <div className="ml-12 h-1/2 w-[140%] rounded-xl shadow-md">
           <BlurImage
             alt="PIMMS Analytics"
@@ -64,7 +64,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
           />
         </div>
         {/* <a
-          href="https://dub.co/customers"
+          href="https://pimms.io/customers"
           target="_blank"
           className="animate-infinite-scroll flex items-center space-x-4"
         >
@@ -72,7 +72,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
             <BlurImage
               alt={`${logo} logo`}
               key={idx}
-              src={`https://assets.dub.co/clients/${logo}.svg`}
+              src={`https://assets.pimms.io/clients/${logo}.svg`}
               width={520}
               height={182}
               className="h-12 grayscale transition-all hover:grayscale-0"

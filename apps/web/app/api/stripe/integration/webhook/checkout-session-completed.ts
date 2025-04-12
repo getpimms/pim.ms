@@ -166,7 +166,7 @@ export async function checkoutSessionCompleted(event: Stripe.Event) {
     leadEvent = {
       ...rest,
       event_id: nanoid(16),
-      event_name: "Sign up",
+      event_name: "Register",
       customer_id: customer.id,
       metadata: "",
     };

@@ -213,7 +213,7 @@ export function Nav({
                         "dark:border-white dark:bg-white dark:text-black dark:hover:bg-neutral-50 dark:hover:ring-white/10",
                       )}
                     >
-                      Sign up
+                      Register
                     </Link>
                   </>
                 ) : null}

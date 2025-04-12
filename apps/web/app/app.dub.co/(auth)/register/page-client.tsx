@@ -20,7 +20,7 @@ export default function RegisterPageClient() {
 function SignUp() {
   return (
     <>
-      <div className="w-full max-w-md overflow-hidden border-[6px] rounded-3xl sm:shadow-sm">
+      <div className="w-full max-w-md overflow-hidden border-[6px] border-zinc-200 rounded-3xl sm:shadow-sm">
         <div className="bg-white pb-6 pt-8 text-center">
           <h3 className="text-lg font-semibold">Get started with PIMMS</h3>
         </div>
