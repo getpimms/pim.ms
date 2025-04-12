@@ -13,9 +13,7 @@ import {
 } from "react";
 import { toast } from "sonner";
 import { EmailSignIn } from "./email-sign-in";
-import { GitHubButton } from "./github-button";
 import { GoogleButton } from "./google-button";
-import { SSOSignIn } from "./sso-sign-in";
 
 export const authMethods = [
   "google",
@@ -114,19 +112,19 @@ export default function LoginForm({
       component: GoogleButton,
       props: { next },
     },
-    {
-      method: "github",
-      component: GitHubButton,
-    },
+    // {
+    //   method: "github",
+    //   component: GitHubButton,
+    // },
     {
       method: "email",
       component: EmailSignIn,
       props: { next },
     },
-    {
-      method: "saml",
-      component: SSOSignIn,
-    },
+    // {
+    //   method: "saml",
+    //   component: SSOSignIn,
+    // },
   ];
 
   const currentAuthProvider = authProviders.find(
@@ -171,17 +169,17 @@ export default function LoginForm({
                       </span>
                     </div>
                   )}
-                {/* <div className="my-2 flex flex-shrink items-center justify-center gap-2">
+                <div className="my-2 flex flex-shrink items-center justify-center gap-2">
                   <div className="grow basis-0 border-b border-neutral-300" />
                   <span className="text-xs font-normal uppercase leading-none text-neutral-500">
                     or
                   </span>
                   <div className="grow basis-0 border-b border-neutral-300" />
-                </div> */}
+                </div>
               </div>
             )}
 
-            {/* {showEmailPasswordOnly ? (
+            {showEmailPasswordOnly ? (
               <div className="mt-2 text-center text-sm text-neutral-500">
                 <button
                   type="button"
@@ -203,7 +201,7 @@ export default function LoginForm({
                     <provider.component />
                   </div>
                 ))
-            )} */}
+            )}
           </div>
         </AnimatedSizeContainer>
       </div>

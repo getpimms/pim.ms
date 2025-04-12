@@ -25,7 +25,7 @@ function SignUp() {
           <h3 className="text-lg font-semibold">Get started with PIMMS</h3>
         </div>
         <div className="bg-neutral-50 px-4 py-8 sm:px-16">
-          <SignUpForm />
+          <SignUpForm methods={["email", "google"]} />
         </div>
       </div>
       <p className="mt-4 text-center text-sm text-neutral-500">

@@ -11,7 +11,7 @@ export const SignUpForm = ({
   return (
     <div className="flex flex-col gap-3">
       {methods.includes("email") && <SignUpEmail />}
-      {/* {methods.length && (
+      {methods.length && (
         <div className="my-2 flex flex-shrink items-center justify-center gap-2">
           <div className="grow basis-0 border-b border-neutral-300" />
           <span className="text-xs font-normal uppercase leading-none text-neutral-500">
@@ -20,7 +20,7 @@ export const SignUpForm = ({
           <div className="grow basis-0 border-b border-neutral-300" />
         </div>
       )}
-      <SignUpOAuth methods={methods} /> */}
+      <SignUpOAuth methods={methods} />
     </div>
   );
 };
