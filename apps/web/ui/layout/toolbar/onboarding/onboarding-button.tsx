@@ -28,8 +28,14 @@ function OnboardingButtonInner({
 }: {
   onHideForever: () => void;
 }) {
-  const { slug } = useParams() as { slug: string };
+  const { slug } = useParams() as { slug: string };  
+
+  if (!slug) {
+    return null;
+  }
+
   const { totalLinks, conversionEnabled } = useWorkspace();
+
   const { integrations: activeIntegrations } = useIntegrations();
 
   const { data: domainsCount, loading: domainsLoading } = useDomainsCount({

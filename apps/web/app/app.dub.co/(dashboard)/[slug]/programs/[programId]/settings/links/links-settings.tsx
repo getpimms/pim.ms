@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { mutate } from "swr";
 import { SettingsRow } from "../settings-row";
+import { useAvailableDomains } from "@/ui/links/use-available-domains";
 
 type FormData = Pick<
   ProgramProps,
@@ -37,7 +38,7 @@ export function LinksSettings() {
 }
 
 function LinksSettingsForm({ program }: { program: ProgramProps }) {
-  const { id: workspaceId } = useWorkspace();
+  const { id: workspaceId, slug } = useWorkspace();
   const { folders, loading: loadingFolders } = useFolders();
 
   const shortDomain = program.domain || "refer.pimms.io";
@@ -45,26 +46,14 @@ function LinksSettingsForm({ program }: { program: ProgramProps }) {
     ? getDomainWithoutWWW(program.url)
     : "pimms.io";
 
-  const LINK_TYPES = [
-    {
-      label: "Short link",
-      example: `${shortDomain}/alexandre`,
-      comingSoon: false,
-    },
-    // {
-    //   label: "Query parameter",
-    //   example: `${websiteDomain}?via=alexandre`,
-    //   comingSoon: true,
-    // },
-    {
-      label: "Dynamic path",
-      example: `${websiteDomain}/refer/alexandre`,
-      comingSoon: true,
-    },
-  ];
 
-  const { activeWorkspaceDomains: domains, loading: loadingDomains } =
-    useDomains();
+  const { domains: availableDomains, activeWorkspaceDomains, loading: loadingDomains } =
+  useAvailableDomains();
+
+  const domains =
+    slug === "pimms" || slug === "pimms-staging"
+      ? availableDomains
+      : activeWorkspaceDomains;
 
   const form = useForm<FormData>({
     mode: "onBlur",
@@ -82,6 +71,24 @@ function LinksSettingsForm({ program }: { program: ProgramProps }) {
     reset,
     formState: { isDirty, isValid, isSubmitting },
   } = form;
+
+  const LINK_TYPES = [
+    {
+      label: "Short link",
+      example: `${form.watch("domain")}/alexandre`,
+      comingSoon: false,
+    },
+    // {
+    //   label: "Query parameter",
+    //   example: `${websiteDomain}?via=alexandre`,
+    //   comingSoon: true,
+    // },
+    // {
+    //   label: "Dynamic path",
+    //   example: `${websiteDomain}/refer/alexandre`,
+    //   comingSoon: true,
+    // },
+  ];
 
   const { executeAsync } = useAction(updateProgramAction, {
     async onSuccess() {

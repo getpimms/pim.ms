@@ -14,9 +14,9 @@ export function ReferralsEmbedPayouts({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
           <p className="text-content-subtle text-sm">Payouts</p>
-          <InfoTooltip content="Payouts are processed at the start of each month. Your earnings are automatically transferred to your bank account." />
+          {/* <InfoTooltip content="Payouts are processed at the start of each month. Your earnings are automatically transferred to your bank account." /> */}
         </div>
-        <a
+        {/* <a
           href={`https://partners.pimms.io/${programSlug}/register`}
           target="_blank"
         >
@@ -25,7 +25,7 @@ export function ReferralsEmbedPayouts({
             variant="secondary"
             className="h-7 p-2 text-sm"
           />
-        </a>
+        </a> */}
       </div>
       <div className="grid gap-1">
         {[

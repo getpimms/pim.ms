@@ -20,7 +20,7 @@ export default function Toolbar(props: ToolbarProps) {
   );
 }
 
-async function ToolbarRSC({ show = ["onboarding", "help"] }: ToolbarProps) {
+function ToolbarRSC({ show = ["onboarding", "help"] }: ToolbarProps) {
   // const { popularHelpArticles, allHelpArticles } = await fetch(
   //   "https://dub.co/api/content",
   //   {

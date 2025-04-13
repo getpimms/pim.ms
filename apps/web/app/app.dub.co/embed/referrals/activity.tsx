@@ -39,7 +39,7 @@ export function ReferralsEmbedActivity({
                 "Total number of unique clicks your link has received",
             },
             {
-              label: "Leads",
+              label: "Conversions",
               value: leads,
               description: "Total number of signups that came from your link",
             },
@@ -63,7 +63,7 @@ export function ReferralsEmbedActivity({
                   {nFormatter(value, { full: true })}
                 </span>
               </div>
-              <div className="xs:block hidden h-12">
+              {/* <div className="xs:block hidden h-12">
                 <MiniAreaChart
                   data={
                     analytics?.map((a) => ({
@@ -72,7 +72,7 @@ export function ReferralsEmbedActivity({
                     })) ?? []
                   }
                 />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

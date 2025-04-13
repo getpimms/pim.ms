@@ -126,11 +126,11 @@ function ProgramCardEarnings({ program }: { program: ProgramProps }) {
           <div className="mt-1 h-6 w-20 animate-pulse rounded-md bg-neutral-200" />
         )}
       </div>
-      {chartData && (
+      {/* {chartData && (
         <div className="relative h-full">
           <MiniAreaChart data={chartData} />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

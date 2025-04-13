@@ -101,7 +101,7 @@ export default function ProgramPageClient() {
               <span className="text-base font-semibold text-neutral-800">
                 Referral link
               </span>
-              <div className="xs:flex-row xs:items-center relative mt-3 flex flex-col gap-2 md:max-w-[50%]">
+              <div className="xs:flex-row xs:items-center relative mt-3 flex flex-col gap-4">
                 {masterLink ? (
                   <input
                     type="text"
@@ -146,7 +146,7 @@ export default function ProgramPageClient() {
               <span className="mt-12 text-base font-semibold text-neutral-800">
                 Rewards
               </span>
-              <div className="relative mt-2 text-lg text-neutral-900 md:max-w-[50%]">
+              <div className="relative mt-2 text-lg text-neutral-900">
                 {program && programEnrollment?.rewards ? (
                   <ProgramRewardList
                     rewards={programEnrollment?.rewards}
