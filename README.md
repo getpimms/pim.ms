@@ -9,6 +9,8 @@ Direct your users seamlessly into the right mobile apps, maximize engagement, an
 
 [Website →](https://pimms.io) · [Twitter](https://twitter.com/getpimms) · [License](LICENSE)
 
+This project is a fork of [Dub.co](https://github.com/dubinc/dub)
+
 ---
 
 ## Introduction
@@ -75,3 +77,6 @@ We love our contributors! Here’s how you can get involved:
 ---
 
 Built with ❤️ by the PIMMS community.
+
+Thank you to the open source community for making this project happen.
+This project is a fork of [Dub.co](https://github.com/dubinc/dub)

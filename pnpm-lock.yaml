@@ -11,6 +11,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      '@dub/utils':
+        specifier: ^0.1.25
+        version: link:packages/utils
     devDependencies:
       '@dub/tailwind-config':
         specifier: workspace:*

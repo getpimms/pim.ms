@@ -49,6 +49,13 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
             >
               Terms of Service
             </a>
+            <a
+              href="https://github.com/getpimms/pim.ms"
+              target="_blank"
+              className="hover:text-neutral-800"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>

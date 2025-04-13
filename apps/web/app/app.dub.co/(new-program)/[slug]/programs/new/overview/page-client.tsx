@@ -87,7 +87,7 @@ export function PageClient() {
     },
     {
       title: "Referral link type",
-      content: `${data.domain}/steven`,
+      content: `${data.domain}/alexandre`,
       href: `/${workspaceSlug}/programs/new`,
     },
     {

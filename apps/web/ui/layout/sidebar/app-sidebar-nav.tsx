@@ -21,6 +21,7 @@ import { SidebarNav, SidebarNavAreas } from "./sidebar-nav";
 import { Usage } from "./usage";
 import { WorkspaceDropdown } from "./workspace-dropdown";
 import { BarChart2, CoinsIcon, Link, Settings, Settings2, Split, Target, TargetIcon, WalletCards } from "lucide-react";
+import { ReferralButton } from "./referral-button";
 
 const NAV_AREAS: SidebarNavAreas<{
   slug: string;
@@ -270,6 +271,7 @@ export function AppSidebarNav({
       switcher={<WorkspaceDropdown />}
       bottom={
         <>
+          <ReferralButton />
           {/* <UserSurveyButton /> */}
           <Usage />
         </>

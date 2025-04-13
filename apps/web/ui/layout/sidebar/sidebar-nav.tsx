@@ -54,8 +54,8 @@ export function SidebarNav<T extends Record<any, any>>({
 }) {
   return (
     <ClientOnly className="scrollbar-hide relative flex h-full w-full flex-col overflow-y-auto overflow-x-hidden">
-      <nav className="relative flex grow flex-col p-3 text-neutral-500">
-        <div className="relative flex items-center justify-between gap-1">
+      <nav className="relative flex grow flex-col px-3 sm:py-3 text-neutral-500">
+        <div className="relative flex items-center justify-between gap-1 mt-2">
           {Object.entries(areas).map(([area, areaConfig]) => {
             const { title, backHref } = areaConfig(data);
 
@@ -96,9 +96,9 @@ export function SidebarNav<T extends Record<any, any>>({
                   <div className="pt-2">{switcher}</div>
                 )}
 
-                <div className="flex flex-col gap-2 pt-4">
+                <div className="flex flex-col gap-1 sm:gap-2 pt-4">
                   {content.map(({ name, items }, idx) => (
-                    <div key={idx} className="flex flex-col gap-2">
+                    <div key={idx} className="flex flex-col gap-1 sm:gap-2">
                       {name && (
                         <div className="mb-2 pl-1 text-sm text-neutral-500">
                           {name}
@@ -169,7 +169,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
         className={cn(
-          "group flex items-center gap-2.5 rounded-full p-2 text-sm leading-none text-neutral-600 transition-[background-color,color,font-weight] duration-75 hover:bg-neutral-200/50 active:bg-neutral-200/80",
+          "group flex items-center gap-2.5 rounded-full p-0.5 sm:p-2 text-sm leading-none text-neutral-600 transition-[background-color,color,font-weight] duration-75 hover:bg-neutral-200/50 active:bg-neutral-200/80",
           "outline-none focus-visible:ring-2 focus-visible:ring-black/50",
           isActive &&
             !items &&
@@ -207,7 +207,7 @@ function NavItem({ item }: { item: NavItemType | NavSubItemType }) {
           >
             <div className="pl-px pt-1">
               <div className="pl-3.5">
-                <div className="flex flex-col gap-2 border-l border-neutral-200 pl-2">
+                <div className="flex flex-col gap-1 sm:gap-2 border-l border-neutral-200 pl-2">
                   {items.map((item) => (
                     <NavItem key={item.name} item={item} />
                   ))}

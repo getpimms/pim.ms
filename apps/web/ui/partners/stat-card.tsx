@@ -45,7 +45,7 @@ export function StatCard({
       ) : (
         <div className="h-8 w-16 animate-pulse rounded-md bg-neutral-200" />
       )}
-      <div className="mt-2 h-16 w-full">
+      {/* <div className="mt-2 h-16 w-full">
         {timeseries ? (
           <MiniAreaChart
             data={timeseries.map((d) => ({
@@ -66,7 +66,7 @@ export function StatCard({
             )}
           </div>
         )}
-      </div>
+      </div> */}
     </Wrapper>
   );
 }

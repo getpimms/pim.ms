@@ -28,8 +28,14 @@ function OnboardingButtonInner({
 }: {
   onHideForever: () => void;
 }) {
-  const { slug } = useParams() as { slug: string };
+  const { slug } = useParams() as { slug: string };  
+
+  if (!slug) {
+    return null;
+  }
+
   const { totalLinks, conversionEnabled } = useWorkspace();
+
   const { integrations: activeIntegrations } = useIntegrations();
 
   const { data: domainsCount, loading: domainsLoading } = useDomainsCount({
@@ -139,7 +145,7 @@ function OnboardingButtonInner({
     >
       <button
         type="button"
-        className="animate-slide-up-fade -mt-1 flex h-12 flex-col items-center justify-center rounded-full bg-[#3970ff] px-6 text-sm font-medium leading-tight text-white shadow-md transition-all [--offset:10px]"
+        className="animate-slide-up-fade -mr-2 sm:mr-0 -mt-0.5 flex h-12 flex-col items-center justify-center rounded-full bg-[#3970ff] px-6 text-sm font-medium leading-tight text-white shadow-md transition-all [--offset:10px]"
       >
         <span>Getting Started</span>
         <span className="text-neutral-200">

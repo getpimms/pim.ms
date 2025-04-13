@@ -53,7 +53,7 @@ export function PageClient() {
       <div className="space-y-6">
         <p className="text-sm text-neutral-600">
           Depending on your payment processor, select from the following guides
-          to learn how to connect Dub and start tracking conversions.
+          to learn how to connect PiMMs and start tracking conversions.
         </p>
 
         <div className="flex flex-col gap-4">

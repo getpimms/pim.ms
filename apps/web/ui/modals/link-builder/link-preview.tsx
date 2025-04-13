@@ -115,7 +115,7 @@ export function LinkPreview() {
           // }
         />
         <div className="flex items-center gap-2 ml-4">
-          <h2 className="text-sm font-medium text-neutral-700">Disable Custom Preview</h2>
+          <h2 className="text-sm font-medium text-neutral-700">Enable Custom Preview</h2>
         </div>
       </div>
       {/* <div className="mt-2.5 grid grid-cols-4 gap-2">

@@ -19,6 +19,9 @@
     "script": "echo 'Run this script in apps/web'",
     "test": "turbo run test"
   },
+  "dependencies": {
+    "@dub/utils": "^0.1.25"
+  },
   "devDependencies": {
     "@dub/tailwind-config": "workspace:*",
     "eslint": "^8.48.0",

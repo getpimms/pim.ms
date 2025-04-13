@@ -4,6 +4,7 @@ import { onboardProgramAction } from "@/lib/actions/partners/onboard-program";
 import useDomains from "@/lib/swr/use-domains";
 import useWorkspace from "@/lib/swr/use-workspace";
 import { ProgramData } from "@/lib/types";
+import { useAvailableDomains } from "@/ui/links/use-available-domains";
 import {
   Badge,
   Button,
@@ -23,8 +24,10 @@ import { toast } from "sonner";
 export function Form() {
   const router = useRouter();
   const { isMobile } = useMediaQuery();
-  const { activeWorkspaceDomains, loading } = useDomains();
+  const { domains: availableDomains, activeWorkspaceDomains, loading } = useAvailableDomains();
   const { id: workspaceId, slug: workspaceSlug, mutate } = useWorkspace();
+
+  const domains = (workspaceSlug === "pimms" || workspaceSlug === "pimms-staging") ? availableDomains : activeWorkspaceDomains;
 
   const {
     register,
@@ -108,15 +111,15 @@ export function Form() {
     {
       id: "short",
       label: "Short link",
-      example: `${domain || "refer.pimms.io"}/alexandre`,
+      example: `${watch("domain") || "refer.pimms.io"}/alexandre`,
       comingSoon: false,
     },
-    {
-      id: "dynamic",
-      label: "Dynamic path",
-      example: `${(url && getDomainWithoutWWW(url)) || "pimms.io"}/refer/alexandre`,
-      comingSoon: true,
-    },
+    // {
+    //   id: "dynamic",
+    //   label: "Dynamic path",
+    //   example: `${(url && getDomainWithoutWWW(url)) || "pimms.io"}/refer/alexandre`,
+    //   comingSoon: true,
+    // },
   ];
 
   return (
@@ -185,7 +188,7 @@ export function Form() {
               {...register("domain", { required: true })}
               className="mt-2 block w-full rounded-xl border-[2px] border-neutral-300 bg-white py-2 pl-3 pr-10 text-sm text-neutral-900 focus:border-neutral-500 focus:outline-none focus:ring-neutral-500"
             >
-              {activeWorkspaceDomains?.map(({ slug }) => (
+              {domains?.map(({ slug }) => (
                 <option value={slug} key={slug}>
                   {slug}
                 </option>
